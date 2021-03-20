@@ -1,0 +1,10 @@
+<Events startTimestamp="1615499209262" logVersion="1.0.0.202101171653">
+  <Command __id="1" _type="MoveCaretCommand" caretOffset="325" date="Thu Mar 11 16:48:08 EST 2021" docOffset="668" starttimestamp="1615499209262" timestamp="79626" />
+  <Command __id="2" _type="SelectTextCommand" caretOffset="447" date="Thu Mar 11 16:48:10 EST 2021" end="447" start="308" starttimestamp="1615499209262" timestamp="81127" />
+  <Command __id="3" _type="MoveCaretCommand" caretOffset="447" date="Thu Mar 11 16:48:10 EST 2021" docOffset="790" starttimestamp="1615499209262" timestamp="81292" />
+  <Command __id="4" _type="SelectTextCommand" caretOffset="275" date="Thu Mar 11 16:48:11 EST 2021" end="373" start="275" starttimestamp="1615499209262" timestamp="82212" />
+  <Command __id="5" _type="MoveCaretCommand" caretOffset="308" date="Thu Mar 11 16:48:11 EST 2021" docOffset="651" starttimestamp="1615499209262" timestamp="82412" />
+  <Command __id="6" _type="SelectTextCommand" caretOffset="332" date="Thu Mar 11 16:48:12 EST 2021" end="332" start="244" starttimestamp="1615499209262" timestamp="82970" />
+  <Command __id="7" _type="MoveCaretCommand" caretOffset="332" date="Thu Mar 11 16:48:12 EST 2021" docOffset="675" starttimestamp="1615499209262" timestamp="83185" />
+  <Command __id="8" _type="SelectTextCommand" caretOffset="247" date="Thu Mar 11 16:48:14 EST 2021" end="370" start="247" starttimestamp="1615499209262" timestamp="84881" />
+  <Command __id="9" _type="MoveCaretCommand" caretOffset="247" date="Thu Mar 11 16:48:14 EST 2021" docOffset="590" starttimestamp="1615499209262" timestamp="85034" />

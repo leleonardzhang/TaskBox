@@ -1,0 +1,33 @@
+<Events startTimestamp="1615415720342" logVersion="1.0.0.202101171653">
+  <Command __id="3" _type="DiffBasedFileOpenCommand" date="Wed Mar 10 17:35:26 EST 2021" docASTNodeCount="126" docActiveCodeLength="718" docExpressionCount="94" docLength="718" projectName="PhysicsSimulation" starttimestamp="1615415720342" timestamp="6427">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\PhysicsSimulation\src\main\TestFrame.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package main;
+
+import javax.swing.JButton;
+import javax.swing.JSlider;
+
+import bus.uigen.OEFrame;
+import bus.uigen.ObjectEditor;
+import components.mainpanel.MainPanel;
+import components.mainpanel.MainPanelInterface;
+import components.pendulum.load.Load;
+import components.pendulum.load.LoadInterface;
+import components.pendulum.protractor.Protractor;
+import components.pendulum.protractor.ProtractorInterface;
+import components.pendulum.string.PendulumString;
+import components.pendulum.string.PendulumStringInterface;
+import javafx.scene.control.Slider;
+
+public class TestFrame {
+	public static void main(String[] args) {
+		MainPanelInterface panel = new MainPanel();
+		OEFrame frame = ObjectEditor.edit(panel);
+	}
+}
+]]></snapshot>
+  </Command>
+  <Command __id="44" _type="ShellCommand" date="Wed Mar 10 17:37:40 EST 2021" starttimestamp="1615415720342" timestamp="140522" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="45" _type="RunCommand" date="Wed Mar 10 17:37:41 EST 2021" kind="HitBreakPoint" projectName="PhysicsSimulation" starttimestamp="1615415720342" timestamp="140703" type="Run" />
+  <Command __id="46" _type="RunCommand" date="Wed Mar 10 17:37:41 EST 2021" kind="HitBreakPoint" projectName="PhysicsSimulation" starttimestamp="1615415720342" timestamp="140703" type="Run" />
+</Events>

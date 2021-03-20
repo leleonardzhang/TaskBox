@@ -1,0 +1,370 @@
+<Events startTimestamp="1614370446151" logVersion="1.0.0.202101171653">
+  <Command __id="1" _type="ShellCommand" date="Fri Feb 26 15:16:56 EST 2021" starttimestamp="1614370446151" timestamp="170319" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="3" _type="MoveCaretCommand" caretOffset="0" date="Fri Feb 26 15:17:01 EST 2021" docOffset="0" starttimestamp="1614370446151" timestamp="175653" />
+  <Command __id="4" _type="SelectTextCommand" caretOffset="448" date="Fri Feb 26 15:17:05 EST 2021" end="458" start="448" starttimestamp="1614370446151" timestamp="179099" />
+  <Command __id="6" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Fri Feb 26 15:17:06 EST 2021" starttimestamp="1614370446151" timestamp="179903" />
+  <Command __id="7" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.LINE_DOWN" date="Fri Feb 26 15:17:06 EST 2021" starttimestamp="1614370446151" timestamp="180394" />
+  <Command __id="8" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.LINE_DOWN" date="Fri Feb 26 15:17:06 EST 2021" starttimestamp="1614370446151" timestamp="180841" />
+  <Command __id="9" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.SELECT_COLUMN_PREVIOUS" date="Fri Feb 26 15:17:07 EST 2021" starttimestamp="1614370446151" timestamp="181382" />
+  <Command __id="10" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.SELECT_COLUMN_PREVIOUS" date="Fri Feb 26 15:17:07 EST 2021" starttimestamp="1614370446151" timestamp="181632" />
+  <Command __id="11" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.SELECT_COLUMN_PREVIOUS" date="Fri Feb 26 15:17:07 EST 2021" starttimestamp="1614370446151" timestamp="181682" />
+  <Command __id="12" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.SELECT_COLUMN_PREVIOUS" date="Fri Feb 26 15:17:07 EST 2021" starttimestamp="1614370446151" timestamp="181732" />
+  <Command __id="13" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.SELECT_COLUMN_PREVIOUS" date="Fri Feb 26 15:17:07 EST 2021" starttimestamp="1614370446151" timestamp="181783" />
+  <Command __id="14" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.SELECT_COLUMN_PREVIOUS" date="Fri Feb 26 15:17:07 EST 2021" starttimestamp="1614370446151" timestamp="181833" />
+  <Command __id="15" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.SELECT_COLUMN_PREVIOUS" date="Fri Feb 26 15:17:08 EST 2021" starttimestamp="1614370446151" timestamp="181883" />
+  <Command __id="16" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.SELECT_COLUMN_PREVIOUS" date="Fri Feb 26 15:17:08 EST 2021" starttimestamp="1614370446151" timestamp="181933" />
+  <Command __id="17" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.SELECT_COLUMN_PREVIOUS" date="Fri Feb 26 15:17:08 EST 2021" starttimestamp="1614370446151" timestamp="181983" />
+  <Command __id="18" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.SELECT_COLUMN_PREVIOUS" date="Fri Feb 26 15:17:08 EST 2021" starttimestamp="1614370446151" timestamp="182032" />
+  <Command __id="19" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.SELECT_COLUMN_PREVIOUS" date="Fri Feb 26 15:17:08 EST 2021" starttimestamp="1614370446151" timestamp="182083" />
+  <Command __id="20" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.SELECT_COLUMN_PREVIOUS" date="Fri Feb 26 15:17:08 EST 2021" starttimestamp="1614370446151" timestamp="182134" />
+  <Command __id="21" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.SELECT_COLUMN_PREVIOUS" date="Fri Feb 26 15:17:08 EST 2021" starttimestamp="1614370446151" timestamp="182184" />
+  <Command __id="22" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.SELECT_COLUMN_PREVIOUS" date="Fri Feb 26 15:17:08 EST 2021" starttimestamp="1614370446151" timestamp="182234" />
+  <Command __id="23" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.SELECT_COLUMN_PREVIOUS" date="Fri Feb 26 15:17:08 EST 2021" starttimestamp="1614370446151" timestamp="182284" />
+  <Command __id="24" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.SELECT_COLUMN_PREVIOUS" date="Fri Feb 26 15:17:08 EST 2021" starttimestamp="1614370446151" timestamp="182333" />
+  <Command __id="25" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.SELECT_COLUMN_PREVIOUS" date="Fri Feb 26 15:17:08 EST 2021" starttimestamp="1614370446151" timestamp="182383" />
+  <Command __id="26" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.SELECT_COLUMN_PREVIOUS" date="Fri Feb 26 15:17:08 EST 2021" starttimestamp="1614370446151" timestamp="182434" />
+  <Command __id="27" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.SELECT_COLUMN_NEXT" date="Fri Feb 26 15:17:09 EST 2021" starttimestamp="1614370446151" timestamp="182977" />
+  <Command __id="29" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Fri Feb 26 15:17:10 EST 2021" starttimestamp="1614370446151" timestamp="183855" />
+  <Command __id="30" _type="EclipseCommand" commandID="org.eclipse.ui.file.save" date="Fri Feb 26 15:17:10 EST 2021" starttimestamp="1614370446151" timestamp="184343" />
+  <Command __id="33" _type="MoveCaretCommand" caretOffset="389" date="Fri Feb 26 15:17:11 EST 2021" docOffset="854" starttimestamp="1614370446151" timestamp="185536" />
+  <Command __id="34" _type="SelectTextCommand" caretOffset="496" date="Fri Feb 26 15:17:12 EST 2021" end="496" start="301" starttimestamp="1614370446151" timestamp="186089" />
+  <Command __id="35" _type="MoveCaretCommand" caretOffset="496" date="Fri Feb 26 15:17:12 EST 2021" docOffset="961" starttimestamp="1614370446151" timestamp="186268" />
+  <Command __id="36" _type="SelectTextCommand" caretOffset="406" date="Fri Feb 26 15:17:15 EST 2021" end="420" start="406" starttimestamp="1614370446151" timestamp="189206" />
+  <Command __id="38" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Fri Feb 26 15:17:16 EST 2021" starttimestamp="1614370446151" timestamp="190062" />
+  <Command __id="39" _type="EclipseCommand" commandID="org.eclipse.ui.file.save" date="Fri Feb 26 15:17:16 EST 2021" starttimestamp="1614370446151" timestamp="190397" />
+  <Command __id="42" _type="MoveCaretCommand" caretOffset="343" date="Fri Feb 26 15:17:17 EST 2021" docOffset="808" starttimestamp="1614370446151" timestamp="191030" />
+  <Command __id="43" _type="ShellCommand" date="Fri Feb 26 15:17:19 EST 2021" starttimestamp="1614370446151" timestamp="193570" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="44" _type="ShellCommand" date="Fri Feb 26 15:17:23 EST 2021" starttimestamp="1614370446151" timestamp="197805" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="45" _type="ShellCommand" date="Fri Feb 26 15:17:24 EST 2021" starttimestamp="1614370446151" timestamp="198000" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="2" _type="DiffBasedFileOpenCommand" date="Fri Feb 26 15:17:01 EST 2021" docASTNodeCount="304" docActiveCodeLength="1913" docExpressionCount="203" docLength="1913" projectName="TaskBox" starttimestamp="1614370446151" timestamp="175474">
+    <filePath><![CDATA[/home/leonard/Source/TaskBox/src/page/page/Page.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package page.page;
+
+import java.beans.PropertyChangeEvent;
+import javax.swing.JButton;
+import box.SubmittedAnswerBox;
+import box.AnswerBox;
+import box.BoxInterface;
+import box.TaskBox;
+import model.PageModel;
+import model.PageModelInterface;
+import util.annotations.Column;
+import util.annotations.EditablePropertyNames;
+import util.annotations.PreferredWidgetClass;
+import util.annotations.PropertyNames;
+import util.annotations.Row;
+import util.annotations.StructurePattern;
+import util.annotations.StructurePatternNames;
+
+@StructurePattern(StructurePatternNames.BEAN_PATTERN)
+@PropertyNames({"taskBox", "answerBox"})
+@EditablePropertyNames({"answerBox"})
+public class Page implements PageInterface{
+	private PageModelInterface model;
+	private BoxInterface taskBox = new TaskBox();
+	private BoxInterface answerBox;
+	private boolean isSubmitted = false;
+
+	
+	public Page(int pageNumber) {
+		model = new PageModel(pageNumber);
+		model.addPropertyChangeListener(this);
+		model.parse();
+	}
+	
+	@Override
+	@Row(0)
+	public BoxInterface getTaskBox() {
+		return taskBox;
+	}
+	
+	@Override
+	public void setTaskBoxText(String newText) {
+		taskBox.setText(newText);
+	}
+	
+	@Override
+	@Row(1)
+	public BoxInterface getAnswerBox() {
+		return answerBox;
+	}
+	
+	@Override
+	public void setAnswerBoxInput(String newText) {
+		answerBox.setText(newText);
+	}
+	
+	@Override
+	@PreferredWidgetClass(JButton.class)
+	@Row(2)
+	@Column(0)
+	public void submit() {
+		if (!isSubmitted) {
+			BoxInterface oldBox = answerBox;
+			answerBox = new SubmittedAnswerBox();
+			answerBox.setText(oldBox.getText());
+			isSubmitted = false;
+		}
+		
+	}
+
+	@Override
+	public void propertyChange(PropertyChangeEvent evt) {
+		if ("task".equals(evt.getPropertyName())) {
+			setTaskBoxText((String) evt.getNewValue());
+		}
+		else if ("answer".equals(evt.getPropertyName())) {
+			if ((boolean) evt.getNewValue()) {
+				answerBox = new AnswerBox();
+			}
+		}
+		
+	}
+	
+
+	
+}
+]]></snapshot>
+  </Command>
+  <DocumentChange __id="5" _type="Delete" date="Fri Feb 26 15:17:06 EST 2021" docASTNodeCount="303" docActiveCodeLength="1903" docExpressionCount="202" docLength="1903" endLine="29" length="10" offset="913" startLine="29" starttimestamp="1614370446151" timestamp="179893">
+    <text><![CDATA[pageNumber]]></text>
+  </DocumentChange>
+  <DocumentChange __id="28" _type="Delete" date="Fri Feb 26 15:17:10 EST 2021" docASTNodeCount="299" docActiveCodeLength="1886" docExpressionCount="199" docLength="1886" endLine="31" length="17" offset="956" startLine="30" starttimestamp="1614370446151" timestamp="183850">
+    <text><![CDATA[
+		model.parse();]]></text>
+  </DocumentChange>
+  <DocumentChange __id="37" _type="Delete" date="Fri Feb 26 15:17:16 EST 2021" docASTNodeCount="296" docActiveCodeLength="1872" docExpressionCount="198" docLength="1872" endLine="28" length="14" offset="871" startLine="28" starttimestamp="1614370446151" timestamp="190056">
+    <text><![CDATA[int pageNumber]]></text>
+  </DocumentChange>
+  <Command __id="46" _type="EclipseCommand" commandID="org.eclipse.jdt.ui.edit.text.java.rename.element" date="Fri Feb 26 15:17:30 EST 2021" starttimestamp="1614370446151" timestamp="203993" />
+  <Command __id="47" _type="ShellCommand" date="Fri Feb 26 15:17:30 EST 2021" starttimestamp="1614370446151" timestamp="204013" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="49" _type="MoveCaretCommand" caretOffset="0" date="Fri Feb 26 15:17:33 EST 2021" docOffset="0" starttimestamp="1614370446151" timestamp="207780" />
+  <Command __id="50" _type="SelectTextCommand" caretOffset="329" date="Fri Feb 26 15:17:36 EST 2021" end="329" start="327" starttimestamp="1614370446151" timestamp="210719" />
+  <Command __id="51" _type="ShellCommand" date="Fri Feb 26 15:17:42 EST 2021" starttimestamp="1614370446151" timestamp="216170" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="52" _type="ShellCommand" date="Fri Feb 26 15:17:43 EST 2021" starttimestamp="1614370446151" timestamp="217754" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="53" _type="ShellCommand" date="Fri Feb 26 15:17:44 EST 2021" starttimestamp="1614370446151" timestamp="217948" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="54" _type="EclipseCommand" commandID="org.eclipse.jdt.ui.edit.text.java.move.element" date="Fri Feb 26 15:17:45 EST 2021" starttimestamp="1614370446151" timestamp="219016" />
+  <Command __id="55" _type="ShellCommand" date="Fri Feb 26 15:17:45 EST 2021" starttimestamp="1614370446151" timestamp="219043" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="56" _type="ShellCommand" date="Fri Feb 26 15:17:46 EST 2021" starttimestamp="1614370446151" timestamp="219869" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="48" _type="DiffBasedFileOpenCommand" date="Fri Feb 26 15:17:33 EST 2021" docASTNodeCount="368" docActiveCodeLength="2309" docExpressionCount="248" docLength="2309" projectName="TaskBox" starttimestamp="1614370446151" timestamp="207675">
+    <filePath><![CDATA[/home/leonard/Source/TaskBox/src/mainpanel/MainPanel.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package mainpanel;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.JButton;
+
+import page.page.Page;
+import page.page.PageInterface;
+import parser.PagesParserFactory;
+import util.annotations.Column;
+import util.annotations.EditablePropertyNames;
+import util.annotations.Label;
+import util.annotations.PreferredWidgetClass;
+import util.annotations.PropertyNames;
+import util.annotations.Row;
+import util.annotations.StructurePattern;
+import util.annotations.StructurePatternNames;
+
+@StructurePattern(StructurePatternNames.BEAN_PATTERN)
+@PropertyNames({"currentPage"})
+@EditablePropertyNames({})
+public class MainPanel implements MainPanelInterface{
+	private int currentPageIndex = -1;
+	private int pagesNumber = PagesParserFactory.getParser().getPagesNumber();
+	private List<PageInterface> pages = new ArrayList<PageInterface>();
+	private PageInterface currentPage;
+	
+	public MainPanel() {
+		if (pagesNumber > 0) {
+			for (int i = 0; i < pagesNumber; i ++) {
+				pages.add(new Page(i));
+			}
+			nextPage();
+		}
+		
+	}
+	
+	@Override
+	public List<PageInterface> getPages(){
+		return pages;
+	}
+	
+	@Override
+	public void setPages(List<PageInterface> newPages){
+		pages = newPages;
+	}
+	
+	@Override
+	@PreferredWidgetClass(JButton.class)
+	@Label(">")
+	@Row(1)
+	@Column(1)
+	public void nextPage() {
+		if (pagesNumber > 0) {
+			if (currentPageIndex < pagesNumber - 1) {
+				currentPageIndex ++;
+				setCurrentPage(getPages().get(currentPageIndex));
+			} 
+			else {
+				currentPageIndex = 0;
+				setCurrentPage(getPages().get(currentPageIndex));
+			}
+		}
+	}
+	
+	@Override
+	@PreferredWidgetClass(JButton.class)
+	@Label("<")
+	@Row(1)
+	@Column(0)
+	public void prevPage() {
+		if (pagesNumber > 0) {
+			if (currentPageIndex > 0) {
+				currentPageIndex --;
+				setCurrentPage(getPages().get(currentPageIndex));
+			} 
+			else {
+				currentPageIndex = pagesNumber - 1;
+				setCurrentPage(getPages().get(currentPageIndex));
+			}
+		}
+	}
+	
+	@Override
+	public int getCurrentPageIndex() {
+		return currentPageIndex;
+	}
+	
+	@Override
+	public void setCurrentPageIndex(int newPageIndex) {
+		currentPageIndex = newPageIndex;
+	}
+	
+	@Override
+	@Row(0)
+	public PageInterface getCurrentPage() {
+		return currentPage;
+	}
+	
+	@Override
+	public void setCurrentPage(PageInterface newPage) {
+		currentPage = newPage;
+	}
+	
+	
+	
+}
+]]></snapshot>
+  </Command>
+  <Command __id="64" _type="EclipseCommand" commandID="org.eclipse.jdt.ui.edit.text.java.rename.element" date="Fri Feb 26 15:17:55 EST 2021" starttimestamp="1614370446151" timestamp="229049" />
+  <Command __id="65" _type="ShellCommand" date="Fri Feb 26 15:17:55 EST 2021" starttimestamp="1614370446151" timestamp="229078" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="68" _type="ShellCommand" date="Fri Feb 26 15:18:07 EST 2021" starttimestamp="1614370446151" timestamp="241503" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="71" _type="EclipseCommand" commandID="org.eclipse.jdt.ui.edit.text.java.move.element" date="Fri Feb 26 15:18:11 EST 2021" starttimestamp="1614370446151" timestamp="245633" />
+  <Command __id="72" _type="ShellCommand" date="Fri Feb 26 15:18:11 EST 2021" starttimestamp="1614370446151" timestamp="245659" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="75" _type="ShellCommand" date="Fri Feb 26 15:18:12 EST 2021" starttimestamp="1614370446151" timestamp="246185" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="78" _type="ShellCommand" date="Fri Feb 26 15:18:13 EST 2021" starttimestamp="1614370446151" timestamp="247114" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="79" _type="ShellCommand" date="Fri Feb 26 15:18:13 EST 2021" starttimestamp="1614370446151" timestamp="247319" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="80" _type="EclipseCommand" commandID="org.eclipse.ui.edit.delete" date="Fri Feb 26 15:18:14 EST 2021" starttimestamp="1614370446151" timestamp="248175" />
+  <Command __id="81" _type="ShellCommand" date="Fri Feb 26 15:18:14 EST 2021" starttimestamp="1614370446151" timestamp="248191" type="ECLIPSE_GAINED_FOCUS" />
+  <DocumentChange __id="59" _type="Delete" date="Fri Feb 26 15:17:54 EST 2021" docASTNodeCount="356" docActiveCodeLength="2253" docExpressionCount="238" docLength="2253" endLine="8" length="56" offset="99" startLine="5" starttimestamp="1614370446151" timestamp="228800">
+    <text><![CDATA[
+
+import page.page.Page;
+import page.page.PageInterface;]]></text>
+  </DocumentChange>
+  <DocumentChange __id="60" _type="Insert" date="Fri Feb 26 15:17:54 EST 2021" docASTNodeCount="364" docActiveCodeLength="2299" docExpressionCount="244" docLength="2299" length="46" offset="99" repeat="4" starttimestamp="1614370446151" timestamp="228806" timestamp2="228811">
+    <text><![CDATA[
+
+import page.Page;
+import page.PageInterface;]]></text>
+  </DocumentChange>
+  <Command __id="84" _type="MoveCaretCommand" caretOffset="553" date="Fri Feb 26 15:18:57 EST 2021" docOffset="998" starttimestamp="1614370446151" timestamp="291551" />
+  <Command __id="88" _type="MoveCaretCommand" caretOffset="0" date="Fri Feb 26 15:19:03 EST 2021" docOffset="0" starttimestamp="1614370446151" timestamp="297052" />
+  <Command __id="89" _type="MoveCaretCommand" caretOffset="152" date="Fri Feb 26 15:19:03 EST 2021" docOffset="152" starttimestamp="1614370446151" timestamp="297384" />
+  <Command __id="90" _type="MoveCaretCommand" caretOffset="151" date="Fri Feb 26 15:19:04 EST 2021" docOffset="151" starttimestamp="1614370446151" timestamp="297984" />
+  <Command __id="93" _type="MoveCaretCommand" caretOffset="149" date="Fri Feb 26 15:19:04 EST 2021" docOffset="149" starttimestamp="1614370446151" timestamp="298352" />
+  <Command __id="94" _type="ShellCommand" date="Fri Feb 26 15:19:17 EST 2021" starttimestamp="1614370446151" timestamp="311613" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="95" _type="ShellCommand" date="Fri Feb 26 15:19:19 EST 2021" starttimestamp="1614370446151" timestamp="313587" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="96" _type="ShellCommand" date="Fri Feb 26 15:19:19 EST 2021" starttimestamp="1614370446151" timestamp="313779" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="85" _type="DiffBasedFileOpenCommand" date="Fri Feb 26 15:19:03 EST 2021" docASTNodeCount="28" docActiveCodeLength="152" docExpressionCount="9" docLength="152" projectName="TaskBox" starttimestamp="1614370446151" timestamp="296880">
+    <filePath><![CDATA[/home/leonard/Source/TaskBox/src/graph/Graph.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package graph;
+
+public class Graph implements GraphInterface{
+	private String xLabel, yLabel;
+	private int xGrid, yGrid;
+	private int curvesNumber;
+	
+}
+]]></snapshot>
+  </Command>
+  <Command __id="97" _type="AssistCommand" assist_type="CONTENT_ASSIST" auto_activated="false" date="Fri Feb 26 15:19:25 EST 2021" start_end="END" starttimestamp="1614370446151" timestamp="319061" />
+  <Command __id="98" _type="AssistCommand" assist_type="QUICK_ASSIST" auto_activated="false" date="Fri Feb 26 15:19:25 EST 2021" start_end="END" starttimestamp="1614370446151" timestamp="319061" />
+  <Command __id="99" _type="EclipseCommand" commandID="org.eclipse.jdt.ui.edit.text.java.rename.element" date="Fri Feb 26 15:19:25 EST 2021" starttimestamp="1614370446151" timestamp="319195" />
+  <Command __id="101" _type="ShellCommand" date="Fri Feb 26 15:19:25 EST 2021" starttimestamp="1614370446151" timestamp="319226" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="103" _type="MoveCaretCommand" caretOffset="158" date="Fri Feb 26 15:19:25 EST 2021" docOffset="158" starttimestamp="1614370446151" timestamp="319675" />
+  <Command __id="105" _type="MoveCaretCommand" caretOffset="0" date="Fri Feb 26 15:19:29 EST 2021" docOffset="0" starttimestamp="1614370446151" timestamp="323433" />
+  <Command __id="106" _type="ShellCommand" date="Fri Feb 26 15:22:20 EST 2021" starttimestamp="1614370446151" timestamp="494705" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="104" _type="DiffBasedFileOpenCommand" date="Fri Feb 26 15:19:29 EST 2021" docASTNodeCount="8" docActiveCodeLength="60" docExpressionCount="4" docLength="60" projectName="TaskBox" starttimestamp="1614370446151" timestamp="323347">
+    <filePath><![CDATA[/home/leonard/Source/TaskBox/src/graph/graph/GraphInterface.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package graph.graph;
+
+public interface GraphInterface {
+	
+}
+]]></snapshot>
+  </Command>
+  <Command __id="107" _type="ShellCommand" date="Fri Feb 26 15:22:22 EST 2021" starttimestamp="1614370446151" timestamp="495903" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="109" _type="MoveCaretCommand" caretOffset="158" date="Fri Feb 26 15:23:24 EST 2021" docOffset="158" starttimestamp="1614370446151" timestamp="558641" />
+  <Command __id="110" _type="MoveCaretCommand" caretOffset="153" date="Fri Feb 26 15:23:25 EST 2021" docOffset="153" starttimestamp="1614370446151" timestamp="559683" />
+  <Command __id="111" _type="SelectTextCommand" caretOffset="69" date="Fri Feb 26 15:23:27 EST 2021" end="153" start="69" starttimestamp="1614370446151" timestamp="561616" />
+  <Command __id="112" _type="MoveCaretCommand" caretOffset="69" date="Fri Feb 26 15:23:27 EST 2021" docOffset="69" starttimestamp="1614370446151" timestamp="561829" />
+  <Command __id="113" _type="SelectTextCommand" caretOffset="34" date="Fri Feb 26 15:23:28 EST 2021" end="157" start="34" starttimestamp="1614370446151" timestamp="562676" />
+  <Command __id="114" _type="MoveCaretCommand" caretOffset="113" date="Fri Feb 26 15:23:29 EST 2021" docOffset="113" starttimestamp="1614370446151" timestamp="562893" />
+  <Command __id="115" _type="SelectTextCommand" caretOffset="114" date="Fri Feb 26 15:23:29 EST 2021" end="155" start="114" starttimestamp="1614370446151" timestamp="563517" />
+  <Command __id="116" _type="MoveCaretCommand" caretOffset="153" date="Fri Feb 26 15:23:29 EST 2021" docOffset="153" starttimestamp="1614370446151" timestamp="563750" />
+  <Command __id="117" _type="SelectTextCommand" caretOffset="68" date="Fri Feb 26 15:23:31 EST 2021" end="153" start="68" starttimestamp="1614370446151" timestamp="564963" />
+  <Command __id="118" _type="MoveCaretCommand" caretOffset="69" date="Fri Feb 26 15:23:31 EST 2021" docOffset="69" starttimestamp="1614370446151" timestamp="565135" />
+  <Command __id="119" _type="SelectTextCommand" caretOffset="153" date="Fri Feb 26 15:23:32 EST 2021" end="153" start="69" starttimestamp="1614370446151" timestamp="566183" />
+  <Command __id="120" _type="MoveCaretCommand" caretOffset="153" date="Fri Feb 26 15:23:32 EST 2021" docOffset="153" starttimestamp="1614370446151" timestamp="566365" />
+  <Command __id="121" _type="SelectTextCommand" caretOffset="69" date="Fri Feb 26 15:23:33 EST 2021" end="153" start="69" starttimestamp="1614370446151" timestamp="567402" />
+  <Command __id="122" _type="MoveCaretCommand" caretOffset="69" date="Fri Feb 26 15:23:33 EST 2021" docOffset="69" starttimestamp="1614370446151" timestamp="567548" />
+  <Command __id="123" _type="SelectTextCommand" caretOffset="153" date="Fri Feb 26 15:23:34 EST 2021" end="153" start="69" starttimestamp="1614370446151" timestamp="568395" />
+  <Command __id="124" _type="MoveCaretCommand" caretOffset="153" date="Fri Feb 26 15:23:34 EST 2021" docOffset="153" starttimestamp="1614370446151" timestamp="568587" />
+  <Command __id="125" _type="SelectTextCommand" caretOffset="68" date="Fri Feb 26 15:23:35 EST 2021" end="153" start="68" starttimestamp="1614370446151" timestamp="569327" />
+  <Command __id="126" _type="MoveCaretCommand" caretOffset="69" date="Fri Feb 26 15:23:35 EST 2021" docOffset="69" starttimestamp="1614370446151" timestamp="569544" />
+  <Command __id="127" _type="SelectTextCommand" caretOffset="153" date="Fri Feb 26 15:23:36 EST 2021" end="153" start="69" starttimestamp="1614370446151" timestamp="570484" />
+  <Command __id="128" _type="MoveCaretCommand" caretOffset="153" date="Fri Feb 26 15:23:36 EST 2021" docOffset="153" starttimestamp="1614370446151" timestamp="570634" />
+  <Command __id="129" _type="SelectTextCommand" caretOffset="69" date="Fri Feb 26 15:23:37 EST 2021" end="153" start="69" starttimestamp="1614370446151" timestamp="571695" />
+  <Command __id="130" _type="MoveCaretCommand" caretOffset="69" date="Fri Feb 26 15:23:37 EST 2021" docOffset="69" starttimestamp="1614370446151" timestamp="571846" />
+  <Command __id="131" _type="SelectTextCommand" caretOffset="155" date="Fri Feb 26 15:23:38 EST 2021" end="155" start="69" starttimestamp="1614370446151" timestamp="572834" />
+  <Command __id="132" _type="MoveCaretCommand" caretOffset="153" date="Fri Feb 26 15:23:39 EST 2021" docOffset="153" starttimestamp="1614370446151" timestamp="573166" />
+  <Command __id="108" _type="DiffBasedFileOpenCommand" date="Fri Feb 26 15:23:24 EST 2021" docASTNodeCount="30" docActiveCodeLength="158" docExpressionCount="11" docLength="158" projectName="TaskBox" starttimestamp="1614370446151" timestamp="558552">
+    <filePath><![CDATA[/home/leonard/Source/TaskBox/src/graph/graph/Graph.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package graph.graph;
+
+public class Graph implements GraphInterface{
+	private String xLabel, yLabel;
+	private int xGrid, yGrid;
+	private int curvesNumber;
+	
+}
+]]></snapshot>
+  </Command>
+  <Command __id="133" _type="SelectTextCommand" caretOffset="69" date="Fri Feb 26 15:23:41 EST 2021" end="153" start="69" starttimestamp="1614370446151" timestamp="575019" />
+  <Command __id="134" _type="MoveCaretCommand" caretOffset="69" date="Fri Feb 26 15:23:41 EST 2021" docOffset="69" starttimestamp="1614370446151" timestamp="575175" />
+  <Command __id="138" _type="MoveCaretCommand" caretOffset="0" date="Fri Feb 26 15:25:11 EST 2021" docOffset="0" starttimestamp="1614370446151" timestamp="665376" />
+  <Command __id="139" _type="MoveCaretCommand" caretOffset="161" date="Fri Feb 26 15:25:13 EST 2021" docOffset="706" starttimestamp="1614370446151" timestamp="666999" />
+  <Command __id="140" _type="SelectTextCommand" caretOffset="556" date="Fri Feb 26 15:25:17 EST 2021" end="582" start="556" starttimestamp="1614370446151" timestamp="670966" />
+  <Command __id="142" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Fri Feb 26 15:25:17 EST 2021" starttimestamp="1614370446151" timestamp="671477" />
+  <Command __id="144" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Fri Feb 26 15:25:17 EST 2021" starttimestamp="1614370446151" timestamp="671694" />
+  <Command __id="145" _type="EclipseCommand" commandID="org.eclipse.ui.file.save" date="Fri Feb 26 15:25:18 EST 2021" starttimestamp="1614370446151" timestamp="671996" />
+  <Command __id="148" _type="ShellCommand" date="Fri Feb 26 15:25:20 EST 2021" starttimestamp="1614370446151" timestamp="674050" type="ECLIPSE_LOST_FOCUS" />
+</Events>

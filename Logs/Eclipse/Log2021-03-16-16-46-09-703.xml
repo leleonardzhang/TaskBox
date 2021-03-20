@@ -1,0 +1,14 @@
+<Events startTimestamp="1615927569703" logVersion="1.0.0.202101171653">
+  <Command __id="23" _type="DiffBasedFileOpenCommand" date="Tue Mar 16 16:46:49 EDT 2021" docASTNodeCount="29" docActiveCodeLength="231" docExpressionCount="13" docLength="231" projectName="CoupledTrickOrTreat" starttimestamp="1615927569703" timestamp="39747">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\CoupledTrickOrTreat\src\coupledsims\Simulation2.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package coupledsims;
+
+public interface Simulation2 {
+	public static final String SIMULATION2_PREFIX = "2:";
+	public static  final int SIMULATION2_X_OFFSET = Simulation1.SIMULATION1_X_OFFSET + Simulation.SIMULATION_WIDTH;
+
+}
+]]></snapshot>
+  </Command>
+</Events>

@@ -1,0 +1,3 @@
+Id,Prediction,Date,File,StartTime,ElapsedTime,BusyTime,Commands,editOrInsertPercentage,debugPercentage,navigationPercentage,focusPercentage,removePercentage,editPercentage,COMMAND_RATE,NAVIGATION_RATE,DEBUG_RATE,FOCUS_RATE,EDIT_RATE,REMOVE_RATE,INSERT_RATE,webLinkTimes,Web Page Visits
+1,,Thu Feb 25 20:51:16 EST 2021,pom.xml,1614304276322,567729,0,(F)21,0.0,0.0,0.0,100.0,0.0,0.0,0.037037037037037035,0.0,0.0,0.037037037037037035,0.0,0.0,0.0,0.0,[]
+,/modelData/A0UserStudy2010.arff,Thu Feb 25 20:51:16 EST 2021,pom.xml, 1614304276322

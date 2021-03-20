@@ -1,0 +1,57 @@
+<Events startTimestamp="1615778681771" logVersion="1.0.0.202101171653">
+  <Command __id="1" _type="MoveCaretCommand" caretOffset="63" date="Sun Mar 14 23:24:41 EDT 2021" docOffset="63" starttimestamp="1615778681771" timestamp="176" />
+  <Command __id="2" _type="SelectTextCommand" caretOffset="423" date="Sun Mar 14 23:24:49 EDT 2021" end="458" start="423" starttimestamp="1615778681771" timestamp="7699" />
+  <Command __id="4" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Sun Mar 14 23:24:50 EDT 2021" starttimestamp="1615778681771" timestamp="8676" />
+  <Command __id="5" _type="EclipseCommand" commandID="org.eclipse.ui.file.save" date="Sun Mar 14 23:24:50 EDT 2021" starttimestamp="1615778681771" timestamp="9035" />
+  <Command __id="6" _type="MoveCaretCommand" caretOffset="235" date="Sun Mar 14 23:24:51 EDT 2021" docOffset="235" starttimestamp="1615778681771" timestamp="9584" />
+  <Command __id="9" _type="ShellCommand" date="Sun Mar 14 23:25:07 EDT 2021" starttimestamp="1615778681771" timestamp="25520" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="10" _type="ShellCommand" date="Sun Mar 14 23:28:35 EDT 2021" starttimestamp="1615778681771" timestamp="233866" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="11" _type="MoveCaretCommand" caretOffset="433" date="Sun Mar 14 23:28:35 EDT 2021" docOffset="433" starttimestamp="1615778681771" timestamp="233925" />
+  <Command __id="13" _type="ShellCommand" date="Sun Mar 14 23:28:39 EDT 2021" starttimestamp="1615778681771" timestamp="238200" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="14" _type="EclipseCommand" commandID="org.eclipse.ui.edit.delete" date="Sun Mar 14 23:28:39 EDT 2021" starttimestamp="1615778681771" timestamp="238211" />
+  <Command __id="0" _type="DiffBasedFileOpenCommand" date="Sun Mar 14 23:24:41 EDT 2021" docASTNodeCount="80" docActiveCodeLength="468" docExpressionCount="59" docLength="468" projectName="TaskBox" starttimestamp="1615778681771" timestamp="144">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\TaskBox\src\main\Main.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package main;
+
+import java.io.File;
+import java.io.IOException;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import bus.uigen.ObjectEditor;
+import components.mainpanel.MainPanel;
+import components.mainpanel.MainPanelInterface;
+import components.mathEditor.MathEditorPanel;
+import components.page.pages.Page;
+import components.page.pages.PageInterface;
+
+
+public class Main {
+	public static void main(String[] args) throws UnsupportedEncodingException {
+	
+	}
+}
+]]></snapshot>
+  </Command>
+  <DocumentChange __id="3" _type="Delete" date="Sun Mar 14 23:24:50 EDT 2021" docASTNodeCount="79" docActiveCodeLength="433" docExpressionCount="58" docLength="433" endLine="16" length="35" offset="423" startLine="16" starttimestamp="1615778681771" timestamp="8663">
+    <text><![CDATA[throws UnsupportedEncodingException]]></text>
+  </DocumentChange>
+  <Command __id="17" _type="ShellCommand" date="Sun Mar 14 23:28:43 EDT 2021" starttimestamp="1615778681771" timestamp="241448" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="18" _type="ShellCommand" date="Sun Mar 14 23:28:44 EDT 2021" starttimestamp="1615778681771" timestamp="242277" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="19" _type="EclipseCommand" commandID="org.eclipse.ui.edit.delete" date="Sun Mar 14 23:28:44 EDT 2021" starttimestamp="1615778681771" timestamp="242287" />
+  <Command __id="23" _type="ShellCommand" date="Sun Mar 14 23:28:49 EDT 2021" starttimestamp="1615778681771" timestamp="247885" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="24" _type="ShellCommand" date="Sun Mar 14 23:28:52 EDT 2021" starttimestamp="1615778681771" timestamp="250353" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="22" _type="DiffBasedFileOpenCommand" date="Sun Mar 14 23:28:46 EDT 2021" projectName="TaskBox" starttimestamp="1615778681771" timestamp="244966">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\TaskBox\src\data\1000189224.png]]></filePath>
+    <diff><![CDATA[null]]></diff>
+  </Command>
+  <Command __id="27" _type="ShellCommand" date="Sun Mar 14 23:28:54 EDT 2021" starttimestamp="1615778681771" timestamp="252946" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="28" _type="ShellCommand" date="Sun Mar 14 23:28:55 EDT 2021" starttimestamp="1615778681771" timestamp="253827" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="32" _type="ShellCommand" date="Sun Mar 14 23:29:02 EDT 2021" starttimestamp="1615778681771" timestamp="260737" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="31" _type="DiffBasedFileOpenCommand" date="Sun Mar 14 23:28:58 EDT 2021" projectName="TaskBox" starttimestamp="1615778681771" timestamp="256686">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\TaskBox\src\data\1000189224.png]]></filePath>
+    <diff><![CDATA[null]]></diff>
+  </Command>
+  <Command __id="33" _type="ShellCommand" date="Sun Mar 14 23:29:21 EDT 2021" starttimestamp="1615778681771" timestamp="279625" type="ECLIPSE_GAINED_FOCUS" />
+</Events>

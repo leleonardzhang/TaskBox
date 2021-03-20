@@ -1,0 +1,27 @@
+<Events startTimestamp="1616012481890" logVersion="1.0.0.202101171653">
+  <DocumentChange __id="1045" _type="Insert" date="Wed Mar 17 16:31:24 EDT 2021" docASTNodeCount="86" docActiveCodeLength="581" docExpressionCount="63" docLength="581" length="9" offset="510" repeat="9" starttimestamp="1616012481890" timestamp="602265" timestamp2="605074">
+    <text><![CDATA[ingleLine]]></text>
+  </DocumentChange>
+  <DocumentChange __id="1069" _type="Delete" date="Wed Mar 17 16:31:32 EDT 2021" docASTNodeCount="86" docActiveCodeLength="572" docExpressionCount="63" docLength="572" endLine="13" length="9" offset="510" startLine="13" starttimestamp="1616012481890" timestamp="610638">
+    <text><![CDATA[ingleLine]]></text>
+  </DocumentChange>
+  <DocumentChange __id="1071" _type="Replace" date="Wed Mar 17 16:31:33 EDT 2021" docASTNodeCount="87" docActiveCodeLength="580" docExpressionCount="63" docLength="580" endLine="13" insertionLength="9" int_docASTNodeCount="86" int_docActiveCodeLength="571" int_docExpressionCount="63" int_docLength="571" length="1" offset="509" startLine="13" starttimestamp="1616012481890" timestamp="611329">
+    <deletedText><![CDATA[S]]></deletedText>
+    <insertedText><![CDATA[ Fraction]]></insertedText>
+  </DocumentChange>
+  <DocumentChange __id="1073" _type="Delete" date="Wed Mar 17 16:31:33 EDT 2021" docASTNodeCount="87" docActiveCodeLength="570" docExpressionCount="63" docLength="570" endLine="13" length="10" offset="470" startLine="13" starttimestamp="1616012481890" timestamp="611791">
+    <text><![CDATA[SingleLine]]></text>
+  </DocumentChange>
+  <DocumentChange __id="1075" _type="Insert" date="Wed Mar 17 16:31:34 EDT 2021" docASTNodeCount="87" docActiveCodeLength="572" docExpressionCount="63" docLength="572" length="2" offset="470" starttimestamp="1616012481890" timestamp="612306">
+    <text><![CDATA[SD]]></text>
+  </DocumentChange>
+  <DocumentChange __id="1077" _type="Delete" date="Wed Mar 17 16:31:34 EDT 2021" docASTNodeCount="87" docActiveCodeLength="570" docExpressionCount="63" docLength="570" endLine="13" length="2" offset="470" startLine="13" starttimestamp="1616012481890" timestamp="612822">
+    <text><![CDATA[SD]]></text>
+  </DocumentChange>
+  <DocumentChange __id="1079" _type="Insert" date="Wed Mar 17 16:31:35 EDT 2021" docASTNodeCount="87" docActiveCodeLength="578" docExpressionCount="63" docLength="578" length="8" offset="470" starttimestamp="1616012481890" timestamp="613141">
+    <text><![CDATA[Fraction]]></text>
+  </DocumentChange>
+  <Command __id="1107" _type="ShellCommand" date="Wed Mar 17 16:40:12 EDT 2021" starttimestamp="1616012481890" timestamp="1131109" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="1108" _type="ShellCommand" date="Wed Mar 17 16:40:13 EDT 2021" starttimestamp="1616012481890" timestamp="1131521" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="1110" _type="MoveCaretCommand" caretOffset="0" date="Wed Mar 17 16:40:17 EDT 2021" docOffset="0" starttimestamp="1616012481890" timestamp="1136046" />
+</Events>
