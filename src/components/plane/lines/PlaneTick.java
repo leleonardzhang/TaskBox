@@ -5,6 +5,8 @@ import java.beans.PropertyChangeListener;
 
 import components.listenersupport.PropertyListenerSupport;
 import util.annotations.EditablePropertyNames;
+import util.annotations.ObserverRegisterer;
+import util.annotations.ObserverTypes;
 import util.annotations.PropertyNames;
 import util.annotations.StructurePattern;
 import util.annotations.StructurePatternNames;
@@ -38,6 +40,7 @@ public class PlaneTick implements PlaneTickInterface{
 	}
 
 	@Override
+	@ObserverRegisterer(ObserverTypes.PROPERTY_LISTENER)
 	public void addPropertyChangeListener(PropertyChangeListener aListener) {
 		propertyListenerSupport.addElement(aListener);
 	}

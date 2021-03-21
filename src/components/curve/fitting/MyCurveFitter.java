@@ -18,7 +18,7 @@ public class MyCurveFitter extends AbstractCurveFitter{
         final int len = points.size();
         final double[] target  = new double[len];
         final double[] weights = new double[len];
-        final double[] initialGuess = { 1.0, 1.0, 1.0 };
+        final double[] initialGuess = {1.0, 1.0, 1.0, 1.0, 1.0};
 
         int i = 0;
         for(WeightedObservedPoint point : points) {

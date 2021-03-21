@@ -16,26 +16,23 @@ import util.annotations.StructurePatternNames;
 
 
 @StructurePattern(StructurePatternNames.BEAN_PATTERN)
-@PropertyNames({"xLines", "yLines", "xName", "yName", "xNameTick", "yNameTick", "xMin", "xMax", "yMin", "yMax"})
-@EditablePropertyNames({"xName", "yName", "xMin", "xMax", "yMin", "yMax"})
+@PropertyNames({"xLines", "yLines", "xName", "yName", "xNameTick", "yNameTick", "xMin", "xMax", "yMin", "yMax", "xTickNumber", "yTickNumber", "precision"})
+@EditablePropertyNames({"xName", "yName", "xMin", "xMax", "yMin", "yMax", "xTickNumber", "yTickNumber", "precision"})
 public class Plane implements PlaneInterface{
-	
-	private List<PlaneLineTickInterface> xLines, yLines;
+	private int x, y;
+	private List<PlaneLineTickInterface> xLines = new ArrayList<PlaneLineTickInterface> (), yLines = new ArrayList<PlaneLineTickInterface> ();
 	private String xName = "", yName = "";
 	private PlaneTickInterface xNameTick, yNameTick;
 	private double xMin = 0, xMax = 0, yMin = 0, yMax = 0;
-	public static final int X_STEP = 100, Y_STEP = 100, X_LINES = 5, Y_LINES = 5, X_LENGTH = 500, Y_LENGTH = 500, NAME_MARGIN = 25;
+	private int xTickNumber = 5, yTickNumber = 5, xStep = 100, yStep = 100;
+	private int precision = 0;
 	
 	
 	public Plane(int newX, int newY) {
-		xLines = new ArrayList<PlaneLineTickInterface> ();
-		yLines = new ArrayList<PlaneLineTickInterface> ();
-		for (int i = 0; i < X_LINES; i ++) {
-			xLines.add(new XLineTick(newX, newY - i * X_STEP, X_LENGTH, new BasicStroke(0.5f), ""));
-		}
-		for (int i = 0; i < Y_LINES; i ++) {
-			yLines.add(new YLineTick(newX + i * Y_STEP, newY - Y_LENGTH, Y_LENGTH, new BasicStroke(0.5f), ""));
-		}
+		setX(newX);
+		setY(newY);
+		
+		adjustTick();
 		
 		xNameTick = new PlaneTick(newX + X_LENGTH, newY + NAME_MARGIN, "");
 		yNameTick = new PlaneTick(newX - NAME_MARGIN*2, newY - Y_LENGTH, "");
@@ -138,7 +135,7 @@ public class Plane implements PlaneInterface{
 
 	@Override
 	public void setXMin(double newValue) {
-		yMin = newValue;
+		xMin = newValue;
 		if (getXMax() < getXMin()) {
 			setXMax(getXMin());
 		}
@@ -171,14 +168,134 @@ public class Plane implements PlaneInterface{
 
 	@Override
 	public void adjustTick() {
-		double x_gap = (getXMax() - getXMin()) / (X_LINES - 1);
-		double y_gap = (getYMax() - getYMin()) / (Y_LINES - 1);
-		for (int i = 0; i < X_LINES; i ++) {
-			getXLines().get(i).getTick().setText(String.format("%.2f", getXMin() + x_gap * i));
+		
+		xLines.clear();
+		yLines.clear();
+		
+		// x-axis and y-axis
+		xLines.add(new XLineTick(getX(), getY(), X_LENGTH, new BasicStroke(0.5f), ""));
+		yLines.add(new YLineTick(getX(), getY() - Y_LENGTH, Y_LENGTH, new BasicStroke(0.5f), ""));
+		
+		
+		String precisionString = String.format("%d", getPrecision());
+		String tickString = "%.".concat(precisionString).concat("f");
+		
+		
+		double x_interval = (getXMax() - getXMin()) / (xTickNumber - 1);
+		double y_interval = (getYMax() - getYMin()) / (yTickNumber - 1);
+		
+		for (int i = 1; i < yTickNumber; i ++) {
+			xLines.add(new XLineTick(getX(), getY() - i * yStep, TICK_LENGTH, new BasicStroke(0.5f), String.format(tickString, getYMin() + y_interval * i)));
 		}
-		for (int i = 0; i < Y_LINES; i ++) {
-			getYLines().get(i).getTick().setText(String.format("%.2f", getYMin() + y_gap * i));
+		for (int i = 1; i < xTickNumber; i ++) {
+			yLines.add(new YLineTick(getX() + i * xStep, getY() - TICK_LENGTH, TICK_LENGTH, new BasicStroke(0.5f), String.format(tickString, getXMin() + x_interval * i)));
 		}
+		
+		
+		
+	}
+
+
+
+	@Override
+	public int getXTickNumber() {
+		return xTickNumber;
+	}
+
+
+
+	@Override
+	public int getYTickNumber() {
+		return yTickNumber;
+	}
+
+
+
+	@Override
+	public void setXTickNumber(int newXTickNumber) {
+		xTickNumber = newXTickNumber;
+		setXStep((int) Math.floor(X_LENGTH/xTickNumber));
+		adjustTick();
+	}
+
+
+
+	@Override
+	public void setYTickNumber(int newYTickNumber) {
+		yTickNumber = newYTickNumber;
+		setYStep((int) Math.floor(Y_LENGTH/yTickNumber));
+		adjustTick();
+	}
+
+
+
+	@Override
+	public int getX() {
+		return x;
+	}
+
+
+
+	@Override
+	public int getY() {
+		return y;
+	}
+
+
+
+	@Override
+	public void setX(int newX) {
+		x = newX;
+	}
+
+
+
+	@Override
+	public void setY(int newY) {
+		y = newY;
+	}
+
+
+
+	@Override
+	public int getXStep() {
+		return xStep;
+	}
+
+
+
+	@Override
+	public int getYStep() {
+		return yStep;
+	}
+
+
+
+	@Override
+	public void setXStep(int newXStep) {
+		xStep = newXStep;
+	}
+
+
+
+	@Override
+	public void setYStep(int newYStep) {
+		yStep = newYStep;
+	}
+
+
+
+	@Override
+	public int getPrecision() {
+		return precision;
+	}
+
+
+
+	@Override
+	public void setPrecision(int newPrecision) {
+		precision = newPrecision;
+		adjustTick();
 	}
 
 }

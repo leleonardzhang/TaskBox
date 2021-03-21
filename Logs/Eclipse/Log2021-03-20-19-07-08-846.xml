@@ -1,0 +1,959 @@
+<Events startTimestamp="1616281628846" logVersion="1.0.0.202101171653">
+  <Command __id="1" _type="MoveCaretCommand" caretOffset="1107" date="Sat Mar 20 19:07:08 EDT 2021" docOffset="1628" starttimestamp="1616281628846" timestamp="142" />
+  <Command __id="0" _type="DiffBasedFileOpenCommand" date="Sat Mar 20 19:07:08 EDT 2021" docASTNodeCount="541" docActiveCodeLength="3376" docExpressionCount="344" docLength="3376" projectName="TaskBox" starttimestamp="1616281628846" timestamp="74">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\TaskBox\src\components\curve\composedGraph\ComposedGraph.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package components.curve.composedGraph;
+
+import java.util.ArrayList;
+import java.util.List;
+import components.curve.line.CurveLine;
+import components.curve.point.CurvePoint;
+import components.observableshapes.ObservableLineInterface;
+import components.observableshapes.ObservablePointInterface;
+import components.plane.plane.Plane;
+import components.plane.plane.PlaneInterface;
+import javafx.util.Pair;
+import util.annotations.EditablePropertyNames;
+import util.annotations.PropertyNames;
+import util.annotations.StructurePattern;
+import util.annotations.StructurePatternNames;
+
+
+@StructurePattern(StructurePatternNames.BEAN_PATTERN)
+@PropertyNames({"points", "lines", "plane"})
+@EditablePropertyNames({"points"})
+public class ComposedGraph implements ComposedGraphInterface{
+	private int x, y;
+	private List<ObservablePointInterface> points = new ArrayList<ObservablePointInterface>();
+	private List<ObservableLineInterface> lines = new ArrayList<ObservableLineInterface>();
+	private ObservablePointInterface startPoint, prevPoint;
+	private PlaneInterface plane;
+	private List<Pair<ObservablePointInterface, ObservableLineInterface>> pairs = new ArrayList<Pair<ObservablePointInterface, ObservableLineInterface>> ();
+	public static final int RADIUS = 5;
+	
+	
+	public ComposedGraph(int newX, int newY) {
+		plane = new Plane(newX, newY);
+		x = newX;
+		y = newY;
+	}
+	
+	@Override
+	public List<ObservablePointInterface> getPoints() {
+		return points;
+	}
+	
+	@Override
+	public List<ObservableLineInterface> getLines(){
+		return lines;
+	}
+	
+	@Override
+	public PlaneInterface getPlane() {
+		return plane;
+	}
+	
+	@Override
+	public void addPoint() {
+		points.add(new CurvePoint(x, y, RADIUS));
+	}
+	
+	@Override
+	public void startPoint(ObservablePointInterface aPoint) {
+		startPoint = aPoint;
+	}
+	
+	@Override
+	public void addLine(ObservablePointInterface aPoint) {
+		if (startPoint == null) {
+			startPoint = points.get(0);
+		}
+		if (prevPoint == null) {
+			prevPoint = startPoint;
+		}
+		if (prevPoint == aPoint) {
+			return;
+		}
+		ObservableLineInterface newLine = new CurveLine((int) (prevPoint.getX() + prevPoint.getRadius()), 
+				(int) (prevPoint.getY() + prevPoint.getRadius()), 
+				(int) (aPoint.getX() + aPoint.getRadius() - prevPoint.getX() - prevPoint.getRadius()), 
+				(int) (aPoint.getY() + aPoint.getRadius() - prevPoint.getY() - prevPoint.getRadius()));
+		lines.add(newLine);
+		pairs.add(new Pair<ObservablePointInterface, ObservableLineInterface> (aPoint, newLine));
+		pairs.add(new Pair<ObservablePointInterface, ObservableLineInterface> (prevPoint, newLine));
+		prevPoint = aPoint;
+		
+	}
+	
+	@Override
+	public void deleteLine(ObservableLineInterface aLine) {
+		lines.remove(aLine);
+	}
+	
+	@Override
+	public void delelePoint(ObservablePointInterface aPoint) {
+		if (startPoint == aPoint) {
+			startPoint = null;
+		}
+		if (prevPoint == aPoint) {
+			prevPoint = null;
+		}
+		for (Pair <ObservablePointInterface, ObservableLineInterface> pair : pairs) {
+			if (pair.getKey() == aPoint) {
+				deleteLine(pair.getValue());
+			}
+		}
+		points.remove(aPoint);
+	}
+
+	@Override
+	public void setLines(List<ObservableLineInterface> newLines) {
+		lines = newLines;
+	}
+
+	@Override
+	public void setPoints(List<ObservablePointInterface> newPoints) {
+		points = newPoints;
+	}
+}
+]]></snapshot>
+  </Command>
+  <DocumentChange __id="3" _type="Delete" date="Sat Mar 20 19:07:15 EDT 2021" docASTNodeCount="541" docActiveCodeLength="3374" docExpressionCount="344" docLength="3374" endLine="16" length="2" offset="593" startLine="15" starttimestamp="1616281628846" timestamp="6891">
+    <text><![CDATA[
+]]></text>
+  </DocumentChange>
+  <Command __id="19" _type="EclipseCommand" commandID="" date="Sat Mar 20 19:08:47 EDT 2021" starttimestamp="1616281628846" timestamp="98439" />
+  <Command __id="20" _type="EclipseCommand" commandID="" date="Sat Mar 20 19:08:47 EDT 2021" starttimestamp="1616281628846" timestamp="98449" />
+  <Command __id="21" _type="DiffBasedFileOpenCommand" date="Sat Mar 20 19:08:53 EDT 2021" docASTNodeCount="921" docActiveCodeLength="5538" docExpressionCount="592" docLength="5558" projectName="TaskBox" starttimestamp="1616281628846" timestamp="105128">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\TaskBox\src\components\plane\plane\Plane.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package components.plane.plane;
+
+import java.awt.BasicStroke;
+import java.util.ArrayList;
+import java.util.List;
+
+import components.plane.lines.PlaneLineTickInterface;
+import components.plane.lines.PlaneTick;
+import components.plane.lines.PlaneTickInterface;
+import components.plane.lines.XLineTick;
+import components.plane.lines.YLineTick;
+import util.annotations.EditablePropertyNames;
+import util.annotations.PropertyNames;
+import util.annotations.StructurePattern;
+import util.annotations.StructurePatternNames;
+
+
+@StructurePattern(StructurePatternNames.BEAN_PATTERN)
+@PropertyNames({"xLines", "yLines", "xName", "yName", "xNameTick", "yNameTick", "xMin", "xMax", "yMin", "yMax", "xTickNumber", "yTickNumber", "precision"})
+@EditablePropertyNames({"xName", "yName", "xMin", "xMax", "yMin", "yMax", "xTickNumber", "yTickNumber", "precision"})
+public class Plane implements PlaneInterface{
+	private int x, y;
+	private List<PlaneLineTickInterface> xLines = new ArrayList<PlaneLineTickInterface> (), yLines = new ArrayList<PlaneLineTickInterface> ();
+	private String xName = "", yName = "";
+	private PlaneTickInterface xNameTick, yNameTick;
+	private double xMin = 0, xMax = 0, yMin = 0, yMax = 0;
+	private int xTickNumber = 5, yTickNumber = 5, xStep = 100, yStep = 100;
+	private int precision = 0;
+	public static final int TICK_LENGTH = 5, X_LENGTH = 500, Y_LENGTH = 500, NAME_MARGIN = 25;
+	
+	
+	public Plane(int newX, int newY) {
+		setX(newX);
+		setY(newY);
+		
+		adjustTick();
+		
+		xNameTick = new PlaneTick(newX + X_LENGTH, newY + NAME_MARGIN, "");
+		yNameTick = new PlaneTick(newX - NAME_MARGIN*2, newY - Y_LENGTH, "");
+		
+	}
+	
+	
+
+	@Override
+	public List<PlaneLineTickInterface> getXLines() {
+		return xLines;
+	}
+
+	@Override
+	public List<PlaneLineTickInterface> getYLines() {
+		return yLines;
+	}
+
+	@Override
+	public String getXName() {
+		return xName;
+	}
+
+	@Override
+	public String getYName() {
+		return yName;
+	}
+
+
+
+	@Override
+	public void setXName(String newName) {
+		xName = newName;
+		getXNameTick().setText(getXName());
+		
+	}
+
+
+
+	@Override
+	public void setYName(String newName) {
+		yName = newName;
+		getYNameTick().setText(getYName());
+	}
+
+
+
+	@Override
+	public PlaneTickInterface getXNameTick() {
+		return xNameTick;
+	}
+
+
+
+	@Override
+	public PlaneTickInterface getYNameTick() {
+		return yNameTick;
+	}
+
+
+
+	@Override
+	public double getXMax() {
+		return xMax;
+	}
+
+
+
+	@Override
+	public double getXMin() {
+		return xMin;
+	}
+
+
+
+	@Override
+	public double getYMax() {
+		return yMax;
+	}
+
+
+
+	@Override
+	public double getYMin() {
+		return yMin;
+	}
+
+
+
+	@Override
+	public void setXMax(double newValue) {
+		xMax = newValue;
+		if (getXMin() > getXMax()) {
+			setXMin(getXMax());
+		}
+		adjustTick();
+	}
+
+
+
+	@Override
+	public void setXMin(double newValue) {
+		yMin = newValue;
+		if (getXMax() < getXMin()) {
+			setXMax(getXMin());
+		}
+		adjustTick();
+	}
+
+
+
+	@Override
+	public void setYMax(double newValue) {
+		yMax = newValue;
+		if (getYMin() > getYMax()) {
+			setYMin(getYMax());
+		}
+		adjustTick();
+	}
+
+
+
+	@Override
+	public void setYMin(double newValue) {
+		yMin = newValue;
+		if (getYMax() < getYMin()) {
+			setYMax(getYMin());
+		}
+		adjustTick();
+	}
+
+
+
+	@Override
+	public void adjustTick() {
+		
+		xLines.clear();
+		yLines.clear();
+		
+		// x-axis and y-axis
+		xLines.add(new XLineTick(getX(), getY(), X_LENGTH, new BasicStroke(0.5f), ""));
+		yLines.add(new YLineTick(getX(), getY() - Y_LENGTH, Y_LENGTH, new BasicStroke(0.5f), ""));
+		
+		
+		String precisionString = String.format("%d", getPrecision());
+		String tickString = "%.".concat(precisionString).concat("f");
+		
+		
+		double x_interval = (getXMax() - getXMin()) / (xTickNumber - 1);
+		double y_interval = (getYMax() - getYMin()) / (yTickNumber - 1);
+		
+		for (int i = 1; i < yTickNumber; i ++) {
+			xLines.add(new XLineTick(getX(), getY() - i * yStep, TICK_LENGTH, new BasicStroke(0.5f), String.format(tickString, getYMin() + y_interval * i)));
+		}
+		for (int i = 1; i < xTickNumber; i ++) {
+			yLines.add(new YLineTick(getX() + i * xStep, getY() - TICK_LENGTH, TICK_LENGTH, new BasicStroke(0.5f), String.format(tickString, getXMin() + x_interval * i)));
+		}
+		
+		
+		
+	}
+
+
+
+	@Override
+	public int getXTickNumber() {
+		return xTickNumber;
+	}
+
+
+
+	@Override
+	public int getYTickNumber() {
+		return yTickNumber;
+	}
+
+
+
+	@Override
+	public void setXTickNumber(int newXTickNumber) {
+		xTickNumber = newXTickNumber;
+		setXStep((int) Math.floor(X_LENGTH/xTickNumber));
+		adjustTick();
+	}
+
+
+
+	@Override
+	public void setYTickNumber(int newYTickNumber) {
+		yTickNumber = newYTickNumber;
+		setYStep((int) Math.floor(Y_LENGTH/yTickNumber));
+		adjustTick();
+	}
+
+
+
+	@Override
+	public int getX() {
+		return x;
+	}
+
+
+
+	@Override
+	public int getY() {
+		return y;
+	}
+
+
+
+	@Override
+	public void setX(int newX) {
+		x = newX;
+	}
+
+
+
+	@Override
+	public void setY(int newY) {
+		y = newY;
+	}
+
+
+
+	@Override
+	public int getXStep() {
+		return xStep;
+	}
+
+
+
+	@Override
+	public int getYStep() {
+		return yStep;
+	}
+
+
+
+	@Override
+	public void setXStep(int newXStep) {
+		xStep = newXStep;
+	}
+
+
+
+	@Override
+	public void setYStep(int newYStep) {
+		yStep = newYStep;
+	}
+
+
+
+	@Override
+	public int getPrecision() {
+		return precision;
+	}
+
+
+
+	@Override
+	public void setPrecision(int newPrecision) {
+		precision = newPrecision;
+		adjustTick();
+	}
+
+}
+]]></snapshot>
+  </Command>
+  <Command __id="22" _type="MoveCaretCommand" caretOffset="2932" date="Sat Mar 20 19:08:54 EDT 2021" docOffset="3398" starttimestamp="1616281628846" timestamp="105241" />
+  <Command __id="24" _type="MoveCaretCommand" caretOffset="72" date="Sat Mar 20 19:09:19 EDT 2021" docOffset="593" starttimestamp="1616281628846" timestamp="130278" />
+  <Command __id="25" _type="SelectTextCommand" caretOffset="533" date="Sat Mar 20 19:09:21 EDT 2021" end="533" start="343" starttimestamp="1616281628846" timestamp="132228" />
+  <Command __id="26" _type="MoveCaretCommand" caretOffset="533" date="Sat Mar 20 19:09:21 EDT 2021" docOffset="1054" starttimestamp="1616281628846" timestamp="132369" />
+  <Command __id="27" _type="SelectTextCommand" caretOffset="292" date="Sat Mar 20 19:09:25 EDT 2021" end="533" start="292" starttimestamp="1616281628846" timestamp="136764" />
+  <Command __id="28" _type="MoveCaretCommand" caretOffset="330" date="Sat Mar 20 19:09:25 EDT 2021" docOffset="851" starttimestamp="1616281628846" timestamp="136982" />
+  <Command __id="29" _type="SelectTextCommand" caretOffset="533" date="Sat Mar 20 19:09:26 EDT 2021" end="533" start="330" starttimestamp="1616281628846" timestamp="137554" />
+  <Command __id="30" _type="MoveCaretCommand" caretOffset="533" date="Sat Mar 20 19:09:26 EDT 2021" docOffset="1054" starttimestamp="1616281628846" timestamp="137721" />
+  <Command __id="31" _type="SelectTextCommand" caretOffset="329" date="Sat Mar 20 19:09:27 EDT 2021" end="533" start="329" starttimestamp="1616281628846" timestamp="138378" />
+  <Command __id="32" _type="MoveCaretCommand" caretOffset="329" date="Sat Mar 20 19:09:27 EDT 2021" docOffset="850" starttimestamp="1616281628846" timestamp="138553" />
+  <Command __id="33" _type="SelectTextCommand" caretOffset="341" date="Sat Mar 20 19:09:30 EDT 2021" end="341" start="334" starttimestamp="1616281628846" timestamp="141597" />
+  <Command __id="34" _type="MoveCaretCommand" caretOffset="342" date="Sat Mar 20 19:09:30 EDT 2021" docOffset="863" starttimestamp="1616281628846" timestamp="141790" />
+  <Command __id="35" _type="SelectTextCommand" caretOffset="439" date="Sat Mar 20 19:09:32 EDT 2021" end="439" start="426" starttimestamp="1616281628846" timestamp="143501" />
+  <Command __id="36" _type="MoveCaretCommand" caretOffset="442" date="Sat Mar 20 19:09:32 EDT 2021" docOffset="963" starttimestamp="1616281628846" timestamp="143682" />
+  <Command __id="23" _type="DiffBasedFileOpenCommand" date="Sat Mar 20 19:09:19 EDT 2021" docASTNodeCount="541" docActiveCodeLength="3374" docExpressionCount="344" docLength="3374" projectName="TaskBox" starttimestamp="1616281628846" timestamp="130173">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\TaskBox\src\components\curve\composedGraph\ComposedGraph.java]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"package components.curve.composedGraph;¶¶import java.util.ArrayList;¶import java.util.List;¶import components.curve.line.CurveLine;¶import components.curve.point.CurvePoint;¶import components.observableshapes.ObservableLineInterface;¶import components.observableshapes.ObservablePointInterface;¶import components.plane.plane.Plane;¶import components.plane.plane.PlaneInterface;¶import javafx.util.Pair;¶import util.annotations.EditablePropertyNames;¶import util.annotations.PropertyNames;¶import util.annotations.StructurePattern;¶import util.annotations.StructurePatternNames;¶¶"), Diff(DELETE,"¶"), Diff(EQUAL,"@StructurePattern(StructurePatternNames.BEAN_PATTERN)¶@PropertyNames({"points", "lines", "plane"})¶@EditablePropertyNames({"points"})¶public class ComposedGraph implements ComposedGraphInterface{¶	private int x, y;¶	private List<ObservablePointInterface> points = new ArrayList<ObservablePointInterface>();¶	private List<ObservableLineInterface> lines = new ArrayList<ObservableLineInterface>();¶	private ObservablePointInterface startPoint, prevPoint;¶	private PlaneInterface plane;¶	private List<Pair<ObservablePointInterface, ObservableLineInterface>> pairs = new ArrayList<Pair<ObservablePointInterface, ObservableLineInterface>> ();¶	public static final int RADIUS = 5;¶	¶	¶	public ComposedGraph(int newX, int newY) {¶		plane = new Plane(newX, newY);¶		x = newX;¶		y = newY;¶	}¶	¶	@Override¶	public List<ObservablePointInterface> getPoints() {¶		return points;¶	}¶	¶	@Override¶	public List<ObservableLineInterface> getLines(){¶		return lines;¶	}¶	¶	@Override¶	public PlaneInterface getPlane() {¶		return plane;¶	}¶	¶	@Override¶	public void addPoint() {¶		points.add(new CurvePoint(x, y, RADIUS));¶	}¶	¶	@Override¶	public void startPoint(ObservablePointInterface aPoint) {¶		startPoint = aPoint;¶	}¶	¶	@Override¶	public void addLine(ObservablePointInterface aPoint) {¶		if (startPoint == null) {¶			startPoint = points.get(0);¶		}¶		if (prevPoint == null) {¶			prevPoint = startPoint;¶		}¶		if (prevPoint == aPoint) {¶			return;¶		}¶		ObservableLineInterface newLine = new CurveLine((int) (prevPoint.getX() + prevPoint.getRadius()), ¶				(int) (prevPoint.getY() + prevPoint.getRadius()), ¶				(int) (aPoint.getX() + aPoint.getRadius() - prevPoint.getX() - prevPoint.getRadius()), ¶				(int) (aPoint.getY() + aPoint.getRadius() - prevPoint.getY() - prevPoint.getRadius()));¶		lines.add(newLine);¶		pairs.add(new Pair<ObservablePointInterface, ObservableLineInterface> (aPoint, newLine));¶		pairs.add(new Pair<ObservablePointInterface, ObservableLineInterface> (prevPoint, newLine));¶		prevPoint = aPoint;¶		¶	}¶	¶	@Override¶	public void deleteLine(ObservableLineInterface aLine) {¶		lines.remove(aLine);¶	}¶	¶	@Override¶	public void delelePoint(ObservablePointInterface aPoint) {¶		if (startPoint == aPoint) {¶			startPoint = null;¶		}¶		if (prevPoint == aPoint) {¶			prevPoint = null;¶		}¶		for (Pair <ObservablePointInterface, ObservableLineInterface> pair : pairs) {¶			if (pair.getKey() == aPoint) {¶				deleteLine(pair.getValue());¶			}¶		}¶		points.remove(aPoint);¶	}¶¶	@Override¶	public void setLines(List<ObservableLineInterface> newLines) {¶		lines = newLines;¶	}¶¶	@Override¶	public void setPoints(List<ObservablePointInterface> newPoints) {¶		points = newPoints;¶	}¶}¶")]]]></diff>
+    <snapshot><![CDATA[package components.curve.composedGraph;
+
+import java.util.ArrayList;
+import java.util.List;
+import components.curve.line.CurveLine;
+import components.curve.point.CurvePoint;
+import components.observableshapes.ObservableLineInterface;
+import components.observableshapes.ObservablePointInterface;
+import components.plane.plane.Plane;
+import components.plane.plane.PlaneInterface;
+import javafx.util.Pair;
+import util.annotations.EditablePropertyNames;
+import util.annotations.PropertyNames;
+import util.annotations.StructurePattern;
+import util.annotations.StructurePatternNames;
+
+@StructurePattern(StructurePatternNames.BEAN_PATTERN)
+@PropertyNames({"points", "lines", "plane"})
+@EditablePropertyNames({"points"})
+public class ComposedGraph implements ComposedGraphInterface{
+	private int x, y;
+	private List<ObservablePointInterface> points = new ArrayList<ObservablePointInterface>();
+	private List<ObservableLineInterface> lines = new ArrayList<ObservableLineInterface>();
+	private ObservablePointInterface startPoint, prevPoint;
+	private PlaneInterface plane;
+	private List<Pair<ObservablePointInterface, ObservableLineInterface>> pairs = new ArrayList<Pair<ObservablePointInterface, ObservableLineInterface>> ();
+	public static final int RADIUS = 5;
+	
+	
+	public ComposedGraph(int newX, int newY) {
+		plane = new Plane(newX, newY);
+		x = newX;
+		y = newY;
+	}
+	
+	@Override
+	public List<ObservablePointInterface> getPoints() {
+		return points;
+	}
+	
+	@Override
+	public List<ObservableLineInterface> getLines(){
+		return lines;
+	}
+	
+	@Override
+	public PlaneInterface getPlane() {
+		return plane;
+	}
+	
+	@Override
+	public void addPoint() {
+		points.add(new CurvePoint(x, y, RADIUS));
+	}
+	
+	@Override
+	public void startPoint(ObservablePointInterface aPoint) {
+		startPoint = aPoint;
+	}
+	
+	@Override
+	public void addLine(ObservablePointInterface aPoint) {
+		if (startPoint == null) {
+			startPoint = points.get(0);
+		}
+		if (prevPoint == null) {
+			prevPoint = startPoint;
+		}
+		if (prevPoint == aPoint) {
+			return;
+		}
+		ObservableLineInterface newLine = new CurveLine((int) (prevPoint.getX() + prevPoint.getRadius()), 
+				(int) (prevPoint.getY() + prevPoint.getRadius()), 
+				(int) (aPoint.getX() + aPoint.getRadius() - prevPoint.getX() - prevPoint.getRadius()), 
+				(int) (aPoint.getY() + aPoint.getRadius() - prevPoint.getY() - prevPoint.getRadius()));
+		lines.add(newLine);
+		pairs.add(new Pair<ObservablePointInterface, ObservableLineInterface> (aPoint, newLine));
+		pairs.add(new Pair<ObservablePointInterface, ObservableLineInterface> (prevPoint, newLine));
+		prevPoint = aPoint;
+		
+	}
+	
+	@Override
+	public void deleteLine(ObservableLineInterface aLine) {
+		lines.remove(aLine);
+	}
+	
+	@Override
+	public void delelePoint(ObservablePointInterface aPoint) {
+		if (startPoint == aPoint) {
+			startPoint = null;
+		}
+		if (prevPoint == aPoint) {
+			prevPoint = null;
+		}
+		for (Pair <ObservablePointInterface, ObservableLineInterface> pair : pairs) {
+			if (pair.getKey() == aPoint) {
+				deleteLine(pair.getValue());
+			}
+		}
+		points.remove(aPoint);
+	}
+
+	@Override
+	public void setLines(List<ObservableLineInterface> newLines) {
+		lines = newLines;
+	}
+
+	@Override
+	public void setPoints(List<ObservablePointInterface> newPoints) {
+		points = newPoints;
+	}
+}
+]]></snapshot>
+  </Command>
+  <Command __id="37" _type="SelectTextCommand" caretOffset="199" date="Sat Mar 20 19:09:35 EDT 2021" end="207" start="199" starttimestamp="1616281628846" timestamp="146257" />
+  <Command __id="38" _type="MoveCaretCommand" caretOffset="199" date="Sat Mar 20 19:09:35 EDT 2021" docOffset="720" starttimestamp="1616281628846" timestamp="146429" />
+  <Command __id="39" _type="DiffBasedFileOpenCommand" date="Sat Mar 20 19:09:43 EDT 2021" docASTNodeCount="347" docActiveCodeLength="2330" docExpressionCount="213" docLength="2330" projectName="TaskBox" starttimestamp="1616281628846" timestamp="154679">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\TaskBox\src\components\curve\line\CurveLine.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package components.curve.line;
+
+import java.awt.BasicStroke;
+import java.awt.Stroke;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+
+import components.listenersupport.PropertyListenerSupport;
+import components.observableshapes.ObservableLineInterface;
+import util.annotations.EditablePropertyNames;
+import util.annotations.PropertyNames;
+import util.annotations.StructurePattern;
+import util.annotations.StructurePatternNames;
+
+@StructurePattern(StructurePatternNames.LINE_PATTERN)
+@PropertyNames({"x", "y", "width", "height", "stroke"})
+@EditablePropertyNames({})
+public class CurveLine implements ObservableLineInterface{
+	
+	private PropertyListenerSupport propertyListenerSupport = new PropertyListenerSupport();
+	private int x, y, width, height;
+	private Stroke stroke = new BasicStroke(0.5f);
+
+	public CurveLine(int newX, int newY, int newWidth, int newHeight) {
+		setX(newX);
+		setY(newY);
+		setWidth(newWidth);
+		setHeight(newHeight);
+	}
+	
+	@Override
+	public int getX() {
+		return x;
+	}
+
+	@Override
+	public void setX(int newX) {
+		int oldX = x;
+		x = newX;
+		propertyListenerSupport.notifyAllListeners(
+				new PropertyChangeEvent(this, "x", oldX, x));
+	}
+
+	@Override
+	public int getY() {
+		return y;
+	}
+
+	@Override
+	public void setY(int newY) {
+		int oldY = y;
+		y = newY;
+		propertyListenerSupport.notifyAllListeners(
+				new PropertyChangeEvent(this, "y", oldY, y));
+	}
+
+	@Override
+	public int getWidth() {
+		return width;
+	}
+
+	@Override
+	public void setWidth(int newWidth) {
+		int oldWidth = width;
+		width = newWidth;
+		propertyListenerSupport.notifyAllListeners(
+				new PropertyChangeEvent(this, "width", oldWidth, width));
+	}
+
+	@Override
+	public int getHeight() {
+		return height;
+	}
+
+	@Override
+	public void setHeight(int newHeight) {
+		int oldHeight = height;
+		height = newHeight;
+		propertyListenerSupport.notifyAllListeners(
+				new PropertyChangeEvent(this, "height", oldHeight, height));
+	}
+
+
+	@Override
+	public Stroke getStroke() {
+		return stroke;
+	}
+
+	@Override
+	public void setStroke(Stroke newStroke) {
+		stroke = newStroke;
+	}
+
+	@Override
+	public void addPropertyChangeListener(PropertyChangeListener aListener) {
+		propertyListenerSupport.addElement(aListener);
+	}
+
+}
+]]></snapshot>
+  </Command>
+  <Command __id="40" _type="MoveCaretCommand" caretOffset="0" date="Sat Mar 20 19:09:43 EDT 2021" docOffset="0" starttimestamp="1616281628846" timestamp="154783" />
+  <Command __id="41" _type="DiffBasedFileOpenCommand" date="Sat Mar 20 19:09:45 EDT 2021" docASTNodeCount="541" docActiveCodeLength="3374" docExpressionCount="344" docLength="3374" projectName="TaskBox" starttimestamp="1616281628846" timestamp="156631">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\TaskBox\src\components\curve\composedGraph\ComposedGraph.java]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"package components.curve.composedGraph;¶¶import java.util.ArrayList;¶import java.util.List;¶import components.curve.line.CurveLine;¶import components.curve.point.CurvePoint;¶import components.observableshapes.ObservableLineInterface;¶import components.observableshapes.ObservablePointInterface;¶import components.plane.plane.Plane;¶import components.plane.plane.PlaneInterface;¶import javafx.util.Pair;¶import util.annotations.EditablePropertyNames;¶import util.annotations.PropertyNames;¶import util.annotations.StructurePattern;¶import util.annotations.StructurePatternNames;¶¶@StructurePattern(StructurePatternNames.BEAN_PATTERN)¶@PropertyNames({"points", "lines", "plane"})¶@EditablePropertyNames({"points"})¶public class ComposedGraph implements ComposedGraphInterface{¶	private int x, y;¶	private List<ObservablePointInterface> points = new ArrayList<ObservablePointInterface>();¶	private List<ObservableLineInterface> lines = new ArrayList<ObservableLineInterface>();¶	private ObservablePointInterface startPoint, prevPoint;¶	private PlaneInterface plane;¶	private List<Pair<ObservablePointInterface, ObservableLineInterface>> pairs = new ArrayList<Pair<ObservablePointInterface, ObservableLineInterface>> ();¶	public static final int RADIUS = 5;¶	¶	¶	public ComposedGraph(int newX, int newY) {¶		plane = new Plane(newX, newY);¶		x = newX;¶		y = newY;¶	}¶	¶	@Override¶	public List<ObservablePointInterface> getPoints() {¶		return points;¶	}¶	¶	@Override¶	public List<ObservableLineInterface> getLines(){¶		return lines;¶	}¶	¶	@Override¶	public PlaneInterface getPlane() {¶		return plane;¶	}¶	¶	@Override¶	public void addPoint() {¶		points.add(new CurvePoint(x, y, RADIUS));¶	}¶	¶	@Override¶	public void startPoint(ObservablePointInterface aPoint) {¶		startPoint = aPoint;¶	}¶	¶	@Override¶	public void addLine(ObservablePointInterface aPoint) {¶		if (startPoint == null) {¶			startPoint = points.get(0);¶		}¶		if (prevPoint == null) {¶			prevPoint = startPoint;¶		}¶		if (prevPoint == aPoint) {¶			return;¶		}¶		ObservableLineInterface newLine = new CurveLine((int) (prevPoint.getX() + prevPoint.getRadius()), ¶				(int) (prevPoint.getY() + prevPoint.getRadius()), ¶				(int) (aPoint.getX() + aPoint.getRadius() - prevPoint.getX() - prevPoint.getRadius()), ¶				(int) (aPoint.getY() + aPoint.getRadius() - prevPoint.getY() - prevPoint.getRadius()));¶		lines.add(newLine);¶		pairs.add(new Pair<ObservablePointInterface, ObservableLineInterface> (aPoint, newLine));¶		pairs.add(new Pair<ObservablePointInterface, ObservableLineInterface> (prevPoint, newLine));¶		prevPoint = aPoint;¶		¶	}¶	¶	@Override¶	public void deleteLine(ObservableLineInterface aLine) {¶		lines.remove(aLine);¶	}¶	¶	@Override¶	public void delelePoint(ObservablePointInterface aPoint) {¶		if (startPoint == aPoint) {¶			startPoint = null;¶		}¶		if (prevPoint == aPoint) {¶			prevPoint = null;¶		}¶		for (Pair <ObservablePointInterface, ObservableLineInterface> pair : pairs) {¶			if (pair.getKey() == aPoint) {¶				deleteLine(pair.getValue());¶			}¶		}¶		points.remove(aPoint);¶	}¶¶	@Override¶	public void setLines(List<ObservableLineInterface> newLines) {¶		lines = newLines;¶	}¶¶	@Override¶	public void setPoints(List<ObservablePointInterface> newPoints) {¶		points = newPoints;¶	}¶}¶")]]]></diff>
+  </Command>
+  <Command __id="42" _type="MoveCaretCommand" caretOffset="199" date="Sat Mar 20 19:09:45 EDT 2021" docOffset="720" starttimestamp="1616281628846" timestamp="156729" />
+  <Command __id="44" _type="MoveCaretCommand" caretOffset="0" date="Sat Mar 20 19:09:46 EDT 2021" docOffset="0" starttimestamp="1616281628846" timestamp="158106" />
+  <Command __id="63" _type="ShellCommand" date="Sat Mar 20 19:23:32 EDT 2021" starttimestamp="1616281628846" timestamp="983798" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="43" _type="DiffBasedFileOpenCommand" date="Sat Mar 20 19:09:46 EDT 2021" docASTNodeCount="347" docActiveCodeLength="2330" docExpressionCount="213" docLength="2330" projectName="TaskBox" starttimestamp="1616281628846" timestamp="158021">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\TaskBox\src\components\curve\line\CurveLine.java]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"package components.curve.line;¶¶import java.awt.BasicStroke;¶import java.awt.Stroke;¶import java.beans.PropertyChangeEvent;¶import java.beans.PropertyChangeListener;¶¶import components.listenersupport.PropertyListenerSupport;¶import components.observableshapes.ObservableLineInterface;¶import util.annotations.EditablePropertyNames;¶import util.annotations.PropertyNames;¶import util.annotations.StructurePattern;¶import util.annotations.StructurePatternNames;¶¶@StructurePattern(StructurePatternNames.LINE_PATTERN)¶@PropertyNames({"x", "y", "width", "height", "stroke"})¶@EditablePropertyNames({})¶public class CurveLine implements ObservableLineInterface{¶	¶	private PropertyListenerSupport propertyListenerSupport = new PropertyListenerSupport();¶	private int x, y, width, height;¶	private Stroke stroke = new BasicStroke(0.5f);¶¶	public CurveLine(int newX, int newY, int newWidth, int newHeight) {¶		setX(newX);¶		setY(newY);¶		setWidth(newWidth);¶		setHeight(newHeight);¶	}¶	¶	@Override¶	public int getX() {¶		return x;¶	}¶¶	@Override¶	public void setX(int newX) {¶		int oldX = x;¶		x = newX;¶		propertyListenerSupport.notifyAllListeners(¶				new PropertyChangeEvent(this, "x", oldX, x));¶	}¶¶	@Override¶	public int getY() {¶		return y;¶	}¶¶	@Override¶	public void setY(int newY) {¶		int oldY = y;¶		y = newY;¶		propertyListenerSupport.notifyAllListeners(¶				new PropertyChangeEvent(this, "y", oldY, y));¶	}¶¶	@Override¶	public int getWidth() {¶		return width;¶	}¶¶	@Override¶	public void setWidth(int newWidth) {¶		int oldWidth = width;¶		width = newWidth;¶		propertyListenerSupport.notifyAllListeners(¶				new PropertyChangeEvent(this, "width", oldWidth, width));¶	}¶¶	@Override¶	public int getHeight() {¶		return height;¶	}¶¶	@Override¶	public void setHeight(int newHeight) {¶		int oldHeight = height;¶		height = newHeight;¶		propertyListenerSupport.notifyAllListeners(¶				new PropertyChangeEvent(this, "height", oldHeight, height));¶	}¶¶¶	@Override¶	public Stroke getStroke() {¶		return stroke;¶	}¶¶	@Override¶	public void setStroke(Stroke newStroke) {¶		stroke = newStroke;¶	}¶¶	@Override¶	public void addPropertyChangeListener(PropertyChangeListener aListener) {¶		propertyListenerSupport.addElement(aListener);¶	}¶¶}¶")]]]></diff>
+  </Command>
+  <Command __id="64" _type="ShellCommand" date="Sat Mar 20 19:24:09 EDT 2021" starttimestamp="1616281628846" timestamp="1020592" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="67" _type="EclipseCommand" commandID="" date="Sat Mar 20 19:24:19 EDT 2021" starttimestamp="1616281628846" timestamp="1030975" />
+  <Command __id="68" _type="EclipseCommand" commandID="" date="Sat Mar 20 19:24:19 EDT 2021" starttimestamp="1616281628846" timestamp="1030984" />
+  <Command __id="65" _type="DiffBasedFileOpenCommand" date="Sat Mar 20 19:24:18 EDT 2021" docASTNodeCount="353" docActiveCodeLength="2345" docExpressionCount="216" docLength="2345" projectName="TaskBox" starttimestamp="1616281628846" timestamp="1029540">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\TaskBox\src\components\plane\lines\XLine.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package components.plane.lines;
+
+import java.awt.Stroke;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import components.listenersupport.PropertyListenerSupport;
+import util.annotations.EditablePropertyNames;
+import util.annotations.PropertyNames;
+import util.annotations.StructurePattern;
+import util.annotations.StructurePatternNames;
+
+
+@StructurePattern(StructurePatternNames.LINE_PATTERN)
+@PropertyNames({"x", "y", "height", "width", "stroke"})
+@EditablePropertyNames({})
+public class XLine implements PlaneLineInterface{
+	
+	private int x, y, height, width;
+	private PropertyListenerSupport propertyListenerSupport = new PropertyListenerSupport();
+	private Stroke stroke;
+	
+	
+	public XLine(int newX, int newY, int newLength, Stroke newStroke) {
+		setX(newX);
+		setY(newY);
+		setHeight(0);
+		setWidth(newLength);
+		setStroke(newStroke);
+	}
+	
+	
+
+	@Override
+	public Stroke getStroke() {
+		return stroke;
+	}
+
+	@Override
+	public void setStroke(Stroke newStroke) {
+		Stroke oldStroke = stroke;
+		stroke = newStroke;
+		propertyListenerSupport.notifyAllListeners(new PropertyChangeEvent(this, "stroke", oldStroke, stroke));
+	}
+
+	@Override
+	public void addPropertyChangeListener(PropertyChangeListener aListener) {
+		propertyListenerSupport.addElement(aListener);
+	}
+
+	@Override
+	public int getX() {
+		return x;
+	}
+
+	@Override
+	public void setX(int newX) {
+		int oldX = x;
+		x = newX;
+		propertyListenerSupport.notifyAllListeners(new PropertyChangeEvent(this, "x", oldX, x));
+	}
+
+	@Override
+	public int getY() {
+		return y;
+	}
+
+	@Override
+	public void setY(int newY) {
+		int oldY = y;
+		y = newY;
+		propertyListenerSupport.notifyAllListeners(new PropertyChangeEvent(this, "y", oldY, y));
+	}
+
+	@Override
+	public int getWidth() {
+		return width;
+	}
+
+	@Override
+	public int getHeight() {
+		return height;
+	}
+
+	@Override
+	public void setWidth(int newWidth) {
+		int oldWidth = width;
+		width = newWidth;
+		propertyListenerSupport.notifyAllListeners(new PropertyChangeEvent(this, "width", oldWidth, width));
+	}
+
+	@Override
+	public void setHeight(int newHeight) {
+		int oldHeight = height;
+		height = newHeight;
+		propertyListenerSupport.notifyAllListeners(new PropertyChangeEvent(this, "height", oldHeight, height));
+	}
+
+}
+]]></snapshot>
+  </Command>
+  <Command __id="69" _type="MoveCaretCommand" caretOffset="879" date="Sat Mar 20 19:24:34 EDT 2021" docOffset="1201" starttimestamp="1616281628846" timestamp="1045345" />
+  <Command __id="71" _type="InsertStringCommand" date="Sat Mar 20 19:24:36 EDT 2021" starttimestamp="1616281628846" timestamp="1047669" timestamp2="1047669">
+    <data><![CDATA[]]></data>
+  </Command>
+  <Command __id="72" _type="MoveCaretCommand" caretOffset="894" date="Sat Mar 20 19:24:37 EDT 2021" docOffset="1216" starttimestamp="1616281628846" timestamp="1048818" />
+  <Command __id="74" _type="InsertStringCommand" date="Sat Mar 20 19:24:38 EDT 2021" starttimestamp="1616281628846" timestamp="1049587" timestamp2="1049587">
+    <data><![CDATA[]]></data>
+  </Command>
+  <Command __id="76" _type="PasteCommand" date="Sat Mar 20 19:24:38 EDT 2021" starttimestamp="1616281628846" timestamp="1049828" />
+  <Command __id="77" _type="MoveCaretCommand" caretOffset="1115" date="Sat Mar 20 19:24:39 EDT 2021" docOffset="1437" starttimestamp="1616281628846" timestamp="1050473" />
+  <Command __id="78" _type="ShellCommand" date="Sat Mar 20 19:24:41 EDT 2021" starttimestamp="1616281628846" timestamp="1052465" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="79" _type="ShellCommand" date="Sat Mar 20 19:24:41 EDT 2021" starttimestamp="1616281628846" timestamp="1052551" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="82" _type="ShellCommand" date="Sat Mar 20 19:24:43 EDT 2021" starttimestamp="1616281628846" timestamp="1054521" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="83" _type="ShellCommand" date="Sat Mar 20 19:24:43 EDT 2021" starttimestamp="1616281628846" timestamp="1054589" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="86" _type="MoveCaretCommand" caretOffset="1079" date="Sat Mar 20 19:24:43 EDT 2021" docOffset="1486" starttimestamp="1616281628846" timestamp="1054901" />
+  <Command __id="87" _type="EclipseCommand" commandID="org.eclipse.ui.file.save" date="Sat Mar 20 19:24:44 EDT 2021" starttimestamp="1616281628846" timestamp="1055199" />
+  <Command __id="88" _type="EclipseCommand" commandID="" date="Sat Mar 20 19:24:44 EDT 2021" starttimestamp="1616281628846" timestamp="1055345" />
+  <Command __id="89" _type="EclipseCommand" commandID="" date="Sat Mar 20 19:24:44 EDT 2021" starttimestamp="1616281628846" timestamp="1055378" />
+  <DocumentChange __id="70" _type="Insert" date="Sat Mar 20 19:24:36 EDT 2021" docASTNodeCount="353" docActiveCodeLength="2348" docExpressionCount="216" docLength="2348" length="3" offset="1201" starttimestamp="1616281628846" timestamp="1047654">
+    <text><![CDATA[
+	]]></text>
+  </DocumentChange>
+  <DocumentChange __id="73" _type="Insert" date="Sat Mar 20 19:24:38 EDT 2021" docASTNodeCount="353" docActiveCodeLength="2351" docExpressionCount="216" docLength="2351" length="3" offset="1216" starttimestamp="1616281628846" timestamp="1049579">
+    <text><![CDATA[
+	]]></text>
+  </DocumentChange>
+  <DocumentChange __id="75" _type="Replace" date="Sat Mar 20 19:24:38 EDT 2021" docASTNodeCount="358" docActiveCodeLength="2403" docExpressionCount="221" docLength="2403" endLine="46" insertionLength="53" int_docASTNodeCount="353" int_docActiveCodeLength="2350" int_docExpressionCount="216" int_docLength="2350" length="1" offset="1218" startLine="46" starttimestamp="1616281628846" timestamp="1049817">
+    <deletedText><![CDATA[	]]></deletedText>
+    <insertedText><![CDATA[	@ObserverRegisterer(ObserverTypes.PROPERTY_LISTENER)]]></insertedText>
+  </DocumentChange>
+  <DocumentChange __id="80" _type="Insert" date="Sat Mar 20 19:24:41 EDT 2021" docASTNodeCount="364" docActiveCodeLength="2448" docExpressionCount="226" docLength="2448" length="45" offset="249" repeat="2" starttimestamp="1616281628846" timestamp="1052577" timestamp2="1052578">
+    <text><![CDATA[
+import util.annotations.ObserverRegisterer;]]></text>
+  </DocumentChange>
+  <DocumentChange __id="84" _type="Insert" date="Sat Mar 20 19:24:43 EDT 2021" docASTNodeCount="370" docActiveCodeLength="2488" docExpressionCount="231" docLength="2488" length="40" offset="294" repeat="2" starttimestamp="1616281628846" timestamp="1054597" timestamp2="1054598">
+    <text><![CDATA[
+import util.annotations.ObserverTypes;]]></text>
+  </DocumentChange>
+  <Command __id="90" _type="SelectTextCommand" caretOffset="897" date="Sat Mar 20 19:24:46 EDT 2021" end="949" start="897" starttimestamp="1616281628846" timestamp="1057272" />
+  <Command __id="91" _type="CopyCommand" date="Sat Mar 20 19:24:46 EDT 2021" starttimestamp="1616281628846" timestamp="1057464" />
+  <Command __id="93" _type="MoveCaretCommand" caretOffset="0" date="Sat Mar 20 19:24:49 EDT 2021" docOffset="0" starttimestamp="1616281628846" timestamp="1060615" />
+  <Command __id="94" _type="MoveCaretCommand" caretOffset="669" date="Sat Mar 20 19:24:51 EDT 2021" docOffset="991" starttimestamp="1616281628846" timestamp="1062512" />
+  <Command __id="95" _type="MoveCaretCommand" caretOffset="891" date="Sat Mar 20 19:24:52 EDT 2021" docOffset="1213" starttimestamp="1616281628846" timestamp="1064067" />
+  <Command __id="97" _type="InsertStringCommand" date="Sat Mar 20 19:24:53 EDT 2021" starttimestamp="1616281628846" timestamp="1064600" timestamp2="1064600">
+    <data><![CDATA[]]></data>
+  </Command>
+  <Command __id="103" _type="PasteCommand" date="Sat Mar 20 19:24:53 EDT 2021" starttimestamp="1616281628846" timestamp="1064792" />
+  <Command __id="104" _type="MoveCaretCommand" caretOffset="795" date="Sat Mar 20 19:24:54 EDT 2021" docOffset="1202" starttimestamp="1616281628846" timestamp="1065366" />
+  <Command __id="92" _type="DiffBasedFileOpenCommand" date="Sat Mar 20 19:24:49 EDT 2021" docASTNodeCount="353" docActiveCodeLength="2345" docExpressionCount="216" docLength="2345" projectName="TaskBox" starttimestamp="1616281628846" timestamp="1060512">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\TaskBox\src\components\plane\lines\YLine.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package components.plane.lines;
+
+import java.awt.Stroke;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import components.listenersupport.PropertyListenerSupport;
+import util.annotations.EditablePropertyNames;
+import util.annotations.PropertyNames;
+import util.annotations.StructurePattern;
+import util.annotations.StructurePatternNames;
+
+
+@StructurePattern(StructurePatternNames.LINE_PATTERN)
+@PropertyNames({"x", "y", "height", "width", "stroke"})
+@EditablePropertyNames({})
+public class YLine implements PlaneLineInterface{
+	
+	private int x, y, height, width;
+	private PropertyListenerSupport propertyListenerSupport = new PropertyListenerSupport();
+	private Stroke stroke;
+	
+	
+	public YLine(int newX, int newY, int newLength, Stroke newStroke) {
+		setX(newX);
+		setY(newY);
+		setHeight(newLength);
+		setWidth(0);
+		setStroke(newStroke);
+	}
+	
+	
+
+	@Override
+	public Stroke getStroke() {
+		return stroke;
+	}
+
+	@Override
+	public void setStroke(Stroke newStroke) {
+		Stroke oldStroke = stroke;
+		stroke = newStroke;
+		propertyListenerSupport.notifyAllListeners(new PropertyChangeEvent(this, "stroke", oldStroke, stroke));
+	}
+
+	@Override
+	public void addPropertyChangeListener(PropertyChangeListener aListener) {
+		propertyListenerSupport.addElement(aListener);
+	}
+
+	@Override
+	public int getX() {
+		return x;
+	}
+
+	@Override
+	public void setX(int newX) {
+		int oldX = x;
+		x = newX;
+		propertyListenerSupport.notifyAllListeners(new PropertyChangeEvent(this, "x", oldX, x));
+	}
+
+	@Override
+	public int getY() {
+		return y;
+	}
+
+	@Override
+	public void setY(int newY) {
+		int oldY = y;
+		y = newY;
+		propertyListenerSupport.notifyAllListeners(new PropertyChangeEvent(this, "y", oldY, y));
+	}
+
+	@Override
+	public int getWidth() {
+		return width;
+	}
+
+	@Override
+	public int getHeight() {
+		return height;
+	}
+
+	@Override
+	public void setWidth(int newWidth) {
+		int oldWidth = width;
+		width = newWidth;
+		propertyListenerSupport.notifyAllListeners(new PropertyChangeEvent(this, "width", oldWidth, width));
+	}
+
+	@Override
+	public void setHeight(int newHeight) {
+		int oldHeight = height;
+		height = newHeight;
+		propertyListenerSupport.notifyAllListeners(new PropertyChangeEvent(this, "height", oldHeight, height));
+	}
+
+}
+]]></snapshot>
+  </Command>
+  <DocumentChange __id="96" _type="Insert" date="Sat Mar 20 19:24:53 EDT 2021" docASTNodeCount="353" docActiveCodeLength="2348" docExpressionCount="216" docLength="2348" length="3" offset="1213" starttimestamp="1616281628846" timestamp="1064583">
+    <text><![CDATA[
+	]]></text>
+  </DocumentChange>
+  <DocumentChange __id="98" _type="Replace" date="Sat Mar 20 19:24:53 EDT 2021" docASTNodeCount="358" docActiveCodeLength="2400" docExpressionCount="221" docLength="2400" endLine="45" insertionLength="53" int_docASTNodeCount="353" int_docActiveCodeLength="2347" int_docExpressionCount="216" int_docLength="2347" length="1" offset="1215" startLine="45" starttimestamp="1616281628846" timestamp="1064729">
+    <deletedText><![CDATA[	]]></deletedText>
+    <insertedText><![CDATA[	@ObserverRegisterer(ObserverTypes.PROPERTY_LISTENER)]]></insertedText>
+  </DocumentChange>
+  <DocumentChange __id="99" _type="Insert" date="Sat Mar 20 19:24:53 EDT 2021" docASTNodeCount="370" docActiveCodeLength="2485" docExpressionCount="231" docLength="2485" length="85" offset="249" repeat="4" starttimestamp="1616281628846" timestamp="1064752" timestamp2="1064755">
+    <text><![CDATA[
+import util.annotations.ObserverRegisterer;
+import util.annotations.ObserverTypes;]]></text>
+  </DocumentChange>
+  <Command __id="105" _type="EclipseCommand" commandID="org.eclipse.ui.file.save" date="Sat Mar 20 19:24:55 EDT 2021" starttimestamp="1616281628846" timestamp="1066470" />
+  <Command __id="106" _type="EclipseCommand" commandID="" date="Sat Mar 20 19:24:55 EDT 2021" starttimestamp="1616281628846" timestamp="1066566" />
+  <Command __id="107" _type="EclipseCommand" commandID="" date="Sat Mar 20 19:24:55 EDT 2021" starttimestamp="1616281628846" timestamp="1066594" />
+  <Command __id="109" _type="MoveCaretCommand" caretOffset="0" date="Sat Mar 20 19:25:02 EDT 2021" docOffset="0" starttimestamp="1616281628846" timestamp="1073937" />
+</Events>

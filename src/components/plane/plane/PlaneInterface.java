@@ -6,6 +6,7 @@ import components.plane.lines.PlaneLineTickInterface;
 import components.plane.lines.PlaneTickInterface;
 
 public interface PlaneInterface {
+	public static final int TICK_LENGTH = 5, X_LENGTH = 500, Y_LENGTH = 500, NAME_MARGIN = 25;
 	List<PlaneLineTickInterface> getXLines();
 	List<PlaneLineTickInterface> getYLines();
 	String getXName();
@@ -23,4 +24,18 @@ public interface PlaneInterface {
 	void setYMax(double newValue);
 	void setYMin(double newValue);
 	void adjustTick();
+	int getXTickNumber();
+	int getYTickNumber();
+	void setXTickNumber(int newXTickNumber);
+	void setYTickNumber(int newYTickNumber);
+	int getX();
+	int getY();
+	void setX(int newX);
+	void setY(int newY);
+	int getXStep();
+	int getYStep();
+	void setXStep(int newXStep);
+	void setYStep(int newYStep);
+	int getPrecision();
+	void setPrecision(int newPrecision);
 }

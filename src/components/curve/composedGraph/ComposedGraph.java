@@ -1,10 +1,9 @@
 package components.curve.composedGraph;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
+import components.curve.fitting.Plotter;
 import components.curve.line.CurveLine;
 import components.curve.point.CurvePoint;
 import components.observableshapes.ObservableLineInterface;
@@ -17,18 +16,19 @@ import util.annotations.PropertyNames;
 import util.annotations.StructurePattern;
 import util.annotations.StructurePatternNames;
 
-
 @StructurePattern(StructurePatternNames.BEAN_PATTERN)
-@PropertyNames({"points", "lines", "plane"})
-@EditablePropertyNames({"points", "plane"})
+@PropertyNames({"points", "lines", "plane", "fittingLines"})
+@EditablePropertyNames({"points"})
 public class ComposedGraph implements ComposedGraphInterface{
 	private int x, y;
 	private List<ObservablePointInterface> points = new ArrayList<ObservablePointInterface>();
 	private List<ObservableLineInterface> lines = new ArrayList<ObservableLineInterface>();
+	private List<ObservableLineInterface> fittingLines = new ArrayList<ObservableLineInterface>();
 	private ObservablePointInterface startPoint, prevPoint;
 	private PlaneInterface plane;
 	private List<Pair<ObservablePointInterface, ObservableLineInterface>> pairs = new ArrayList<Pair<ObservablePointInterface, ObservableLineInterface>> ();
 	public static final int RADIUS = 5;
+	private Plotter plotter = new Plotter(this);
 	
 	
 	public ComposedGraph(int newX, int newY) {
@@ -103,5 +103,25 @@ public class ComposedGraph implements ComposedGraphInterface{
 			}
 		}
 		points.remove(aPoint);
+	}
+
+	@Override
+	public void setLines(List<ObservableLineInterface> newLines) {
+		lines = newLines;
+	}
+
+	@Override
+	public void setPoints(List<ObservablePointInterface> newPoints) {
+		points = newPoints;
+	}
+
+	@Override
+	public void fit() {
+		plotter.plot();
+	}
+
+	@Override
+	public List<ObservableLineInterface> getFittingLines() {
+		return fittingLines;
 	}
 }

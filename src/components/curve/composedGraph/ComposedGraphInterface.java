@@ -7,21 +7,16 @@ import components.observableshapes.ObservablePointInterface;
 import components.plane.plane.PlaneInterface;
 
 public interface ComposedGraphInterface {
-
 	void deleteLine(ObservableLineInterface aLine);
-
 	void delelePoint(ObservablePointInterface aPoint);
-
 	void addLine(ObservablePointInterface aPoint);
-
 	void startPoint(ObservablePointInterface aPoint);
-
 	void addPoint();
-
 	PlaneInterface getPlane();
-
 	List<ObservableLineInterface> getLines();
-
+	void setLines(List<ObservableLineInterface> newLines);
 	List<ObservablePointInterface> getPoints();
-
+	void setPoints(List<ObservablePointInterface> newPoints);
+	void fit();
+	List<ObservableLineInterface> getFittingLines();
 }
