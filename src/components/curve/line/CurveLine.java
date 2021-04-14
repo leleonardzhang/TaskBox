@@ -1,6 +1,7 @@
 package components.curve.line;
 
 import java.awt.BasicStroke;
+import java.awt.Color;
 import java.awt.Stroke;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -13,19 +14,20 @@ import util.annotations.StructurePattern;
 import util.annotations.StructurePatternNames;
 
 @StructurePattern(StructurePatternNames.LINE_PATTERN)
-@PropertyNames({"x", "y", "width", "height", "stroke"})
-@EditablePropertyNames({})
+@PropertyNames({"x", "y", "width", "height", "stroke", "color"})
 public class CurveLine implements ObservableLineInterface{
 	
 	private PropertyListenerSupport propertyListenerSupport = new PropertyListenerSupport();
 	private int x, y, width, height;
-	private Stroke stroke = new BasicStroke(0.5f);
+	private Stroke stroke = new BasicStroke(1.0f);
+	private Color color;
 
-	public CurveLine(int newX, int newY, int newWidth, int newHeight) {
+	public CurveLine(int newX, int newY, int newWidth, int newHeight, Color newColor) {
 		setX(newX);
 		setY(newY);
 		setWidth(newWidth);
 		setHeight(newHeight);
+		setColor(newColor);
 	}
 	
 	@Override
@@ -94,6 +96,18 @@ public class CurveLine implements ObservableLineInterface{
 	@Override
 	public void addPropertyChangeListener(PropertyChangeListener aListener) {
 		propertyListenerSupport.addElement(aListener);
+	}
+
+	@Override
+	public Color getColor() {
+		return color;
+	}
+
+	@Override
+	public void setColor(Color newColor) {
+		Color oldColor = color;
+		color = newColor;
+		propertyListenerSupport.notifyAllListeners(new PropertyChangeEvent(this, "color", oldColor, color));
 	}
 
 }

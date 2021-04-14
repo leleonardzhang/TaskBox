@@ -1,0 +1,16 @@
+<Events startTimestamp="1617813491848" logVersion="1.0.0.202101171653">
+  <Command __id="1" _type="MoveCaretCommand" caretOffset="324" date="Wed Apr 07 12:38:11 EDT 2021" docOffset="354" starttimestamp="1617813491848" timestamp="150" />
+  <Command __id="2" _type="SelectTextCommand" caretOffset="410" date="Wed Apr 07 12:38:42 EDT 2021" end="410" start="254" starttimestamp="1617813491848" timestamp="30949" />
+  <Command __id="3" _type="MoveCaretCommand" caretOffset="478" date="Wed Apr 07 12:38:42 EDT 2021" docOffset="508" starttimestamp="1617813491848" timestamp="31127" />
+  <Command __id="4" _type="MoveCaretCommand" caretOffset="359" date="Wed Apr 07 12:38:43 EDT 2021" docOffset="389" starttimestamp="1617813491848" timestamp="31495" />
+  <Command __id="5" _type="SelectTextCommand" caretOffset="116" date="Wed Apr 07 12:38:44 EDT 2021" end="175" start="116" starttimestamp="1617813491848" timestamp="32592" />
+  <Command __id="7" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Wed Apr 07 12:38:45 EDT 2021" starttimestamp="1617813491848" timestamp="33297" />
+  <Command __id="9" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Wed Apr 07 12:38:45 EDT 2021" starttimestamp="1617813491848" timestamp="33424" />
+  <Command __id="10" _type="EclipseCommand" commandID="org.eclipse.ui.file.save" date="Wed Apr 07 12:38:46 EDT 2021" starttimestamp="1617813491848" timestamp="34406" />
+  <Command __id="11" _type="EclipseCommand" commandID="" date="Wed Apr 07 12:38:46 EDT 2021" starttimestamp="1617813491848" timestamp="34526" />
+  <Command __id="12" _type="EclipseCommand" commandID="" date="Wed Apr 07 12:38:46 EDT 2021" starttimestamp="1617813491848" timestamp="34684" />
+  <Command __id="13" _type="MoveCaretCommand" caretOffset="555" date="Wed Apr 07 12:39:39 EDT 2021" docOffset="585" starttimestamp="1617813491848" timestamp="87264" />
+  <Command __id="14" _type="ShellCommand" date="Wed Apr 07 13:02:21 EDT 2021" starttimestamp="1617813491848" timestamp="1449936" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="15" _type="ShellCommand" date="Wed Apr 07 13:07:25 EDT 2021" starttimestamp="1617813491848" timestamp="1753286" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="16" _type="ShellCommand" date="Wed Apr 07 13:07:25 EDT 2021" starttimestamp="1617813491848" timestamp="1753391" type="ECLIPSE_LOST_FOCUS" />
+</Events>

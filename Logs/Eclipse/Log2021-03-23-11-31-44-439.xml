@@ -1,0 +1,189 @@
+<Events startTimestamp="1616513504439" logVersion="1.0.0.202101171653">
+  <Command __id="1" _type="ShellCommand" date="Tue Mar 23 11:33:49 EDT 2021" starttimestamp="1616513504439" timestamp="125190" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="2" _type="DiffBasedFileOpenCommand" date="Tue Mar 23 11:33:56 EDT 2021" docASTNodeCount="118" docActiveCodeLength="689" docExpressionCount="85" docLength="689" projectName="TaskBox" starttimestamp="1616513504439" timestamp="132054">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\TaskBox\src\main\TaskPanel.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package main;
+
+import bus.uigen.OEFrame;
+import bus.uigen.ObjectEditor;
+import components.composedGraph.ComposedGraph;
+import components.composedGraph.ComposedGraphInterface;
+import components.curve.point.CurvePoint;
+import components.mainpanel.MainPanel;
+import components.mainpanel.MainPanelInterface;
+import components.page.pages.Page;
+
+public class TaskPanel {
+
+	public static void main(String[] args) {
+		MainPanelInterface panel = new MainPanel();
+		panel.addPage(new Page("Example task I", "", 0));
+		panel.addPage(new Page("Example task II", "", 1));
+		OEFrame frame = ObjectEditor.edit(panel);
+		frame.setSize(700, 1000);
+		frame.setLocation(0, 0);
+
+	}
+
+}
+]]></snapshot>
+  </Command>
+  <Command __id="3" _type="MoveCaretCommand" caretOffset="335" date="Tue Mar 23 11:33:56 EDT 2021" docOffset="640" starttimestamp="1616513504439" timestamp="132235" />
+  <Command __id="4" _type="MoveCaretCommand" caretOffset="343" date="Tue Mar 23 11:33:57 EDT 2021" docOffset="648" starttimestamp="1616513504439" timestamp="133041" />
+  <Command __id="5" _type="MoveCaretCommand" caretOffset="371" date="Tue Mar 23 11:33:57 EDT 2021" docOffset="676" starttimestamp="1616513504439" timestamp="133463" />
+  <DocumentChange __id="6" _type="Insert" date="Tue Mar 23 11:34:00 EDT 2021" docASTNodeCount="118" docActiveCodeLength="693" docExpressionCount="85" docLength="693" length="4" offset="676" starttimestamp="1616513504439" timestamp="136321">
+    <text><![CDATA[
+		]]></text>
+  </DocumentChange>
+  <Command __id="7" _type="InsertStringCommand" date="Tue Mar 23 11:34:00 EDT 2021" starttimestamp="1616513504439" timestamp="136327" timestamp2="136327">
+    <data><![CDATA[]]></data>
+  </Command>
+  <Command __id="9" _type="InsertStringCommand" date="Tue Mar 23 11:34:08 EDT 2021" starttimestamp="1616513504439" timestamp="144023" timestamp2="144023">
+    <data><![CDATA[E]]></data>
+  </Command>
+  <Command __id="11" _type="InsertStringCommand" date="Tue Mar 23 11:34:08 EDT 2021" starttimestamp="1616513504439" timestamp="144231" timestamp2="144231">
+    <data><![CDATA[x]]></data>
+  </Command>
+  <Command __id="13" _type="InsertStringCommand" date="Tue Mar 23 11:34:08 EDT 2021" starttimestamp="1616513504439" timestamp="144361" timestamp2="144361">
+    <data><![CDATA[p]]></data>
+  </Command>
+  <Command __id="15" _type="InsertStringCommand" date="Tue Mar 23 11:34:09 EDT 2021" starttimestamp="1616513504439" timestamp="144563" timestamp2="144563">
+    <data><![CDATA[o]]></data>
+  </Command>
+  <Command __id="17" _type="InsertStringCommand" date="Tue Mar 23 11:34:09 EDT 2021" starttimestamp="1616513504439" timestamp="144856" timestamp2="144856">
+    <data><![CDATA[r]]></data>
+  </Command>
+  <Command __id="19" _type="InsertStringCommand" date="Tue Mar 23 11:34:09 EDT 2021" starttimestamp="1616513504439" timestamp="145126" timestamp2="145126">
+    <data><![CDATA[t]]></data>
+  </Command>
+  <Command __id="21" _type="InsertStringCommand" date="Tue Mar 23 11:34:10 EDT 2021" starttimestamp="1616513504439" timestamp="145950" timestamp2="145950">
+    <data><![CDATA[e]]></data>
+  </Command>
+  <Command __id="23" _type="InsertStringCommand" date="Tue Mar 23 11:34:10 EDT 2021" starttimestamp="1616513504439" timestamp="146017" timestamp2="146017">
+    <data><![CDATA[r]]></data>
+  </Command>
+  <Command __id="25" _type="InsertStringCommand" date="Tue Mar 23 11:34:10 EDT 2021" starttimestamp="1616513504439" timestamp="146304" timestamp2="146304">
+    <data><![CDATA[.]]></data>
+  </Command>
+  <Command __id="26" _type="AssistCommand" assist_type="CONTENT_ASSIST" auto_activated="true" date="Tue Mar 23 11:34:12 EDT 2021" start_end="START" starttimestamp="1616513504439" timestamp="147631" />
+  <DocumentChange __id="8" _type="Insert" date="Tue Mar 23 11:34:08 EDT 2021" docASTNodeCount="120" docActiveCodeLength="702" docExpressionCount="86" docLength="702" length="9" offset="680" repeat="9" starttimestamp="1616513504439" timestamp="144020" timestamp2="146302">
+    <text><![CDATA[Exporter.]]></text>
+  </DocumentChange>
+  <DocumentChange __id="28" _type="Insert" date="Tue Mar 23 11:34:14 EDT 2021" docASTNodeCount="124" docActiveCodeLength="729" docExpressionCount="89" docLength="729" length="27" offset="347" repeat="2" starttimestamp="1616513504439" timestamp="150275" timestamp2="150277">
+    <text><![CDATA[
+import exporter.Exporter;]]></text>
+  </DocumentChange>
+  <DocumentChange __id="30" _type="Insert" date="Tue Mar 23 11:34:14 EDT 2021" docASTNodeCount="128" docActiveCodeLength="744" docExpressionCount="93" docLength="744" length="15" offset="716" starttimestamp="1616513504439" timestamp="150280">
+    <text><![CDATA[export(o, dir);]]></text>
+  </DocumentChange>
+  <DocumentChange __id="32" _type="Replace" date="Tue Mar 23 11:34:16 EDT 2021" docASTNodeCount="127" docActiveCodeLength="744" docExpressionCount="92" docLength="744" endLine="20" insertionLength="1" int_docASTNodeCount="127" int_docActiveCodeLength="743" int_docExpressionCount="92" int_docLength="743" length="1" offset="696" startLine="20" starttimestamp="1616513504439" timestamp="151900">
+    <deletedText><![CDATA[(]]></deletedText>
+    <insertedText><![CDATA[p]]></insertedText>
+  </DocumentChange>
+  <DocumentChange __id="34" _type="Insert" date="Tue Mar 23 11:34:16 EDT 2021" docASTNodeCount="127" docActiveCodeLength="748" docExpressionCount="92" docLength="748" length="4" offset="697" repeat="4" starttimestamp="1616513504439" timestamp="152023" timestamp2="152443">
+    <text><![CDATA[anel]]></text>
+  </DocumentChange>
+  <Command __id="27" _type="AssistCommand" assist_type="CONTENT_ASSIST" auto_activated="false" date="Tue Mar 23 11:34:14 EDT 2021" start_end="END" starttimestamp="1616513504439" timestamp="150245" />
+  <Command __id="31" _type="InsertStringCommand" date="Tue Mar 23 11:34:14 EDT 2021" starttimestamp="1616513504439" timestamp="150328" timestamp2="150328">
+    <data><![CDATA[]]></data>
+  </Command>
+  <Command __id="33" _type="InsertStringCommand" date="Tue Mar 23 11:34:16 EDT 2021" starttimestamp="1616513504439" timestamp="151907" timestamp2="151907">
+    <data><![CDATA[p]]></data>
+  </Command>
+  <Command __id="35" _type="InsertStringCommand" date="Tue Mar 23 11:34:16 EDT 2021" starttimestamp="1616513504439" timestamp="152025" timestamp2="152025">
+    <data><![CDATA[a]]></data>
+  </Command>
+  <Command __id="37" _type="InsertStringCommand" date="Tue Mar 23 11:34:16 EDT 2021" starttimestamp="1616513504439" timestamp="152256" timestamp2="152256">
+    <data><![CDATA[n]]></data>
+  </Command>
+  <Command __id="39" _type="InsertStringCommand" date="Tue Mar 23 11:34:16 EDT 2021" starttimestamp="1616513504439" timestamp="152341" timestamp2="152341">
+    <data><![CDATA[e]]></data>
+  </Command>
+  <Command __id="41" _type="InsertStringCommand" date="Tue Mar 23 11:34:16 EDT 2021" starttimestamp="1616513504439" timestamp="152445" timestamp2="152445">
+    <data><![CDATA[l]]></data>
+  </Command>
+  <Command __id="42" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.COLUMN_NEXT" date="Tue Mar 23 11:34:17 EDT 2021" starttimestamp="1616513504439" timestamp="153194" />
+  <Command __id="43" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.COLUMN_NEXT" date="Tue Mar 23 11:34:17 EDT 2021" starttimestamp="1616513504439" timestamp="153373" />
+  <Command __id="44" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.COLUMN_PREVIOUS" date="Tue Mar 23 11:34:18 EDT 2021" starttimestamp="1616513504439" timestamp="154177" />
+  <Command __id="47" _type="UndoCommand" date="Tue Mar 23 11:34:19 EDT 2021" starttimestamp="1616513504439" timestamp="155379" />
+  <Command __id="48" _type="MoveCaretCommand" caretOffset="392" date="Tue Mar 23 11:34:20 EDT 2021" docOffset="724" starttimestamp="1616513504439" timestamp="156505" />
+  <Command __id="50" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Mar 23 11:34:21 EDT 2021" starttimestamp="1616513504439" timestamp="157132" />
+  <Command __id="52" _type="InsertStringCommand" date="Tue Mar 23 11:34:21 EDT 2021" starttimestamp="1616513504439" timestamp="157526" timestamp2="157526">
+    <data><![CDATA[p]]></data>
+  </Command>
+  <Command __id="54" _type="InsertStringCommand" date="Tue Mar 23 11:34:22 EDT 2021" starttimestamp="1616513504439" timestamp="157639" timestamp2="157639">
+    <data><![CDATA[a]]></data>
+  </Command>
+  <Command __id="56" _type="InsertStringCommand" date="Tue Mar 23 11:34:22 EDT 2021" starttimestamp="1616513504439" timestamp="157810" timestamp2="157810">
+    <data><![CDATA[n]]></data>
+  </Command>
+  <Command __id="58" _type="InsertStringCommand" date="Tue Mar 23 11:34:22 EDT 2021" starttimestamp="1616513504439" timestamp="157927" timestamp2="157927">
+    <data><![CDATA[e]]></data>
+  </Command>
+  <Command __id="60" _type="InsertStringCommand" date="Tue Mar 23 11:34:22 EDT 2021" starttimestamp="1616513504439" timestamp="158243" timestamp2="158243">
+    <data><![CDATA[l]]></data>
+  </Command>
+  <Command __id="61" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.COLUMN_NEXT" date="Tue Mar 23 11:34:23 EDT 2021" starttimestamp="1616513504439" timestamp="159007" />
+  <Command __id="62" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.COLUMN_NEXT" date="Tue Mar 23 11:34:23 EDT 2021" starttimestamp="1616513504439" timestamp="159174" />
+  <Command __id="63" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.COLUMN_NEXT" date="Tue Mar 23 11:34:23 EDT 2021" starttimestamp="1616513504439" timestamp="159323" />
+  <Command __id="64" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.COLUMN_NEXT" date="Tue Mar 23 11:34:23 EDT 2021" starttimestamp="1616513504439" timestamp="159469" />
+  <Command __id="65" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.COLUMN_NEXT" date="Tue Mar 23 11:34:24 EDT 2021" starttimestamp="1616513504439" timestamp="159597" />
+  <Command __id="67" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Mar 23 11:34:24 EDT 2021" starttimestamp="1616513504439" timestamp="159919" />
+  <Command __id="69" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Mar 23 11:34:24 EDT 2021" starttimestamp="1616513504439" timestamp="160086" />
+  <Command __id="71" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Tue Mar 23 11:34:24 EDT 2021" starttimestamp="1616513504439" timestamp="160231" />
+  <Command __id="73" _type="InsertStringCommand" date="Tue Mar 23 11:34:25 EDT 2021" starttimestamp="1616513504439" timestamp="161051" timestamp2="161051">
+    <data><![CDATA["]]></data>
+  </Command>
+  <Command __id="74" _type="InsertStringCommand" date="Tue Mar 23 11:34:25 EDT 2021" starttimestamp="1616513504439" timestamp="161202" timestamp2="161202">
+    <data><![CDATA["]]></data>
+  </Command>
+  <Command __id="75" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.COLUMN_PREVIOUS" date="Tue Mar 23 11:34:26 EDT 2021" starttimestamp="1616513504439" timestamp="161680" />
+  <Command __id="77" _type="InsertStringCommand" date="Tue Mar 23 11:34:26 EDT 2021" starttimestamp="1616513504439" timestamp="162442" timestamp2="162442">
+    <data><![CDATA[e]]></data>
+  </Command>
+  <Command __id="79" _type="InsertStringCommand" date="Tue Mar 23 11:34:27 EDT 2021" starttimestamp="1616513504439" timestamp="162655" timestamp2="162655">
+    <data><![CDATA[x]]></data>
+  </Command>
+  <Command __id="81" _type="InsertStringCommand" date="Tue Mar 23 11:34:27 EDT 2021" starttimestamp="1616513504439" timestamp="162753" timestamp2="162753">
+    <data><![CDATA[a]]></data>
+  </Command>
+  <Command __id="83" _type="InsertStringCommand" date="Tue Mar 23 11:34:27 EDT 2021" starttimestamp="1616513504439" timestamp="162863" timestamp2="162863">
+    <data><![CDATA[m]]></data>
+  </Command>
+  <Command __id="85" _type="InsertStringCommand" date="Tue Mar 23 11:34:27 EDT 2021" starttimestamp="1616513504439" timestamp="163056" timestamp2="163056">
+    <data><![CDATA[p]]></data>
+  </Command>
+  <Command __id="87" _type="InsertStringCommand" date="Tue Mar 23 11:34:27 EDT 2021" starttimestamp="1616513504439" timestamp="163236" timestamp2="163236">
+    <data><![CDATA[l]]></data>
+  </Command>
+  <Command __id="114" _type="RunCommand" date="Tue Mar 23 11:34:32 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1616513504439" timestamp="168104" type="Run" />
+  <Command __id="115" _type="RunCommand" date="Tue Mar 23 11:34:32 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1616513504439" timestamp="168106" type="Run" />
+  <DocumentChange __id="45" _type="Delete" date="Tue Mar 23 11:34:19 EDT 2021" docASTNodeCount="127" docActiveCodeLength="744" docExpressionCount="92" docLength="744" endLine="20" length="4" offset="697" startLine="20" starttimestamp="1616513504439" timestamp="155364">
+    <text><![CDATA[anel]]></text>
+  </DocumentChange>
+  <DocumentChange __id="46" _type="Replace" date="Tue Mar 23 11:34:19 EDT 2021" docASTNodeCount="128" docActiveCodeLength="744" docExpressionCount="93" docLength="744" endLine="20" insertionLength="1" int_docASTNodeCount="127" int_docActiveCodeLength="743" int_docExpressionCount="92" int_docLength="743" length="1" offset="696" startLine="20" starttimestamp="1616513504439" timestamp="155365">
+    <deletedText><![CDATA[p]]></deletedText>
+    <insertedText><![CDATA[(]]></insertedText>
+  </DocumentChange>
+  <DocumentChange __id="49" _type="Delete" date="Tue Mar 23 11:34:21 EDT 2021" docASTNodeCount="127" docActiveCodeLength="743" docExpressionCount="92" docLength="743" endLine="21" length="1" offset="723" startLine="21" starttimestamp="1616513504439" timestamp="157130">
+    <text><![CDATA[o]]></text>
+  </DocumentChange>
+  <DocumentChange __id="51" _type="Insert" date="Tue Mar 23 11:34:21 EDT 2021" docASTNodeCount="128" docActiveCodeLength="748" docExpressionCount="93" docLength="748" length="5" offset="723" repeat="5" starttimestamp="1616513504439" timestamp="157524" timestamp2="158242">
+    <text><![CDATA[panel]]></text>
+  </DocumentChange>
+  <DocumentChange __id="66" _type="Delete" date="Tue Mar 23 11:34:24 EDT 2021" docASTNodeCount="128" docActiveCodeLength="745" docExpressionCount="93" docLength="745" endLine="21" length="3" offset="730" repeat="3" startLine="21" starttimestamp="1616513504439" timestamp="159917" timestamp2="160229">
+    <text><![CDATA[dir]]></text>
+  </DocumentChange>
+  <DocumentChange __id="72" _type="Insert" date="Tue Mar 23 11:34:25 EDT 2021" docASTNodeCount="128" docActiveCodeLength="760" docExpressionCount="93" docLength="760" length="15" offset="730" repeat="14" starttimestamp="1616513504439" timestamp="161048" timestamp2="164235">
+    <text><![CDATA["example.jsopn"]]></text>
+  </DocumentChange>
+  <DocumentChange __id="102" _type="Delete" date="Tue Mar 23 11:34:28 EDT 2021" docASTNodeCount="128" docActiveCodeLength="758" docExpressionCount="93" docLength="758" endLine="21" length="2" offset="742" repeat="2" startLine="21" starttimestamp="1616513504439" timestamp="164534" timestamp2="164693">
+    <text><![CDATA[pn]]></text>
+  </DocumentChange>
+  <DocumentChange __id="106" _type="Insert" date="Tue Mar 23 11:34:29 EDT 2021" docASTNodeCount="128" docActiveCodeLength="759" docExpressionCount="93" docLength="759" length="1" offset="742" starttimestamp="1616513504439" timestamp="165380">
+    <text><![CDATA[n]]></text>
+  </DocumentChange>
+  <Command __id="122" _type="RunCommand" date="Tue Mar 23 11:36:26 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1616513504439" timestamp="282034" type="Run" />
+  <Command __id="123" _type="RunCommand" date="Tue Mar 23 11:36:26 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1616513504439" timestamp="282035" type="Run" />
+</Events>

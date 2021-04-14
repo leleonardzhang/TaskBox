@@ -1,0 +1,50 @@
+<Events startTimestamp="1616546110743" logVersion="1.0.0.202101171653">
+  <Command __id="1" _type="ShellCommand" date="Tue Mar 23 20:35:41 EDT 2021" starttimestamp="1616546110743" timestamp="30739" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="4" _type="EclipseCommand" commandID="" date="Tue Mar 23 20:35:54 EDT 2021" starttimestamp="1616546110743" timestamp="43284" />
+  <DocumentChange __id="2888" _type="Insert" date="Tue Mar 23 20:50:23 EDT 2021" docASTNodeCount="139" docActiveCodeLength="898" docExpressionCount="90" docLength="966" length="20" offset="725" repeat="12" starttimestamp="1616546110743" timestamp="913212" timestamp2="915297">
+    <text><![CDATA[
+			
+			System.out]]></text>
+  </DocumentChange>
+  <DocumentChange __id="2911" _type="Replace" date="Tue Mar 23 20:50:26 EDT 2021" docASTNodeCount="135" docActiveCodeLength="899" docExpressionCount="87" docLength="967" endLine="24" insertionLength="4" int_docASTNodeCount="135" int_docActiveCodeLength="895" int_docExpressionCount="87" int_docLength="963" length="3" offset="742" startLine="24" starttimestamp="1616546110743" timestamp="915562">
+    <deletedText><![CDATA[out]]></deletedText>
+    <insertedText><![CDATA[out.]]></insertedText>
+  </DocumentChange>
+  <DocumentChange __id="2914" _type="Insert" date="Tue Mar 23 20:50:26 EDT 2021" docASTNodeCount="141" docActiveCodeLength="902" docExpressionCount="92" docLength="970" length="3" offset="746" repeat="3" starttimestamp="1616546110743" timestamp="915865" timestamp2="916110">
+    <text><![CDATA[pro]]></text>
+  </DocumentChange>
+  <DocumentChange __id="2918" _type="Delete" date="Tue Mar 23 20:50:27 EDT 2021" docASTNodeCount="141" docActiveCodeLength="901" docExpressionCount="92" docLength="969" endLine="24" length="1" offset="748" startLine="24" starttimestamp="1616546110743" timestamp="916568">
+    <text><![CDATA[o]]></text>
+  </DocumentChange>
+  <DocumentChange __id="2920" _type="Insert" date="Tue Mar 23 20:50:27 EDT 2021" docASTNodeCount="142" docActiveCodeLength="925" docExpressionCount="93" docLength="993" length="24" offset="748" repeat="15" starttimestamp="1616546110743" timestamp="917055" timestamp2="922185">
+    <text><![CDATA[intln(proxy1);
+			
+			]]></text>
+  </DocumentChange>
+  <Command __id="2966" _type="ExceptionCommand" date="Tue Mar 23 20:50:43 EDT 2021" starttimestamp="1616546110743" timestamp="932976" type="Exception">
+    <exceptionString><![CDATA[java.rmi.ConnectException: Connection refused to host: 192.168.86.100; nested exception is: 
+	java.net.ConnectException: Connection refused: connect
+	at java.rmi/sun.rmi.transport.tcp.TCPEndpoint.newSocket(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPChannel.createConnection(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPChannel.newConnection(Unknown Source)
+	at java.rmi/sun.rmi.server.UnicastRef.newCall(Unknown Source)
+	at java.rmi/sun.rmi.registry.RegistryImpl_Stub.rebind(Unknown Source)
+	at test.Main.main(Main.java:20)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.base/java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.base/java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
+	at java.base/java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
+	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
+	at java.base/java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.base/java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.base/java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.base/java.net.Socket.connect(Unknown Source)
+	at java.base/java.net.Socket.connect(Unknown Source)
+	at java.base/java.net.Socket.<init>(Unknown Source)
+	at java.base/java.net.Socket.<init>(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPDirectSocketFactory.createSocket(Unknown Source)
+	... 6 more
+]]></exceptionString>
+    <language><![CDATA[java]]></language>
+  </Command>
+</Events>

@@ -4,9 +4,14 @@ import java.beans.PropertyChangeEvent;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JButton;
+
+import components.composedGraph.ComposedGraph;
+import components.composedGraph.ComposedGraphInterface;
 import components.page.pages.PageInterface;
 import exporter.Exporter;
 import util.annotations.Column;
+import util.annotations.ComponentHeight;
+import util.annotations.ComponentWidth;
 import util.annotations.EditablePropertyNames;
 import util.annotations.Label;
 import util.annotations.PreferredWidgetClass;
@@ -42,10 +47,11 @@ public class MainPanel implements MainPanelInterface{
 	
 	@PreferredWidgetClass(JButton.class)
 	@Label(">")
-	@Row(2)
-	@Column(1)
+	@Column(2)
+	@Row(0)
 	@Override
 	public void nextPage() {
+		if (pages.size() == 0) return;
 		if (currentPageIndex == pages.size() - 1) {
 			setCurrentPageIndex(0);
 		}
@@ -56,10 +62,11 @@ public class MainPanel implements MainPanelInterface{
 
 	@PreferredWidgetClass(JButton.class)
 	@Label("<")
-	@Row(2)
 	@Column(0)
+	@Row(0)
 	@Override
 	public void prevPage() {
+		if (pages.size() == 0) return;
 		if (currentPageIndex == 0) {
 			setCurrentPageIndex(pages.size() - 1);
 		}
@@ -80,7 +87,8 @@ public class MainPanel implements MainPanelInterface{
 	}
 
 	@Override
-	@Row(0)
+	@Column(1)
+	@ComponentWidth(200)
 	public PageInterface getCurrentPage() {
 		return currentPage;
 	}
@@ -104,7 +112,7 @@ public class MainPanel implements MainPanelInterface{
 
 	@Override
 	public void propertyChange(PropertyChangeEvent evt) {
-		Exporter.export(this, "src/data/mainpanel.json");
+		
 	}
 
 }

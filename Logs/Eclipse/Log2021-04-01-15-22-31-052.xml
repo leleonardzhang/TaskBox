@@ -1,0 +1,108 @@
+<Events startTimestamp="1617304951052" logVersion="1.0.0.202101171653">
+  <Command __id="1" _type="MoveCaretCommand" caretOffset="265" date="Thu Apr 01 15:22:31 EDT 2021" docOffset="265" starttimestamp="1617304951052" timestamp="141" />
+  <Command __id="2" _type="MoveCaretCommand" caretOffset="315" date="Thu Apr 01 15:22:32 EDT 2021" docOffset="315" starttimestamp="1617304951052" timestamp="1332" />
+  <Command __id="3" _type="MoveCaretCommand" caretOffset="203" date="Thu Apr 01 15:22:32 EDT 2021" docOffset="203" starttimestamp="1617304951052" timestamp="1636" />
+  <Command __id="4" _type="MoveCaretCommand" caretOffset="210" date="Thu Apr 01 15:22:33 EDT 2021" docOffset="210" starttimestamp="1617304951052" timestamp="1958" />
+  <Command __id="5" _type="MoveCaretCommand" caretOffset="411" date="Thu Apr 01 15:22:39 EDT 2021" docOffset="411" starttimestamp="1617304951052" timestamp="8133" />
+  <Command __id="6" _type="SelectTextCommand" caretOffset="210" date="Thu Apr 01 15:22:39 EDT 2021" end="411" start="210" starttimestamp="1617304951052" timestamp="8825" />
+  <Command __id="7" _type="MoveCaretCommand" caretOffset="210" date="Thu Apr 01 15:22:40 EDT 2021" docOffset="210" starttimestamp="1617304951052" timestamp="9050" />
+  <Command __id="8" _type="SelectTextCommand" caretOffset="246" date="Thu Apr 01 15:22:40 EDT 2021" end="246" start="196" starttimestamp="1617304951052" timestamp="9502" />
+  <Command __id="9" _type="MoveCaretCommand" caretOffset="247" date="Thu Apr 01 15:22:40 EDT 2021" docOffset="247" starttimestamp="1617304951052" timestamp="9685" />
+  <Command __id="10" _type="SelectTextCommand" caretOffset="194" date="Thu Apr 01 15:22:42 EDT 2021" end="208" start="194" starttimestamp="1617304951052" timestamp="11153" />
+  <Command __id="11" _type="MoveCaretCommand" caretOffset="194" date="Thu Apr 01 15:22:42 EDT 2021" docOffset="194" starttimestamp="1617304951052" timestamp="11352" />
+  <Command __id="12" _type="ShellCommand" date="Thu Apr 01 15:22:58 EDT 2021" starttimestamp="1617304951052" timestamp="27803" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="13" _type="ShellCommand" date="Thu Apr 01 15:23:59 EDT 2021" starttimestamp="1617304951052" timestamp="88052" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="14" _type="ShellCommand" date="Thu Apr 01 15:24:01 EDT 2021" starttimestamp="1617304951052" timestamp="90231" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="15" _type="ShellCommand" date="Thu Apr 01 18:12:27 EDT 2021" starttimestamp="1617304951052" timestamp="10196021" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="16" _type="MoveCaretCommand" caretOffset="195" date="Thu Apr 01 18:12:27 EDT 2021" docOffset="195" starttimestamp="1617304951052" timestamp="10196099" />
+  <Command __id="17" _type="SelectTextCommand" caretOffset="208" date="Thu Apr 01 18:12:28 EDT 2021" end="208" start="194" starttimestamp="1617304951052" timestamp="10197605" />
+  <Command __id="18" _type="MoveCaretCommand" caretOffset="208" date="Thu Apr 01 18:12:28 EDT 2021" docOffset="208" starttimestamp="1617304951052" timestamp="10197775" />
+  <Command __id="19" _type="SelectTextCommand" caretOffset="194" date="Thu Apr 01 18:12:30 EDT 2021" end="208" start="194" starttimestamp="1617304951052" timestamp="10199361" />
+  <Command __id="20" _type="MoveCaretCommand" caretOffset="200" date="Thu Apr 01 18:12:30 EDT 2021" docOffset="200" starttimestamp="1617304951052" timestamp="10199659" />
+  <Command __id="21" _type="MoveCaretCommand" caretOffset="203" date="Thu Apr 01 18:12:31 EDT 2021" docOffset="203" starttimestamp="1617304951052" timestamp="10200185" />
+  <Command __id="22" _type="MoveCaretCommand" caretOffset="205" date="Thu Apr 01 18:12:31 EDT 2021" docOffset="205" starttimestamp="1617304951052" timestamp="10200561" />
+  <Command __id="24" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Thu Apr 01 18:12:32 EDT 2021" starttimestamp="1617304951052" timestamp="10201317" />
+  <Command __id="25" _type="EclipseCommand" commandID="org.eclipse.ui.file.save" date="Thu Apr 01 18:12:33 EDT 2021" starttimestamp="1617304951052" timestamp="10202770" />
+  <Command __id="26" _type="EclipseCommand" commandID="" date="Thu Apr 01 18:12:33 EDT 2021" starttimestamp="1617304951052" timestamp="10202933" />
+  <Command __id="27" _type="EclipseCommand" commandID="" date="Thu Apr 01 18:12:34 EDT 2021" starttimestamp="1617304951052" timestamp="10203099" />
+  <Command __id="28" _type="RunCommand" date="Thu Apr 01 18:12:34 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1617304951052" timestamp="10203940" type="Run" />
+  <Command __id="29" _type="RunCommand" date="Thu Apr 01 18:12:34 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1617304951052" timestamp="10203940" type="Run" />
+  <Command __id="30" _type="RunCommand" date="Thu Apr 01 18:12:35 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1617304951052" timestamp="10204020" type="Run" />
+  <Command __id="31" _type="RunCommand" date="Thu Apr 01 18:12:35 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1617304951052" timestamp="10204020" type="Run" />
+  <Command __id="32" _type="ConsoleOutput" date="Thu Apr 01 18:12:35 EDT 2021" overflow="false" starttimestamp="1617304951052" timestamp="10204125" type="ConsoleOutput">
+    <outputString><![CDATA[Testing Expression [m, a, x, (, 1, ,, 2, ,, 3, ,, ,, 5, )]
+Testing add-sub Expression [m, a, x, (, 1, ,, 2, ,, 3, ,, ,, 5, )]
+Testing multi div Expression [m, a, x, (, 1, ,, 2, ,, 3, ,, ,, 5, )]
+Testing function Expression [m, a, x, (, 1, ,, 2, ,, 3, ,, ,, 5, )]
+Testing Expression [1, ,, 2, ,, 3, ,, ,, 5]
+Testing add-sub Expression [1, ,, 2, ,, 3, ,, ,, 5]
+Testing multi div Expression [1, ,, 2, ,, 3, ,, ,, 5]
+Testing function Expression [1, ,, 2, ,, 3, ,, ,, 5]
+Testing parenthesis Expression [1, ,, 2, ,, 3, ,, ,, 5]
+Parenthesis Expression [,, 2, ,, 3, ,, ,]
+Testing Expression [1]
+Testing Expression [2, ,, 3, ,, ,, 5]
+Testing add-sub Expression [2, ,, 3, ,, ,, 5]
+Testing multi div Expression [2, ,, 3, ,, ,, 5]
+Testing function Expression [2, ,, 3, ,, ,, 5]
+Testing parenthesis Expression [2, ,, 3, ,, ,, 5]
+Parenthesis Expression [,, 3, ,, ,]
+Testing Expression [2]
+Testing Expression [3, ,, ,, 5]
+Testing add-sub Expression [3, ,, ,, 5]
+Testing multi div Expression [3, ,, ,, 5]
+Testing function Expression [3, ,, ,, 5]
+Testing parenthesis Expression [3, ,, ,, 5]
+Parenthesis Expression [,, ,]
+Testing Expression [3]
+Testing Expression [,, 5]
+Testing add-sub Expression [,, 5]
+Testing multi div Expression [,, 5]
+Testing function Expression [,, 5]
+Testing parenthesis Expression [,, 5]
+Parenthesis Expression []
+Testing Expression []
+Testing Expression [3, ,]
+Testing add-sub Expression [3, ,]
+Testing multi div Expression [3, ,]
+Testing function Expression [3, ,]
+Testing parenthesis Expression [3, ,]
+Parenthesis Expression []
+Testing Expression [2, ,, 3]
+Testing add-sub Expression [2, ,, 3]
+Testing multi div Expression [2, ,, 3]
+Testing function Expression [2, ,, 3]
+Testing parenthesis Expression [2, ,, 3]
+Parenthesis Expression [,]
+Testing Expression [2, ,, 3, ,]
+Testing add-sub Expression [2, ,, 3, ,]
+Testing multi div Expression [2, ,, 3, ,]
+Testing function Expression [2, ,, 3, ,]
+Testing parenthesis Expression [2, ,, 3, ,]
+Parenthesis Expression [,, 3]
+Testing Expression [1, ,, 2]
+Testing add-sub Expression [1, ,, 2]
+Testing multi div Expression [1, ,, 2]
+Testing function Expression [1, ,, 2]
+Testing parenthesis Expression [1, ,, 2]
+Parenthesis Expression [,]
+Testing Expression [1, ,, 2, ,, 3]
+Testing add-sub Expression [1, ,, 2, ,, 3]
+Testing multi div Expression [1, ,, 2, ,, 3]
+Testing function Expression [1, ,, 2, ,, 3]
+Testing parenthesis Expression [1, ,, 2, ,, 3]
+Parenthesis Expression [,, 2, ,]
+Testing Expression [1, ,, 2, ,, 3, ,]
+Testing add-sub Expression [1, ,, 2, ,, 3, ,]
+Testing multi div Expression [1, ,, 2, ,, 3, ,]
+Testing function Expression [1, ,, 2, ,, 3, ,]
+Testing parenthesis Expression [1, ,, 2, ,, 3, ,]
+Parenthesis Expression [,, 2, ,, 3]
+Testing parenthesis Expression [m, a, x, (, 1, ,, 2, ,, 3, ,, ,, 5, )]
+Parenthesis Expression [a, x, (, 1, ,, 2, ,, 3, ,, ,, 5]
+false
+]]></outputString>
+    <diff><![CDATA[null]]></diff>
+  </Command>
+  <Command __id="33" _type="ShellCommand" date="Thu Apr 01 18:12:43 EDT 2021" starttimestamp="1617304951052" timestamp="10212354" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="34" _type="ShellCommand" date="Thu Apr 01 18:13:32 EDT 2021" starttimestamp="1617304951052" timestamp="10261389" type="ECLIPSE_GAINED_FOCUS" />

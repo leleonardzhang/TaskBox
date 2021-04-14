@@ -1,0 +1,468 @@
+<Events startTimestamp="1617638093094" logVersion="1.0.0.202101171653">
+  <Command __id="1" _type="MoveCaretCommand" caretOffset="739" date="Mon Apr 05 11:54:53 EDT 2021" docOffset="765" starttimestamp="1617638093094" timestamp="264" />
+  <Command __id="0" _type="DiffBasedFileOpenCommand" date="Mon Apr 05 11:54:53 EDT 2021" docASTNodeCount="1361" docActiveCodeLength="7481" docExpressionCount="885" docLength="7481" projectName="TaskBox" starttimestamp="1617638093094" timestamp="76">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\TaskBox\src\parser\JavaExpressionParser.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package parser;
+
+import java.util.Arrays;
+import java.util.Vector;
+
+
+public class JavaExpressionParser {
+	public static final char COMMA = ',', PLUS = '+', MINUS = '-', TIMES = '*', DIVIDES = '/', CARET = '^', EQUALS = '=', LP = '(', RP = ')';
+	public enum FunctionName{
+		SQRT ("sqrt"),
+		POW ("pow"),
+		EXP ("exp"),
+		LOG ("log"),
+		SIN ("sin"),
+		COS ("cos"),
+		TAN ("tan"),
+		MIN ("min"),
+		MAX ("max");
+		public String name;
+		FunctionName(String newName){
+			name = newName;
+		}
+	}
+	
+	
+	public JavaExpressionParser(){
+		
+	}
+	
+	public Vector<Character> trim(Vector<Character> aVector){
+		Vector<Character> newVector = new Vector<Character> ();
+		for (Character c : aVector) {
+			if (c != ' ') {
+				newVector.add(c);
+			}
+		}
+		return newVector;
+	}
+	
+	public boolean isExpression(Vector<Character> aVector) {
+		System.out.println("Testing Expression " + aVector);
+		if (aVector.size() == 0) return false;
+		return isAtomicExpression(aVector) || isAddSubExpression(aVector) || isMultiDivExpression(aVector) || isExpExpression(aVector) || isFunctionExpression(aVector) || isParenthesisExpression(aVector);
+	}
+	public boolean isAddSubExpression(Vector<Character> aVector) {
+		System.out.println("Testing add-sub Expression " + aVector);
+		if (aVector.size() == 0) return false;
+		int pt = 0;
+		while (pt < aVector.size() && 
+				(!isAddOrSub(aVector.get(pt)) || !isExpression(truncate(aVector, 0, pt)) || !isExpression(truncate(aVector, pt + 1, aVector.size())))) {
+			pt ++;
+		}
+		if (pt == aVector.size()) return false;
+		return true;
+	}
+	public boolean isMultiDivExpression(Vector<Character> aVector) {
+		System.out.println("Testing multi div Expression " + aVector);
+		if (aVector.size() == 0) return false;
+		int pt = 0;
+		while (pt < aVector.size() && 
+				(!isMultiOrDiv(aVector.get(pt)) || !isExpression(truncate(aVector, 0, pt)) || !isExpression(truncate(aVector, pt + 1, aVector.size())))) {
+			pt ++;
+		}
+		if (pt == aVector.size()) return false;
+		return true;
+	}
+	public boolean isExpExpression(Vector<Character> aVector) {
+		if (aVector.size() == 0) return false;
+		int pt = 0;
+		while (pt < aVector.size() && 
+				(!isCaret(aVector.get(pt)) || !isExpression(truncate(aVector, 0, pt)) || !isExpression(truncate(aVector, pt + 1, aVector.size())))) {
+			pt ++;
+		}
+		if (pt == aVector.size()) return false;
+		return true;
+	}
+	public boolean isFunctionExpression(Vector<Character> aVector) {
+		System.out.println("Testing function Expression " + aVector);
+		if (aVector.size() == 0) return false;
+		int pt = 0;
+		while (!isFunctionName(truncate(aVector, 0, pt)) && pt < aVector.size()) {
+			pt ++;
+		}
+		if (aVector.size() == pt) return false;
+		return isFunctionParameters(truncate(aVector, pt, aVector.size()));
+	}
+	public boolean isFunctionParameters(Vector<Character> aVector) {
+		return isLeftParenthesis(aVector.get(0)) && isRightParenthesis(aVector.get(aVector.size()-1)) && isParameters(truncateBoth(aVector));
+	}
+	public boolean isParameters(Vector<Character> aVector) {
+		if (aVector.size() == 0) return false;
+		if (isExpression(aVector)) return true;
+		int pt = 0;
+		while (pt < aVector.size() && 
+				(!isComma(aVector.get(pt)) || !isExpression(truncate(aVector, 0, pt)) || !isParameters(truncate(aVector, pt + 1, aVector.size())))) {
+			pt ++;
+		}
+		if (pt == aVector.size()) return false;
+		return true;
+	}
+	public boolean isParenthesisExpression(Vector<Character> aVector) {
+		System.out.println("Testing parenthesis Expression " + aVector);
+		if (aVector.size() == 0) return false;
+		System.out.println("Parenthesis Expression " + truncateBoth(aVector));
+		return isLeftParenthesis(aVector.get(0)) && isRightParenthesis(aVector.get(aVector.size() - 1)) && isExpression(truncateBoth(aVector));
+	}
+	public boolean isFunctionName(Vector<Character> aVector) {
+		for (FunctionName functionName : FunctionName.values()) {
+			if (compare(aVector, functionName.name)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	public boolean isAtomicExpression(Vector<Character> aVector) {
+		return isNumber(aVector) || isVariable(aVector);
+	}
+	public boolean isNumber(Vector<Character> aVector) {
+		return isUnsignedNumber(aVector) || (isSign(aVector.get(0)) && isUnsignedNumber(truncateLeft(aVector)));
+	}
+	public boolean isUnsignedNumber(Vector<Character> aVector) {
+		if (aVector.size() == 1) {
+			return isDigit(aVector.get(0));
+		}
+		return isNonZeroDigit(aVector.get(0)) && isDigitString(truncateLeft(aVector));
+	}
+	public boolean isVariable(Vector<Character> aVector) {
+		if (aVector.size() == 1) {
+			return isUnsignedVariable(aVector);
+		}
+		return isUnsignedVariable(aVector) || (isSign(aVector.get(0)) && isUnsignedVariable(truncateLeft(aVector)));
+	}
+	public boolean isUnsignedVariable(Vector<Character> aVector) {
+		if (aVector.size() == 1) {
+			return isLetter(aVector.get(0));
+		}
+		return isLetter(aVector.get(0)) && isLetterDigitString(truncateLeft(aVector));
+	}
+	public boolean isDigitString(Vector<Character> aVector) {
+		if (aVector.size() == 1) {
+			return isDigit(aVector.get(0));
+		}
+		return isDigit(aVector.get(0)) && isDigitString(truncateLeft(aVector));
+	}
+	public boolean isLetterDigitString(Vector<Character> aVector) {
+		if (aVector.size() == 1) {
+			return isLetterOrDigit(aVector.get(0));
+		}
+		return isLetterOrDigit(aVector.get(0)) && isLetterDigitString(truncateLeft(aVector));
+	}
+	public boolean isLetterOrDigit(char aChar) {
+		return isLetter(aChar) || isDigit(aChar);
+	}
+	public boolean isSign(char aChar) {
+		return aChar == PLUS || aChar == MINUS; 
+	}
+	public boolean isNonZeroDigit(char aChar) {
+		return aChar <= '9' && aChar >= '1';
+	}
+	public boolean isDigit(char aChar) {
+		return Character.isDigit(aChar);
+	}
+	public boolean isLetter(char aChar) {
+		return Character.isLetter(aChar);
+	}
+	public boolean isComma(char aChar) {
+		return aChar == COMMA;
+	}
+	public boolean isRightParenthesis(char aChar) {
+		return aChar == RP;
+	}
+	public boolean isLeftParenthesis(char aChar) {
+		return aChar == LP;
+	}
+	public boolean isAddOrSub(char aChar) {
+		return aChar == PLUS || aChar == MINUS;
+	}
+	public boolean isMultiOrDiv(char aChar) {
+		return aChar == TIMES || aChar == DIVIDES;
+	}
+	public boolean isCaret(char aChar) {
+		return CARET == aChar;
+	}
+	public Vector<Character> truncate(Vector<Character> aVector, int start, int end){
+		Vector<Character> newVector = new Vector<Character>();
+		for (int i = start; i < end; i ++) {
+			newVector.add(aVector.get(i));
+		}
+		return newVector;
+	}
+	public Vector<Character> truncateLeft(Vector<Character> aVector){
+		return truncate(aVector, 1, aVector.size());
+	}
+	public Vector<Character> truncateRight(Vector<Character> aVector){
+		return truncate(aVector, 0, aVector.size()-1);
+	}
+	public Vector<Character> truncateBoth(Vector<Character> aVector){
+		return truncate(aVector, 1, aVector.size()-1);
+	}
+	public int find(Vector<Character> aVector, char aChar, int start) {
+		for (int i = start; i < aVector.size(); i ++) {
+			if (aVector.get(i) == aChar) {
+				return i;
+			}
+		}
+		return -1;
+	}
+	public boolean compare(Vector<Character> aVector, String aString) {
+		if (aVector.size() != aString.length()) {
+			return false;
+		}
+		for (int i = 0; i < aVector.size(); i ++) {
+			if (aVector.get(i) != aString.charAt(i)) {
+				return false;
+			}
+		}
+		return true;
+	}
+}
+]]></snapshot>
+  </Command>
+  <Command __id="2" _type="MoveCaretCommand" caretOffset="318" date="Mon Apr 05 11:56:43 EDT 2021" docOffset="344" starttimestamp="1617638093094" timestamp="110538" />
+  <Command __id="3" _type="DiffBasedFileOpenCommand" date="Mon Apr 05 11:56:46 EDT 2021" docASTNodeCount="236" docActiveCodeLength="1592" docExpressionCount="154" docLength="1592" projectName="TaskBox" starttimestamp="1617638093094" timestamp="113820">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\TaskBox\src\main\MathMain.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package main;
+
+import java.util.Vector;
+import javax.swing.text.JTextComponent;
+import bus.uigen.OEFrame;
+import bus.uigen.ObjectEditor;
+import bus.uigen.uiFrame;
+import bus.uigen.attributes.AttributeNames;
+import bus.uigen.oadapters.ClassAdapter;
+import bus.uigen.oadapters.ObjectAdapter;
+import components.caret.MathPanelCaretListener;
+import components.mathEditor.MathEditorPanel;
+
+public class MathMain {
+	public static MathEditorPanel panel;
+	public static OEFrame frame;
+	
+	public static void main(String[] args) {
+		panel = new MathEditorPanel();
+		frame = ObjectEditor.edit(panel);
+		
+		setCaretPositionListener();
+		setButtonImage();
+	
+	}
+	
+	public static void setButtonImage() {
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "DotProduct", AttributeNames.ICON, "image/dot.png");
+	}
+	
+	public static void setCaretPositionListener() {
+		uiFrame aUIFrame = (uiFrame) frame;
+		ClassAdapter adapter = (ClassAdapter) aUIFrame.getTopAdapter();
+		Vector<ObjectAdapter> children = adapter.getChildrenVector();
+		
+		ObjectAdapter observableAdapter = null;
+		
+		for (ObjectAdapter child : children) {
+			if (child.getComponentName().equals("mathExpression")) {
+				observableAdapter = child;
+				break;
+			}
+		}
+		
+		MathPanelCaretListener listener = new MathPanelCaretListener(panel);
+		
+		if (observableAdapter != null && (observableAdapter.getUIComponent().getPhysicalComponent()) instanceof JTextComponent) {
+			((JTextComponent) observableAdapter.getUIComponent().getPhysicalComponent()).addCaretListener(listener);
+		}
+	}
+
+}
+]]></snapshot>
+  </Command>
+  <Command __id="4" _type="MoveCaretCommand" caretOffset="15" date="Mon Apr 05 11:56:46 EDT 2021" docOffset="15" starttimestamp="1617638093094" timestamp="113885" />
+  <Command __id="5" _type="DiffBasedFileOpenCommand" date="Mon Apr 05 11:56:47 EDT 2021" docASTNodeCount="1361" docActiveCodeLength="7481" docExpressionCount="885" docLength="7481" projectName="TaskBox" starttimestamp="1617638093094" timestamp="114487">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\TaskBox\src\parser\JavaExpressionParser.java]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"package parser;¶¶import java.util.Arrays;¶import java.util.Vector;¶¶¶public class JavaExpressionParser {¶	public static final char COMMA = ',', PLUS = '+', MINUS = '-', TIMES = '*', DIVIDES = '/', CARET = '^', EQUALS = '=', LP = '(', RP = ')';¶	public enum FunctionName{¶		SQRT ("sqrt"),¶		POW ("pow"),¶		EXP ("exp"),¶		LOG ("log"),¶		SIN ("sin"),¶		COS ("cos"),¶		TAN ("tan"),¶		MIN ("min"),¶		MAX ("max");¶		public String name;¶		FunctionName(String newName){¶			name = newName;¶		}¶	}¶	¶	¶	public JavaExpressionParser(){¶		¶	}¶	¶	public Vector<Character> trim(Vector<Character> aVector){¶		Vector<Character> newVector = new Vector<Character> ();¶		for (Character c : aVector) {¶			if (c != ' ') {¶				newVector.add(c);¶			}¶		}¶		return newVector;¶	}¶	¶	public boolean isExpression(Vector<Character> aVector) {¶		System.out.println("Testing Expression " + aVector);¶		if (aVector.size() == 0) return false;¶		return isAtomicExpression(aVector) || isAddSubExpression(aVector) || isMultiDivExpression(aVector) || isExpExpression(aVector) || isFunctionExpression(aVector) || isParenthesisExpression(aVector);¶	}¶	public boolean isAddSubExpression(Vector<Character> aVector) {¶		System.out.println("Testing add-sub Expression " + aVector);¶		if (aVector.size() == 0) return false;¶		int pt = 0;¶		while (pt < aVector.size() && ¶				(!isAddOrSub(aVector.get(pt)) || !isExpression(truncate(aVector, 0, pt)) || !isExpression(truncate(aVector, pt + 1, aVector.size())))) {¶			pt ++;¶		}¶		if (pt == aVector.size()) return false;¶		return true;¶	}¶	public boolean isMultiDivExpression(Vector<Character> aVector) {¶		System.out.println("Testing multi div Expression " + aVector);¶		if (aVector.size() == 0) return false;¶		int pt = 0;¶		while (pt < aVector.size() && ¶				(!isMultiOrDiv(aVector.get(pt)) || !isExpression(truncate(aVector, 0, pt)) || !isExpression(truncate(aVector, pt + 1, aVector.size())))) {¶			pt ++;¶		}¶		if (pt == aVector.size()) return false;¶		return true;¶	}¶	public boolean isExpExpression(Vector<Character> aVector) {¶		if (aVector.size() == 0) return false;¶		int pt = 0;¶		while (pt < aVector.size() && ¶				(!isCaret(aVector.get(pt)) || !isExpression(truncate(aVector, 0, pt)) || !isExpression(truncate(aVector, pt + 1, aVector.size())))) {¶			pt ++;¶		}¶		if (pt == aVector.size()) return false;¶		return true;¶	}¶	public boolean isFunctionExpression(Vector<Character> aVector) {¶		System.out.println("Testing function Expression " + aVector);¶		if (aVector.size() == 0) return false;¶		int pt = 0;¶		while (!isFunctionName(truncate(aVector, 0, pt)) && pt < aVector.size()) {¶			pt ++;¶		}¶		if (aVector.size() == pt) return false;¶		return isFunctionParameters(truncate(aVector, pt, aVector.size()));¶	}¶	public boolean isFunctionParameters(Vector<Character> aVector) {¶		return isLeftParenthesis(aVector.get(0)) && isRightParenthesis(aVector.get(aVector.size()-1)) && isParameters(truncateBoth(aVector));¶	}¶	public boolean isParameters(Vector<Character> aVector) {¶		if (aVector.size() == 0) return false;¶		if (isExpression(aVector)) return true;¶		int pt = 0;¶		while (pt < aVector.size() && ¶				(!isComma(aVector.get(pt)) || !isExpression(truncate(aVector, 0, pt)) || !isParameters(truncate(aVector, pt + 1, aVector.size())))) {¶			pt ++;¶		}¶		if (pt == aVector.size()) return false;¶		return true;¶	}¶	public boolean isParenthesisExpression(Vector<Character> aVector) {¶		System.out.println("Testing parenthesis Expression " + aVector);¶		if (aVector.size() == 0) return false;¶		System.out.println("Parenthesis Expression " + truncateBoth(aVector));¶		return isLeftParenthesis(aVector.get(0)) && isRightParenthesis(aVector.get(aVector.size() - 1)) && isExpression(truncateBoth(aVector));¶	}¶	public boolean isFunctionName(Vector<Character> aVector) {¶		for (FunctionName functionName : FunctionName.values()) {¶			if (compare(aVector, functionName.name)) {¶				return true;¶			}¶		}¶		return false;¶	}¶	public boolean isAtomicExpression(Vector<Character> aVector) {¶		return isNumber(aVector) || isVariable(aVector);¶	}¶	public boolean isNumber(Vector<Character> aVector) {¶		return isUnsignedNumber(aVector) || (isSign(aVector.get(0)) && isUnsignedNumber(truncateLeft(aVector)));¶	}¶	public boolean isUnsignedNumber(Vector<Character> aVector) {¶		if (aVector.size() == 1) {¶			return isDigit(aVector.get(0));¶		}¶		return isNonZeroDigit(aVector.get(0)) && isDigitString(truncateLeft(aVector));¶	}¶	public boolean isVariable(Vector<Character> aVector) {¶		if (aVector.size() == 1) {¶			return isUnsignedVariable(aVector);¶		}¶		return isUnsignedVariable(aVector) || (isSign(aVector.get(0)) && isUnsignedVariable(truncateLeft(aVector)));¶	}¶	public boolean isUnsignedVariable(Vector<Character> aVector) {¶		if (aVector.size() == 1) {¶			return isLetter(aVector.get(0));¶		}¶		return isLetter(aVector.get(0)) && isLetterDigitString(truncateLeft(aVector));¶	}¶	public boolean isDigitString(Vector<Character> aVector) {¶		if (aVector.size() == 1) {¶			return isDigit(aVector.get(0));¶		}¶		return isDigit(aVector.get(0)) && isDigitString(truncateLeft(aVector));¶	}¶	public boolean isLetterDigitString(Vector<Character> aVector) {¶		if (aVector.size() == 1) {¶			return isLetterOrDigit(aVector.get(0));¶		}¶		return isLetterOrDigit(aVector.get(0)) && isLetterDigitString(truncateLeft(aVector));¶	}¶	public boolean isLetterOrDigit(char aChar) {¶		return isLetter(aChar) || isDigit(aChar);¶	}¶	public boolean isSign(char aChar) {¶		return aChar == PLUS || aChar == MINUS; ¶	}¶	public boolean isNonZeroDigit(char aChar) {¶		return aChar <= '9' && aChar >= '1';¶	}¶	public boolean isDigit(char aChar) {¶		return Character.isDigit(aChar);¶	}¶	public boolean isLetter(char aChar) {¶		return Character.isLetter(aChar);¶	}¶	public boolean isComma(char aChar) {¶		return aChar == COMMA;¶	}¶	public boolean isRightParenthesis(char aChar) {¶		return aChar == RP;¶	}¶	public boolean isLeftParenthesis(char aChar) {¶		return aChar == LP;¶	}¶	public boolean isAddOrSub(char aChar) {¶		return aChar == PLUS || aChar == MINUS;¶	}¶	public boolean isMultiOrDiv(char aChar) {¶		return aChar == TIMES || aChar == DIVIDES;¶	}¶	public boolean isCaret(char aChar) {¶		return CARET == aChar;¶	}¶	public Vector<Character> truncate(Vector<Character> aVector, int start, int end){¶		Vector<Character> newVector = new Vector<Character>();¶		for (int i = start; i < end; i ++) {¶			newVector.add(aVector.get(i));¶		}¶		return newVector;¶	}¶	public Vector<Character> truncateLeft(Vector<Character> aVector){¶		return truncate(aVector, 1, aVector.size());¶	}¶	public Vector<Character> truncateRight(Vector<Character> aVector){¶		return truncate(aVector, 0, aVector.size()-1);¶	}¶	public Vector<Character> truncateBoth(Vector<Character> aVector){¶		return truncate(aVector, 1, aVector.size()-1);¶	}¶	public int find(Vector<Character> aVector, char aChar, int start) {¶		for (int i = start; i < aVector.size(); i ++) {¶			if (aVector.get(i) == aChar) {¶				return i;¶			}¶		}¶		return -1;¶	}¶	public boolean compare(Vector<Character> aVector, String aString) {¶		if (aVector.size() != aString.length()) {¶			return false;¶		}¶		for (int i = 0; i < aVector.size(); i ++) {¶			if (aVector.get(i) != aString.charAt(i)) {¶				return false;¶			}¶		}¶		return true;¶	}¶}¶")]]]></diff>
+  </Command>
+  <Command __id="6" _type="MoveCaretCommand" caretOffset="318" date="Mon Apr 05 11:56:47 EDT 2021" docOffset="344" starttimestamp="1617638093094" timestamp="114586" />
+  <Command __id="7" _type="DiffBasedFileOpenCommand" date="Mon Apr 05 11:56:48 EDT 2021" docASTNodeCount="513" docActiveCodeLength="2878" docExpressionCount="375" docLength="3985" projectName="TaskBox" starttimestamp="1617638093094" timestamp="115826">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\TaskBox\src\components\mathEditor\LatexExample.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[/*
+ * Simple Java LaTex example
+ * http://www.heatonresearch.com/
+ * 
+ * Copyright 2013 Heaton Research, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *   
+ * For more information on Heaton Research copyrights, licenses 
+ * and trademarks visit:
+ * http://www.heatonresearch.com/copyright
+ */
+
+package components.mathEditor;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.GridLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+
+import javax.imageio.ImageIO;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
+import org.scilab.forge.jlatexmath.TeXConstants;
+import org.scilab.forge.jlatexmath.TeXFormula;
+import org.scilab.forge.jlatexmath.TeXIcon;
+
+public class LatexExample extends JFrame implements ActionListener {
+	
+	private JTextArea latexSource;
+	private JButton btnRender;
+	private JPanel drawingArea;
+
+	public LatexExample() {
+		this.setTitle("JLatexMath Example");
+		this.setSize(500, 500);
+		Container content = this.getContentPane();
+		content.setLayout(new GridLayout(2, 1));
+		this.latexSource = new JTextArea();
+		
+		JPanel editorArea = new JPanel();
+		editorArea.setLayout(new BorderLayout());
+		editorArea.add(new JScrollPane(this.latexSource),BorderLayout.CENTER);
+		editorArea.add(btnRender = new JButton("Render"),BorderLayout.SOUTH);		
+		
+		content.add(editorArea);
+		content.add(this.drawingArea = new JPanel());		
+		this.btnRender.addActionListener(this);
+		
+		this.latexSource.setText("x=\\frac{-b \\pm \\sqrt {b^2-4ac}}{2a}");
+	}
+
+	public void render() {
+		try {
+			// get the text
+			String latex = this.latexSource.getText();
+			
+			// create a formula
+			TeXFormula formula = new TeXFormula(latex);
+			
+			
+			// render the formla to an icon of the same size as the formula.
+			TeXIcon icon = formula
+					.createTeXIcon(TeXConstants.STYLE_DISPLAY, 20);
+			
+			// insert a border 
+			icon.setInsets(new Insets(5, 5, 5, 5));
+
+			// now create an actual image of the rendered equation
+			BufferedImage image = new BufferedImage(icon.getIconWidth(),
+					icon.getIconHeight(), BufferedImage.TYPE_INT_ARGB);
+			Graphics2D g2 = image.createGraphics();
+			g2.setColor(Color.white);
+			g2.fillRect(0, 0, icon.getIconWidth(), icon.getIconHeight());
+			JLabel jl = new JLabel();
+			jl.setForeground(new Color(0, 0, 0));
+			icon.paintIcon(jl, g2, 0, 0);
+			// at this point the image is created, you could also save it with ImageIO
+			
+			File outputfile = new File("image.png");
+			ImageIO.write(image, "png", outputfile);
+			
+			// now draw it to the screen			
+			Graphics g = this.drawingArea.getGraphics();
+			g.drawImage(image,0,0,null);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			JOptionPane.showMessageDialog(null, ex.getMessage(), "Error",
+					JOptionPane.INFORMATION_MESSAGE);		
+		}
+
+	}
+
+	public static void main(String[] args) {
+		LatexExample frame = new LatexExample();		
+		frame.setVisible(true);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if( e.getSource() == this.btnRender ) {
+			render();
+		}
+		
+	}
+}
+]]></snapshot>
+  </Command>
+  <Command __id="8" _type="MoveCaretCommand" caretOffset="4" date="Mon Apr 05 11:56:48 EDT 2021" docOffset="4" starttimestamp="1617638093094" timestamp="115893" />
+  <Command __id="9" _type="DiffBasedFileOpenCommand" date="Mon Apr 05 11:56:49 EDT 2021" docASTNodeCount="1361" docActiveCodeLength="7481" docExpressionCount="885" docLength="7481" projectName="TaskBox" starttimestamp="1617638093094" timestamp="116181">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\TaskBox\src\parser\JavaExpressionParser.java]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"package parser;¶¶import java.util.Arrays;¶import java.util.Vector;¶¶¶public class JavaExpressionParser {¶	public static final char COMMA = ',', PLUS = '+', MINUS = '-', TIMES = '*', DIVIDES = '/', CARET = '^', EQUALS = '=', LP = '(', RP = ')';¶	public enum FunctionName{¶		SQRT ("sqrt"),¶		POW ("pow"),¶		EXP ("exp"),¶		LOG ("log"),¶		SIN ("sin"),¶		COS ("cos"),¶		TAN ("tan"),¶		MIN ("min"),¶		MAX ("max");¶		public String name;¶		FunctionName(String newName){¶			name = newName;¶		}¶	}¶	¶	¶	public JavaExpressionParser(){¶		¶	}¶	¶	public Vector<Character> trim(Vector<Character> aVector){¶		Vector<Character> newVector = new Vector<Character> ();¶		for (Character c : aVector) {¶			if (c != ' ') {¶				newVector.add(c);¶			}¶		}¶		return newVector;¶	}¶	¶	public boolean isExpression(Vector<Character> aVector) {¶		System.out.println("Testing Expression " + aVector);¶		if (aVector.size() == 0) return false;¶		return isAtomicExpression(aVector) || isAddSubExpression(aVector) || isMultiDivExpression(aVector) || isExpExpression(aVector) || isFunctionExpression(aVector) || isParenthesisExpression(aVector);¶	}¶	public boolean isAddSubExpression(Vector<Character> aVector) {¶		System.out.println("Testing add-sub Expression " + aVector);¶		if (aVector.size() == 0) return false;¶		int pt = 0;¶		while (pt < aVector.size() && ¶				(!isAddOrSub(aVector.get(pt)) || !isExpression(truncate(aVector, 0, pt)) || !isExpression(truncate(aVector, pt + 1, aVector.size())))) {¶			pt ++;¶		}¶		if (pt == aVector.size()) return false;¶		return true;¶	}¶	public boolean isMultiDivExpression(Vector<Character> aVector) {¶		System.out.println("Testing multi div Expression " + aVector);¶		if (aVector.size() == 0) return false;¶		int pt = 0;¶		while (pt < aVector.size() && ¶				(!isMultiOrDiv(aVector.get(pt)) || !isExpression(truncate(aVector, 0, pt)) || !isExpression(truncate(aVector, pt + 1, aVector.size())))) {¶			pt ++;¶		}¶		if (pt == aVector.size()) return false;¶		return true;¶	}¶	public boolean isExpExpression(Vector<Character> aVector) {¶		if (aVector.size() == 0) return false;¶		int pt = 0;¶		while (pt < aVector.size() && ¶				(!isCaret(aVector.get(pt)) || !isExpression(truncate(aVector, 0, pt)) || !isExpression(truncate(aVector, pt + 1, aVector.size())))) {¶			pt ++;¶		}¶		if (pt == aVector.size()) return false;¶		return true;¶	}¶	public boolean isFunctionExpression(Vector<Character> aVector) {¶		System.out.println("Testing function Expression " + aVector);¶		if (aVector.size() == 0) return false;¶		int pt = 0;¶		while (!isFunctionName(truncate(aVector, 0, pt)) && pt < aVector.size()) {¶			pt ++;¶		}¶		if (aVector.size() == pt) return false;¶		return isFunctionParameters(truncate(aVector, pt, aVector.size()));¶	}¶	public boolean isFunctionParameters(Vector<Character> aVector) {¶		return isLeftParenthesis(aVector.get(0)) && isRightParenthesis(aVector.get(aVector.size()-1)) && isParameters(truncateBoth(aVector));¶	}¶	public boolean isParameters(Vector<Character> aVector) {¶		if (aVector.size() == 0) return false;¶		if (isExpression(aVector)) return true;¶		int pt = 0;¶		while (pt < aVector.size() && ¶				(!isComma(aVector.get(pt)) || !isExpression(truncate(aVector, 0, pt)) || !isParameters(truncate(aVector, pt + 1, aVector.size())))) {¶			pt ++;¶		}¶		if (pt == aVector.size()) return false;¶		return true;¶	}¶	public boolean isParenthesisExpression(Vector<Character> aVector) {¶		System.out.println("Testing parenthesis Expression " + aVector);¶		if (aVector.size() == 0) return false;¶		System.out.println("Parenthesis Expression " + truncateBoth(aVector));¶		return isLeftParenthesis(aVector.get(0)) && isRightParenthesis(aVector.get(aVector.size() - 1)) && isExpression(truncateBoth(aVector));¶	}¶	public boolean isFunctionName(Vector<Character> aVector) {¶		for (FunctionName functionName : FunctionName.values()) {¶			if (compare(aVector, functionName.name)) {¶				return true;¶			}¶		}¶		return false;¶	}¶	public boolean isAtomicExpression(Vector<Character> aVector) {¶		return isNumber(aVector) || isVariable(aVector);¶	}¶	public boolean isNumber(Vector<Character> aVector) {¶		return isUnsignedNumber(aVector) || (isSign(aVector.get(0)) && isUnsignedNumber(truncateLeft(aVector)));¶	}¶	public boolean isUnsignedNumber(Vector<Character> aVector) {¶		if (aVector.size() == 1) {¶			return isDigit(aVector.get(0));¶		}¶		return isNonZeroDigit(aVector.get(0)) && isDigitString(truncateLeft(aVector));¶	}¶	public boolean isVariable(Vector<Character> aVector) {¶		if (aVector.size() == 1) {¶			return isUnsignedVariable(aVector);¶		}¶		return isUnsignedVariable(aVector) || (isSign(aVector.get(0)) && isUnsignedVariable(truncateLeft(aVector)));¶	}¶	public boolean isUnsignedVariable(Vector<Character> aVector) {¶		if (aVector.size() == 1) {¶			return isLetter(aVector.get(0));¶		}¶		return isLetter(aVector.get(0)) && isLetterDigitString(truncateLeft(aVector));¶	}¶	public boolean isDigitString(Vector<Character> aVector) {¶		if (aVector.size() == 1) {¶			return isDigit(aVector.get(0));¶		}¶		return isDigit(aVector.get(0)) && isDigitString(truncateLeft(aVector));¶	}¶	public boolean isLetterDigitString(Vector<Character> aVector) {¶		if (aVector.size() == 1) {¶			return isLetterOrDigit(aVector.get(0));¶		}¶		return isLetterOrDigit(aVector.get(0)) && isLetterDigitString(truncateLeft(aVector));¶	}¶	public boolean isLetterOrDigit(char aChar) {¶		return isLetter(aChar) || isDigit(aChar);¶	}¶	public boolean isSign(char aChar) {¶		return aChar == PLUS || aChar == MINUS; ¶	}¶	public boolean isNonZeroDigit(char aChar) {¶		return aChar <= '9' && aChar >= '1';¶	}¶	public boolean isDigit(char aChar) {¶		return Character.isDigit(aChar);¶	}¶	public boolean isLetter(char aChar) {¶		return Character.isLetter(aChar);¶	}¶	public boolean isComma(char aChar) {¶		return aChar == COMMA;¶	}¶	public boolean isRightParenthesis(char aChar) {¶		return aChar == RP;¶	}¶	public boolean isLeftParenthesis(char aChar) {¶		return aChar == LP;¶	}¶	public boolean isAddOrSub(char aChar) {¶		return aChar == PLUS || aChar == MINUS;¶	}¶	public boolean isMultiOrDiv(char aChar) {¶		return aChar == TIMES || aChar == DIVIDES;¶	}¶	public boolean isCaret(char aChar) {¶		return CARET == aChar;¶	}¶	public Vector<Character> truncate(Vector<Character> aVector, int start, int end){¶		Vector<Character> newVector = new Vector<Character>();¶		for (int i = start; i < end; i ++) {¶			newVector.add(aVector.get(i));¶		}¶		return newVector;¶	}¶	public Vector<Character> truncateLeft(Vector<Character> aVector){¶		return truncate(aVector, 1, aVector.size());¶	}¶	public Vector<Character> truncateRight(Vector<Character> aVector){¶		return truncate(aVector, 0, aVector.size()-1);¶	}¶	public Vector<Character> truncateBoth(Vector<Character> aVector){¶		return truncate(aVector, 1, aVector.size()-1);¶	}¶	public int find(Vector<Character> aVector, char aChar, int start) {¶		for (int i = start; i < aVector.size(); i ++) {¶			if (aVector.get(i) == aChar) {¶				return i;¶			}¶		}¶		return -1;¶	}¶	public boolean compare(Vector<Character> aVector, String aString) {¶		if (aVector.size() != aString.length()) {¶			return false;¶		}¶		for (int i = 0; i < aVector.size(); i ++) {¶			if (aVector.get(i) != aString.charAt(i)) {¶				return false;¶			}¶		}¶		return true;¶	}¶}¶")]]]></diff>
+  </Command>
+  <Command __id="10" _type="MoveCaretCommand" caretOffset="318" date="Mon Apr 05 11:56:49 EDT 2021" docOffset="344" starttimestamp="1617638093094" timestamp="116258" />
+  <Command __id="11" _type="DiffBasedFileOpenCommand" date="Mon Apr 05 11:56:50 EDT 2021" docASTNodeCount="103" docActiveCodeLength="530" docExpressionCount="45" docLength="530" projectName="TaskBox" starttimestamp="1617638093094" timestamp="117049">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\TaskBox\src\parser\Node.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package parser;
+
+import java.util.Vector;
+
+public class Node {
+	private Vector<Character> value;
+	private Vector<Node> children;
+	private Node parent;
+	
+	public Node(Vector<Character> newValue, Node newParent) {
+		value = newValue;
+		parent = newParent;
+	}
+	
+	public Vector<Character> getValue(){
+		return value;
+	}
+	
+	public Vector<Node> getChildren(){
+		return children;
+	}
+	
+	public void addChild(Node newChild) {
+		children.add(newChild);
+	}
+	
+	public Node getParent() {
+		return parent;
+	}
+	
+}
+]]></snapshot>
+  </Command>
+  <Command __id="12" _type="MoveCaretCommand" caretOffset="327" date="Mon Apr 05 11:56:50 EDT 2021" docOffset="327" starttimestamp="1617638093094" timestamp="117130" />
+</Events>

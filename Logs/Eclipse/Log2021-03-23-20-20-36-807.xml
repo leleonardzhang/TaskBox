@@ -1,0 +1,4 @@
+<Events startTimestamp="1616545236807" logVersion="1.0.0.202101171653">
+  <Command __id="1" _type="MoveCaretCommand" caretOffset="290" date="Tue Mar 23 20:20:36 EDT 2021" docOffset="462" starttimestamp="1616545236807" timestamp="140" />
+  <Command __id="2" _type="ShellCommand" date="Tue Mar 23 20:20:41 EDT 2021" starttimestamp="1616545236807" timestamp="4531" type="ECLIPSE_LOST_FOCUS" />
+</Events>

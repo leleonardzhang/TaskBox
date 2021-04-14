@@ -3,6 +3,7 @@ package components.mainpanel;
 import java.beans.PropertyChangeListener;
 import java.util.List;
 
+import components.composedGraph.ComposedGraphInterface;
 import components.page.pages.PageInterface;
 
 public interface MainPanelInterface extends PropertyChangeListener{

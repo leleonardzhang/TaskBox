@@ -1,8 +1,9 @@
 package components.curve.fitting;
 
+import java.awt.Color;
 import java.util.Arrays;
 
-import components.curve.composedGraph.ComposedGraphInterface;
+import components.composedGraph.ComposedGraphInterface;
 import components.curve.line.CurveLine;
 import components.observableshapes.ObservablePointInterface;
 import components.plane.plane.PlaneInterface;
@@ -40,7 +41,7 @@ public class Plotter {
 			int xPlotPrev = (int) ((t - 0.2 - graph.getPlane().getXMin()) / xScale + planeX - 5.0);
 			int yPlot = (int) (planeY - (yValue - graph.getPlane().getYMin()) / yScale - 5.0);
 			int xPlot = (int) ((t - graph.getPlane().getXMin()) / xScale + planeX - 5.0);
-			graph.getFittingLines().add(new CurveLine(xPlotPrev, yPlotPrev, xPlot - xPlotPrev, yPlot - yPlotPrev));
+			graph.getFittingLines().add(new CurveLine(xPlotPrev, yPlotPrev, xPlot - xPlotPrev, yPlot - yPlotPrev, Color.RED));
 		}
 	
 	}

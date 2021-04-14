@@ -121,7 +121,7 @@ public class LatexExample extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if( e.getSource()==this.btnRender ) {
+		if( e.getSource() == this.btnRender ) {
 			render();
 		}
 		

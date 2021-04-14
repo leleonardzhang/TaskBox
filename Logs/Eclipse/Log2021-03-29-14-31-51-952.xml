@@ -1,0 +1,866 @@
+<Events startTimestamp="1617042711952" logVersion="1.0.0.202101171653">
+  <Command __id="1" _type="SelectTextCommand" caretOffset="783" date="Mon Mar 29 14:31:52 EDT 2021" end="783" start="361" starttimestamp="1617042711952" timestamp="164" />
+  <Command __id="2" _type="MoveCaretCommand" caretOffset="508" date="Mon Mar 29 14:31:53 EDT 2021" docOffset="944" starttimestamp="1617042711952" timestamp="1952" />
+  <Command __id="3" _type="SelectTextCommand" caretOffset="872" date="Mon Mar 29 14:31:58 EDT 2021" end="872" start="321" starttimestamp="1617042711952" timestamp="6337" />
+  <Command __id="4" _type="MoveCaretCommand" caretOffset="872" date="Mon Mar 29 14:31:58 EDT 2021" docOffset="1308" starttimestamp="1617042711952" timestamp="6561" />
+  <Command __id="5" _type="ShellCommand" date="Mon Mar 29 14:32:01 EDT 2021" starttimestamp="1617042711952" timestamp="9442" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="6" _type="ShellCommand" date="Mon Mar 29 14:32:02 EDT 2021" starttimestamp="1617042711952" timestamp="11037" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="7" _type="MoveCaretCommand" caretOffset="830" date="Mon Mar 29 14:32:03 EDT 2021" docOffset="1266" starttimestamp="1617042711952" timestamp="11902" />
+  <Command __id="8" _type="MoveCaretCommand" caretOffset="983" date="Mon Mar 29 14:32:04 EDT 2021" docOffset="1419" starttimestamp="1617042711952" timestamp="12475" />
+  <Command __id="9" _type="SelectTextCommand" caretOffset="834" date="Mon Mar 29 14:32:06 EDT 2021" end="988" start="834" starttimestamp="1617042711952" timestamp="14380" />
+  <Command __id="10" _type="MoveCaretCommand" caretOffset="834" date="Mon Mar 29 14:32:06 EDT 2021" docOffset="1270" starttimestamp="1617042711952" timestamp="14552" />
+  <Command __id="11" _type="SelectTextCommand" caretOffset="988" date="Mon Mar 29 14:32:07 EDT 2021" end="988" start="834" starttimestamp="1617042711952" timestamp="15623" />
+  <Command __id="12" _type="MoveCaretCommand" caretOffset="988" date="Mon Mar 29 14:32:07 EDT 2021" docOffset="1424" starttimestamp="1617042711952" timestamp="15794" />
+  <Command __id="13" _type="SelectTextCommand" caretOffset="987" date="Mon Mar 29 14:32:08 EDT 2021" end="987" start="872" starttimestamp="1617042711952" timestamp="16691" />
+  <Command __id="14" _type="MoveCaretCommand" caretOffset="834" date="Mon Mar 29 14:32:09 EDT 2021" docOffset="1270" starttimestamp="1617042711952" timestamp="17077" />
+  <Command __id="15" _type="SelectTextCommand" caretOffset="832" date="Mon Mar 29 14:32:10 EDT 2021" end="988" start="832" starttimestamp="1617042711952" timestamp="18939" />
+  <Command __id="16" _type="MoveCaretCommand" caretOffset="846" date="Mon Mar 29 14:32:11 EDT 2021" docOffset="1282" starttimestamp="1617042711952" timestamp="19374" />
+  <Command __id="17" _type="SelectTextCommand" caretOffset="1072" date="Mon Mar 29 14:32:14 EDT 2021" end="1307" start="1072" starttimestamp="1617042711952" timestamp="23012" />
+  <Command __id="18" _type="MoveCaretCommand" caretOffset="1072" date="Mon Mar 29 14:32:15 EDT 2021" docOffset="1508" starttimestamp="1617042711952" timestamp="23214" />
+  <Command __id="19" _type="SelectTextCommand" caretOffset="1307" date="Mon Mar 29 14:32:15 EDT 2021" end="1307" start="992" starttimestamp="1617042711952" timestamp="23645" />
+  <Command __id="20" _type="ShellCommand" date="Mon Mar 29 14:32:16 EDT 2021" starttimestamp="1617042711952" timestamp="24714" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="21" _type="ShellCommand" date="Mon Mar 29 14:32:23 EDT 2021" starttimestamp="1617042711952" timestamp="31657" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="22" _type="MoveCaretCommand" caretOffset="311" date="Mon Mar 29 14:32:23 EDT 2021" docOffset="747" starttimestamp="1617042711952" timestamp="31751" />
+  <Command __id="23" _type="MoveCaretCommand" caretOffset="558" date="Mon Mar 29 14:32:24 EDT 2021" docOffset="994" starttimestamp="1617042711952" timestamp="32937" />
+  <Command __id="24" _type="MoveCaretCommand" caretOffset="988" date="Mon Mar 29 14:32:26 EDT 2021" docOffset="1424" starttimestamp="1617042711952" timestamp="34451" />
+  <Command __id="25" _type="MoveCaretCommand" caretOffset="830" date="Mon Mar 29 14:32:26 EDT 2021" docOffset="1266" starttimestamp="1617042711952" timestamp="34984" />
+  <Command __id="26" _type="SelectTextCommand" caretOffset="1307" date="Mon Mar 29 14:32:33 EDT 2021" end="1307" start="1026" starttimestamp="1617042711952" timestamp="41177" />
+  <Command __id="27" _type="MoveCaretCommand" caretOffset="1307" date="Mon Mar 29 14:32:33 EDT 2021" docOffset="1743" starttimestamp="1617042711952" timestamp="41332" />
+  <Command __id="28" _type="SelectTextCommand" caretOffset="996" date="Mon Mar 29 14:32:34 EDT 2021" end="1307" start="996" starttimestamp="1617042711952" timestamp="42902" />
+  <Command __id="29" _type="MoveCaretCommand" caretOffset="996" date="Mon Mar 29 14:32:35 EDT 2021" docOffset="1432" starttimestamp="1617042711952" timestamp="43083" />
+  <Command __id="30" _type="SelectTextCommand" caretOffset="834" date="Mon Mar 29 14:32:37 EDT 2021" end="1307" start="834" starttimestamp="1617042711952" timestamp="45168" />
+  <Command __id="31" _type="MoveCaretCommand" caretOffset="834" date="Mon Mar 29 14:32:37 EDT 2021" docOffset="1270" starttimestamp="1617042711952" timestamp="45350" />
+  <Command __id="32" _type="SelectTextCommand" caretOffset="1307" date="Mon Mar 29 14:32:38 EDT 2021" end="1307" start="834" starttimestamp="1617042711952" timestamp="46628" />
+  <Command __id="33" _type="MoveCaretCommand" caretOffset="1307" date="Mon Mar 29 14:32:38 EDT 2021" docOffset="1743" starttimestamp="1617042711952" timestamp="46843" />
+  <Command __id="34" _type="SelectTextCommand" caretOffset="840" date="Mon Mar 29 14:32:39 EDT 2021" end="977" start="840" starttimestamp="1617042711952" timestamp="47604" />
+  <Command __id="35" _type="MoveCaretCommand" caretOffset="945" date="Mon Mar 29 14:32:39 EDT 2021" docOffset="1381" starttimestamp="1617042711952" timestamp="47832" />
+  <Command __id="36" _type="SelectTextCommand" caretOffset="1068" date="Mon Mar 29 14:32:40 EDT 2021" end="1068" start="837" starttimestamp="1617042711952" timestamp="48249" />
+  <Command __id="37" _type="MoveCaretCommand" caretOffset="1068" date="Mon Mar 29 14:32:40 EDT 2021" docOffset="1504" starttimestamp="1617042711952" timestamp="48422" />
+  <Command __id="38" _type="SelectTextCommand" caretOffset="834" date="Mon Mar 29 14:32:41 EDT 2021" end="1307" start="834" starttimestamp="1617042711952" timestamp="49778" />
+  <Command __id="39" _type="MoveCaretCommand" caretOffset="834" date="Mon Mar 29 14:32:41 EDT 2021" docOffset="1270" starttimestamp="1617042711952" timestamp="49948" />
+  <Command __id="40" _type="SelectTextCommand" caretOffset="1307" date="Mon Mar 29 14:32:43 EDT 2021" end="1307" start="612" starttimestamp="1617042711952" timestamp="51343" />
+  <Command __id="41" _type="MoveCaretCommand" caretOffset="1307" date="Mon Mar 29 14:32:43 EDT 2021" docOffset="1743" starttimestamp="1617042711952" timestamp="51519" />
+  <Command __id="42" _type="SelectTextCommand" caretOffset="612" date="Mon Mar 29 14:32:44 EDT 2021" end="1307" start="612" starttimestamp="1617042711952" timestamp="52664" />
+  <Command __id="43" _type="MoveCaretCommand" caretOffset="612" date="Mon Mar 29 14:32:44 EDT 2021" docOffset="1048" starttimestamp="1617042711952" timestamp="52832" />
+  <Command __id="44" _type="SelectTextCommand" caretOffset="1307" date="Mon Mar 29 14:32:46 EDT 2021" end="1307" start="612" starttimestamp="1617042711952" timestamp="54239" />
+  <Command __id="45" _type="MoveCaretCommand" caretOffset="1307" date="Mon Mar 29 14:32:46 EDT 2021" docOffset="1743" starttimestamp="1617042711952" timestamp="54405" />
+  <Command __id="46" _type="SelectTextCommand" caretOffset="612" date="Mon Mar 29 14:32:47 EDT 2021" end="1307" start="612" starttimestamp="1617042711952" timestamp="55490" />
+  <Command __id="47" _type="MoveCaretCommand" caretOffset="448" date="Mon Mar 29 14:32:47 EDT 2021" docOffset="884" starttimestamp="1617042711952" timestamp="55937" />
+  <Command __id="48" _type="MoveCaretCommand" caretOffset="551" date="Mon Mar 29 14:32:48 EDT 2021" docOffset="987" starttimestamp="1617042711952" timestamp="57005" />
+  <Command __id="49" _type="SelectTextCommand" caretOffset="365" date="Mon Mar 29 14:32:51 EDT 2021" end="551" start="365" starttimestamp="1617042711952" timestamp="59186" />
+  <Command __id="50" _type="MoveCaretCommand" caretOffset="366" date="Mon Mar 29 14:32:51 EDT 2021" docOffset="802" starttimestamp="1617042711952" timestamp="59384" />
+  <Command __id="52" _type="ShellCommand" date="Mon Mar 29 14:32:57 EDT 2021" starttimestamp="1617042711952" timestamp="65986" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="0" _type="DiffBasedFileOpenCommand" date="Mon Mar 29 14:31:52 EDT 2021" docASTNodeCount="268" docActiveCodeLength="1754" docExpressionCount="179" docLength="1754" projectName="TaskBox" starttimestamp="1617042711952" timestamp="92">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\TaskBox\src\main\MathMain.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package main;
+
+
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.util.Vector;
+import javax.swing.ImageIcon;
+import javax.swing.text.JTextComponent;
+import bus.uigen.OEFrame;
+import bus.uigen.ObjectEditor;
+import bus.uigen.uiFrame;
+import bus.uigen.attributes.AttributeNames;
+import bus.uigen.oadapters.ClassAdapter;
+import bus.uigen.oadapters.ObjectAdapter;
+import components.caret.MathPanelCaretListener;
+import components.mathEditor.MathEditorPanel;
+
+public class MathMain {
+	public static MathEditorPanel panel;
+	public static OEFrame frame;
+	
+	public static void main(String[] args) {
+		panel = new MathEditorPanel();
+		frame = ObjectEditor.edit(panel);
+		
+		setCaretPositionListener();
+		setButtonImage();
+	
+	}
+	
+	public static void setButtonImage() {
+		Image img = Toolkit.getDefaultToolkit().getImage("img/dot_product.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "DotProduct", AttributeNames.ICON, new ImageIcon(img));
+	}
+	
+	public static void setCaretPositionListener() {
+		uiFrame aUIFrame = (uiFrame) frame;
+		ClassAdapter adapter = (ClassAdapter) aUIFrame.getTopAdapter();
+		Vector<ObjectAdapter> children = adapter.getChildrenVector();
+		
+		ObjectAdapter observableAdapter = null;
+		
+		for (ObjectAdapter child : children) {
+			if (child.getComponentName().equals("mathExpression")) {
+				observableAdapter = child;
+				break;
+			}
+		}
+		
+		MathPanelCaretListener listener = new MathPanelCaretListener(panel);
+		
+		if (observableAdapter != null && (observableAdapter.getUIComponent().getPhysicalComponent()) instanceof JTextComponent) {
+			((JTextComponent) observableAdapter.getUIComponent().getPhysicalComponent()).addCaretListener(listener);
+		}
+	}
+
+}
+]]></snapshot>
+  </Command>
+  <DocumentChange __id="54" _type="Delete" date="Mon Mar 29 14:33:04 EDT 2021" docASTNodeCount="265" docActiveCodeLength="1733" docExpressionCount="177" docLength="1733" endLine="26" length="21" offset="726" repeat="2" startLine="25" starttimestamp="1617042711952" timestamp="72066" timestamp2="72199">
+    <text><![CDATA[
+		setButtonImage();]]></text>
+  </DocumentChange>
+  <Command __id="68" _type="RunCommand" date="Mon Mar 29 14:33:10 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1617042711952" timestamp="78369" type="Run" />
+  <Command __id="69" _type="RunCommand" date="Mon Mar 29 14:33:10 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1617042711952" timestamp="78370" type="Run" />
+  <Command __id="71" _type="SelectTextCommand" caretOffset="1930" date="Mon Mar 29 14:33:44 EDT 2021" end="1930" start="1920" starttimestamp="1617042711952" timestamp="112536" />
+  <Command __id="72" _type="SelectTextCommand" caretOffset="1897" date="Mon Mar 29 14:33:45 EDT 2021" end="1905" start="1897" starttimestamp="1617042711952" timestamp="113961" />
+  <Command __id="74" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Mon Mar 29 14:33:46 EDT 2021" starttimestamp="1617042711952" timestamp="114787" />
+  <Command __id="76" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Mon Mar 29 14:33:46 EDT 2021" starttimestamp="1617042711952" timestamp="114952" />
+  <Command __id="77" _type="SelectTextCommand" caretOffset="1855" date="Mon Mar 29 14:33:49 EDT 2021" end="1895" start="1855" starttimestamp="1617042711952" timestamp="117223" />
+  <Command __id="79" _type="InsertStringCommand" date="Mon Mar 29 14:33:49 EDT 2021" starttimestamp="1617042711952" timestamp="117854" timestamp2="117854">
+    <data><![CDATA[]]]></data>
+  </Command>
+  <Command __id="81" _type="InsertStringCommand" date="Mon Mar 29 14:33:50 EDT 2021" starttimestamp="1617042711952" timestamp="118485" timestamp2="118485">
+    <data><![CDATA[\]]></data>
+  </Command>
+  <Command __id="83" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Mon Mar 29 14:33:50 EDT 2021" starttimestamp="1617042711952" timestamp="118832" />
+  <Command __id="85" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Mon Mar 29 14:33:50 EDT 2021" starttimestamp="1617042711952" timestamp="118991" />
+  <Command __id="87" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Mon Mar 29 14:33:51 EDT 2021" starttimestamp="1617042711952" timestamp="119296" />
+  <Command __id="88" _type="EclipseCommand" commandID="org.eclipse.ui.file.save" date="Mon Mar 29 14:33:51 EDT 2021" starttimestamp="1617042711952" timestamp="119513" />
+  <Command __id="91" _type="ShellCommand" date="Mon Mar 29 14:33:52 EDT 2021" starttimestamp="1617042711952" timestamp="121032" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="92" _type="ShellCommand" date="Mon Mar 29 14:33:53 EDT 2021" starttimestamp="1617042711952" timestamp="121163" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="93" _type="SelectTextCommand" caretOffset="2068" date="Mon Mar 29 14:34:04 EDT 2021" end="2068" start="1882" starttimestamp="1617042711952" timestamp="133035" />
+  <Command __id="94" _type="MoveCaretCommand" caretOffset="2068" date="Mon Mar 29 14:34:05 EDT 2021" docOffset="2841" starttimestamp="1617042711952" timestamp="133205" />
+  <Command __id="95" _type="SelectTextCommand" caretOffset="2576" date="Mon Mar 29 14:34:06 EDT 2021" end="2576" start="2566" starttimestamp="1617042711952" timestamp="135002" />
+  <Command __id="96" _type="MoveCaretCommand" caretOffset="2570" date="Mon Mar 29 14:34:07 EDT 2021" docOffset="3343" starttimestamp="1617042711952" timestamp="135518" />
+  <Command __id="97" _type="MoveCaretCommand" caretOffset="2572" date="Mon Mar 29 14:34:07 EDT 2021" docOffset="3345" starttimestamp="1617042711952" timestamp="135808" />
+  <Command __id="98" _type="MoveCaretCommand" caretOffset="5496" date="Mon Mar 29 14:34:13 EDT 2021" docOffset="6269" starttimestamp="1617042711952" timestamp="141603" />
+  <Command __id="99" _type="MoveCaretCommand" caretOffset="1103" date="Mon Mar 29 14:34:30 EDT 2021" docOffset="1876" starttimestamp="1617042711952" timestamp="158500" />
+  <Command __id="100" _type="SelectTextCommand" caretOffset="1070" date="Mon Mar 29 14:34:32 EDT 2021" end="1103" start="1070" starttimestamp="1617042711952" timestamp="160455" />
+  <Command __id="102" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Mon Mar 29 14:34:32 EDT 2021" starttimestamp="1617042711952" timestamp="161046" />
+  <Command __id="104" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Mon Mar 29 14:34:33 EDT 2021" starttimestamp="1617042711952" timestamp="161310" />
+  <Command __id="105" _type="EclipseCommand" commandID="org.eclipse.ui.file.save" date="Mon Mar 29 14:34:33 EDT 2021" starttimestamp="1617042711952" timestamp="161534" />
+  <Command __id="108" _type="MoveCaretCommand" caretOffset="646" date="Mon Mar 29 14:34:48 EDT 2021" docOffset="1419" starttimestamp="1617042711952" timestamp="176363" />
+  <Command __id="109" _type="SelectTextCommand" caretOffset="597" date="Mon Mar 29 14:34:48 EDT 2021" end="597" start="397" starttimestamp="1617042711952" timestamp="176845" />
+  <Command __id="110" _type="MoveCaretCommand" caretOffset="594" date="Mon Mar 29 14:34:48 EDT 2021" docOffset="1367" starttimestamp="1617042711952" timestamp="177044" />
+  <Command __id="70" _type="DiffBasedFileOpenCommand" date="Mon Mar 29 14:33:44 EDT 2021" docASTNodeCount="1059" docActiveCodeLength="7141" docExpressionCount="703" docLength="7141" projectName="TaskBox" starttimestamp="1617042711952" timestamp="112370">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\TaskBox\src\components\mathEditor\MathEditorPanel.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package components.mathEditor;
+
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.Insets;
+import java.awt.image.BufferedImage;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import org.scilab.forge.jlatexmath.TeXConstants;
+import org.scilab.forge.jlatexmath.TeXFormula;
+import org.scilab.forge.jlatexmath.TeXIcon;
+import components.listenersupport.PropertyListenerSupport;
+import util.annotations.EditablePropertyNames;
+import util.annotations.PreferredWidgetClass;
+import util.annotations.PropertyNames;
+import util.annotations.Row;
+import util.annotations.StructurePattern;
+import util.annotations.StructurePatternNames;
+
+
+@StructurePattern(StructurePatternNames.BEAN_PATTERN)
+@PropertyNames({"image", "mathExpression", "caretPosition"})
+@EditablePropertyNames({"mathExpression"})
+public class MathEditorPanel {
+	private String mathExpression = "";
+	private int imageHeight = 100, imageWidth = 400;
+	private int caretPosition;
+	private PropertyListenerSupport propertyListenerSupport = new PropertyListenerSupport();
+	private MathExpressionImageInterface image = null;
+
+	
+
+	public MathExpressionImageInterface getImage() {
+		return image;
+	}
+	
+	
+	public void setImage(MathExpressionImageInterface newImage) {
+		image = newImage;
+	}
+	
+	public String getMathExpression() {
+		return mathExpression;
+	}
+	
+	public void setMathExpression(String newMathExpression) {
+		String oldMathExpression = mathExpression;
+		mathExpression = newMathExpression;
+		propertyListenerSupport.notifyAllListeners(
+				new PropertyChangeEvent(this, "result", oldMathExpression, mathExpression));
+		
+		render(mathExpression);
+		System.err.println("rendered");
+		
+		if (image == null) {
+			image = new MathExpressionImage(0, 0, imageHeight, imageWidth, "img/latex.png");
+		}
+		
+		getImage().setImageFileName("img/latex.png");
+		getImage().setHeight(imageHeight);
+		getImage().setWidth(imageWidth);
+	}
+	
+	public int getCaretPosition() {
+		return caretPosition;
+	}
+	
+	public void setCaretPosition(int newPosition) {
+		int oldPosition = caretPosition;
+		caretPosition = newPosition;
+		System.out.println(caretPosition);
+		propertyListenerSupport.notifyAllListeners(
+				new PropertyChangeEvent(this, "caretPosition", oldPosition, caretPosition));
+	}
+	
+	public void addPropertyChangeListener(PropertyChangeListener aListener) {
+		propertyListenerSupport.addElement(aListener);    
+    }
+	
+	
+	@PreferredWidgetClass(JButton.class)
+	@Row(0)
+	public void dotProduct() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "\\cdot");
+		setMathExpression(buffer.toString());
+	}
+	
+	public void crossProduct() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "\\times");
+		setMathExpression(buffer.toString());
+	}
+	
+	public void divide() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "\\div");
+		setMathExpression(buffer.toString());
+	}
+	
+	public void neq() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "\\neq");
+		setMathExpression(buffer.toString());
+	}
+	
+	public void ge() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "\\ge");
+		setMathExpression(buffer.toString());
+	}
+	
+	public void le() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "\\le");
+		setMathExpression(buffer.toString());
+	}
+	
+	public void approximate() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "\\approx");
+		setMathExpression(buffer.toString());
+	}
+	
+	public void not() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "\\not");
+		setMathExpression(buffer.toString());
+	}
+	
+	public void inf() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "\\infty");
+		setMathExpression(buffer.toString());
+	}
+	
+	public void pm() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "\\pm");
+		setMathExpression(buffer.toString());
+	}
+	
+	public void dot() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "\\dot{x}");
+		setMathExpression(buffer.toString());
+	}
+	
+	public void ddot() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "\\ddot{x}");
+		setMathExpression(buffer.toString());
+	}
+	
+	public void superScript() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "^{x}");
+		setMathExpression(buffer.toString());
+	}
+	
+	public void subScript() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "_{x}");
+		setMathExpression(buffer.toString());
+	}
+	
+	public void fraction() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "\\frac{a}{b}");
+		setMathExpression(buffer.toString());
+	}
+	
+	public void sqrt() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "\\sqrt{a}");
+		setMathExpression(buffer.toString());
+	}
+	
+	public void floor() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "\\lfloor {x} \\rfloor");
+		setMathExpression(buffer.toString());
+	}
+	
+	public void ceil() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "\\lceil {x} \\rceil");
+		setMathExpression(buffer.toString());
+	}
+	
+	
+	public void integral() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "\\int^{b}_{a}");
+		setMathExpression(buffer.toString());
+	}
+	
+	public void sum() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "\\sum^{b}_{a}");
+		setMathExpression(buffer.toString());
+	}
+	
+	
+	
+ 	public void render(String latexString) {
+		TeXFormula formula = new TeXFormula(latexString);
+		TeXIcon icon = formula.createTeXIcon(TeXConstants.STYLE_DISPLAY, 20);
+		icon.setInsets(new Insets(5, 5, 5, 5));
+		BufferedImage image = new BufferedImage(icon.getIconWidth(),
+				icon.getIconHeight(), BufferedImage.TYPE_INT_ARGB);
+		Graphics2D g2 = image.createGraphics();
+		g2.setColor(Color.white);
+		g2.fillRect(0, 0, icon.getIconWidth(), icon.getIconHeight());
+		JLabel jl = new JLabel();
+		jl.setForeground(new Color(0, 0, 0));
+		icon.paintIcon(jl, g2, 0, 0);
+		imageHeight = image.getHeight();
+		imageWidth = image.getWidth();
+		File outputfile = new File("img/latex.png");
+		try {
+			ImageIO.write(image, "png", outputfile);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}
+]]></snapshot>
+  </Command>
+  <DocumentChange __id="73" _type="Delete" date="Mon Mar 29 14:33:46 EDT 2021" docASTNodeCount="1056" docActiveCodeLength="7131" docExpressionCount="700" docLength="7131" endLine="86" length="10" offset="2668" repeat="2" startLine="85" starttimestamp="1617042711952" timestamp="114780" timestamp2="114943">
+    <text><![CDATA[
+	@Row(0)]]></text>
+  </DocumentChange>
+  <DocumentChange __id="78" _type="Replace" date="Mon Mar 29 14:33:49 EDT 2021" docASTNodeCount="1051" docActiveCodeLength="7092" docExpressionCount="696" docLength="7092" endLine="85" insertionLength="1" int_docASTNodeCount="1051" int_docActiveCodeLength="7091" int_docExpressionCount="696" int_docLength="7091" length="40" offset="2628" startLine="84" starttimestamp="1617042711952" timestamp="117834">
+    <deletedText><![CDATA[	
+	@PreferredWidgetClass(JButton.class)]]></deletedText>
+    <insertedText><![CDATA[]]]></insertedText>
+  </DocumentChange>
+  <DocumentChange __id="80" _type="Insert" date="Mon Mar 29 14:33:50 EDT 2021" docASTNodeCount="1051" docActiveCodeLength="7093" docExpressionCount="696" docLength="7093" length="1" offset="2629" starttimestamp="1617042711952" timestamp="118480">
+    <text><![CDATA[\]]></text>
+  </DocumentChange>
+  <DocumentChange __id="82" _type="Delete" date="Mon Mar 29 14:33:50 EDT 2021" docASTNodeCount="1051" docActiveCodeLength="7089" docExpressionCount="696" docLength="7089" endLine="84" length="4" offset="2626" repeat="3" startLine="83" starttimestamp="1617042711952" timestamp="118830" timestamp2="119288">
+    <text><![CDATA[
+]\]]></text>
+  </DocumentChange>
+  <DocumentChange __id="101" _type="Delete" date="Mon Mar 29 14:34:32 EDT 2021" docASTNodeCount="1044" docActiveCodeLength="7054" docExpressionCount="690" docLength="7054" endLine="57" length="35" offset="1841" repeat="2" startLine="56" starttimestamp="1617042711952" timestamp="161041" timestamp2="161274">
+    <text><![CDATA[
+		System.err.println("rendered");]]></text>
+  </DocumentChange>
+  <Command __id="111" _type="SelectTextCommand" caretOffset="335" date="Mon Mar 29 14:34:53 EDT 2021" end="370" start="335" starttimestamp="1617042711952" timestamp="181252" />
+  <Command __id="112" _type="MoveCaretCommand" caretOffset="342" date="Mon Mar 29 14:34:53 EDT 2021" docOffset="342" starttimestamp="1617042711952" timestamp="181552" />
+  <Command __id="113" _type="SelectTextCommand" caretOffset="315" date="Mon Mar 29 14:34:54 EDT 2021" end="342" start="315" starttimestamp="1617042711952" timestamp="182302" />
+  <Command __id="115" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Mon Mar 29 14:34:55 EDT 2021" starttimestamp="1617042711952" timestamp="183471" />
+  <Command __id="117" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Mon Mar 29 14:34:55 EDT 2021" starttimestamp="1617042711952" timestamp="183643" />
+  <Command __id="118" _type="SelectTextCommand" caretOffset="681" date="Mon Mar 29 14:34:57 EDT 2021" end="709" start="681" starttimestamp="1617042711952" timestamp="185353" />
+  <Command __id="120" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Mon Mar 29 14:34:57 EDT 2021" starttimestamp="1617042711952" timestamp="185845" />
+  <Command __id="122" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Mon Mar 29 14:34:57 EDT 2021" starttimestamp="1617042711952" timestamp="185998" />
+  <Command __id="123" _type="SelectTextCommand" caretOffset="594" date="Mon Mar 29 14:34:59 EDT 2021" end="639" start="594" starttimestamp="1617042711952" timestamp="187857" />
+  <Command __id="125" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Mon Mar 29 14:35:00 EDT 2021" starttimestamp="1617042711952" timestamp="188327" />
+  <Command __id="127" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Mon Mar 29 14:35:00 EDT 2021" starttimestamp="1617042711952" timestamp="188491" />
+  <Command __id="128" _type="MoveCaretCommand" caretOffset="632" date="Mon Mar 29 14:35:01 EDT 2021" docOffset="632" starttimestamp="1617042711952" timestamp="189278" />
+  <Command __id="129" _type="EclipseCommand" commandID="org.eclipse.ui.file.save" date="Mon Mar 29 14:35:01 EDT 2021" starttimestamp="1617042711952" timestamp="189794" />
+  <Command __id="132" _type="MoveCaretCommand" caretOffset="723" date="Mon Mar 29 14:35:03 EDT 2021" docOffset="723" starttimestamp="1617042711952" timestamp="191732" />
+  <Command __id="133" _type="ShellCommand" date="Mon Mar 29 14:35:15 EDT 2021" starttimestamp="1617042711952" timestamp="203477" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="134" _type="ShellCommand" date="Mon Mar 29 14:35:29 EDT 2021" starttimestamp="1617042711952" timestamp="217633" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="135" _type="ShellCommand" date="Mon Mar 29 14:35:30 EDT 2021" starttimestamp="1617042711952" timestamp="218467" type="ECLIPSE_LOST_FOCUS" />
+  <DocumentChange __id="114" _type="Delete" date="Mon Mar 29 14:34:55 EDT 2021" docASTNodeCount="1038" docActiveCodeLength="7025" docExpressionCount="685" docLength="7025" endLine="11" length="29" offset="313" repeat="2" startLine="10" starttimestamp="1617042711952" timestamp="183467" timestamp2="183631">
+    <text><![CDATA[
+import javax.swing.JButton;]]></text>
+  </DocumentChange>
+  <DocumentChange __id="119" _type="Delete" date="Mon Mar 29 14:34:57 EDT 2021" docASTNodeCount="1032" docActiveCodeLength="6995" docExpressionCount="680" docLength="6995" endLine="19" length="30" offset="679" repeat="2" startLine="18" starttimestamp="1617042711952" timestamp="185842" timestamp2="185991">
+    <text><![CDATA[
+import util.annotations.Row;]]></text>
+  </DocumentChange>
+  <DocumentChange __id="124" _type="Delete" date="Mon Mar 29 14:35:00 EDT 2021" docASTNodeCount="1026" docActiveCodeLength="6948" docExpressionCount="675" docLength="6948" endLine="17" length="47" offset="592" repeat="2" startLine="16" starttimestamp="1617042711952" timestamp="188324" timestamp2="188480">
+    <text><![CDATA[
+import util.annotations.PreferredWidgetClass;]]></text>
+  </DocumentChange>
+  <Command __id="136" _type="ShellCommand" date="Mon Mar 29 14:35:31 EDT 2021" starttimestamp="1617042711952" timestamp="219717" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="162" _type="ShellCommand" date="Mon Mar 29 14:36:50 EDT 2021" starttimestamp="1617042711952" timestamp="298387" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="163" _type="ShellCommand" date="Mon Mar 29 14:38:35 EDT 2021" starttimestamp="1617042711952" timestamp="403335" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="164" _type="ShellCommand" date="Mon Mar 29 14:38:38 EDT 2021" starttimestamp="1617042711952" timestamp="406342" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="165" _type="ShellCommand" date="Mon Mar 29 14:38:39 EDT 2021" starttimestamp="1617042711952" timestamp="407066" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="166" _type="ShellCommand" date="Mon Mar 29 14:38:39 EDT 2021" starttimestamp="1617042711952" timestamp="408032" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="167" _type="ShellCommand" date="Mon Mar 29 14:38:42 EDT 2021" starttimestamp="1617042711952" timestamp="410277" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="168" _type="ShellCommand" date="Mon Mar 29 14:38:42 EDT 2021" starttimestamp="1617042711952" timestamp="410378" type="ECLIPSE_MINIMIZED" />
+  <Command __id="169" _type="ShellCommand" date="Mon Mar 29 14:38:42 EDT 2021" starttimestamp="1617042711952" timestamp="410381" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="137" _type="DiffBasedFileOpenCommand" date="Mon Mar 29 14:35:34 EDT 2021" docASTNodeCount="265" docActiveCodeLength="1733" docExpressionCount="177" docLength="1733" projectName="TaskBox" starttimestamp="1617042711952" timestamp="222764">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\TaskBox\src\main\MathMain.java]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"package main;¶¶¶import java.awt.Image;¶import java.awt.Toolkit;¶import java.util.Vector;¶import javax.swing.ImageIcon;¶import javax.swing.text.JTextComponent;¶import bus.uigen.OEFrame;¶import bus.uigen.ObjectEditor;¶import bus.uigen.uiFrame;¶import bus.uigen.attributes.AttributeNames;¶import bus.uigen.oadapters.ClassAdapter;¶import bus.uigen.oadapters.ObjectAdapter;¶import components.caret.MathPanelCaretListener;¶import components.mathEditor.MathEditorPanel;¶¶public class MathMain {¶	public static MathEditorPanel panel;¶	public static OEFrame frame;¶	¶	public static void main(String[] args) {¶		panel = new MathEditorPanel();¶		frame = ObjectEditor.edit(panel);¶		¶		setCaretPositionListener();¶	"), Diff(DELETE,"	setButtonImage();¶	"), Diff(EQUAL,"¶	}¶	¶	public static void setButtonImage() {¶		Image img = Toolkit.getDefaultToolkit().getImage("img/dot_product.png");¶		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "DotProduct", AttributeNames.ICON, new ImageIcon(img));¶	}¶	¶	public static void setCaretPositionListener() {¶		uiFrame aUIFrame = (uiFrame) frame;¶		ClassAdapter adapter = (ClassAdapter) aUIFrame.getTopAdapter();¶		Vector<ObjectAdapter> children = adapter.getChildrenVector();¶		¶		ObjectAdapter observableAdapter = null;¶		¶		for (ObjectAdapter child : children) {¶			if (child.getComponentName().equals("mathExpression")) {¶				observableAdapter = child;¶				break;¶			}¶		}¶		¶		MathPanelCaretListener listener = new MathPanelCaretListener(panel);¶		¶		if (observableAdapter != null && (observableAdapter.getUIComponent().getPhysicalComponent()) instanceof JTextComponent) {¶			((JTextComponent) observableAdapter.getUIComponent().getPhysicalComponent()).addCaretListener(listener);¶		}¶	}¶¶}¶")]]]></diff>
+    <snapshot><![CDATA[package main;
+
+
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.util.Vector;
+import javax.swing.ImageIcon;
+import javax.swing.text.JTextComponent;
+import bus.uigen.OEFrame;
+import bus.uigen.ObjectEditor;
+import bus.uigen.uiFrame;
+import bus.uigen.attributes.AttributeNames;
+import bus.uigen.oadapters.ClassAdapter;
+import bus.uigen.oadapters.ObjectAdapter;
+import components.caret.MathPanelCaretListener;
+import components.mathEditor.MathEditorPanel;
+
+public class MathMain {
+	public static MathEditorPanel panel;
+	public static OEFrame frame;
+	
+	public static void main(String[] args) {
+		panel = new MathEditorPanel();
+		frame = ObjectEditor.edit(panel);
+		
+		setCaretPositionListener();
+	
+	}
+	
+	public static void setButtonImage() {
+		Image img = Toolkit.getDefaultToolkit().getImage("img/dot_product.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "DotProduct", AttributeNames.ICON, new ImageIcon(img));
+	}
+	
+	public static void setCaretPositionListener() {
+		uiFrame aUIFrame = (uiFrame) frame;
+		ClassAdapter adapter = (ClassAdapter) aUIFrame.getTopAdapter();
+		Vector<ObjectAdapter> children = adapter.getChildrenVector();
+		
+		ObjectAdapter observableAdapter = null;
+		
+		for (ObjectAdapter child : children) {
+			if (child.getComponentName().equals("mathExpression")) {
+				observableAdapter = child;
+				break;
+			}
+		}
+		
+		MathPanelCaretListener listener = new MathPanelCaretListener(panel);
+		
+		if (observableAdapter != null && (observableAdapter.getUIComponent().getPhysicalComponent()) instanceof JTextComponent) {
+			((JTextComponent) observableAdapter.getUIComponent().getPhysicalComponent()).addCaretListener(listener);
+		}
+	}
+
+}
+]]></snapshot>
+  </Command>
+  <Command __id="194" _type="RunCommand" date="Mon Mar 29 14:40:32 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1617042711952" timestamp="520645" type="Run" />
+  <Command __id="195" _type="RunCommand" date="Mon Mar 29 14:40:32 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1617042711952" timestamp="520645" type="Run" />
+  <Command __id="196" _type="ShellCommand" date="Mon Mar 29 14:40:33 EDT 2021" starttimestamp="1617042711952" timestamp="521643" type="ECLIPSE_MAXIMIZED" />
+  <Command __id="197" _type="ShellCommand" date="Mon Mar 29 14:40:33 EDT 2021" starttimestamp="1617042711952" timestamp="521720" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="199" _type="MoveCaretCommand" caretOffset="723" date="Mon Mar 29 14:40:46 EDT 2021" docOffset="723" starttimestamp="1617042711952" timestamp="534674" />
+  <Command __id="200" _type="MoveCaretCommand" caretOffset="2794" date="Mon Mar 29 14:41:05 EDT 2021" docOffset="2794" starttimestamp="1617042711952" timestamp="553657" />
+  <Command __id="202" _type="ShellCommand" date="Mon Mar 29 14:41:06 EDT 2021" starttimestamp="1617042711952" timestamp="554355" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="203" _type="FindCommand" caseSensitive="true" date="Mon Mar 29 14:41:07 EDT 2021" forward="false" matchWord="false" offset="2794" regexp="false" replaceAll="false" selection="Find" selectionScope="false" starttimestamp="1617042711952" timestamp="555558" wrapSearch="false">
+    <searchString><![CDATA[floor]]></searchString>
+    <replaceString><![CDATA[]]></replaceString>
+  </Command>
+  <Command __id="204" _type="ShellCommand" date="Mon Mar 29 14:41:09 EDT 2021" starttimestamp="1617042711952" timestamp="557307" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="205" _type="MoveCaretCommand" caretOffset="5391" date="Mon Mar 29 14:41:16 EDT 2021" docOffset="5391" starttimestamp="1617042711952" timestamp="564464" />
+  <Command __id="206" _type="MoveCaretCommand" caretOffset="5494" date="Mon Mar 29 14:41:17 EDT 2021" docOffset="5494" starttimestamp="1617042711952" timestamp="565172" />
+  <Command __id="207" _type="MoveCaretCommand" caretOffset="5500" date="Mon Mar 29 14:41:17 EDT 2021" docOffset="5500" starttimestamp="1617042711952" timestamp="565502" />
+  <Command __id="208" _type="MoveCaretCommand" caretOffset="5501" date="Mon Mar 29 14:41:18 EDT 2021" docOffset="5501" starttimestamp="1617042711952" timestamp="566458" />
+  <Command __id="210" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Mon Mar 29 14:41:18 EDT 2021" starttimestamp="1617042711952" timestamp="567036" />
+  <Command __id="211" _type="MoveCaretCommand" caretOffset="5499" date="Mon Mar 29 14:41:19 EDT 2021" docOffset="5499" starttimestamp="1617042711952" timestamp="567815" />
+  <Command __id="213" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Mon Mar 29 14:41:19 EDT 2021" starttimestamp="1617042711952" timestamp="567939" />
+  <Command __id="214" _type="MoveCaretCommand" caretOffset="5691" date="Mon Mar 29 14:41:20 EDT 2021" docOffset="5691" starttimestamp="1617042711952" timestamp="568663" />
+  <Command __id="216" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Mon Mar 29 14:41:20 EDT 2021" starttimestamp="1617042711952" timestamp="568830" />
+  <Command __id="217" _type="MoveCaretCommand" caretOffset="5689" date="Mon Mar 29 14:41:21 EDT 2021" docOffset="5689" starttimestamp="1617042711952" timestamp="569376" />
+  <Command __id="219" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Mon Mar 29 14:41:21 EDT 2021" starttimestamp="1617042711952" timestamp="569406" />
+  <Command __id="220" _type="MoveCaretCommand" caretOffset="5633" date="Mon Mar 29 14:41:21 EDT 2021" docOffset="5633" starttimestamp="1617042711952" timestamp="569688" />
+  <Command __id="221" _type="EclipseCommand" commandID="org.eclipse.ui.file.save" date="Mon Mar 29 14:41:22 EDT 2021" starttimestamp="1617042711952" timestamp="570335" />
+  <Command __id="224" _type="MoveCaretCommand" caretOffset="5507" date="Mon Mar 29 14:41:22 EDT 2021" docOffset="5507" starttimestamp="1617042711952" timestamp="570675" />
+  <Command __id="225" _type="ShellCommand" date="Mon Mar 29 14:41:24 EDT 2021" starttimestamp="1617042711952" timestamp="572803" type="ECLIPSE_MINIMIZED" />
+  <Command __id="226" _type="ShellCommand" date="Mon Mar 29 14:41:24 EDT 2021" starttimestamp="1617042711952" timestamp="572806" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="288" _type="ShellCommand" date="Mon Mar 29 14:59:07 EDT 2021" starttimestamp="1617042711952" timestamp="1635649" type="ECLIPSE_MAXIMIZED" />
+  <Command __id="289" _type="ShellCommand" date="Mon Mar 29 14:59:07 EDT 2021" starttimestamp="1617042711952" timestamp="1635670" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="290" _type="SelectTextCommand" caretOffset="1832" date="Mon Mar 29 14:59:17 EDT 2021" end="1835" start="1832" starttimestamp="1617042711952" timestamp="1645687" />
+  <Command __id="292" _type="InsertStringCommand" date="Mon Mar 29 14:59:18 EDT 2021" starttimestamp="1617042711952" timestamp="1646215" timestamp2="1646215">
+    <data><![CDATA[d]]></data>
+  </Command>
+  <Command __id="294" _type="InsertStringCommand" date="Mon Mar 29 14:59:18 EDT 2021" starttimestamp="1617042711952" timestamp="1646336" timestamp2="1646336">
+    <data><![CDATA[a]]></data>
+  </Command>
+  <Command __id="296" _type="InsertStringCommand" date="Mon Mar 29 14:59:18 EDT 2021" starttimestamp="1617042711952" timestamp="1646495" timestamp2="1646495">
+    <data><![CDATA[t]]></data>
+  </Command>
+  <Command __id="298" _type="InsertStringCommand" date="Mon Mar 29 14:59:18 EDT 2021" starttimestamp="1617042711952" timestamp="1646581" timestamp2="1646581">
+    <data><![CDATA[a]]></data>
+  </Command>
+  <Command __id="299" _type="EclipseCommand" commandID="org.eclipse.ui.file.save" date="Mon Mar 29 14:59:19 EDT 2021" starttimestamp="1617042711952" timestamp="1647176" />
+  <Command __id="326" _type="RunCommand" date="Mon Mar 29 14:59:41 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1617042711952" timestamp="1669382" type="Run" />
+  <Command __id="327" _type="RunCommand" date="Mon Mar 29 14:59:41 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1617042711952" timestamp="1669382" type="Run" />
+  <Command __id="328" _type="MoveCaretCommand" caretOffset="6932" date="Mon Mar 29 14:59:48 EDT 2021" docOffset="6932" starttimestamp="1617042711952" timestamp="1676962" />
+  <Command __id="352" _type="RunCommand" date="Mon Mar 29 15:00:12 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1617042711952" timestamp="1700328" type="Run" />
+  <Command __id="353" _type="RunCommand" date="Mon Mar 29 15:00:12 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1617042711952" timestamp="1700328" type="Run" />
+  <Command __id="354" _type="MoveCaretCommand" caretOffset="1466" date="Mon Mar 29 15:00:13 EDT 2021" docOffset="1466" starttimestamp="1617042711952" timestamp="1701892" />
+  <Command __id="355" _type="ShellCommand" date="Mon Mar 29 15:00:20 EDT 2021" starttimestamp="1617042711952" timestamp="1708184" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="356" _type="ShellCommand" date="Mon Mar 29 15:00:20 EDT 2021" starttimestamp="1617042711952" timestamp="1708477" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="357" _type="SelectTextCommand" caretOffset="1858" date="Mon Mar 29 15:00:20 EDT 2021" end="1858" start="1474" starttimestamp="1617042711952" timestamp="1708752" />
+  <Command __id="358" _type="MoveCaretCommand" caretOffset="1858" date="Mon Mar 29 15:00:20 EDT 2021" docOffset="1858" starttimestamp="1617042711952" timestamp="1708915" />
+  <Command __id="198" _type="DiffBasedFileOpenCommand" date="Mon Mar 29 14:40:46 EDT 2021" docASTNodeCount="1026" docActiveCodeLength="6948" docExpressionCount="675" docLength="6948" projectName="TaskBox" starttimestamp="1617042711952" timestamp="534559">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\TaskBox\src\components\mathEditor\MathEditorPanel.java]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"package components.mathEditor;¶¶import java.awt.Color;¶import java.awt.Graphics2D;¶import java.awt.Insets;¶import java.awt.image.BufferedImage;¶import java.beans.PropertyChangeEvent;¶import java.beans.PropertyChangeListener;¶import java.io.File;¶import java.io.IOException;¶import javax.imageio.ImageIO;¶"), Diff(DELETE,"import javax.swing.JButton;¶"), Diff(EQUAL,"import javax.swing.JLabel;¶"), Diff(INSERT,""), Diff(EQUAL,"import org.scilab.forge.jlatexmath.TeXConstants;¶import org.scilab.forge.jlatexmath.TeXFormula;¶import org.scilab.forge.jlatexmath.TeXIcon;¶import components.listenersupport.PropertyListenerSupport;¶import util.annotations.EditablePropertyNames;¶"), Diff(DELETE,"import util.annotations.PreferredWidgetClass;¶"), Diff(EQUAL,"import util.annotations.PropertyNames;¶"), Diff(DELETE,"import util.annotations.Row;¶"), Diff(EQUAL,"import util.annotations.StructurePattern;¶import util.annotations.StructurePatternNames;¶¶¶@StructurePattern(StructurePatternNames.BEAN_PATTERN)¶@PropertyNames({"image", "mathExpression", "caretPosition"})¶@EditablePropertyNames({"mathExpression"})¶public class MathEditorPanel {¶	private String mathExpression = "";¶	private int imageHeight = 100, imageWidth = 400;¶	private int caretPosition;¶	private PropertyListenerSupport propertyListenerSupport = new PropertyListenerSupport();¶	private MathExpressionImageInterface image = null;¶¶	¶¶	public MathExpressionImageInterface getImage() {¶		return image;¶	}¶	¶	¶	public void setImage(MathExpressionImageInterface newImage) {¶		image = newImage;¶	}¶	¶	public String getMathExpression() {¶		return mathExpression;¶	}¶	¶	public void setMathExpression(String newMathExpression) {¶		String oldMathExpression = mathExpression;¶		mathExpression = newMathExpression;¶		propertyListenerSupport.notifyAllListeners(¶				new PropertyChangeEvent(this, "result", oldMathExpression, mathExpression));¶		¶		render(mathExpression);¶		"), Diff(DELETE,"System.err.println("rendered");¶		"), Diff(EQUAL,"¶		if (image == null) {¶			image = new MathExpressionImage(0, 0, imageHeight, imageWidth, "img/latex.png");¶		}¶		¶		getImage().setImageFileName("img/latex.png");¶		getImage().setHeight(imageHeight);¶		getImage().setWidth(imageWidth);¶	}¶	¶	public int getCaretPosition() {¶		return caretPosition;¶	}¶	¶	public void setCaretPosition(int newPosition) {¶		int oldPosition = caretPosition;¶		caretPosition = newPosition;¶		System.out.println(caretPosition);¶		propertyListenerSupport.notifyAllListeners(¶				new PropertyChangeEvent(this, "caretPosition", oldPosition, caretPosition));¶	}¶	¶	public void addPropertyChangeListener(PropertyChangeListener aListener) {¶		propertyListenerSupport.addElement(aListener);    ¶    }¶"), Diff(INSERT,""), Diff(EQUAL,"	¶	"), Diff(DELETE,"¶	@PreferredWidgetClass(JButton.class)¶	@Row(0)¶	"), Diff(EQUAL,"public void dotProduct() {¶		StringBuffer buffer = new StringBuffer(getMathExpression());¶		buffer.insert(caretPosition, "\\cdot");¶		setMathExpression(buffer.toString());¶	}¶	¶	public void crossProduct() {¶		StringBuffer buffer = new StringBuffer(getMathExpression());¶		buffer.insert(caretPosition, "\\times");¶		setMathExpression(buffer.toString());¶	}¶	¶	public void divide() {¶		StringBuffer buffer = new StringBuffer(getMathExpression());¶		buffer.insert(caretPosition, "\\div");¶		setMathExpression(buffer.toString());¶	}¶	¶	public void neq() {¶		StringBuffer buffer = new StringBuffer(getMathExpression());¶		buffer.insert(caretPosition, "\\neq");¶		setMathExpression(buffer.toString());¶	}¶	¶	public void ge() {¶		StringBuffer buffer = new StringBuffer(getMathExpression());¶		buffer.insert(caretPosition, "\\ge");¶		setMathExpression(buffer.toString());¶	}¶	¶	public void le() {¶		StringBuffer buffer = new StringBuffer(getMathExpression());¶		buffer.insert(caretPosition, "\\le");¶		setMathExpression(buffer.toString());¶	}¶	¶	public void approximate() {¶		StringBuffer buffer = new StringBuffer(getMathExpression());¶		buffer.insert(caretPosition, "\\approx");¶		setMathExpression(buffer.toString());¶	}¶	¶	public void not() {¶		StringBuffer buffer = new StringBuffer(getMathExpression());¶		buffer.insert(caretPosition, "\\not");¶		setMathExpression(buffer.toString());¶	}¶	¶	public void inf() {¶		StringBuffer buffer = new StringBuffer(getMathExpression());¶		buffer.insert(caretPosition, "\\infty");¶		setMathExpression(buffer.toString());¶	}¶	¶	public void pm() {¶		StringBuffer buffer = new StringBuffer(getMathExpression());¶		buffer.insert(caretPosition, "\\pm");¶		setMathExpression(buffer.toString());¶	}¶	¶	public void dot() {¶		StringBuffer buffer = new StringBuffer(getMathExpression());¶		buffer.insert(caretPosition, "\\dot{x}");¶		setMathExpression(buffer.toString());¶	}¶	¶	public void ddot() {¶		StringBuffer buffer = new StringBuffer(getMathExpression());¶		buffer.insert(caretPosition, "\\ddot{x}");¶		setMathExpression(buffer.toString());¶	}¶	¶	public void superScript() {¶		StringBuffer buffer = new StringBuffer(getMathExpression());¶		buffer.insert(caretPosition, "^{x}");¶		setMathExpression(buffer.toString());¶	}¶	¶	public void subScript() {¶		StringBuffer buffer = new StringBuffer(getMathExpression());¶		buffer.insert(caretPosition, "_{x}");¶		setMathExpression(buffer.toString());¶	}¶	¶	public void fraction() {¶		StringBuffer buffer = new StringBuffer(getMathExpression());¶		buffer.insert(caretPosition, "\\frac{a}{b}");¶		setMathExpression(buffer.toString());¶	}¶	¶	public void sqrt() {¶		StringBuffer buffer = new StringBuffer(getMathExpression());¶		buffer.insert(caretPosition, "\\sqrt{a}");¶		setMathExpression(buffer.toString());¶	}¶	¶	public void floor() {¶		StringBuffer buffer = new StringBuffer(getMathExpression());¶		buffer.insert(caretPosition, "\\lfloor {x} \\rfloor");¶		setMathExpression(buffer.toString());¶	}¶	¶	public void ceil() {¶		StringBuffer buffer = new StringBuffer(getMathExpression());¶		buffer.insert(caretPosition, "\\lceil {x} \\rceil");¶		setMathExpression(buffer.toString());¶	}¶	¶	¶	public void integral() {¶		StringBuffer buffer = new StringBuffer(getMathExpression());¶		buffer.insert(caretPosition, "\\int^{b}_{a}");¶		setMathExpression(buffer.toString());¶	}¶	¶	public void sum() {¶		StringBuffer buffer = new StringBuffer(getMathExpression());¶		buffer.insert(caretPosition, "\\sum^{b}_{a}");¶		setMathExpression(buffer.toString());¶	}¶	¶	¶	¶ 	public void render(String latexString) {¶		TeXFormula formula = new TeXFormula(latexString);¶		TeXIcon icon = formula.createTeXIcon(TeXConstants.STYLE_DISPLAY, 20);¶		icon.setInsets(new Insets(5, 5, 5, 5));¶		BufferedImage image = new BufferedImage(icon.getIconWidth(),¶				icon.getIconHeight(), BufferedImage.TYPE_INT_ARGB);¶		Graphics2D g2 = image.createGraphics();¶		g2.setColor(Color.white);¶		g2.fillRect(0, 0, icon.getIconWidth(), icon.getIconHeight());¶		JLabel jl = new JLabel();¶		jl.setForeground(new Color(0, 0, 0));¶		icon.paintIcon(jl, g2, 0, 0);¶		imageHeight = image.getHeight();¶		imageWidth = image.getWidth();¶		File outputfile = new File("img/latex.png");¶		try {¶			ImageIO.write(image, "png", outputfile);¶		} catch (IOException e) {¶			e.printStackTrace();¶		}¶	}¶}¶")]]]></diff>
+    <snapshot><![CDATA[package components.mathEditor;
+
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.Insets;
+import java.awt.image.BufferedImage;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.JLabel;
+import org.scilab.forge.jlatexmath.TeXConstants;
+import org.scilab.forge.jlatexmath.TeXFormula;
+import org.scilab.forge.jlatexmath.TeXIcon;
+import components.listenersupport.PropertyListenerSupport;
+import util.annotations.EditablePropertyNames;
+import util.annotations.PropertyNames;
+import util.annotations.StructurePattern;
+import util.annotations.StructurePatternNames;
+
+
+@StructurePattern(StructurePatternNames.BEAN_PATTERN)
+@PropertyNames({"image", "mathExpression", "caretPosition"})
+@EditablePropertyNames({"mathExpression"})
+public class MathEditorPanel {
+	private String mathExpression = "";
+	private int imageHeight = 100, imageWidth = 400;
+	private int caretPosition;
+	private PropertyListenerSupport propertyListenerSupport = new PropertyListenerSupport();
+	private MathExpressionImageInterface image = null;
+
+	
+
+	public MathExpressionImageInterface getImage() {
+		return image;
+	}
+	
+	
+	public void setImage(MathExpressionImageInterface newImage) {
+		image = newImage;
+	}
+	
+	public String getMathExpression() {
+		return mathExpression;
+	}
+	
+	public void setMathExpression(String newMathExpression) {
+		String oldMathExpression = mathExpression;
+		mathExpression = newMathExpression;
+		propertyListenerSupport.notifyAllListeners(
+				new PropertyChangeEvent(this, "result", oldMathExpression, mathExpression));
+		
+		render(mathExpression);
+		
+		if (image == null) {
+			image = new MathExpressionImage(0, 0, imageHeight, imageWidth, "img/latex.png");
+		}
+		
+		getImage().setImageFileName("img/latex.png");
+		getImage().setHeight(imageHeight);
+		getImage().setWidth(imageWidth);
+	}
+	
+	public int getCaretPosition() {
+		return caretPosition;
+	}
+	
+	public void setCaretPosition(int newPosition) {
+		int oldPosition = caretPosition;
+		caretPosition = newPosition;
+		System.out.println(caretPosition);
+		propertyListenerSupport.notifyAllListeners(
+				new PropertyChangeEvent(this, "caretPosition", oldPosition, caretPosition));
+	}
+	
+	public void addPropertyChangeListener(PropertyChangeListener aListener) {
+		propertyListenerSupport.addElement(aListener);    
+    }
+	
+	public void dotProduct() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "\\cdot");
+		setMathExpression(buffer.toString());
+	}
+	
+	public void crossProduct() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "\\times");
+		setMathExpression(buffer.toString());
+	}
+	
+	public void divide() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "\\div");
+		setMathExpression(buffer.toString());
+	}
+	
+	public void neq() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "\\neq");
+		setMathExpression(buffer.toString());
+	}
+	
+	public void ge() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "\\ge");
+		setMathExpression(buffer.toString());
+	}
+	
+	public void le() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "\\le");
+		setMathExpression(buffer.toString());
+	}
+	
+	public void approximate() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "\\approx");
+		setMathExpression(buffer.toString());
+	}
+	
+	public void not() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "\\not");
+		setMathExpression(buffer.toString());
+	}
+	
+	public void inf() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "\\infty");
+		setMathExpression(buffer.toString());
+	}
+	
+	public void pm() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "\\pm");
+		setMathExpression(buffer.toString());
+	}
+	
+	public void dot() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "\\dot{x}");
+		setMathExpression(buffer.toString());
+	}
+	
+	public void ddot() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "\\ddot{x}");
+		setMathExpression(buffer.toString());
+	}
+	
+	public void superScript() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "^{x}");
+		setMathExpression(buffer.toString());
+	}
+	
+	public void subScript() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "_{x}");
+		setMathExpression(buffer.toString());
+	}
+	
+	public void fraction() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "\\frac{a}{b}");
+		setMathExpression(buffer.toString());
+	}
+	
+	public void sqrt() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "\\sqrt{a}");
+		setMathExpression(buffer.toString());
+	}
+	
+	public void floor() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "\\lfloor {x} \\rfloor");
+		setMathExpression(buffer.toString());
+	}
+	
+	public void ceil() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "\\lceil {x} \\rceil");
+		setMathExpression(buffer.toString());
+	}
+	
+	
+	public void integral() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "\\int^{b}_{a}");
+		setMathExpression(buffer.toString());
+	}
+	
+	public void sum() {
+		StringBuffer buffer = new StringBuffer(getMathExpression());
+		buffer.insert(caretPosition, "\\sum^{b}_{a}");
+		setMathExpression(buffer.toString());
+	}
+	
+	
+	
+ 	public void render(String latexString) {
+		TeXFormula formula = new TeXFormula(latexString);
+		TeXIcon icon = formula.createTeXIcon(TeXConstants.STYLE_DISPLAY, 20);
+		icon.setInsets(new Insets(5, 5, 5, 5));
+		BufferedImage image = new BufferedImage(icon.getIconWidth(),
+				icon.getIconHeight(), BufferedImage.TYPE_INT_ARGB);
+		Graphics2D g2 = image.createGraphics();
+		g2.setColor(Color.white);
+		g2.fillRect(0, 0, icon.getIconWidth(), icon.getIconHeight());
+		JLabel jl = new JLabel();
+		jl.setForeground(new Color(0, 0, 0));
+		icon.paintIcon(jl, g2, 0, 0);
+		imageHeight = image.getHeight();
+		imageWidth = image.getWidth();
+		File outputfile = new File("img/latex.png");
+		try {
+			ImageIO.write(image, "png", outputfile);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}
+]]></snapshot>
+  </Command>
+  <DocumentChange __id="209" _type="Delete" date="Mon Mar 29 14:41:18 EDT 2021" docASTNodeCount="1026" docActiveCodeLength="6947" docExpressionCount="675" docLength="6947" endLine="178" length="1" offset="5500" startLine="178" starttimestamp="1617042711952" timestamp="567029">
+    <text><![CDATA[}]]></text>
+  </DocumentChange>
+  <DocumentChange __id="212" _type="Delete" date="Mon Mar 29 14:41:19 EDT 2021" docASTNodeCount="1026" docActiveCodeLength="6946" docExpressionCount="675" docLength="6946" endLine="178" length="1" offset="5498" startLine="178" starttimestamp="1617042711952" timestamp="567937">
+    <text><![CDATA[{]]></text>
+  </DocumentChange>
+  <DocumentChange __id="215" _type="Delete" date="Mon Mar 29 14:41:20 EDT 2021" docASTNodeCount="1026" docActiveCodeLength="6945" docExpressionCount="675" docLength="6945" endLine="184" length="1" offset="5690" startLine="184" starttimestamp="1617042711952" timestamp="568827">
+    <text><![CDATA[}]]></text>
+  </DocumentChange>
+  <DocumentChange __id="218" _type="Delete" date="Mon Mar 29 14:41:21 EDT 2021" docASTNodeCount="1026" docActiveCodeLength="6944" docExpressionCount="675" docLength="6944" endLine="184" length="1" offset="5688" startLine="184" starttimestamp="1617042711952" timestamp="569404">
+    <text><![CDATA[{]]></text>
+  </DocumentChange>
+  <DocumentChange __id="291" _type="Replace" date="Mon Mar 29 14:59:18 EDT 2021" docASTNodeCount="1026" docActiveCodeLength="6942" docExpressionCount="675" docLength="6942" endLine="56" insertionLength="1" int_docASTNodeCount="1026" int_docActiveCodeLength="6941" int_docExpressionCount="675" int_docLength="6941" length="3" offset="1832" startLine="56" starttimestamp="1617042711952" timestamp="1646209">
+    <deletedText><![CDATA[img]]></deletedText>
+    <insertedText><![CDATA[d]]></insertedText>
+  </DocumentChange>
+  <DocumentChange __id="293" _type="Insert" date="Mon Mar 29 14:59:18 EDT 2021" docASTNodeCount="1026" docActiveCodeLength="6945" docExpressionCount="675" docLength="6945" length="3" offset="1833" repeat="3" starttimestamp="1617042711952" timestamp="1646334" timestamp2="1646578">
+    <text><![CDATA[ata]]></text>
+  </DocumentChange>
+  <DocumentChange __id="303" _type="Replace" date="Mon Mar 29 14:59:24 EDT 2021" docASTNodeCount="1026" docActiveCodeLength="6943" docExpressionCount="675" docLength="6943" endLine="217" insertionLength="1" int_docASTNodeCount="1026" int_docActiveCodeLength="6942" int_docExpressionCount="675" int_docLength="6942" length="3" offset="6807" startLine="217" starttimestamp="1617042711952" timestamp="1652183">
+    <deletedText><![CDATA[img]]></deletedText>
+    <insertedText><![CDATA[d]]></insertedText>
+  </DocumentChange>
+  <DocumentChange __id="305" _type="Insert" date="Mon Mar 29 14:59:24 EDT 2021" docASTNodeCount="1026" docActiveCodeLength="6946" docExpressionCount="675" docLength="6946" length="3" offset="6808" repeat="3" starttimestamp="1617042711952" timestamp="1652288" timestamp2="1652552">
+    <text><![CDATA[ata]]></text>
+  </DocumentChange>
+  <DocumentChange __id="330" _type="Replace" date="Mon Mar 29 15:00:03 EDT 2021" docASTNodeCount="1026" docActiveCodeLength="6944" docExpressionCount="675" docLength="6944" endLine="59" insertionLength="1" int_docASTNodeCount="1026" int_docActiveCodeLength="6943" int_docExpressionCount="675" int_docLength="6943" length="3" offset="1891" startLine="59" starttimestamp="1617042711952" timestamp="1691471">
+    <deletedText><![CDATA[img]]></deletedText>
+    <insertedText><![CDATA[d]]></insertedText>
+  </DocumentChange>
+  <DocumentChange __id="332" _type="Insert" date="Mon Mar 29 15:00:03 EDT 2021" docASTNodeCount="1026" docActiveCodeLength="6947" docExpressionCount="675" docLength="6947" length="3" offset="1892" repeat="3" starttimestamp="1617042711952" timestamp="1691567" timestamp2="1691811">
+    <text><![CDATA[ata]]></text>
+  </DocumentChange>
+  <Command __id="359" _type="MoveCaretCommand" caretOffset="727" date="Mon Mar 29 15:01:20 EDT 2021" docOffset="727" starttimestamp="1617042711952" timestamp="1768957" />
+  <Command __id="360" _type="SelectTextCommand" caretOffset="1187" date="Mon Mar 29 15:01:21 EDT 2021" end="1187" start="675" starttimestamp="1617042711952" timestamp="1769364" />
+  <Command __id="361" _type="MoveCaretCommand" caretOffset="1187" date="Mon Mar 29 15:01:21 EDT 2021" docOffset="1187" starttimestamp="1617042711952" timestamp="1769507" />
+  <Command __id="362" _type="MoveCaretCommand" caretOffset="1104" date="Mon Mar 29 15:01:21 EDT 2021" docOffset="1104" starttimestamp="1617042711952" timestamp="1769975" />
+  <Command __id="363" _type="MoveCaretCommand" caretOffset="772" date="Mon Mar 29 15:01:22 EDT 2021" docOffset="772" starttimestamp="1617042711952" timestamp="1770301" />
+  <Command __id="364" _type="MoveCaretCommand" caretOffset="920" date="Mon Mar 29 15:01:22 EDT 2021" docOffset="920" starttimestamp="1617042711952" timestamp="1770532" />
+  <Command __id="365" _type="MoveCaretCommand" caretOffset="920" date="Mon Mar 29 15:01:22 EDT 2021" docOffset="920" starttimestamp="1617042711952" timestamp="1770599" />
+  <Command __id="366" _type="MoveCaretCommand" caretOffset="1105" date="Mon Mar 29 15:01:22 EDT 2021" docOffset="1105" starttimestamp="1617042711952" timestamp="1770992" />
+  <Command __id="367" _type="MoveCaretCommand" caretOffset="1182" date="Mon Mar 29 15:01:23 EDT 2021" docOffset="1182" starttimestamp="1617042711952" timestamp="1771720" />
+  <Command __id="368" _type="MoveCaretCommand" caretOffset="958" date="Mon Mar 29 15:01:24 EDT 2021" docOffset="958" starttimestamp="1617042711952" timestamp="1772150" />
+  <Command __id="369" _type="SelectTextCommand" caretOffset="1182" date="Mon Mar 29 15:01:24 EDT 2021" end="1182" start="831" starttimestamp="1617042711952" timestamp="1772555" />
+  <Command __id="370" _type="MoveCaretCommand" caretOffset="1182" date="Mon Mar 29 15:01:24 EDT 2021" docOffset="1182" starttimestamp="1617042711952" timestamp="1772732" />
+  <Command __id="371" _type="SelectTextCommand" caretOffset="888" date="Mon Mar 29 15:01:25 EDT 2021" end="1182" start="888" starttimestamp="1617042711952" timestamp="1773415" />
+  <Command __id="372" _type="MoveCaretCommand" caretOffset="888" date="Mon Mar 29 15:01:25 EDT 2021" docOffset="888" starttimestamp="1617042711952" timestamp="1773599" />
+  <Command __id="374" _type="MoveCaretCommand" caretOffset="293" date="Mon Mar 29 15:01:27 EDT 2021" docOffset="729" starttimestamp="1617042711952" timestamp="1775469" />
+  <Command __id="375" _type="MoveCaretCommand" caretOffset="719" date="Mon Mar 29 15:01:27 EDT 2021" docOffset="1155" starttimestamp="1617042711952" timestamp="1775795" />
+  <Command __id="376" _type="SelectTextCommand" caretOffset="1109" date="Mon Mar 29 15:01:28 EDT 2021" end="1109" start="534" starttimestamp="1617042711952" timestamp="1776346" />
+  <Command __id="377" _type="MoveCaretCommand" caretOffset="1109" date="Mon Mar 29 15:01:28 EDT 2021" docOffset="1545" starttimestamp="1617042711952" timestamp="1776505" />
+  <Command __id="378" _type="SelectTextCommand" caretOffset="901" date="Mon Mar 29 15:01:28 EDT 2021" end="944" start="901" starttimestamp="1617042711952" timestamp="1776940" />
+  <Command __id="379" _type="ShellCommand" date="Mon Mar 29 15:01:30 EDT 2021" starttimestamp="1617042711952" timestamp="1778108" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="380" _type="ShellCommand" date="Mon Mar 29 15:03:19 EDT 2021" starttimestamp="1617042711952" timestamp="1887269" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="381" _type="ShellCommand" date="Mon Mar 29 15:03:20 EDT 2021" starttimestamp="1617042711952" timestamp="1888639" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="382" _type="ShellCommand" date="Mon Mar 29 15:06:55 EDT 2021" starttimestamp="1617042711952" timestamp="2103247" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="383" _type="MoveCaretCommand" caretOffset="555" date="Mon Mar 29 15:06:55 EDT 2021" docOffset="991" starttimestamp="1617042711952" timestamp="2103306" />
+  <Command __id="384" _type="MoveCaretCommand" caretOffset="944" date="Mon Mar 29 15:06:56 EDT 2021" docOffset="1380" starttimestamp="1617042711952" timestamp="2104939" />
+  <Command __id="385" _type="ShellCommand" date="Mon Mar 29 15:07:33 EDT 2021" starttimestamp="1617042711952" timestamp="2141477" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="386" _type="ShellCommand" date="Mon Mar 29 15:14:27 EDT 2021" starttimestamp="1617042711952" timestamp="2555058" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="387" _type="SelectTextCommand" caretOffset="1043" date="Mon Mar 29 15:14:27 EDT 2021" end="1043" start="297" starttimestamp="1617042711952" timestamp="2556014" />
+  <Command __id="388" _type="MoveCaretCommand" caretOffset="1043" date="Mon Mar 29 15:14:28 EDT 2021" docOffset="1479" starttimestamp="1617042711952" timestamp="2556198" />
+  <Command __id="389" _type="SelectTextCommand" caretOffset="1286" date="Mon Mar 29 15:14:29 EDT 2021" end="1286" start="693" starttimestamp="1617042711952" timestamp="2557867" />
+  <Command __id="390" _type="MoveCaretCommand" caretOffset="1292" date="Mon Mar 29 15:14:29 EDT 2021" docOffset="1728" starttimestamp="1617042711952" timestamp="2558035" />
+  <Command __id="391" _type="SelectTextCommand" caretOffset="290" date="Mon Mar 29 15:19:32 EDT 2021" end="290" start="68" starttimestamp="1617042711952" timestamp="2860121" />
+  <Command __id="392" _type="MoveCaretCommand" caretOffset="290" date="Mon Mar 29 15:19:32 EDT 2021" docOffset="726" starttimestamp="1617042711952" timestamp="2860264" />
+  <Command __id="393" _type="SelectTextCommand" caretOffset="908" date="Mon Mar 29 15:19:32 EDT 2021" end="908" start="141" starttimestamp="1617042711952" timestamp="2860763" />
+  <Command __id="394" _type="MoveCaretCommand" caretOffset="1037" date="Mon Mar 29 15:19:32 EDT 2021" docOffset="1473" starttimestamp="1617042711952" timestamp="2860998" />
+  <Command __id="395" _type="SelectTextCommand" caretOffset="956" date="Mon Mar 29 15:19:33 EDT 2021" end="1286" start="956" starttimestamp="1617042711952" timestamp="2861548" />
+  <Command __id="396" _type="MoveCaretCommand" caretOffset="1030" date="Mon Mar 29 15:19:33 EDT 2021" docOffset="1466" starttimestamp="1617042711952" timestamp="2861750" />
+  <Command __id="397" _type="SelectTextCommand" caretOffset="1295" date="Mon Mar 29 15:19:34 EDT 2021" end="1295" start="944" starttimestamp="1617042711952" timestamp="2862188" />
+  <Command __id="398" _type="MoveCaretCommand" caretOffset="1295" date="Mon Mar 29 15:19:34 EDT 2021" docOffset="1731" starttimestamp="1617042711952" timestamp="2862364" />
+  <Command __id="399" _type="SelectTextCommand" caretOffset="580" date="Mon Mar 29 15:19:37 EDT 2021" end="580" start="300" starttimestamp="1617042711952" timestamp="2865312" />
+  <Command __id="400" _type="MoveCaretCommand" caretOffset="580" date="Mon Mar 29 15:19:37 EDT 2021" docOffset="1016" starttimestamp="1617042711952" timestamp="2865454" />
+</Events>

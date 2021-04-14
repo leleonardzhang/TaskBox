@@ -1,0 +1,679 @@
+<Events startTimestamp="1616457516288" logVersion="1.0.0.202101171653">
+  <Command __id="1" _type="EclipseCommand" commandID="" date="Mon Mar 22 19:58:40 EDT 2021" starttimestamp="1616457516288" timestamp="4118" />
+  <Command __id="2" _type="DiffBasedFileOpenCommand" date="Mon Mar 22 19:58:43 EDT 2021" docASTNodeCount="316" docActiveCodeLength="1797" docExpressionCount="241" docLength="1797" projectName="TaskBox" starttimestamp="1616457516288" timestamp="7318">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\TaskBox\src\main\Main.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package main;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import org.apache.commons.math3.fitting.WeightedObservedPoint;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import bus.uigen.ObjectEditor;
+import components.curve.fitting.AngleTimeFunction;
+import components.curve.fitting.MyCurveFitter;
+import components.mainpanel.MainPanel;
+import components.mainpanel.MainPanelInterface;
+import components.mathEditor.MathEditorPanel;
+import components.page.pages.Page;
+import components.page.pages.PageInterface;
+import components.plane.plane.Plane;
+import components.plane.plane.PlaneInterface;
+
+
+public class Main {
+	public static void main(String[] args)  {
+		MyCurveFitter fitter = new MyCurveFitter();
+        ArrayList<WeightedObservedPoint> points = new ArrayList<WeightedObservedPoint>();
+
+        
+        points.add(new WeightedObservedPoint(1.0, 0.5, 6.4845));
+        points.add(new WeightedObservedPoint(1.0, 1, 1.4687));
+        points.add(new WeightedObservedPoint(1.0, 1.5, 0.1378));
+        points.add(new WeightedObservedPoint(1.0, 2, -0.6861));
+        points.add(new WeightedObservedPoint(1.0, 2.5, -1.1952));
+        points.add(new WeightedObservedPoint(1.0, 3, -1.3816));
+        points.add(new WeightedObservedPoint(1.0, 3.5, -1.2462));
+        points.add(new WeightedObservedPoint(1.0, 4, -0.8393));
+        
+
+        final double coeffs[] = fitter.fit(points);
+        
+        for (int i = 0; i < coeffs.length; i ++) {
+        	System.out.print(coeffs[i] + " ");
+        	System.out.println();
+        }
+        
+        AngleTimeFunction func = new AngleTimeFunction();
+        
+        for (double i = 0; i < 10; i += 0.5) {
+        	System.out.printf("%f %f\n", i, func.value(i, coeffs));
+        }
+	}
+}
+]]></snapshot>
+  </Command>
+  <Command __id="3" _type="MoveCaretCommand" caretOffset="237" date="Mon Mar 22 19:58:43 EDT 2021" docOffset="860" starttimestamp="1616457516288" timestamp="7499" />
+  <Command __id="5" _type="MoveCaretCommand" caretOffset="207" date="Mon Mar 22 19:58:46 EDT 2021" docOffset="476" starttimestamp="1616457516288" timestamp="9909" />
+  <Command __id="7" _type="RunCommand" date="Mon Mar 22 19:58:51 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1616457516288" timestamp="15632" type="Run" />
+  <Command __id="8" _type="RunCommand" date="Mon Mar 22 19:58:51 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1616457516288" timestamp="15632" type="Run" />
+  <Command __id="4" _type="DiffBasedFileOpenCommand" date="Mon Mar 22 19:58:46 EDT 2021" docASTNodeCount="90" docActiveCodeLength="546" docExpressionCount="62" docLength="546" projectName="TaskBox" starttimestamp="1616457516288" timestamp="9788">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\TaskBox\src\main\TaskPanel.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package main;
+
+import bus.uigen.OEFrame;
+import bus.uigen.ObjectEditor;
+import components.composedGraph.ComposedGraph;
+import components.composedGraph.ComposedGraphInterface;
+import components.curve.point.CurvePoint;
+import components.mainpanel.MainPanel;
+import components.mainpanel.MainPanelInterface;
+
+public class TaskPanel {
+
+	public static void main(String[] args) {
+		MainPanelInterface panel = new MainPanel();
+		OEFrame frame = ObjectEditor.edit(panel);
+		frame.setSize(600, 1000);
+		frame.setLocation(0, 0);
+
+	}
+
+}
+]]></snapshot>
+  </Command>
+  <Command __id="16" _type="RunCommand" date="Mon Mar 22 19:59:01 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1616457516288" timestamp="24788" type="Run" />
+  <Command __id="17" _type="RunCommand" date="Mon Mar 22 19:59:01 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1616457516288" timestamp="24789" type="Run" />
+  <Command __id="19" _type="MoveCaretCommand" caretOffset="237" date="Mon Mar 22 19:59:03 EDT 2021" docOffset="860" starttimestamp="1616457516288" timestamp="27480" />
+  <Command __id="25" _type="EclipseCommand" commandID="" date="Mon Mar 22 19:59:17 EDT 2021" starttimestamp="1616457516288" timestamp="41144" />
+  <Command __id="26" _type="EclipseCommand" commandID="" date="Mon Mar 22 19:59:17 EDT 2021" starttimestamp="1616457516288" timestamp="41154" />
+  <Command __id="31" _type="RunCommand" date="Mon Mar 22 19:59:21 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1616457516288" timestamp="45518" type="Run" />
+  <Command __id="32" _type="RunCommand" date="Mon Mar 22 19:59:21 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1616457516288" timestamp="45518" type="Run" />
+  <Command __id="33" _type="ShellCommand" date="Mon Mar 22 19:59:22 EDT 2021" starttimestamp="1616457516288" timestamp="46297" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="34" _type="ConsoleOutput" date="Mon Mar 22 19:59:22 EDT 2021" overflow="false" starttimestamp="1616457516288" timestamp="46445" type="ConsoleOutput">
+    <outputString><![CDATA[ObjectEditor(Version 22, built on Wed Feb 17 11:47:24 EST 2021). Copyright Prasun Dewan, 2012, All rights reserved. US Patent Appl. No.: 12/532,327
+W*** Implicitly editable property: currentPage of class class components.mainpanel.MainPanel not considered editable as it is not in editable property names list. 
+
+W*** Implicit property currentPageIndex of  MainPanel ignored as it is not in property names list. 
+ Associate annotation @Visible(false) with its getter.
+W*** Implicitly editable property: currentPageIndex of class class components.mainpanel.MainPanel not considered editable as it is not in editable property names list. 
+
+W*** Implicit property pages of  MainPanel ignored as it is not in property names list. 
+ Associate annotation @Visible(false) with its getter.
+W*** Implicitly editable property: pages of class class components.mainpanel.MainPanel not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: lines of class class components.composedGraph.ComposedGraph not considered editable as it is not in editable property names list. 
+
+]]></outputString>
+    <diff><![CDATA[[Diff(DELETE,"---¶¶¶¶ < >---¶¶¶¶ < >"), Diff(INSERT,"ObjectEditor(Version 22, built on Wed Feb 17 11:47:24 EST 2021). Copyright Prasun Dewan, 2012, All rights reserved. US Patent Appl. No.: 12/532,327¶W*** Implicitly editable property: currentPage of class class components.mainpanel.MainPanel not considered editable as it is not in editable property names list. ¶¶W*** Implicit property currentPageIndex of  MainPanel ignored as it is not in property names list. ¶ Associate annotation @Visible(false) with its getter.¶W*** Implicitly editable property: currentPageIndex of class class components.mainpanel.MainPanel not considered editable as it is not in editable property names list. ¶¶W*** Implicit property pages of  MainPanel ignored as it is not in property names list. ¶ Associate annotation @Visible(false) with its getter.¶W*** Implicitly editable property: pages of class class components.mainpanel.MainPanel not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: lines of class class components.composedGraph.ComposedGraph not considered editable as it is not in editable property names list. ¶¶")]]]></diff>
+  </Command>
+  <Command __id="35" _type="ConsoleOutput" date="Mon Mar 22 19:59:22 EDT 2021" overflow="false" starttimestamp="1616457516288" timestamp="46558" type="ConsoleOutput">
+    <outputString><![CDATA[W*** Implicit property XStep of  Plane ignored as it is not in property names list. 
+ Associate annotation @Visible(false) with its getter.
+W*** Implicitly editable property: XStep of class class components.plane.plane.Plane not considered editable as it is not in editable property names list. 
+
+W*** Implicit property YStep of  Plane ignored as it is not in property names list. 
+ Associate annotation @Visible(false) with its getter.
+W*** Implicitly editable property: YStep of class class components.plane.plane.Plane not considered editable as it is not in editable property names list. 
+
+W*** Implicit property x of  Plane ignored as it is not in property names list. 
+ Associate annotation @Visible(false) with its getter.
+W*** Implicitly editable property: x of class class components.plane.plane.Plane not considered editable as it is not in editable property names list. 
+
+W*** Implicit property y of  Plane ignored as it is not in property names list. 
+ Associate annotation @Visible(false) with its getter.
+W*** Implicitly editable property: y of class class components.plane.plane.Plane not considered editable as it is not in editable property names list. 
+
+W*** Implicit property height of  PlaneTick ignored as it is not in property names list. 
+ Associate annotation @Visible(false) with its getter.
+W*** Implicitly editable property: height of class class components.plane.lines.PlaneTick not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: text of class class components.plane.lines.PlaneTick not considered editable as it is not in editable property names list. 
+
+W*** Implicit property width of  PlaneTick ignored as it is not in property names list. 
+ Associate annotation @Visible(false) with its getter.
+W*** Implicitly editable property: width of class class components.plane.lines.PlaneTick not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: x of class class components.plane.lines.PlaneTick not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: y of class class components.plane.lines.PlaneTick not considered editable as it is not in editable property names list. 
+
+]]></outputString>
+    <diff><![CDATA[[Diff(DELETE,"ObjectEditor(Version 22, built on Wed Feb 17 11:47:24 EST 2021). Copyright Prasun Dewan, 2012, All rights reserved. US Patent Appl. No.: 12/532,327"), Diff(INSERT,"W*** Implicit property XStep of  Plane ignored as it is not in property names list. ¶ Associate annotation @Visible(false) with its getter.¶W*** Implicitly editable property: XStep of class class components.plane.plane.Plane not considered editable as it is not in editable property names list. ¶¶W*** Implicit property YStep of  Plane ignored as it is not in property names list. ¶ Associate annotation @Visible(false) with its getter.¶W*** Implicitly editable property: YStep of class class components.plane.plane.Plane not considered editable as it is not in editable property names list. ¶¶W*** Implicit property x of  Plane ignored as it is not in property names list. ¶ Associate annotation @Visible(false) with its getter."), Diff(EQUAL,"¶W*** Implicitly editable property: "), Diff(DELETE,"currentPage"), Diff(INSERT,"x"), Diff(EQUAL," of class class components."), Diff(DELETE,"mainpanel.MainP"), Diff(INSERT,"plane.plane.Pl"), Diff(EQUAL,"ane"), Diff(DELETE,"l"), Diff(EQUAL," not considered editable as it is not in editable property names list. ¶¶W*** Implicit property "), Diff(DELETE,"currentPageIndex of  MainPanel ignored as it is not in property names list. ¶ Associate annotation @Visible(false) with its getter.¶W*** Implicitly editable property: currentPageInd"), Diff(INSERT,"y of  Plane ignored as it is not in property names list. ¶ Associate annotation @Visible(false) with its getter.¶W*** Implicitly editable property: y of class class components.plane.plane.Plane not considered editable as it is not in editable property names list. ¶¶W*** Implicit property height of  PlaneTick ignored as it is not in property names list. ¶ Associate annotation @Visible(false) with its getter.¶W*** Implicitly editable property: height of class class components.plane.lines.PlaneTick not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: t"), Diff(EQUAL,"ex"), Diff(INSERT,"t"), Diff(EQUAL," of class class components."), Diff(DELETE,"mainpanel.MainPanel"), Diff(INSERT,"plane.lines.PlaneTick"), Diff(EQUAL," not considered editable as it is not in editable property names list. ¶¶W*** Implicit property "), Diff(DELETE,"pages of  MainPanel"), Diff(INSERT,"width of  PlaneTick"), Diff(EQUAL," ignored as it is not in property names list. ¶ Associate annotation @Visible(false) with its getter.¶W*** Implicitly editable property: "), Diff(DELETE,"pages"), Diff(INSERT,"width"), Diff(EQUAL," of class class components."), Diff(DELETE,"mainpanel.MainPanel"), Diff(INSERT,"plane.lines.PlaneTick"), Diff(EQUAL," not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: "), Diff(DELETE,"lines"), Diff(INSERT,"x"), Diff(EQUAL," of class class components."), Diff(DELETE,"composedGraph.ComposedGraph"), Diff(INSERT,"plane.lines.PlaneTick not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: y of class class components.plane.lines.PlaneTick"), Diff(EQUAL," not considered editable as it is not in editable property names list. ¶¶")]]]></diff>
+  </Command>
+  <Command __id="36" _type="ConsoleOutput" date="Mon Mar 22 19:59:23 EDT 2021" overflow="false" starttimestamp="1616457516288" timestamp="46792" type="ConsoleOutput">
+    <outputString><![CDATA[W*** Implicitly editable property: line of class class components.plane.lines.YLineTick not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: tick of class class components.plane.lines.YLineTick not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: color of class class components.plane.lines.YLine not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: height of class class components.plane.lines.YLine not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: stroke of class class components.plane.lines.YLine not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: width of class class components.plane.lines.YLine not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: x of class class components.plane.lines.YLine not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: y of class class components.plane.lines.YLine not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: line of class class components.plane.lines.XLineTick not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: tick of class class components.plane.lines.XLineTick not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: color of class class components.plane.lines.XLine not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: height of class class components.plane.lines.XLine not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: stroke of class class components.plane.lines.XLine not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: width of class class components.plane.lines.XLine not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: x of class class components.plane.lines.XLine not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: y of class class components.plane.lines.XLine not considered editable as it is not in editable property names list. 
+
+]]></outputString>
+    <diff><![CDATA[[Diff(EQUAL,"W*** Implicit"), Diff(DELETE," property XStep of  Plane ignored"), Diff(INSERT,"ly editable property: line of class class components.plane.lines.YLineTick not considered editable"), Diff(EQUAL," as it is not in "), Diff(INSERT,"editable "), Diff(EQUAL,"property names list. ¶"), Diff(DELETE," Associate annotation @Visible(false) with its getter."), Diff(EQUAL,"¶W*** Implicitly editable property: "), Diff(DELETE,"XStep"), Diff(INSERT,"tick"), Diff(EQUAL," of class class components.plane."), Diff(DELETE,"plane.Plane"), Diff(INSERT,"lines.YLineTick"), Diff(EQUAL," not considered editable as it is not in editable property names list. ¶¶W*** Implicit"), Diff(DELETE," property YStep of  Plane ignored"), Diff(INSERT,"ly editable property: color of class class components.plane.lines.YLine not considered editable"), Diff(EQUAL," as it is not in "), Diff(INSERT,"editable "), Diff(EQUAL,"property names list. ¶"), Diff(DELETE," Associate annotation @Visible(false) with its getter."), Diff(EQUAL,"¶W*** Implicitly editable property: "), Diff(DELETE,"YStep"), Diff(INSERT,"height"), Diff(EQUAL," of class class components.plane."), Diff(DELETE,"plane.Pla"), Diff(INSERT,"lines.YLi"), Diff(EQUAL,"ne not considered editable as it is not in editable property names list. ¶¶W*** Implicit"), Diff(DELETE," property x of  Plane ignored"), Diff(INSERT,"ly editable property: stroke of class class components.plane.lines.YLine not considered editable"), Diff(EQUAL," as it is not in "), Diff(INSERT,"editable "), Diff(EQUAL,"property names list. ¶"), Diff(DELETE," Associate annotation @Visible(false) with its getter."), Diff(EQUAL,"¶W*** Implicitly editable property: "), Diff(DELETE,"x"), Diff(INSERT,"width"), Diff(EQUAL," of class class components.plane."), Diff(DELETE,"plane.Pla"), Diff(INSERT,"lines.YLi"), Diff(EQUAL,"ne not considered editable as it is not in editable property names list. ¶¶W*** Implicit"), Diff(INSERT,"ly editable"), Diff(EQUAL," property"), Diff(DELETE," y"), Diff(INSERT,": x"), Diff(EQUAL," of "), Diff(DELETE," Plane ignored"), Diff(INSERT,"class class components.plane.lines.YLine not considered editable"), Diff(EQUAL," as it is not in "), Diff(INSERT,"editable "), Diff(EQUAL,"property names list. ¶"), Diff(DELETE," Associate annotation @Visible(false) with its getter."), Diff(EQUAL,"¶W*** Implicitly editable property: y of class class components.plane."), Diff(DELETE,"plane.Pla"), Diff(INSERT,"lines.YLi"), Diff(EQUAL,"ne not considered editable as it is not in editable property names list. ¶¶W*** Implicit"), Diff(DELETE," property height of  PlaneTick ignored"), Diff(INSERT,"ly editable property: line of class class components.plane.lines.XLineTick not considered editable"), Diff(EQUAL," as it is not in "), Diff(INSERT,"editable "), Diff(EQUAL,"property names list. ¶"), Diff(DELETE," Associate annotation @Visible(false) with its getter."), Diff(EQUAL,"¶W*** Implicitly editable property: "), Diff(DELETE,"height"), Diff(INSERT,"tick"), Diff(EQUAL," of class class components.plane.lines."), Diff(DELETE,"Pla"), Diff(INSERT,"XLi"), Diff(EQUAL,"neTick not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: "), Diff(DELETE,"text"), Diff(INSERT,"color"), Diff(EQUAL," of class class components.plane.lines."), Diff(DELETE,"PlaneTick"), Diff(INSERT,"XLine"), Diff(EQUAL," not considered editable as it is not in editable property names list. ¶¶W*** Implicit"), Diff(DELETE," property width of  PlaneTick ignored"), Diff(INSERT,"ly editable property: height of class class components.plane.lines.XLine not considered editable"), Diff(EQUAL," as it is not in "), Diff(INSERT,"editable "), Diff(EQUAL,"property names list. ¶"), Diff(DELETE," Associate annotation @Visible(false) w"), Diff(INSERT,"¶W*** Implicitly editable property: stroke of class class components.plane.lines.XLine not considered editable as "), Diff(EQUAL,"it"), Diff(DELETE,"h"), Diff(EQUAL," i"), Diff(DELETE,"ts getter."), Diff(INSERT,"s not in editable property names list. ¶"), Diff(EQUAL,"¶W*** Implicitly editable property: width of class class components.plane.lines."), Diff(DELETE,"PlaneTick"), Diff(INSERT,"XLine"), Diff(EQUAL," not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: x of class class components.plane.lines."), Diff(DELETE,"PlaneTick"), Diff(INSERT,"XLine"), Diff(EQUAL," not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: y of class class components.plane.lines."), Diff(DELETE,"PlaneTick"), Diff(INSERT,"XLine"), Diff(EQUAL," not considered editable as it is not in editable property names list. ¶¶")]]]></diff>
+  </Command>
+  <Command __id="37" _type="ConsoleOutput" date="Mon Mar 22 19:59:23 EDT 2021" overflow="false" starttimestamp="1616457516288" timestamp="46896" type="ConsoleOutput">
+    <outputString><![CDATA[W*** Value: null of Root.Current Page not in range.
+]]></outputString>
+    <diff><![CDATA[[Diff(EQUAL,"W*** "), Diff(DELETE,"Implicitly editable property: line of class class components.plane.lines.YLineTick not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: tick of class class components.plane.lines.YLineTick not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: color of class class components.plane.lines.YLine not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: height of class class components.plane.lines.YLine not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: stroke of class class components.plane.lines.YLine not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: width of class class components.plane.lines.YLine not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: x of class class components.plane.lines.YLine not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: y of class class components.plane.lines.YLine not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: line of class class components.plane.lines.XLineTick not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: tick of class class components.plane.lines.XLineTick not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: color of class class components.plane.lines.XLine not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: height of class class components.plane.lines.XLine not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: stroke of class class components.plane.lines.XLine not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: width of class class components.plane.lines.XLine not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: x of class class components.plane.lines.XLine not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: y of class class components.plane.lines.XLine not considered editable as it is not in editable property names list. ¶"), Diff(INSERT,"Value: null of Root.Current Page not in range."), Diff(EQUAL,"¶")]]]></diff>
+  </Command>
+  <Command __id="38" _type="ConsoleOutput" date="Mon Mar 22 19:59:23 EDT 2021" overflow="false" starttimestamp="1616457516288" timestamp="47291" type="ConsoleOutput">
+    <outputString><![CDATA[---
+
+
+
+ < >---
+
+
+
+ < >]]></outputString>
+    <diff><![CDATA[[Diff(DELETE,"W*** Value: null of Root.Current Page not in range.¶"), Diff(INSERT,"---¶¶¶¶ < >---¶¶¶¶ < >")]]]></diff>
+  </Command>
+  <Command __id="42" _type="RunCommand" date="Mon Mar 22 20:01:05 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1616457516288" timestamp="148725" type="Run" />
+  <Command __id="43" _type="RunCommand" date="Mon Mar 22 20:01:05 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1616457516288" timestamp="148725" type="Run" />
+  <Command __id="44" _type="ShellCommand" date="Mon Mar 22 20:01:05 EDT 2021" starttimestamp="1616457516288" timestamp="149475" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="45" _type="ConsoleOutput" date="Mon Mar 22 20:01:05 EDT 2021" overflow="false" starttimestamp="1616457516288" timestamp="149621" type="ConsoleOutput">
+    <outputString><![CDATA[ObjectEditor(Version 22, built on Wed Feb 17 11:47:24 EST 2021). Copyright Prasun Dewan, 2012, All rights reserved. US Patent Appl. No.: 12/532,327
+W*** Implicitly editable property: currentPage of class class components.mainpanel.MainPanel not considered editable as it is not in editable property names list. 
+
+W*** Implicit property currentPageIndex of  MainPanel ignored as it is not in property names list. 
+ Associate annotation @Visible(false) with its getter.
+W*** Implicitly editable property: currentPageIndex of class class components.mainpanel.MainPanel not considered editable as it is not in editable property names list. 
+
+W*** Implicit property pages of  MainPanel ignored as it is not in property names list. 
+ Associate annotation @Visible(false) with its getter.
+W*** Implicitly editable property: pages of class class components.mainpanel.MainPanel not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: lines of class class components.composedGraph.ComposedGraph not considered editable as it is not in editable property names list. 
+
+]]></outputString>
+    <diff><![CDATA[[Diff(DELETE,"---¶¶¶¶ < >---¶¶¶¶ < >"), Diff(INSERT,"ObjectEditor(Version 22, built on Wed Feb 17 11:47:24 EST 2021). Copyright Prasun Dewan, 2012, All rights reserved. US Patent Appl. No.: 12/532,327¶W*** Implicitly editable property: currentPage of class class components.mainpanel.MainPanel not considered editable as it is not in editable property names list. ¶¶W*** Implicit property currentPageIndex of  MainPanel ignored as it is not in property names list. ¶ Associate annotation @Visible(false) with its getter.¶W*** Implicitly editable property: currentPageIndex of class class components.mainpanel.MainPanel not considered editable as it is not in editable property names list. ¶¶W*** Implicit property pages of  MainPanel ignored as it is not in property names list. ¶ Associate annotation @Visible(false) with its getter.¶W*** Implicitly editable property: pages of class class components.mainpanel.MainPanel not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: lines of class class components.composedGraph.ComposedGraph not considered editable as it is not in editable property names list. ¶¶")]]]></diff>
+  </Command>
+  <Command __id="46" _type="ConsoleOutput" date="Mon Mar 22 20:01:06 EDT 2021" overflow="false" starttimestamp="1616457516288" timestamp="149727" type="ConsoleOutput">
+    <outputString><![CDATA[W*** Implicit property XStep of  Plane ignored as it is not in property names list. 
+ Associate annotation @Visible(false) with its getter.
+W*** Implicitly editable property: XStep of class class components.plane.plane.Plane not considered editable as it is not in editable property names list. 
+
+W*** Implicit property YStep of  Plane ignored as it is not in property names list. 
+ Associate annotation @Visible(false) with its getter.
+W*** Implicitly editable property: YStep of class class components.plane.plane.Plane not considered editable as it is not in editable property names list. 
+
+W*** Implicit property x of  Plane ignored as it is not in property names list. 
+ Associate annotation @Visible(false) with its getter.
+W*** Implicitly editable property: x of class class components.plane.plane.Plane not considered editable as it is not in editable property names list. 
+
+W*** Implicit property y of  Plane ignored as it is not in property names list. 
+ Associate annotation @Visible(false) with its getter.
+W*** Implicitly editable property: y of class class components.plane.plane.Plane not considered editable as it is not in editable property names list. 
+
+]]></outputString>
+    <diff><![CDATA[[Diff(DELETE,"ObjectEditor(Version 22, built on Wed Feb 17 11:47:24 EST 2021). Copyright Prasun Dewan, 2012, All rights reserved. US Patent Appl. No.: 12/532,327"), Diff(INSERT,"W*** Implicit property XStep of  Plane ignored as it is not in property names list. ¶ Associate annotation @Visible(false) with its getter."), Diff(EQUAL,"¶W*** Implicitly editable property: "), Diff(DELETE,"currentPage"), Diff(INSERT,"XStep"), Diff(EQUAL," of class class components."), Diff(DELETE,"mainpanel.MainP"), Diff(INSERT,"plane.plane.Pl"), Diff(EQUAL,"ane"), Diff(DELETE,"l"), Diff(EQUAL," not considered editable as it is not in editable property names list. ¶¶W*** Implicit property "), Diff(DELETE,"currentPageIndex of  MainP"), Diff(INSERT,"YStep of  Pl"), Diff(EQUAL,"ane"), Diff(DELETE,"l"), Diff(EQUAL," ignored as it is not in property names list. ¶ Associate annotation @Visible(false) with its getter.¶W*** Implicitly editable property: "), Diff(DELETE,"currentPageIndex"), Diff(INSERT,"YStep"), Diff(EQUAL," of class class components."), Diff(DELETE,"mainpanel.MainP"), Diff(INSERT,"plane.plane.Pl"), Diff(EQUAL,"ane"), Diff(DELETE,"l"), Diff(EQUAL," not considered editable as it is not in editable property names list. ¶¶W*** Implicit property "), Diff(DELETE,"pages of  MainP"), Diff(INSERT,"x of  Pl"), Diff(EQUAL,"ane"), Diff(DELETE,"l"), Diff(EQUAL," ignored as it is not in property names list. ¶ Associate annotation @Visible(false) with its getter.¶W*** Implicitly editable property: "), Diff(DELETE,"pages"), Diff(INSERT,"x"), Diff(EQUAL," of class class components."), Diff(DELETE,"mainpanel.MainP"), Diff(INSERT,"plane.plane.Pl"), Diff(EQUAL,"ane"), Diff(DELETE,"l"), Diff(EQUAL," not considered editable as it is not in editable property names list. ¶¶"), Diff(INSERT,"W*** Implicit property y of  Plane ignored as it is not in property names list. ¶ Associate annotation @Visible(false) with its getter.¶"), Diff(EQUAL,"W*** Implicitly editable property: "), Diff(DELETE,"lines"), Diff(INSERT,"y"), Diff(EQUAL," of class class components."), Diff(DELETE,"composedGraph.ComposedGraph"), Diff(INSERT,"plane.plane.Plane"), Diff(EQUAL," not considered editable as it is not in editable property names list. ¶¶")]]]></diff>
+  </Command>
+  <Command __id="47" _type="ConsoleOutput" date="Mon Mar 22 20:01:06 EDT 2021" overflow="false" starttimestamp="1616457516288" timestamp="149823" type="ConsoleOutput">
+    <outputString><![CDATA[W*** Implicit property height of  PlaneTick ignored as it is not in property names list. 
+ Associate annotation @Visible(false) with its getter.
+W*** Implicitly editable property: height of class class components.plane.lines.PlaneTick not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: text of class class components.plane.lines.PlaneTick not considered editable as it is not in editable property names list. 
+
+W*** Implicit property width of  PlaneTick ignored as it is not in property names list. 
+ Associate annotation @Visible(false) with its getter.
+W*** Implicitly editable property: width of class class components.plane.lines.PlaneTick not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: x of class class components.plane.lines.PlaneTick not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: y of class class components.plane.lines.PlaneTick not considered editable as it is not in editable property names list. 
+
+]]></outputString>
+    <diff><![CDATA[[Diff(EQUAL,"W*** Implicit property "), Diff(DELETE,"XStep"), Diff(INSERT,"height"), Diff(EQUAL," of  Plane"), Diff(INSERT,"Tick"), Diff(EQUAL," ignored as it is not in property names list. ¶ Associate annotation @Visible(false) with its getter.¶W*** Implicitly editable property: "), Diff(DELETE,"XStep"), Diff(INSERT,"height"), Diff(EQUAL," of class class components.plane."), Diff(DELETE,"pla"), Diff(INSERT,"li"), Diff(EQUAL,"ne"), Diff(INSERT,"s"), Diff(EQUAL,".Plane"), Diff(INSERT,"Tick"), Diff(EQUAL," not considered editable as it is not in editable property names list. ¶¶"), Diff(DELETE,"W*** Implicit property YStep of  Plane ignored as it is not in property names list. ¶ Associate annotation @Visible(false) with its getter.¶"), Diff(EQUAL,"W*** Implicitly editable property: "), Diff(DELETE,"YStep"), Diff(INSERT,"text"), Diff(EQUAL," of class class components.plane."), Diff(DELETE,"pla"), Diff(INSERT,"li"), Diff(EQUAL,"ne"), Diff(INSERT,"s"), Diff(EQUAL,".Plane"), Diff(INSERT,"Tick"), Diff(EQUAL," not considered editable as it is not in editable property names list. ¶¶W*** Implicit property "), Diff(DELETE,"x"), Diff(INSERT,"width"), Diff(EQUAL," of  Plane"), Diff(INSERT,"Tick"), Diff(EQUAL," ignored as it is not in property names list. ¶ Associate annotation @Visible(false) with its getter.¶W*** Implicitly editable property: "), Diff(DELETE,"x"), Diff(INSERT,"width"), Diff(EQUAL," of class class components.plane."), Diff(DELETE,"pla"), Diff(INSERT,"li"), Diff(EQUAL,"ne"), Diff(INSERT,"s"), Diff(EQUAL,".Plane"), Diff(INSERT,"Tick"), Diff(EQUAL," not considered editable as it is not in editable property names list. ¶¶W*** Implicit"), Diff(INSERT,"ly editable"), Diff(EQUAL," property"), Diff(DELETE," y"), Diff(INSERT,": x"), Diff(EQUAL," of "), Diff(DELETE," Plane ignored"), Diff(INSERT,"class class components.plane.lines.PlaneTick not considered editable"), Diff(EQUAL," as it is not in "), Diff(INSERT,"editable "), Diff(EQUAL,"property names list. ¶"), Diff(DELETE," Associate annotation @Visible(false) with its getter."), Diff(EQUAL,"¶W*** Implicitly editable property: y of class class components.plane."), Diff(DELETE,"pla"), Diff(INSERT,"li"), Diff(EQUAL,"ne"), Diff(INSERT,"s"), Diff(EQUAL,".Plane"), Diff(INSERT,"Tick"), Diff(EQUAL," not considered editable as it is not in editable property names list. ¶¶")]]]></diff>
+  </Command>
+  <Command __id="48" _type="ConsoleOutput" date="Mon Mar 22 20:01:06 EDT 2021" overflow="false" starttimestamp="1616457516288" timestamp="149939" type="ConsoleOutput">
+    <outputString><![CDATA[W*** Implicitly editable property: line of class class components.plane.lines.YLineTick not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: tick of class class components.plane.lines.YLineTick not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: color of class class components.plane.lines.YLine not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: height of class class components.plane.lines.YLine not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: stroke of class class components.plane.lines.YLine not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: width of class class components.plane.lines.YLine not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: x of class class components.plane.lines.YLine not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: y of class class components.plane.lines.YLine not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: line of class class components.plane.lines.XLineTick not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: tick of class class components.plane.lines.XLineTick not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: color of class class components.plane.lines.XLine not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: height of class class components.plane.lines.XLine not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: stroke of class class components.plane.lines.XLine not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: width of class class components.plane.lines.XLine not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: x of class class components.plane.lines.XLine not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: y of class class components.plane.lines.XLine not considered editable as it is not in editable property names list. 
+
+]]></outputString>
+    <diff><![CDATA[[Diff(EQUAL,"W*** Implicit"), Diff(DELETE," property height of  PlaneTick ignored"), Diff(INSERT,"ly editable property: line of class class components.plane.lines.YLineTick not considered editable"), Diff(EQUAL," as it is not in "), Diff(INSERT,"editable "), Diff(EQUAL,"property names list. ¶"), Diff(DELETE," Associate annotation @Visible(false) with its getter.¶W*** Implicitly editable property: height of class class components.plane.lines.PlaneTick not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: text of class class components.plane.lines.Pla"), Diff(INSERT,"¶W*** Implicitly editable property: tick of class class components.plane.lines.YLineTick not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: color of class class components.plane.lines.YLine not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: height of class class components.plane.lines.YLine not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: stroke of class class components.plane.lines.YLine not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: width of class class components.plane.lines.YLine not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: x of class class components.plane.lines.YLine not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: y of class class components.plane.lines.YLine not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: line of class class components.plane.lines.XLi"), Diff(EQUAL,"neTick not considered editable as it is not in editable property names list. ¶¶W*** Implicit"), Diff(DELETE," property width of  PlaneTick ignored"), Diff(INSERT,"ly editable property: tick of class class components.plane.lines.XLineTick not considered editable"), Diff(EQUAL," as it is not in "), Diff(INSERT,"editable "), Diff(EQUAL,"property names list. ¶"), Diff(DELETE," Associate annotation @Visible(false) with its getter."), Diff(INSERT,"¶W*** Implicitly editable property: color of class class components.plane.lines.XLine not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: height of class class components.plane.lines.XLine not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: stroke of class class components.plane.lines.XLine not considered editable as it is not in editable property names list. ¶"), Diff(EQUAL,"¶W*** Implicitly editable property: width of class class components.plane.lines."), Diff(DELETE,"PlaneTick"), Diff(INSERT,"XLine"), Diff(EQUAL," not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: x of class class components.plane.lines."), Diff(DELETE,"PlaneTick"), Diff(INSERT,"XLine"), Diff(EQUAL," not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: y of class class components.plane.lines."), Diff(DELETE,"PlaneTick"), Diff(INSERT,"XLine"), Diff(EQUAL," not considered editable as it is not in editable property names list. ¶¶")]]]></diff>
+  </Command>
+  <Command __id="49" _type="ConsoleOutput" date="Mon Mar 22 20:01:06 EDT 2021" overflow="false" starttimestamp="1616457516288" timestamp="150042" type="ConsoleOutput">
+    <outputString><![CDATA[W*** Value: null of Root.Current Page not in range.
+]]></outputString>
+    <diff><![CDATA[[Diff(EQUAL,"W*** "), Diff(DELETE,"Implicitly editable property: line of class class components.plane.lines.YLineTick not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: tick of class class components.plane.lines.YLineTick not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: color of class class components.plane.lines.YLine not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: height of class class components.plane.lines.YLine not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: stroke of class class components.plane.lines.YLine not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: width of class class components.plane.lines.YLine not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: x of class class components.plane.lines.YLine not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: y of class class components.plane.lines.YLine not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: line of class class components.plane.lines.XLineTick not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: tick of class class components.plane.lines.XLineTick not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: color of class class components.plane.lines.XLine not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: height of class class components.plane.lines.XLine not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: stroke of class class components.plane.lines.XLine not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: width of class class components.plane.lines.XLine not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: x of class class components.plane.lines.XLine not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: y of class class components.plane.lines.XLine not considered editable as it is not in editable property names list. ¶"), Diff(INSERT,"Value: null of Root.Current Page not in range."), Diff(EQUAL,"¶")]]]></diff>
+  </Command>
+  <Command __id="50" _type="ConsoleOutput" date="Mon Mar 22 20:01:06 EDT 2021" overflow="false" starttimestamp="1616457516288" timestamp="150465" type="ConsoleOutput">
+    <outputString><![CDATA[---
+
+
+
+ < >---
+
+
+
+ < >]]></outputString>
+    <diff><![CDATA[[Diff(DELETE,"W*** Value: null of Root.Current Page not in range.¶"), Diff(INSERT,"---¶¶¶¶ < >---¶¶¶¶ < >")]]]></diff>
+  </Command>
+  <Command __id="18" _type="DiffBasedFileOpenCommand" date="Mon Mar 22 19:59:03 EDT 2021" docASTNodeCount="316" docActiveCodeLength="1797" docExpressionCount="241" docLength="1797" projectName="TaskBox" starttimestamp="1616457516288" timestamp="27329">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\TaskBox\src\main\Main.java]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"package main;¶¶import java.io.File;¶import java.io.IOException;¶import java.util.ArrayList;¶import java.util.Arrays;¶¶import org.apache.commons.math3.fitting.WeightedObservedPoint;¶¶import com.fasterxml.jackson.databind.ObjectMapper;¶¶import bus.uigen.ObjectEditor;¶import components.curve.fitting.AngleTimeFunction;¶import components.curve.fitting.MyCurveFitter;¶import components.mainpanel.MainPanel;¶import components.mainpanel.MainPanelInterface;¶import components.mathEditor.MathEditorPanel;¶import components.page.pages.Page;¶import components.page.pages.PageInterface;¶import components.plane.plane.Plane;¶import components.plane.plane.PlaneInterface;¶¶¶public class Main {¶	public static void main(String[] args)  {¶		MyCurveFitter fitter = new MyCurveFitter();¶        ArrayList<WeightedObservedPoint> points = new ArrayList<WeightedObservedPoint>();¶¶        ¶        points.add(new WeightedObservedPoint(1.0, 0.5, 6.4845));¶        points.add(new WeightedObservedPoint(1.0, 1, 1.4687));¶        points.add(new WeightedObservedPoint(1.0, 1.5, 0.1378));¶        points.add(new WeightedObservedPoint(1.0, 2, -0.6861));¶        points.add(new WeightedObservedPoint(1.0, 2.5, -1.1952));¶        points.add(new WeightedObservedPoint(1.0, 3, -1.3816));¶        points.add(new WeightedObservedPoint(1.0, 3.5, -1.2462));¶        points.add(new WeightedObservedPoint(1.0, 4, -0.8393));¶        ¶¶        final double coeffs[] = fitter.fit(points);¶        ¶        for (int i = 0; i < coeffs.length; i ++) {¶        	System.out.print(coeffs[i] + " ");¶        	System.out.println();¶        }¶        ¶        AngleTimeFunction func = new AngleTimeFunction();¶        ¶        for (double i = 0; i < 10; i += 0.5) {¶        	System.out.printf("%f %f\n", i, func.value(i, coeffs));¶        }¶	}¶}¶")]]]></diff>
+  </Command>
+  <Command __id="51" _type="ShellCommand" date="Mon Mar 22 20:04:12 EDT 2021" starttimestamp="1616457516288" timestamp="336395" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="52" _type="RunCommand" date="Mon Mar 22 20:04:12 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1616457516288" timestamp="336584" type="Run" />
+  <Command __id="53" _type="RunCommand" date="Mon Mar 22 20:04:12 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1616457516288" timestamp="336584" type="Run" />
+  <Command __id="54" _type="DiffBasedFileOpenCommand" date="Mon Mar 22 20:04:15 EDT 2021" docASTNodeCount="889" docActiveCodeLength="5288" docExpressionCount="634" docLength="5288" projectName="TaskBox" starttimestamp="1616457516288" timestamp="339599">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\TaskBox\src\components\composedGraph\ComposedGraph.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package components.composedGraph;
+
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.JButton;
+
+import components.curve.fitting.Plotter;
+import components.curve.line.CurveLine;
+import components.curve.point.CurvePoint;
+import components.observableshapes.ObservableLineInterface;
+import components.observableshapes.ObservablePointInterface;
+import components.plane.plane.Plane;
+import components.plane.plane.PlaneInterface;
+import javafx.util.Pair;
+import util.annotations.Column;
+import util.annotations.ComponentWidth;
+import util.annotations.EditablePropertyNames;
+import util.annotations.Label;
+import util.annotations.PreferredWidgetClass;
+import util.annotations.PropertyNames;
+import util.annotations.Row;
+import util.annotations.StructurePattern;
+import util.annotations.StructurePatternNames;
+
+@StructurePattern(StructurePatternNames.BEAN_PATTERN)
+@PropertyNames({"points", "lines", "plane", "fittingLines"})
+@EditablePropertyNames({"points"})
+public class ComposedGraph implements ComposedGraphInterface{
+	private int x, y;
+	private List<ObservablePointInterface> points = new ArrayList<ObservablePointInterface>();
+	private List<ObservableLineInterface> lines = new ArrayList<ObservableLineInterface>();
+	private List<ObservableLineInterface> fittingLines = new ArrayList<ObservableLineInterface>();
+	private ObservablePointInterface startPoint, prevPoint;
+	private PlaneInterface plane;
+	private List<Pair<ObservablePointInterface, ObservableLineInterface>> pairs = new ArrayList<Pair<ObservablePointInterface, ObservableLineInterface>> ();
+	public static final int RADIUS = 5;
+	private Plotter plotter = new Plotter(this);
+	
+	
+	public ComposedGraph(int newX, int newY) {
+		plane = new Plane(newX, newY);
+		x = newX;
+		y = newY;
+	}
+	
+	@Override
+	public List<ObservablePointInterface> getPoints() {
+		return points;
+	}
+	
+	@Override
+	public List<ObservableLineInterface> getLines(){
+		return lines;
+	}
+	
+	@Override
+	@Row(0)
+	@Column(0)
+	@ComponentWidth(100)
+	public PlaneInterface getPlane() {
+		return plane;
+	}
+	
+	@Override
+	@PreferredWidgetClass(JButton.class)
+	@Label("Add Point")
+	@Row(1)
+	@Column(0)
+	@ComponentWidth(100)
+	public void addPoint() {
+		points.add(new CurvePoint(x, y, RADIUS));
+	}
+	
+	@Override
+	@PreferredWidgetClass(JButton.class)
+	@Label("Set Start Point")
+	@Row(1)
+	@Column(1)
+	@ComponentWidth(100)
+	public void startPoint(ObservablePointInterface aPoint) {
+		startPoint = aPoint;
+	}
+	
+	@Override
+	@PreferredWidgetClass(JButton.class)
+	@Label("Add Line")
+	@Row(2)
+	@Column(0)
+	@ComponentWidth(100)
+	public void addLine(ObservablePointInterface aPoint) {
+		if (startPoint == null) {
+			startPoint = points.get(0);
+		}
+		if (prevPoint == null) {
+			prevPoint = startPoint;
+		}
+		if (prevPoint == aPoint) {
+			return;
+		}
+		ObservableLineInterface newLine = new CurveLine((int) (prevPoint.getX() + prevPoint.getRadius()), 
+				(int) (prevPoint.getY() + prevPoint.getRadius()), 
+				(int) (aPoint.getX() + aPoint.getRadius() - prevPoint.getX() - prevPoint.getRadius()), 
+				(int) (aPoint.getY() + aPoint.getRadius() - prevPoint.getY() - prevPoint.getRadius()),
+				Color.BLACK
+				);
+		lines.add(newLine);
+		pairs.add(new Pair<ObservablePointInterface, ObservableLineInterface> (aPoint, newLine));
+		pairs.add(new Pair<ObservablePointInterface, ObservableLineInterface> (prevPoint, newLine));
+		prevPoint = aPoint;
+		
+	}
+	
+	@Override
+	@PreferredWidgetClass(JButton.class)
+	@Label("Delete Line")
+	@Row(2)
+	@Column(2)
+	@ComponentWidth(100)
+	public void deleteLine(ObservableLineInterface aLine) {
+		lines.remove(aLine);
+	}
+	
+	@Override
+	@PreferredWidgetClass(JButton.class)
+	@Label("Delete Point")
+	@Row(1)
+	@Column(2)
+	@ComponentWidth(100)
+	public void delelePoint(ObservablePointInterface aPoint) {
+		if (startPoint == aPoint) {
+			startPoint = null;
+		}
+		if (prevPoint == aPoint) {
+			prevPoint = null;
+		}
+		for (Pair <ObservablePointInterface, ObservableLineInterface> pair : pairs) {
+			if (pair.getKey() == aPoint) {
+				deleteLine(pair.getValue());
+			}
+		}
+		points.remove(aPoint);
+	}
+
+	@Override
+	public void setLines(List<ObservableLineInterface> newLines) {
+		lines = newLines;
+	}
+
+	@Override
+	public void setPoints(List<ObservablePointInterface> newPoints) {
+		points = newPoints;
+	}
+
+	@Override
+	@PreferredWidgetClass(JButton.class)
+	@Label("Fit")
+	@Row(3)
+	@Column(0)
+	@ComponentWidth(100)
+	public void fit() {
+		if (points.size() == 0) return;
+		plotter.plot();
+	}
+
+	@Override
+	public List<ObservableLineInterface> getFittingLines() {
+		return fittingLines;
+	}
+
+	@Override
+	@PreferredWidgetClass(JButton.class)
+	@Label("Add Line Auto")
+	@Row(2)
+	@Column(1)
+	@ComponentWidth(100)
+	public void addLines() {
+		if (points.size() < 2) return;
+		lines.clear();
+		for (int i = 1; i < points.size(); i ++) {
+			lines.add(new CurveLine(
+					(int) (points.get(i - 1).getX() + points.get(i - 1).getRadius()), 
+					(int) (points.get(i - 1).getY() + points.get(i - 1).getRadius()), 
+					points.get(i).getX() - points.get(i - 1).getX(), 
+					points.get(i).getY() - points.get(i - 1).getY(), 
+					Color.BLACK));
+		}
+	}
+}
+]]></snapshot>
+  </Command>
+  <Command __id="55" _type="MoveCaretCommand" caretOffset="4180" date="Mon Mar 22 20:04:16 EDT 2021" docOffset="4988" starttimestamp="1616457516288" timestamp="339730" />
+  <Command __id="56" _type="DiffBasedFileOpenCommand" date="Mon Mar 22 20:04:36 EDT 2021" docASTNodeCount="90" docActiveCodeLength="546" docExpressionCount="62" docLength="546" projectName="TaskBox" starttimestamp="1616457516288" timestamp="359983">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\TaskBox\src\main\TaskPanel.java]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"package main;¶¶import bus.uigen.OEFrame;¶import bus.uigen.ObjectEditor;¶import components.composedGraph.ComposedGraph;¶import components.composedGraph.ComposedGraphInterface;¶import components.curve.point.CurvePoint;¶import components.mainpanel.MainPanel;¶import components.mainpanel.MainPanelInterface;¶¶public class TaskPanel {¶¶	public static void main(String[] args) {¶		MainPanelInterface panel = new MainPanel();¶		OEFrame frame = ObjectEditor.edit(panel);¶		frame.setSize(600, 1000);¶		frame.setLocation(0, 0);¶¶	}¶¶}¶")]]]></diff>
+  </Command>
+  <Command __id="57" _type="MoveCaretCommand" caretOffset="266" date="Mon Mar 22 20:04:36 EDT 2021" docOffset="535" starttimestamp="1616457516288" timestamp="360078" />
+  <Command __id="59" _type="MoveCaretCommand" caretOffset="523" date="Mon Mar 22 20:04:51 EDT 2021" docOffset="1105" starttimestamp="1616457516288" timestamp="375675" />
+  <Command __id="58" _type="DiffBasedFileOpenCommand" date="Mon Mar 22 20:04:51 EDT 2021" docASTNodeCount="429" docActiveCodeLength="2838" docExpressionCount="285" docLength="2838" projectName="TaskBox" starttimestamp="1616457516288" timestamp="375556">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\TaskBox\src\components\mainpanel\MainPanel.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package components.mainpanel;
+
+import java.beans.PropertyChangeEvent;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JButton;
+
+import components.composedGraph.ComposedGraph;
+import components.composedGraph.ComposedGraphInterface;
+import components.page.pages.PageInterface;
+import exporter.Exporter;
+import util.annotations.Column;
+import util.annotations.EditablePropertyNames;
+import util.annotations.Label;
+import util.annotations.PreferredWidgetClass;
+import util.annotations.PropertyNames;
+import util.annotations.Row;
+import util.annotations.StructurePattern;
+import util.annotations.StructurePatternNames;
+
+
+@StructurePattern(StructurePatternNames.BEAN_PATTERN)
+@PropertyNames({"currentPage", "graph"})
+@EditablePropertyNames({"graph"})
+public class MainPanel implements MainPanelInterface{
+	
+	private List<PageInterface> pages = new ArrayList<PageInterface> ();
+	private PageInterface currentPage;
+	private int currentPageIndex = 0;
+	private ComposedGraphInterface graph;
+	
+	public MainPanel() {
+		graph = new ComposedGraph(50, 500);
+	}
+	
+
+	@Override
+	public List<PageInterface> getPages() {
+		return pages;
+	}
+
+	@Override
+	public void setPages(List<PageInterface> newPages) {
+		pages = newPages;
+	}
+	
+	@PreferredWidgetClass(JButton.class)
+	@Label(">")
+	@Row(2)
+	@Column(1)
+	@Override
+	public void nextPage() {
+		if (pages.size() == 0) return;
+		if (currentPageIndex == pages.size() - 1) {
+			setCurrentPageIndex(0);
+		}
+		else {
+			setCurrentPageIndex(getCurrentPageIndex() + 1);
+		}
+	}
+
+	@PreferredWidgetClass(JButton.class)
+	@Label("<")
+	@Row(2)
+	@Column(0)
+	@Override
+	public void prevPage() {
+		if (pages.size() == 0) return;
+		if (currentPageIndex == 0) {
+			setCurrentPageIndex(pages.size() - 1);
+		}
+		else {
+			setCurrentPageIndex(getCurrentPageIndex() - 1);
+		}
+	}
+
+	@Override
+	public int getCurrentPageIndex() {
+		return currentPageIndex;
+	}
+
+	@Override
+	public void setCurrentPageIndex(int newPageIndex) {
+		currentPageIndex = newPageIndex;
+		setCurrentPage(pages.get(currentPageIndex));
+	}
+
+	@Override
+	@Row(0)
+	public PageInterface getCurrentPage() {
+		return currentPage;
+	}
+
+	@Override
+	public void setCurrentPage(PageInterface newPage) {
+		currentPage = newPage;
+	}
+
+	@Override
+	public void clearPages() {
+		pages.clear();
+	}
+	
+	@Override
+	public void addPage(PageInterface newPage) {
+		getPages().add(newPage);
+		newPage.addPropertyChangeListener(this);
+		setCurrentPageIndex(getCurrentPageIndex());
+	}
+
+	@Override
+	public void propertyChange(PropertyChangeEvent evt) {
+		
+	}
+
+
+	@Override
+	@Column(1)
+	public ComposedGraphInterface getGraph() {
+		return graph;
+	}
+
+
+	@Override
+	public void setGraph(ComposedGraphInterface newGraph) {
+		graph = newGraph;
+	}
+
+}
+]]></snapshot>
+  </Command>
+  <Command __id="60" _type="MoveCaretCommand" caretOffset="511" date="Mon Mar 22 20:04:53 EDT 2021" docOffset="1093" starttimestamp="1616457516288" timestamp="377169" />
+  <DocumentChange __id="61" _type="Delete" date="Mon Mar 22 20:04:54 EDT 2021" docASTNodeCount="429" docActiveCodeLength="2837" docExpressionCount="285" docLength="2837" endLine="32" length="1" offset="1092" startLine="32" starttimestamp="1616457516288" timestamp="378574">
+    <text><![CDATA[0]]></text>
+  </DocumentChange>
+  <Command __id="62" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Mon Mar 22 20:04:54 EDT 2021" starttimestamp="1616457516288" timestamp="378581" />
+  <DocumentChange __id="63" _type="Insert" date="Mon Mar 22 20:04:54 EDT 2021" docASTNodeCount="429" docActiveCodeLength="2838" docExpressionCount="285" docLength="2838" length="1" offset="1092" starttimestamp="1616457516288" timestamp="378651">
+    <text><![CDATA[5]]></text>
+  </DocumentChange>
+  <Command __id="64" _type="InsertStringCommand" date="Mon Mar 22 20:04:54 EDT 2021" starttimestamp="1616457516288" timestamp="378654" timestamp2="378654">
+    <data><![CDATA[5]]></data>
+  </Command>
+  <DocumentChange __id="65" _type="Delete" date="Mon Mar 22 20:04:55 EDT 2021" docASTNodeCount="429" docActiveCodeLength="2837" docExpressionCount="285" docLength="2837" endLine="32" length="1" offset="1092" startLine="32" starttimestamp="1616457516288" timestamp="379416">
+    <text><![CDATA[5]]></text>
+  </DocumentChange>
+  <Command __id="66" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Mon Mar 22 20:04:55 EDT 2021" starttimestamp="1616457516288" timestamp="379419" />
+  <DocumentChange __id="67" _type="Insert" date="Mon Mar 22 20:04:59 EDT 2021" docASTNodeCount="429" docActiveCodeLength="2838" docExpressionCount="285" docLength="2838" length="1" offset="1092" starttimestamp="1616457516288" timestamp="383213">
+    <text><![CDATA[5]]></text>
+  </DocumentChange>
+  <Command __id="68" _type="InsertStringCommand" date="Mon Mar 22 20:04:59 EDT 2021" starttimestamp="1616457516288" timestamp="383217" timestamp2="383217">
+    <data><![CDATA[5]]></data>
+  </Command>
+  <Command __id="70" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Mon Mar 22 20:05:00 EDT 2021" starttimestamp="1616457516288" timestamp="384124" />
+</Events>

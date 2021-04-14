@@ -1,0 +1,14 @@
+<Events startTimestamp="1617068218762" logVersion="1.0.0.202101171653">
+  <Command __id="1" _type="MoveCaretCommand" caretOffset="390" date="Mon Mar 29 21:36:58 EDT 2021" docOffset="826" starttimestamp="1617068218762" timestamp="195" />
+  <Command __id="2" _type="SelectTextCommand" caretOffset="1043" date="Mon Mar 29 21:37:05 EDT 2021" end="1043" start="1004" starttimestamp="1617068218762" timestamp="6457" />
+  <Command __id="3" _type="MoveCaretCommand" caretOffset="1043" date="Mon Mar 29 21:37:05 EDT 2021" docOffset="1479" starttimestamp="1617068218762" timestamp="6607" />
+  <Command __id="4" _type="SelectTextCommand" caretOffset="974" date="Mon Mar 29 21:37:06 EDT 2021" end="1043" start="974" starttimestamp="1617068218762" timestamp="7944" />
+  <Command __id="5" _type="MoveCaretCommand" caretOffset="1001" date="Mon Mar 29 21:37:07 EDT 2021" docOffset="1437" starttimestamp="1617068218762" timestamp="8276" />
+  <Command __id="6" _type="SelectTextCommand" caretOffset="971" date="Mon Mar 29 21:37:07 EDT 2021" end="1002" start="971" starttimestamp="1617068218762" timestamp="8961" />
+  <Command __id="7" _type="MoveCaretCommand" caretOffset="971" date="Mon Mar 29 21:37:07 EDT 2021" docOffset="1407" starttimestamp="1617068218762" timestamp="9216" />
+  <Command __id="8" _type="MoveCaretCommand" caretOffset="1047" date="Mon Mar 29 21:37:08 EDT 2021" docOffset="1483" starttimestamp="1617068218762" timestamp="10091" />
+  <Command __id="9" _type="MoveCaretCommand" caretOffset="1091" date="Mon Mar 29 21:37:09 EDT 2021" docOffset="1527" starttimestamp="1617068218762" timestamp="10324" />
+  <Command __id="10" _type="SelectTextCommand" caretOffset="1281" date="Mon Mar 29 21:37:10 EDT 2021" end="1281" start="1214" starttimestamp="1617068218762" timestamp="11258" />
+  <Command __id="11" _type="MoveCaretCommand" caretOffset="1281" date="Mon Mar 29 21:37:10 EDT 2021" docOffset="1717" starttimestamp="1617068218762" timestamp="11470" />
+  <Command __id="12" _type="ShellCommand" date="Mon Mar 29 21:37:12 EDT 2021" starttimestamp="1617068218762" timestamp="13463" type="ECLIPSE_LOST_FOCUS" />
+</Events>

@@ -1,0 +1,6 @@
+<Events startTimestamp="1616894088756" logVersion="1.0.0.202101171653">
+  <Command __id="1" _type="ShellCommand" date="Sat Mar 27 21:14:56 EDT 2021" starttimestamp="1616894088756" timestamp="8073" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="43" _type="EclipseCommand" commandID="" date="Sat Mar 27 21:16:31 EDT 2021" starttimestamp="1616894088756" timestamp="102264" />
+  <Command __id="45" _type="EclipseCommand" commandID="" date="Sat Mar 27 21:16:31 EDT 2021" starttimestamp="1616894088756" timestamp="102428" />
+  <Command __id="46" _type="ShellCommand" date="Sat Mar 27 21:16:31 EDT 2021" starttimestamp="1616894088756" timestamp="102451" type="ECLIPSE_LOST_FOCUS" />
+</Events>

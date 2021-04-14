@@ -1,5 +1,6 @@
 package components.plane.lines;
 
+import java.awt.Color;
 import java.awt.Stroke;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -13,13 +14,14 @@ import util.annotations.StructurePatternNames;
 
 
 @StructurePattern(StructurePatternNames.LINE_PATTERN)
-@PropertyNames({"x", "y", "height", "width", "stroke"})
+@PropertyNames({"x", "y", "height", "width", "stroke", "color"})
 @EditablePropertyNames({})
 public class YLine implements PlaneLineInterface{
 	
 	private int x, y, height, width;
 	private PropertyListenerSupport propertyListenerSupport = new PropertyListenerSupport();
 	private Stroke stroke;
+	private Color color;
 	
 	
 	public YLine(int newX, int newY, int newLength, Stroke newStroke) {
@@ -96,6 +98,22 @@ public class YLine implements PlaneLineInterface{
 		int oldHeight = height;
 		height = newHeight;
 		propertyListenerSupport.notifyAllListeners(new PropertyChangeEvent(this, "height", oldHeight, height));
+	}
+
+
+
+	@Override
+	public Color getColor() {
+		return color;
+	}
+
+
+
+	@Override
+	public void setColor(Color newColor) {
+		Color oldColor = color;
+		color = newColor;
+		propertyListenerSupport.notifyAllListeners(new PropertyChangeEvent(this, "color", oldColor, color));
 	}
 
 }

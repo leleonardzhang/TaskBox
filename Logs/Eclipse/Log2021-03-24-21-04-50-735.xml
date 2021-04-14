@@ -1,0 +1,7 @@
+<Events startTimestamp="1616634290735" logVersion="1.0.0.202101171653">
+  <Command __id="1" _type="MoveCaretCommand" caretOffset="451" date="Wed Mar 24 21:04:50 EDT 2021" docOffset="728" starttimestamp="1616634290735" timestamp="144" />
+  <Command __id="2" _type="MoveCaretCommand" caretOffset="639" date="Wed Mar 24 21:05:12 EDT 2021" docOffset="916" starttimestamp="1616634290735" timestamp="22123" />
+  <Command __id="3" _type="ShellCommand" date="Wed Mar 24 21:06:20 EDT 2021" starttimestamp="1616634290735" timestamp="90166" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="4" _type="ShellCommand" date="Wed Mar 24 21:07:59 EDT 2021" starttimestamp="1616634290735" timestamp="188266" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="5" _type="ShellCommand" date="Wed Mar 24 21:07:59 EDT 2021" starttimestamp="1616634290735" timestamp="189170" type="ECLIPSE_LOST_FOCUS" />
+</Events>

@@ -1,0 +1,10 @@
+<Events startTimestamp="1617753760498" logVersion="1.0.0.202101171653">
+  <Command __id="7" _type="ShellCommand" date="Tue Apr 06 21:43:27 EDT 2021" starttimestamp="1617753760498" timestamp="6046988" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="9" _type="MoveCaretCommand" caretOffset="2803" date="Tue Apr 06 21:43:28 EDT 2021" docOffset="3156" starttimestamp="1617753760498" timestamp="6048095" />
+  <Command __id="10" _type="SelectTextCommand" caretOffset="2799" date="Tue Apr 06 21:43:28 EDT 2021" end="2799" start="1902" starttimestamp="1617753760498" timestamp="6048490" />
+  <Command __id="11" _type="MoveCaretCommand" caretOffset="2799" date="Tue Apr 06 21:43:29 EDT 2021" docOffset="3152" starttimestamp="1617753760498" timestamp="6048654" />
+  <Command __id="12" _type="ShellCommand" date="Tue Apr 06 21:45:43 EDT 2021" starttimestamp="1617753760498" timestamp="6183069" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="13" _type="ShellCommand" date="Tue Apr 06 22:03:21 EDT 2021" starttimestamp="1617753760498" timestamp="7241113" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="14" _type="MoveCaretCommand" caretOffset="255" date="Tue Apr 06 22:03:21 EDT 2021" docOffset="608" starttimestamp="1617753760498" timestamp="7241411" />
+  <Command __id="15" _type="ShellCommand" date="Tue Apr 06 22:03:22 EDT 2021" starttimestamp="1617753760498" timestamp="7242093" type="ECLIPSE_LOST_FOCUS" />
+</Events>

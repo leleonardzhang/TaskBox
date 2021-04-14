@@ -1,0 +1,87 @@
+<Events startTimestamp="1618241890936" logVersion="1.0.0.202101171653">
+  <Command __id="14" _type="DiffBasedFileOpenCommand" date="Mon Apr 12 11:40:13 EDT 2021" projectName="GraphicalMathEditor" starttimestamp="1618241890936" timestamp="122472">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\GraphicalMathEditor\src\data\1018343005.png]]></filePath>
+    <diff><![CDATA[null]]></diff>
+  </Command>
+  <Command __id="15" _type="DiffBasedFileOpenCommand" date="Mon Apr 12 11:40:16 EDT 2021" docASTNodeCount="464" docActiveCodeLength="3644" docExpressionCount="344" docLength="3644" projectName="TaskBox" starttimestamp="1618241890936" timestamp="125253">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\TaskBox\src\main\MathMain.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package main;
+
+import java.util.Vector;
+import javax.swing.text.JTextComponent;
+import bus.uigen.OEFrame;
+import bus.uigen.ObjectEditor;
+import bus.uigen.uiFrame;
+import bus.uigen.attributes.AttributeNames;
+import bus.uigen.oadapters.ClassAdapter;
+import bus.uigen.oadapters.ObjectAdapter;
+import components.caret.MathPanelCaretListener;
+import components.mathEditor.MathEditorPanel;
+
+public class MathMain {
+	public static MathEditorPanel panel;
+	public static OEFrame frame;
+	
+	public static void main(String[] args) {
+		panel = new MathEditorPanel();
+		frame = ObjectEditor.edit(panel);
+		
+		setCaretPositionListener();
+		setButtonImage();
+	}
+	
+	public static void setButtonImage() {
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "DotProduct", AttributeNames.ICON, "image/dot.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "CrossProduct", AttributeNames.ICON, "image/times.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "Divide", AttributeNames.ICON, "image/div.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "Neq", AttributeNames.ICON, "image/neq.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "Ge", AttributeNames.ICON, "image/ge.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "Le", AttributeNames.ICON, "image/le.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "Approximate", AttributeNames.ICON, "image/approx.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "Not", AttributeNames.ICON, "image/not.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "Inf", AttributeNames.ICON, "image/inf.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "Pm", AttributeNames.ICON, "image/pm.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "Dot", AttributeNames.ICON, "image/dotx.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "Ddot", AttributeNames.ICON, "image/ddotx.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "SuperScript", AttributeNames.ICON, "image/superscript.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "SubScript", AttributeNames.ICON, "image/subscript.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "Fraction", AttributeNames.ICON, "image/fraction.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "Sqrt", AttributeNames.ICON, "image/sqrt.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "Floor", AttributeNames.ICON, "image/floor.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "Ceil", AttributeNames.ICON, "image/ceil.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "Integral", AttributeNames.ICON, "image/integral.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "Sum", AttributeNames.ICON, "image/sum.png");
+	}
+	
+	public static void setCaretPositionListener() {
+		uiFrame aUIFrame = (uiFrame) frame;
+		ClassAdapter adapter = (ClassAdapter) aUIFrame.getTopAdapter();
+		Vector<ObjectAdapter> children = adapter.getChildrenVector();
+		
+		ObjectAdapter observableAdapter = null;
+		
+		for (ObjectAdapter child : children) {
+			if (child.getComponentName().equals("mathExpression")) {
+				observableAdapter = child;
+				break;
+			}
+		}
+		
+		MathPanelCaretListener listener = new MathPanelCaretListener(panel);
+		
+		if (observableAdapter != null && (observableAdapter.getUIComponent().getPhysicalComponent()) instanceof JTextComponent) {
+			((JTextComponent) observableAdapter.getUIComponent().getPhysicalComponent()).addCaretListener(listener);
+		}
+	}
+
+}
+]]></snapshot>
+  </Command>
+  <Command __id="13" _type="EclipseCommand" commandID="" date="Mon Apr 12 11:40:08 EDT 2021" starttimestamp="1618241890936" timestamp="118049" />
+  <Command __id="16" _type="MoveCaretCommand" caretOffset="2080" date="Mon Apr 12 11:40:16 EDT 2021" docOffset="2433" starttimestamp="1618241890936" timestamp="125425" />
+  <Command __id="18" _type="MoveCaretCommand" caretOffset="2581" date="Mon Apr 12 11:40:21 EDT 2021" docOffset="2934" starttimestamp="1618241890936" timestamp="131018" />
+  <Command __id="19" _type="MoveCaretCommand" caretOffset="2581" date="Mon Apr 12 11:40:22 EDT 2021" docOffset="2934" starttimestamp="1618241890936" timestamp="131069" />
+  <Command __id="20" _type="SelectTextCommand" caretOffset="2581" date="Mon Apr 12 11:40:22 EDT 2021" end="2581" start="1268" starttimestamp="1618241890936" timestamp="131630" />
+  <Command __id="21" _type="SelectTextCommand" caretOffset="2581" date="Mon Apr 12 11:40:22 EDT 2021" end="2581" start="1268" starttimestamp="1618241890936" timestamp="131630" />
+</Events>

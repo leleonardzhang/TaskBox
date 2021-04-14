@@ -1,0 +1,103 @@
+<Events startTimestamp="1616376337770" logVersion="1.0.0.202101171653">
+  <Command __id="1" _type="MoveCaretCommand" caretOffset="237" date="Sun Mar 21 21:25:42 EDT 2021" docOffset="860" starttimestamp="1616376337770" timestamp="4497" />
+  <Command __id="0" _type="DiffBasedFileOpenCommand" date="Sun Mar 21 21:25:42 EDT 2021" docASTNodeCount="316" docActiveCodeLength="1797" docExpressionCount="241" docLength="1797" projectName="TaskBox" starttimestamp="1616376337770" timestamp="4318">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\TaskBox\src\main\Main.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package main;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import org.apache.commons.math3.fitting.WeightedObservedPoint;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import bus.uigen.ObjectEditor;
+import components.curve.fitting.AngleTimeFunction;
+import components.curve.fitting.MyCurveFitter;
+import components.mainpanel.MainPanel;
+import components.mainpanel.MainPanelInterface;
+import components.mathEditor.MathEditorPanel;
+import components.page.pages.Page;
+import components.page.pages.PageInterface;
+import components.plane.plane.Plane;
+import components.plane.plane.PlaneInterface;
+
+
+public class Main {
+	public static void main(String[] args)  {
+		MyCurveFitter fitter = new MyCurveFitter();
+        ArrayList<WeightedObservedPoint> points = new ArrayList<WeightedObservedPoint>();
+
+        
+        points.add(new WeightedObservedPoint(1.0, 0.5, 6.4845));
+        points.add(new WeightedObservedPoint(1.0, 1, 1.4687));
+        points.add(new WeightedObservedPoint(1.0, 1.5, 0.1378));
+        points.add(new WeightedObservedPoint(1.0, 2, -0.6861));
+        points.add(new WeightedObservedPoint(1.0, 2.5, -1.1952));
+        points.add(new WeightedObservedPoint(1.0, 3, -1.3816));
+        points.add(new WeightedObservedPoint(1.0, 3.5, -1.2462));
+        points.add(new WeightedObservedPoint(1.0, 4, -0.8393));
+        
+
+        final double coeffs[] = fitter.fit(points);
+        
+        for (int i = 0; i < coeffs.length; i ++) {
+        	System.out.print(coeffs[i] + " ");
+        	System.out.println();
+        }
+        
+        AngleTimeFunction func = new AngleTimeFunction();
+        
+        for (double i = 0; i < 10; i += 0.5) {
+        	System.out.printf("%f %f\n", i, func.value(i, coeffs));
+        }
+	}
+}
+]]></snapshot>
+  </Command>
+  <Command __id="2" _type="MoveCaretCommand" caretOffset="503" date="Sun Mar 21 21:25:43 EDT 2021" docOffset="1126" starttimestamp="1616376337770" timestamp="5896" />
+  <Command __id="4" _type="MoveCaretCommand" caretOffset="218" date="Sun Mar 21 21:25:45 EDT 2021" docOffset="378" starttimestamp="1616376337770" timestamp="7392" />
+  <Command __id="5" _type="SelectTextCommand" caretOffset="169" date="Sun Mar 21 21:25:47 EDT 2021" end="171" start="169" starttimestamp="1616376337770" timestamp="9529" />
+  <Command __id="3" _type="DiffBasedFileOpenCommand" date="Sun Mar 21 21:25:45 EDT 2021" docASTNodeCount="62" docActiveCodeLength="378" docExpressionCount="41" docLength="378" projectName="TaskBox" starttimestamp="1616376337770" timestamp="7246">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\TaskBox\src\main\Test.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package main;
+
+import bus.uigen.ObjectEditor;
+import components.curve.composedGraph.ComposedGraph;
+import components.curve.composedGraph.ComposedGraphInterface;
+import components.curve.point.CurvePoint;
+
+public class Test {
+
+	public static void main(String[] args) {
+		ComposedGraphInterface graph = new ComposedGraph(500, 700);
+		ObjectEditor.edit(graph);
+	}
+
+}
+]]></snapshot>
+  </Command>
+  <DocumentChange __id="7" _type="Replace" date="Sun Mar 21 21:25:49 EDT 2021" docASTNodeCount="62" docActiveCodeLength="376" docExpressionCount="41" docLength="376" endLine="10" insertionLength="1" int_docASTNodeCount="62" int_docActiveCodeLength="375" int_docExpressionCount="41" int_docLength="375" length="3" offset="333" startLine="10" starttimestamp="1616376337770" timestamp="12112">
+    <deletedText><![CDATA[700]]></deletedText>
+    <insertedText><![CDATA[5]]></insertedText>
+  </DocumentChange>
+  <DocumentChange __id="9" _type="Insert" date="Sun Mar 21 21:25:50 EDT 2021" docASTNodeCount="62" docActiveCodeLength="378" docExpressionCount="41" docLength="378" length="2" offset="334" repeat="2" starttimestamp="1616376337770" timestamp="12580" timestamp2="13023">
+    <text><![CDATA[00]]></text>
+  </DocumentChange>
+  <Command __id="26" _type="RunCommand" date="Sun Mar 21 21:25:58 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1616376337770" timestamp="21140" type="Run" />
+  <Command __id="27" _type="RunCommand" date="Sun Mar 21 21:25:58 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1616376337770" timestamp="21141" type="Run" />
+  <Command __id="28" _type="DiffBasedFileOpenCommand" date="Sun Mar 21 21:26:00 EDT 2021" docASTNodeCount="316" docActiveCodeLength="1797" docExpressionCount="241" docLength="1797" projectName="TaskBox" starttimestamp="1616376337770" timestamp="22424">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\TaskBox\src\main\Main.java]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"package main;¶¶import java.io.File;¶import java.io.IOException;¶import java.util.ArrayList;¶import java.util.Arrays;¶¶import org.apache.commons.math3.fitting.WeightedObservedPoint;¶¶import com.fasterxml.jackson.databind.ObjectMapper;¶¶import bus.uigen.ObjectEditor;¶import components.curve.fitting.AngleTimeFunction;¶import components.curve.fitting.MyCurveFitter;¶import components.mainpanel.MainPanel;¶import components.mainpanel.MainPanelInterface;¶import components.mathEditor.MathEditorPanel;¶import components.page.pages.Page;¶import components.page.pages.PageInterface;¶import components.plane.plane.Plane;¶import components.plane.plane.PlaneInterface;¶¶¶public class Main {¶	public static void main(String[] args)  {¶		MyCurveFitter fitter = new MyCurveFitter();¶        ArrayList<WeightedObservedPoint> points = new ArrayList<WeightedObservedPoint>();¶¶        ¶        points.add(new WeightedObservedPoint(1.0, 0.5, 6.4845));¶        points.add(new WeightedObservedPoint(1.0, 1, 1.4687));¶        points.add(new WeightedObservedPoint(1.0, 1.5, 0.1378));¶        points.add(new WeightedObservedPoint(1.0, 2, -0.6861));¶        points.add(new WeightedObservedPoint(1.0, 2.5, -1.1952));¶        points.add(new WeightedObservedPoint(1.0, 3, -1.3816));¶        points.add(new WeightedObservedPoint(1.0, 3.5, -1.2462));¶        points.add(new WeightedObservedPoint(1.0, 4, -0.8393));¶        ¶¶        final double coeffs[] = fitter.fit(points);¶        ¶        for (int i = 0; i < coeffs.length; i ++) {¶        	System.out.print(coeffs[i] + " ");¶        	System.out.println();¶        }¶        ¶        AngleTimeFunction func = new AngleTimeFunction();¶        ¶        for (double i = 0; i < 10; i += 0.5) {¶        	System.out.printf("%f %f\n", i, func.value(i, coeffs));¶        }¶	}¶}¶")]]]></diff>
+  </Command>
+  <Command __id="29" _type="MoveCaretCommand" caretOffset="503" date="Sun Mar 21 21:26:00 EDT 2021" docOffset="1126" starttimestamp="1616376337770" timestamp="22545" />
+  <Command __id="31" _type="MoveCaretCommand" caretOffset="176" date="Sun Mar 21 21:26:01 EDT 2021" docOffset="336" starttimestamp="1616376337770" timestamp="24128" />
+  <Command __id="48" _type="RunCommand" date="Sun Mar 21 21:26:10 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1616376337770" timestamp="32854" type="Run" />
+  <Command __id="49" _type="RunCommand" date="Sun Mar 21 21:26:10 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1616376337770" timestamp="32855" type="Run" />
+  <Command __id="69" _type="RunCommand" date="Sun Mar 21 21:26:35 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1616376337770" timestamp="58155" type="Run" />
+  <Command __id="70" _type="RunCommand" date="Sun Mar 21 21:26:35 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1616376337770" timestamp="58156" type="Run" />
+</Events>
