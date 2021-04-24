@@ -17,12 +17,14 @@ import org.scilab.forge.jlatexmath.TeXConstants;
 import org.scilab.forge.jlatexmath.TeXFormula;
 import org.scilab.forge.jlatexmath.TeXIcon;
 import components.listenersupport.PropertyListenerSupport;
+import parser.JavaExpressionParser;
 import parser.JavaExpressionTreeParser;
 import parser.TexTreeBuilder;
 import util.annotations.Column;
 import util.annotations.ComponentHeight;
 import util.annotations.ComponentWidth;
 import util.annotations.EditablePropertyNames;
+import util.annotations.Explanation;
 import util.annotations.PreferredWidgetClass;
 import util.annotations.PropertyNames;
 import util.annotations.Row;
@@ -56,7 +58,7 @@ public class MathEditorPanel {
 		return texExpression;
 	}
 	
-	@Row(1)
+	@Row(4)
 	public String getJavaExpression() {
 		return javaExpression;
 	}
@@ -71,19 +73,16 @@ public class MathEditorPanel {
 		for (int i = 0; i < javaExpression.length(); i ++) {
 			rootVector.add(javaExpression.charAt(i));
 		}
-		
+		JavaExpressionParser parser = new JavaExpressionParser();
 		JavaExpressionTreeParser treeParser = new JavaExpressionTreeParser(rootVector);
-		TexTreeBuilder builder = new TexTreeBuilder();
-		
-		render(builder.build(treeParser.getRoot()));
-		
-		if (image == null) {
+		if (parser.isExpression(rootVector)) {
+			TexTreeBuilder builder = new TexTreeBuilder();
+			setTexExpression(builder.build(treeParser.getRoot()));
+			render(texExpression);
+			System.out.println("Rendered");
 			image = new MathExpressionImage(0, 0, imageHeight, imageWidth, "data/latex.png");
 		}
 		
-		getImage().setImageFileName("data/latex.png");
-		getImage().setHeight(imageHeight);
-		getImage().setWidth(imageWidth);
 	}
 	
 	
@@ -94,14 +93,9 @@ public class MathEditorPanel {
 				new PropertyChangeEvent(this, "texExpression", oldTexExpression, texExpression));
 		
 		render(texExpression);
+		System.out.println("Rendered");
 		
-		if (image == null) {
-			image = new MathExpressionImage(0, 0, imageHeight, imageWidth, "data/latex.png");
-		}
-		
-		getImage().setImageFileName("data/latex.png");
-		getImage().setHeight(imageHeight);
-		getImage().setWidth(imageWidth);
+		image = new MathExpressionImage(0, 0, imageHeight, imageWidth, "data/latex.png");
 	}
 	
 	public int getCaretPosition() {
@@ -121,7 +115,7 @@ public class MathEditorPanel {
     }
 	
 	@PreferredWidgetClass(JButton.class)
-	@Row(2)
+	@Row(1)
 	@Column(0)
 	@ComponentHeight(30)
 	@ComponentWidth(30)
@@ -132,10 +126,11 @@ public class MathEditorPanel {
 	}
 	
 	@PreferredWidgetClass(JButton.class)
-	@Row(2)
+	@Row(1)
 	@Column(1)
 	@ComponentHeight(30)
 	@ComponentWidth(30)
+	@Explanation("cross pruduct")
 	public void crossProduct() {
 		StringBuffer buffer = new StringBuffer(getTexExpression());
 		buffer.insert(caretPosition, "\\times");
@@ -143,7 +138,7 @@ public class MathEditorPanel {
 	}
 	
 	@PreferredWidgetClass(JButton.class)
-	@Row(2)
+	@Row(1)
 	@Column(2)
 	@ComponentHeight(30)
 	@ComponentWidth(30)
@@ -154,7 +149,7 @@ public class MathEditorPanel {
 	}
 	
 	@PreferredWidgetClass(JButton.class)
-	@Row(2)
+	@Row(1)
 	@Column(3)
 	@ComponentHeight(30)
 	@ComponentWidth(30)
@@ -165,7 +160,7 @@ public class MathEditorPanel {
 	}
 	
 	@PreferredWidgetClass(JButton.class)
-	@Row(2)
+	@Row(1)
 	@Column(4)
 	@ComponentHeight(30)
 	@ComponentWidth(30)
@@ -176,7 +171,7 @@ public class MathEditorPanel {
 	}
 	
 	@PreferredWidgetClass(JButton.class)
-	@Row(2)
+	@Row(1)
 	@Column(5)
 	@ComponentHeight(30)
 	@ComponentWidth(30)
@@ -187,7 +182,7 @@ public class MathEditorPanel {
 	}
 	
 	@PreferredWidgetClass(JButton.class)
-	@Row(2)
+	@Row(1)
 	@Column(6)
 	@ComponentHeight(30)
 	@ComponentWidth(30)
@@ -198,7 +193,7 @@ public class MathEditorPanel {
 	}
 	
 	@PreferredWidgetClass(JButton.class)
-	@Row(2)
+	@Row(1)
 	@Column(7)
 	@ComponentHeight(30)
 	@ComponentWidth(30)
@@ -209,7 +204,7 @@ public class MathEditorPanel {
 	}
 	
 	@PreferredWidgetClass(JButton.class)
-	@Row(2)
+	@Row(1)
 	@Column(8)
 	@ComponentHeight(30)
 	@ComponentWidth(30)
@@ -220,7 +215,7 @@ public class MathEditorPanel {
 	}
 	
 	@PreferredWidgetClass(JButton.class)
-	@Row(2)
+	@Row(1)
 	@Column(9)
 	@ComponentHeight(30)
 	@ComponentWidth(30)
@@ -231,7 +226,7 @@ public class MathEditorPanel {
 	}
 	
 	@PreferredWidgetClass(JButton.class)
-	@Row(3)
+	@Row(2)
 	@Column(5)
 	@ComponentHeight(30)
 	@ComponentWidth(30)
@@ -242,7 +237,7 @@ public class MathEditorPanel {
 	}
 	
 	@PreferredWidgetClass(JButton.class)
-	@Row(3)
+	@Row(2)
 	@Column(6)
 	@ComponentHeight(30)
 	@ComponentWidth(30)
@@ -253,7 +248,7 @@ public class MathEditorPanel {
 	}
 	
 	@PreferredWidgetClass(JButton.class)
-	@Row(3)
+	@Row(2)
 	@Column(0)
 	@ComponentHeight(30)
 	@ComponentWidth(30)
@@ -264,7 +259,7 @@ public class MathEditorPanel {
 	}
 	
 	@PreferredWidgetClass(JButton.class)
-	@Row(3)
+	@Row(2)
 	@Column(1)
 	@ComponentHeight(30)
 	@ComponentWidth(30)
@@ -275,7 +270,7 @@ public class MathEditorPanel {
 	}
 	
 	@PreferredWidgetClass(JButton.class)
-	@Row(4)
+	@Row(3)
 	@Column(0)
 	@ComponentHeight(60)
 	@ComponentWidth(30)
@@ -286,7 +281,7 @@ public class MathEditorPanel {
 	}
 	
 	@PreferredWidgetClass(JButton.class)
-	@Row(3)
+	@Row(2)
 	@Column(2)
 	@ComponentHeight(30)
 	@ComponentWidth(30)
@@ -297,7 +292,7 @@ public class MathEditorPanel {
 	}
 	
 	@PreferredWidgetClass(JButton.class)
-	@Row(3)
+	@Row(2)
 	@Column(3)
 	@ComponentHeight(30)
 	@ComponentWidth(30)
@@ -308,7 +303,7 @@ public class MathEditorPanel {
 	}
 	
 	@PreferredWidgetClass(JButton.class)
-	@Row(3)
+	@Row(2)
 	@Column(4)
 	@ComponentHeight(30)
 	@ComponentWidth(30)
@@ -319,7 +314,7 @@ public class MathEditorPanel {
 	}
 	
 	@PreferredWidgetClass(JButton.class)
-	@Row(4)
+	@Row(3)
 	@Column(2)
 	@ComponentHeight(60)
 	@ComponentWidth(30)
@@ -330,7 +325,7 @@ public class MathEditorPanel {
 	}
 	
 	@PreferredWidgetClass(JButton.class)
-	@Row(4)
+	@Row(3)
 	@Column(1)
 	@ComponentHeight(60)
 	@ComponentWidth(30)
@@ -340,7 +335,27 @@ public class MathEditorPanel {
 		setTexExpression(buffer.toString());
 	}
 	
+	@PreferredWidgetClass(JButton.class)
+	@Row(5)
+	@Column(0)
+	@ComponentHeight(30)
+	@ComponentWidth(30)
+	public void javaExp() {
+		StringBuffer buffer = new StringBuffer(getJavaExpression());
+		buffer.insert(caretPosition, "exp(x)");
+		setJavaExpression(buffer.toString());
+	}
 	
+	@PreferredWidgetClass(JButton.class)
+	@Row(5)
+	@Column(1)
+	@ComponentHeight(30)
+	@ComponentWidth(30)
+	public void javaSqrt() {
+		StringBuffer buffer = new StringBuffer(getJavaExpression());
+		buffer.insert(caretPosition, "sqrt(a)");
+		setJavaExpression(buffer.toString());
+	}
 	
  	public void render(String latexString) {
 		TeXFormula formula = new TeXFormula(latexString);

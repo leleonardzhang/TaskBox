@@ -7,7 +7,7 @@ import javax.swing.JTree;
 
 public class ParserMain{
 	public static void main(String[] args) {
-		String exp = "sqrt(100)";
+		String exp = "pow(1,2)";
 		Vector<Character> rootVector = new Vector<Character> ();
 		for (int i = 0; i < exp.length(); i ++) {
 			rootVector.add(exp.charAt(i));

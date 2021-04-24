@@ -21,9 +21,6 @@ public class TaskPanel {
 		
 		OEFrame frame = ObjectEditor.edit(panel);
 		
-		
-		
-		
 		frame.setSize(700, 1000);
 		frame.setLocation(0, 0);
 		Exporter.export(panel, "example.json");

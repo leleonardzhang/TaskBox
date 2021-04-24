@@ -122,14 +122,17 @@ public class TexTreeBuilder {
 				}
 				
 				
-				else {
-					childrenVector = concat(childrenVector, (Vector<Character>) child.getUserObject());
-				}
+				
 			}
 			else {
 				childrenVector = concat(childrenVector, getTexVector(child));
 			}
 		}
+		
+		if (thisNode.getChildCount() == 0) {
+			childrenVector = concat(childrenVector, (Vector<Character>) thisNode.getUserObject());
+		}
+		
 		return childrenVector;	
 	}
 	

@@ -1,0 +1,1179 @@
+<Events startTimestamp="1618432482905" logVersion="1.0.0.202101171653">
+  <Command __id="1" _type="MoveCaretCommand" caretOffset="4876" date="Wed Apr 14 16:34:43 EDT 2021" docOffset="4925" starttimestamp="1618432482905" timestamp="191" />
+  <Command __id="2" _type="ShellCommand" date="Wed Apr 14 16:37:22 EDT 2021" starttimestamp="1618432482905" timestamp="159124" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="3" _type="ShellCommand" date="Wed Apr 14 16:37:38 EDT 2021" starttimestamp="1618432482905" timestamp="175165" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="4" _type="ShellCommand" date="Wed Apr 14 16:37:39 EDT 2021" starttimestamp="1618432482905" timestamp="176874" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="5" _type="ShellCommand" date="Wed Apr 14 16:37:41 EDT 2021" starttimestamp="1618432482905" timestamp="178245" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="6" _type="ShellCommand" date="Wed Apr 14 16:37:49 EDT 2021" starttimestamp="1618432482905" timestamp="186868" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="0" _type="DiffBasedFileOpenCommand" date="Wed Apr 14 16:34:43 EDT 2021" docASTNodeCount="967" docActiveCodeLength="5669" docExpressionCount="666" docLength="5669" projectName="TaskBox" starttimestamp="1618432482905" timestamp="150">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\TaskBox\src\parser\TexTreeBuilder.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package parser;
+
+import java.util.Vector;
+import javax.swing.tree.DefaultMutableTreeNode;
+
+public class TexTreeBuilder {
+	private DefaultMutableTreeNode root;
+	private JavaExpressionParser parser = new JavaExpressionParser();
+	
+	
+	public String build(DefaultMutableTreeNode aRoot) {
+		root = aRoot;
+		String resultString = "";
+		for (Character c : getTexVector(root)) {
+			resultString += c;
+		}
+		return resultString;
+	}
+	
+	public Vector<Character> getTexVector(DefaultMutableTreeNode thisNode) {
+		Vector<Character> childrenVector = new Vector<Character> ();
+		for (int i = 0; i < thisNode.getChildCount(); i ++) {
+			DefaultMutableTreeNode child = (DefaultMutableTreeNode) thisNode.getChildAt(i);
+			if (child.getChildCount() == 0) {
+				if (((Vector<Character>) child.getUserObject()).get(0) == '/') {
+					Vector<Character> fracVector = new Vector<Character> ();
+					fracVector.add('\\');
+					fracVector.add('f');
+					fracVector.add('r');
+					fracVector.add('a');
+					fracVector.add('c');
+					fracVector.add('{');
+					fracVector = concat(fracVector, childrenVector);
+					fracVector.add('}');
+					fracVector.add('{');
+					DefaultMutableTreeNode nextChild = (DefaultMutableTreeNode) thisNode.getChildAt(i + 1);
+					if (nextChild.getChildCount() == 0) {
+						fracVector = concat(fracVector, ((Vector<Character>) nextChild.getUserObject()));
+					}
+					else {
+						fracVector = concat(fracVector, getTexVector(nextChild));
+					}
+					fracVector.add('}');
+					i ++;
+					childrenVector = fracVector;
+				}
+				else if (((Vector<Character>) child.getUserObject()).get(0) == '^') {
+					Vector<Character> powerVector = new Vector<Character> ();
+					powerVector = concat(childrenVector, powerVector);
+					powerVector.add('^');
+					powerVector.add('{');
+					DefaultMutableTreeNode nextChild = (DefaultMutableTreeNode) thisNode.getChildAt(i + 1);
+					if (nextChild.getChildCount() == 0) {
+						powerVector = concat(powerVector, ((Vector<Character>) nextChild.getUserObject()));
+					}
+					else {
+						powerVector = concat(powerVector, getTexVector(nextChild));
+					}
+					powerVector.add('}');
+					i ++;
+					childrenVector = powerVector;
+				}
+				else if (((Vector<Character>) child.getUserObject()).get(0) == '*') {
+					DefaultMutableTreeNode nextChild = (DefaultMutableTreeNode) thisNode.getChildAt(i + 1);
+					DefaultMutableTreeNode prevChild = (DefaultMutableTreeNode) thisNode.getChildAt(i - 1);
+					Vector<Character> timesVector = new Vector<Character> ();
+					timesVector = concat(childrenVector, timesVector);
+					if (prevChild.getChildCount() == 0 && nextChild.getChildCount() == 0 
+							&& parser.isNumber((Vector<Character>) prevChild.getUserObject()) 
+							&& parser.isUnsignedVariable((Vector<Character>) nextChild.getUserObject())) {
+					}
+					else {
+						timesVector.add(' ');
+						timesVector.add('\\');
+						timesVector.add('t');
+						timesVector.add('i');
+						timesVector.add('m');
+						timesVector.add('e');
+						timesVector.add('s');
+						timesVector.add(' ');
+						childrenVector = timesVector;
+					}
+				}
+				
+				else if (isSqrt((Vector<Character>) child.getUserObject()) 
+						&& parser.isExpression((Vector<Character>) ((DefaultMutableTreeNode) thisNode.getChildAt(i + 2)).getUserObject())) {
+					Vector<Character> fracVector = new Vector<Character> ();
+					fracVector.add('\\');
+					fracVector.add('s');
+					fracVector.add('q');
+					fracVector.add('r');
+					fracVector.add('t');
+					fracVector.add('{');
+					DefaultMutableTreeNode nextChild = (DefaultMutableTreeNode) thisNode.getChildAt(i + 2);
+					if (nextChild.getChildCount() == 0) {
+						fracVector = concat(fracVector, ((Vector<Character>) nextChild.getUserObject()));
+					}
+					else {
+						fracVector = concat(fracVector, getTexVector(nextChild));
+					}
+					fracVector.add('}');
+					i += 3;
+					childrenVector = fracVector;
+				}
+				
+				else if (isExp((Vector<Character>) child.getUserObject())
+						&& parser.isExpression((Vector<Character>) ((DefaultMutableTreeNode) thisNode.getChildAt(i + 2)).getUserObject())) {
+					Vector<Character> fracVector = new Vector<Character> ();
+					fracVector.add('e');
+					fracVector.add('^');
+					fracVector.add('{');
+					DefaultMutableTreeNode nextChild = (DefaultMutableTreeNode) thisNode.getChildAt(i + 2);
+					if (nextChild.getChildCount() == 0) {
+						fracVector = concat(fracVector, ((Vector<Character>) nextChild.getUserObject()));
+					}
+					else {
+						fracVector = concat(fracVector, getTexVector(nextChild));
+					}
+					fracVector.add('}');
+					i += 3;
+					childrenVector = fracVector;
+				}
+				
+				
+				else {
+					childrenVector = concat(childrenVector, (Vector<Character>) child.getUserObject());
+				}
+			}
+			else {
+				childrenVector = concat(childrenVector, getTexVector(child));
+			}
+		}
+		return childrenVector;	
+	}
+	
+	public Vector<Character> concat(Vector<Character> vectorA, Vector<Character> vectorB){
+		Vector<Character> newVector = new Vector<Character> ();
+		for (Character c : vectorA) {
+			newVector.add(c);
+		}
+		for (Character c : vectorB) {
+			newVector.add(c);
+		}
+		return newVector;
+	}
+	
+	public boolean isSqrt(Vector<Character> aVector) {
+		if (aVector.size() != 4) return false;
+		return aVector.get(0) == 's' && aVector.get(1) == 'q' && aVector.get(2) == 'r' && aVector.get(3) == 't';
+	}
+	
+	public boolean isExp(Vector<Character> aVector) {
+		if (aVector.size() != 3) return false;
+		return aVector.get(0) == 'e' && aVector.get(1) == 'x' && aVector.get(2) == 'p';
+	}
+	
+
+
+}
+]]></snapshot>
+  </Command>
+  <Command __id="11" _type="ShellCommand" date="Wed Apr 14 16:38:55 EDT 2021" starttimestamp="1618432482905" timestamp="252117" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="13" _type="MoveCaretCommand" caretOffset="529" date="Wed Apr 14 16:38:59 EDT 2021" docOffset="882" starttimestamp="1618432482905" timestamp="257018" />
+  <Command __id="14" _type="EclipseCommand" commandID="org.eclipse.jdt.debug.ui.localJavaShortcut.run" date="Wed Apr 14 16:39:06 EDT 2021" starttimestamp="1618432482905" timestamp="263436" />
+  <Command __id="15" _type="RunCommand" date="Wed Apr 14 16:39:06 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1618432482905" timestamp="263692" type="Run" />
+  <Command __id="16" _type="RunCommand" date="Wed Apr 14 16:39:06 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1618432482905" timestamp="263693" type="Run" />
+  <Command __id="17" _type="ShellCommand" date="Wed Apr 14 16:39:07 EDT 2021" starttimestamp="1618432482905" timestamp="264644" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="18" _type="ConsoleOutput" date="Wed Apr 14 16:39:07 EDT 2021" overflow="false" starttimestamp="1618432482905" timestamp="264807" type="ConsoleOutput">
+    <outputString><![CDATA[ObjectEditor(Version 22, built on Wed Feb 17 11:47:24 EST 2021). Copyright Prasun Dewan, 2012, All rights reserved. US Patent Appl. No.: 12/532,327
+W*** public void components.mathEditor.MathEditorPanel.addPropertyChangeListener(java.beans.PropertyChangeListener) should be associated with annotation: @ObserverRegisterer(Property Listener)
+W*** Implicit property caretPosition of  MathEditorPanel ignored as it is not in property names list. 
+ Associate annotation @Visible(false) with its getter.
+W*** Implicitly editable property: caretPosition of class class components.mathEditor.MathEditorPanel not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: image of class class components.mathEditor.MathEditorPanel not considered editable as it is not in editable property names list. 
+
+]]></outputString>
+    <diff><![CDATA[null]]></diff>
+  </Command>
+  <Command __id="19" _type="ConsoleOutput" date="Wed Apr 14 16:39:07 EDT 2021" overflow="false" starttimestamp="1618432482905" timestamp="264932" type="ConsoleOutput">
+    <outputString><![CDATA[W*** Value: null of Root.Image not in range.
+]]></outputString>
+    <diff><![CDATA[[Diff(DELETE,"ObjectEditor(Version 22, built on Wed Feb 17 11:47:24 EST 2021). Copyright Prasun Dewan, 2012, All rights reserved. US Patent Appl. No.: 12/532,327¶W*** public void components.mathEditor.MathEditorPanel.addPropertyChangeListener(java.beans.PropertyChangeListener) should be associated with annotation: @ObserverRegisterer(Property Listener)¶W*** Implicit property caretPosition of  MathEditorPanel ignored as it is not in property names list. ¶ Associate annotation @Visible(false) with its getter.¶W*** Implicitly editable property: caretPosition of class class components.mathEditor.MathEditorPanel not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: image of class class components.mathEditor.MathEditorPanel not considered editable as it is not in editable property names list. ¶"), Diff(INSERT,"W*** Value: null of Root.Image not in range."), Diff(EQUAL,"¶")]]]></diff>
+  </Command>
+  <Command __id="20" _type="ConsoleOutput" date="Wed Apr 14 16:39:53 EDT 2021" overflow="false" starttimestamp="1618432482905" timestamp="310246" type="ConsoleOutput">
+    <outputString><![CDATA[Testing Expression [s, q, r, t, (, 2, )]
+Testing add-sub Expression [s, q, r, t, (, 2, )]
+Testing multi div Expression [s, q, r, t, (, 2, )]
+Testing function Expression [s, q, r, t, (, 2, )]
+Testing Expression [2]
+Testing add-sub Expression [s, q, r, t, (, 2, )]
+Testing multi div Expression [s, q, r, t, (, 2, )]
+Testing function Expression [s, q, r, t, (, 2, )]
+Testing Expression [2]
+Testing Expression [2]
+Testing Expression [2]
+]]></outputString>
+    <diff><![CDATA[[Diff(DELETE,"W*** Value: null of Root.Image not in range."), Diff(INSERT,"Testing Expression [s, q, r, t, (, 2, )]¶Testing add-sub Expression [s, q, r, t, (, 2, )]¶Testing multi div Expression [s, q, r, t, (, 2, )]¶Testing function Expression [s, q, r, t, (, 2, )]¶Testing Expression [2]¶Testing add-sub Expression [s, q, r, t, (, 2, )]¶Testing multi div Expression [s, q, r, t, (, 2, )]¶Testing function Expression [s, q, r, t, (, 2, )]¶Testing Expression [2]¶Testing Expression [2]¶Testing Expression [2]"), Diff(EQUAL,"¶")]]]></diff>
+  </Command>
+  <Command __id="21" _type="ConsoleOutput" date="Wed Apr 14 16:39:53 EDT 2021" overflow="false" starttimestamp="1618432482905" timestamp="310625" type="ConsoleOutput">
+    <outputString><![CDATA[W*** public void components.mathEditor.MathExpressionImage.addPropertyChangeListener(java.beans.PropertyChangeListener) should be associated with annotation: @ObserverRegisterer(Property Listener)
+W*** Implicitly editable property: height of class class components.mathEditor.MathExpressionImage not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: imageFileName of class class components.mathEditor.MathExpressionImage not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: width of class class components.mathEditor.MathExpressionImage not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: x of class class components.mathEditor.MathExpressionImage not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: y of class class components.mathEditor.MathExpressionImage not considered editable as it is not in editable property names list. 
+
+]]></outputString>
+    <diff><![CDATA[[Diff(DELETE,"Testing Expression [s, q, r, t, (, 2, )]¶Testing add-sub Expression [s, q, r, t, (, 2, )]¶Testing multi div Expression [s, q, r, t, (, 2, )]¶Testing function Expression [s, q, r, t, (, 2, )]¶Testing Expression [2]¶Testing add-sub Expression [s, q, r, t, (, 2, )]¶Testing multi div Expression [s, q, r, t, (, 2, )]¶Testing function Expression [s, q, r, t, (, 2, )]¶Testing Expression [2]¶Testing Expression [2]¶Testing Expression [2]"), Diff(INSERT,"W*** public void components.mathEditor.MathExpressionImage.addPropertyChangeListener(java.beans.PropertyChangeListener) should be associated with annotation: @ObserverRegisterer(Property Listener)¶W*** Implicitly editable property: height of class class components.mathEditor.MathExpressionImage not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: imageFileName of class class components.mathEditor.MathExpressionImage not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: width of class class components.mathEditor.MathExpressionImage not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: x of class class components.mathEditor.MathExpressionImage not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: y of class class components.mathEditor.MathExpressionImage not considered editable as it is not in editable property names list. ¶"), Diff(EQUAL,"¶")]]]></diff>
+  </Command>
+  <Command __id="22" _type="ConsoleOutput" date="Wed Apr 14 16:41:32 EDT 2021" overflow="false" starttimestamp="1618432482905" timestamp="409751" type="ConsoleOutput">
+    <outputString><![CDATA[Testing Expression [a, /, b]
+Testing add-sub Expression [a, /, b]
+Testing multi div Expression [a, /, b]
+Testing Expression [a]
+Testing Expression [b]
+Testing add-sub Expression [a, /, b]
+Testing multi div Expression [a, /, b]
+Testing Expression [a]
+Testing Expression [b]
+Testing Expression [a]
+Testing Expression [b]
+]]></outputString>
+    <diff><![CDATA[[Diff(DELETE,"W*** public void components.mathEditor.MathExpressionImage.addPropertyChangeListener(java.beans.PropertyChangeListener) should be associated with annotation: @ObserverRegisterer(Property Listener)¶W*** Implicitly editable property: height of class class components.mathEditor.MathExpressionImage not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: imageFileName of class class components.mathEditor.MathExpressionImage not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: width of class class components.mathEditor.MathExpressionImage not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: x of class class components.mathEditor.MathExpressionImage not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: y of class class components.mathEditor.MathExpressionImage not considered editable as it is not in editable property names list. ¶"), Diff(INSERT,"Testing Expression [a, /, b]¶Testing add-sub Expression [a, /, b]¶Testing multi div Expression [a, /, b]¶Testing Expression [a]¶Testing Expression [b]¶Testing add-sub Expression [a, /, b]¶Testing multi div Expression [a, /, b]¶Testing Expression [a]¶Testing Expression [b]¶Testing Expression [a]¶Testing Expression [b]"), Diff(EQUAL,"¶")]]]></diff>
+  </Command>
+  <Command __id="23" _type="ConsoleOutput" date="Wed Apr 14 16:41:42 EDT 2021" overflow="false" starttimestamp="1618432482905" timestamp="419940" type="ConsoleOutput">
+    <outputString><![CDATA[Testing Expression [e, x, p, (, x, )]
+Testing add-sub Expression [e, x, p, (, x, )]
+Testing multi div Expression [e, x, p, (, x, )]
+Testing function Expression [e, x, p, (, x, )]
+Testing Expression [x]
+Testing add-sub Expression [e, x, p, (, x, )]
+Testing multi div Expression [e, x, p, (, x, )]
+Testing function Expression [e, x, p, (, x, )]
+Testing Expression [x]
+Testing Expression [x]
+Testing Expression [x]
+]]></outputString>
+    <diff><![CDATA[[Diff(EQUAL,"Testing Expression ["), Diff(DELETE,"a"), Diff(INSERT,"e, x, p, ("), Diff(EQUAL,", "), Diff(DELETE,"/"), Diff(INSERT,"x"), Diff(EQUAL,", "), Diff(DELETE,"b"), Diff(INSERT,")"), Diff(EQUAL,"]¶Testing add-sub Expression ["), Diff(DELETE,"a"), Diff(INSERT,"e"), Diff(EQUAL,", "), Diff(DELETE,"/, b"), Diff(INSERT,"x, p, (, x, )"), Diff(EQUAL,"]¶Testing multi div Expression ["), Diff(DELETE,"a"), Diff(INSERT,"e"), Diff(EQUAL,", "), Diff(DELETE,"/"), Diff(INSERT,"x"), Diff(EQUAL,", "), Diff(DELETE,"b"), Diff(INSERT,"p, (, x, )"), Diff(EQUAL,"]¶Testing "), Diff(INSERT,"function "), Diff(EQUAL,"Expression ["), Diff(DELETE,"a"), Diff(INSERT,"e, x, p, (, x, )"), Diff(EQUAL,"]¶Testing Expression ["), Diff(DELETE,"b"), Diff(INSERT,"x"), Diff(EQUAL,"]¶Testing add-sub Expression ["), Diff(DELETE,"a"), Diff(INSERT,"e, x"), Diff(EQUAL,", "), Diff(DELETE,"/"), Diff(INSERT,"p"), Diff(EQUAL,", "), Diff(DELETE,"b"), Diff(INSERT,"(, x, )"), Diff(EQUAL,"]¶Testing multi div Expression ["), Diff(DELETE,"a"), Diff(INSERT,"e, x"), Diff(EQUAL,", "), Diff(DELETE,"/"), Diff(INSERT,"p"), Diff(EQUAL,", "), Diff(DELETE,"b"), Diff(INSERT,"(, x, )"), Diff(EQUAL,"]¶Testing "), Diff(INSERT,"function "), Diff(EQUAL,"Expression ["), Diff(DELETE,"a"), Diff(INSERT,"e, x, p, (, x, )"), Diff(EQUAL,"]¶Testing Expression ["), Diff(DELETE,"b"), Diff(INSERT,"x"), Diff(EQUAL,"]¶Testing Expression ["), Diff(DELETE,"a"), Diff(INSERT,"x"), Diff(EQUAL,"]¶Testing Expression ["), Diff(DELETE,"b"), Diff(INSERT,"x"), Diff(EQUAL,"]¶")]]]></diff>
+  </Command>
+  <Command __id="24" _type="ConsoleOutput" date="Wed Apr 14 16:42:26 EDT 2021" overflow="false" starttimestamp="1618432482905" timestamp="463658" type="ConsoleOutput">
+    <outputString><![CDATA[Testing Expression [e, x, p, (, x, ), +, 1, /, 2]
+Testing add-sub Expression [e, x, p, (, x, ), +, 1, /, 2]
+Testing Expression [e, x, p, (, x, )]
+Testing add-sub Expression [e, x, p, (, x, )]
+Testing multi div Expression [e, x, p, (, x, )]
+Testing function Expression [e, x, p, (, x, )]
+Testing Expression [x]
+Testing Expression [1, /, 2]
+Testing add-sub Expression [1, /, 2]
+Testing multi div Expression [1, /, 2]
+Testing Expression [1]
+Testing Expression [2]
+Testing add-sub Expression [e, x, p, (, x, ), +, 1, /, 2]
+Testing Expression [e, x, p, (, x, )]
+Testing add-sub Expression [e, x, p, (, x, )]
+Testing multi div Expression [e, x, p, (, x, )]
+Testing function Expression [e, x, p, (, x, )]
+Testing Expression [x]
+Testing Expression [1, /, 2]
+Testing add-sub Expression [1, /, 2]
+Testing multi div Expression [1, /, 2]
+Testing Expression [1]
+Testing Expression [2]
+Testing Expression [e, x, p, (, x, )]
+Testing add-sub Expression [e, x, p, (, x, )]
+Testing multi div Expression [e, x, p, (, x, )]
+Testing function Expression [e, x, p, (, x, )]
+Testing Expression [x]
+Testing Expression [1, /, 2]
+Testing add-sub Expression [1, /, 2]
+Testing multi div Expression [1, /, 2]
+Testing Expression [1]
+Testing Expression [2]
+Testing add-sub Expression [e, x, p, (, x, )]
+Testing multi div Expression [e, x, p, (, x, )]
+Testing function Expression [e, x, p, (, x, )]
+Testing Expression [x]
+Testing Expression [x]
+Testing add-sub Expression [1, /, 2]
+Testing multi div Expression [1, /, 2]
+Testing Expression [1]
+Testing Expression [2]
+Testing Expression [1]
+Testing Expression [2]
+Testing Expression [x]
+]]></outputString>
+    <diff><![CDATA[[Diff(INSERT,"Testing Expression [e, x, p, (, x, ), +, 1, /, 2]¶Testing add-sub Expression [e, x, p, (, x, ), +, 1, /, 2]¶"), Diff(EQUAL,"Testing Expression [e, x, p, (, x, )]¶Testing add-sub Expression [e, x, p, (, x, )]¶Testing multi div Expression [e, x, p, (, x, )]¶Testing function Expression [e, x, p, (, x, )]¶Testing Expression [x]¶"), Diff(INSERT,"Testing Expression [1, /, 2]¶Testing add-sub Expression [1, /, 2]¶Testing multi div Expression [1, /, 2]¶Testing Expression [1]¶Testing Expression [2]¶Testing add-sub Expression [e, x, p, (, x, ), +, 1, /, 2]¶Testing Expression [e, x, p, (, x, )]¶Testing add-sub Expression [e, x, p, (, x, )]¶Testing multi div Expression [e, x, p, (, x, )]¶Testing function Expression [e, x, p, (, x, )]¶Testing Expression [x]¶Testing Expression [1, /, 2]¶Testing add-sub Expression [1, /, 2]¶Testing multi div Expression [1, /, 2]¶Testing Expression [1]¶Testing Expression [2]¶Testing Expression [e, x, p, (, x, )]¶Testing add-sub Expression [e, x, p, (, x, )]¶Testing multi div Expression [e, x, p, (, x, )]¶Testing function Expression [e, x, p, (, x, )]¶Testing Expression [x]¶Testing Expression [1, /, 2]¶Testing add-sub Expression [1, /, 2]¶Testing multi div Expression [1, /, 2]¶Testing Expression [1]¶Testing Expression [2]¶"), Diff(EQUAL,"Testing add-sub Expression [e, x, p, (, x, )]¶Testing multi div Expression [e, x, p, (, x, )]¶Testing function Expression [e, x, p, (, x, )]¶Testing Expression [x]¶Testing Expression [x]¶"), Diff(INSERT,"Testing add-sub Expression [1, /, 2]¶Testing multi div Expression [1, /, 2]¶Testing Expression [1]¶Testing Expression [2]¶Testing Expression [1]¶Testing Expression [2]¶"), Diff(EQUAL,"Testing Expression [x]¶")]]]></diff>
+  </Command>
+  <Command __id="25" _type="ShellCommand" date="Wed Apr 14 16:43:23 EDT 2021" starttimestamp="1618432482905" timestamp="520909" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="26" _type="MoveCaretCommand" caretOffset="785" date="Wed Apr 14 16:43:28 EDT 2021" docOffset="1138" starttimestamp="1618432482905" timestamp="525621" />
+  <Command __id="27" _type="MoveCaretCommand" caretOffset="691" date="Wed Apr 14 16:43:47 EDT 2021" docOffset="1044" starttimestamp="1618432482905" timestamp="544417" />
+  <Command __id="28" _type="SelectTextCommand" caretOffset="362" date="Wed Apr 14 16:43:52 EDT 2021" end="469" start="362" starttimestamp="1618432482905" timestamp="549456" />
+  <Command __id="29" _type="CopyCommand" date="Wed Apr 14 16:43:53 EDT 2021" starttimestamp="1618432482905" timestamp="550258" />
+  <Command __id="30" _type="MoveCaretCommand" caretOffset="2524" date="Wed Apr 14 16:43:54 EDT 2021" docOffset="2877" starttimestamp="1618432482905" timestamp="551520" />
+  <Command __id="32" _type="InsertStringCommand" date="Wed Apr 14 16:43:54 EDT 2021" starttimestamp="1618432482905" timestamp="552094" timestamp2="552094">
+    <data><![CDATA[]]></data>
+  </Command>
+  <Command __id="34" _type="InsertStringCommand" date="Wed Apr 14 16:43:55 EDT 2021" starttimestamp="1618432482905" timestamp="552214" timestamp2="552214">
+    <data><![CDATA[]]></data>
+  </Command>
+  <Command __id="36" _type="InsertStringCommand" date="Wed Apr 14 16:43:55 EDT 2021" starttimestamp="1618432482905" timestamp="552349" timestamp2="552349">
+    <data><![CDATA[]]></data>
+  </Command>
+  <Command __id="38" _type="PasteCommand" date="Wed Apr 14 16:43:55 EDT 2021" starttimestamp="1618432482905" timestamp="552611" />
+  <Command __id="12" _type="DiffBasedFileOpenCommand" date="Wed Apr 14 16:38:59 EDT 2021" docASTNodeCount="464" docActiveCodeLength="3644" docExpressionCount="344" docLength="3644" projectName="TaskBox" starttimestamp="1618432482905" timestamp="256894">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\TaskBox\src\main\MathMain.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package main;
+
+import java.util.Vector;
+import javax.swing.text.JTextComponent;
+import bus.uigen.OEFrame;
+import bus.uigen.ObjectEditor;
+import bus.uigen.uiFrame;
+import bus.uigen.attributes.AttributeNames;
+import bus.uigen.oadapters.ClassAdapter;
+import bus.uigen.oadapters.ObjectAdapter;
+import components.caret.MathPanelCaretListener;
+import components.mathEditor.MathEditorPanel;
+
+public class MathMain {
+	public static MathEditorPanel panel;
+	public static OEFrame frame;
+	
+	public static void main(String[] args) {
+		panel = new MathEditorPanel();
+		frame = ObjectEditor.edit(panel);
+		
+		setCaretPositionListener();
+		setButtonImage();
+	}
+	
+	public static void setButtonImage() {
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "DotProduct", AttributeNames.ICON, "image/dot.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "CrossProduct", AttributeNames.ICON, "image/times.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "Divide", AttributeNames.ICON, "image/div.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "Neq", AttributeNames.ICON, "image/neq.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "Ge", AttributeNames.ICON, "image/ge.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "Le", AttributeNames.ICON, "image/le.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "Approximate", AttributeNames.ICON, "image/approx.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "Not", AttributeNames.ICON, "image/not.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "Inf", AttributeNames.ICON, "image/inf.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "Pm", AttributeNames.ICON, "image/pm.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "Dot", AttributeNames.ICON, "image/dotx.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "Ddot", AttributeNames.ICON, "image/ddotx.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "SuperScript", AttributeNames.ICON, "image/superscript.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "SubScript", AttributeNames.ICON, "image/subscript.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "Fraction", AttributeNames.ICON, "image/fraction.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "Sqrt", AttributeNames.ICON, "image/sqrt.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "Floor", AttributeNames.ICON, "image/floor.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "Ceil", AttributeNames.ICON, "image/ceil.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "Integral", AttributeNames.ICON, "image/integral.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "Sum", AttributeNames.ICON, "image/sum.png");
+	}
+	
+	public static void setCaretPositionListener() {
+		uiFrame aUIFrame = (uiFrame) frame;
+		ClassAdapter adapter = (ClassAdapter) aUIFrame.getTopAdapter();
+		Vector<ObjectAdapter> children = adapter.getChildrenVector();
+		
+		ObjectAdapter observableAdapter = null;
+		
+		for (ObjectAdapter child : children) {
+			if (child.getComponentName().equals("mathExpression")) {
+				observableAdapter = child;
+				break;
+			}
+		}
+		
+		MathPanelCaretListener listener = new MathPanelCaretListener(panel);
+		
+		if (observableAdapter != null && (observableAdapter.getUIComponent().getPhysicalComponent()) instanceof JTextComponent) {
+			((JTextComponent) observableAdapter.getUIComponent().getPhysicalComponent()).addCaretListener(listener);
+		}
+	}
+
+}
+]]></snapshot>
+  </Command>
+  <DocumentChange __id="31" _type="Insert" date="Wed Apr 14 16:43:54 EDT 2021" docASTNodeCount="464" docActiveCodeLength="3656" docExpressionCount="344" docLength="3656" length="12" offset="2877" repeat="3" starttimestamp="1618432482905" timestamp="552081" timestamp2="552343">
+    <text><![CDATA[
+		
+		
+		]]></text>
+  </DocumentChange>
+  <DocumentChange __id="37" _type="Replace" date="Wed Apr 14 16:43:55 EDT 2021" docASTNodeCount="476" docActiveCodeLength="3763" docExpressionCount="354" docLength="3763" endLine="48" insertionLength="109" int_docASTNodeCount="464" int_docActiveCodeLength="3654" int_docExpressionCount="344" int_docLength="3654" length="2" offset="2887" startLine="48" starttimestamp="1618432482905" timestamp="552602">
+    <deletedText><![CDATA[		]]></deletedText>
+    <insertedText><![CDATA[		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "DotProduct", AttributeNames.ICON, "image/dot.png");]]></insertedText>
+  </DocumentChange>
+  <Command __id="39" _type="SelectTextCommand" caretOffset="2620" date="Wed Apr 14 16:44:00 EDT 2021" end="2624" start="2620" starttimestamp="1618432482905" timestamp="557996" />
+  <Command __id="41" _type="InsertStringCommand" date="Wed Apr 14 16:44:04 EDT 2021" starttimestamp="1618432482905" timestamp="561287" timestamp2="561287">
+    <data><![CDATA[T]]></data>
+  </Command>
+  <Command __id="42" _type="AssistCommand" assist_type="CONTENT_ASSIST" auto_activated="false" date="Wed Apr 14 16:44:07 EDT 2021" start_end="START" starttimestamp="1618432482905" timestamp="565007" />
+  <Command __id="43" _type="EclipseCommand" commandID="org.eclipse.ui.edit.text.contentAssist.proposals" date="Wed Apr 14 16:44:08 EDT 2021" starttimestamp="1618432482905" timestamp="565560" />
+  <Command __id="44" _type="ShellCommand" date="Wed Apr 14 16:44:08 EDT 2021" starttimestamp="1618432482905" timestamp="565822" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="45" _type="AssistCommand" assist_type="CONTENT_ASSIST" auto_activated="false" date="Wed Apr 14 16:44:08 EDT 2021" start_end="END" starttimestamp="1618432482905" timestamp="565879" />
+  <DocumentChange __id="40" _type="Replace" date="Wed Apr 14 16:44:04 EDT 2021" docASTNodeCount="476" docActiveCodeLength="3760" docExpressionCount="354" docLength="3760" endLine="48" insertionLength="1" int_docASTNodeCount="476" int_docActiveCodeLength="3759" int_docExpressionCount="353" int_docLength="3759" length="4" offset="2973" startLine="48" starttimestamp="1618432482905" timestamp="561270">
+    <deletedText><![CDATA[ICON]]></deletedText>
+    <insertedText><![CDATA[T]]></insertedText>
+  </DocumentChange>
+  <DocumentChange __id="49" _type="Delete" date="Wed Apr 14 16:44:32 EDT 2021" docASTNodeCount="476" docActiveCodeLength="3759" docExpressionCount="353" docLength="3759" endLine="48" length="1" offset="2973" startLine="48" starttimestamp="1618432482905" timestamp="589820">
+    <text><![CDATA[T]]></text>
+  </DocumentChange>
+  <Command __id="46" _type="ShellCommand" date="Wed Apr 14 16:44:10 EDT 2021" starttimestamp="1618432482905" timestamp="567677" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="47" _type="AssistCommand" assist_type="CONTENT_ASSIST" auto_activated="false" date="Wed Apr 14 16:44:11 EDT 2021" start_end="START" starttimestamp="1618432482905" timestamp="568480" />
+  <Command __id="48" _type="EclipseCommand" commandID="org.eclipse.ui.edit.text.contentAssist.proposals" date="Wed Apr 14 16:44:11 EDT 2021" starttimestamp="1618432482905" timestamp="568602" />
+  <DocumentChange __id="50" _type="Insert" date="Wed Apr 14 16:44:33 EDT 2021" docASTNodeCount="476" docActiveCodeLength="3763" docExpressionCount="354" docLength="3763" length="4" offset="2973" repeat="4" starttimestamp="1618432482905" timestamp="590230" timestamp2="592397">
+    <text><![CDATA[Expl]]></text>
+  </DocumentChange>
+  <Command __id="54" _type="AssistCommand" assist_type="CONTENT_ASSIST" auto_activated="false" date="Wed Apr 14 16:44:40 EDT 2021" start_end="END" starttimestamp="1618432482905" timestamp="597553" />
+  <Command __id="56" _type="InsertStringCommand" date="Wed Apr 14 16:44:40 EDT 2021" starttimestamp="1618432482905" timestamp="597575" timestamp2="597575">
+    <data><![CDATA[]]></data>
+  </Command>
+  <Command __id="57" _type="MoveCaretCommand" caretOffset="2654" date="Wed Apr 14 16:44:42 EDT 2021" docOffset="3007" starttimestamp="1618432482905" timestamp="599113" />
+  <Command __id="58" _type="EclipseCommand" commandID="org.eclipse.ui.file.save" date="Wed Apr 14 16:44:42 EDT 2021" starttimestamp="1618432482905" timestamp="599514" />
+  <Command __id="61" _type="SelectTextCommand" caretOffset="2634" date="Wed Apr 14 16:44:44 EDT 2021" end="2647" start="2634" starttimestamp="1618432482905" timestamp="601198" />
+  <Command __id="65" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Wed Apr 14 16:44:44 EDT 2021" starttimestamp="1618432482905" timestamp="601649" />
+  <Command __id="67" _type="InsertStringCommand" date="Wed Apr 14 16:44:44 EDT 2021" starttimestamp="1618432482905" timestamp="601867" timestamp2="601867">
+    <data><![CDATA[s]]></data>
+  </Command>
+  <Command __id="69" _type="InsertStringCommand" date="Wed Apr 14 16:44:44 EDT 2021" starttimestamp="1618432482905" timestamp="601974" timestamp2="601974">
+    <data><![CDATA[o]]></data>
+  </Command>
+  <Command __id="71" _type="InsertStringCommand" date="Wed Apr 14 16:44:45 EDT 2021" starttimestamp="1618432482905" timestamp="602148" timestamp2="602148">
+    <data><![CDATA[m]]></data>
+  </Command>
+  <Command __id="73" _type="InsertStringCommand" date="Wed Apr 14 16:44:45 EDT 2021" starttimestamp="1618432482905" timestamp="602249" timestamp2="602249">
+    <data><![CDATA[e]]></data>
+  </Command>
+  <Command __id="75" _type="InsertStringCommand" date="Wed Apr 14 16:44:45 EDT 2021" starttimestamp="1618432482905" timestamp="602316" timestamp2="602316">
+    <data><![CDATA[ ]]></data>
+  </Command>
+  <Command __id="77" _type="InsertStringCommand" date="Wed Apr 14 16:44:45 EDT 2021" starttimestamp="1618432482905" timestamp="602599" timestamp2="602599">
+    <data><![CDATA[t]]></data>
+  </Command>
+  <Command __id="79" _type="InsertStringCommand" date="Wed Apr 14 16:44:45 EDT 2021" starttimestamp="1618432482905" timestamp="602712" timestamp2="602712">
+    <data><![CDATA[e]]></data>
+  </Command>
+  <Command __id="81" _type="InsertStringCommand" date="Wed Apr 14 16:44:45 EDT 2021" starttimestamp="1618432482905" timestamp="602911" timestamp2="602911">
+    <data><![CDATA[x]]></data>
+  </Command>
+  <Command __id="83" _type="InsertStringCommand" date="Wed Apr 14 16:44:45 EDT 2021" starttimestamp="1618432482905" timestamp="602994" timestamp2="602994">
+    <data><![CDATA[t]]></data>
+  </Command>
+  <Command __id="84" _type="EclipseCommand" commandID="org.eclipse.ui.file.save" date="Wed Apr 14 16:44:46 EDT 2021" starttimestamp="1618432482905" timestamp="603383" />
+  <Command __id="87" _type="MoveCaretCommand" caretOffset="2488" date="Wed Apr 14 16:44:47 EDT 2021" docOffset="2841" starttimestamp="1618432482905" timestamp="604217" />
+  <Command __id="89" _type="RunCommand" date="Wed Apr 14 16:44:49 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1618432482905" timestamp="606648" type="Run" />
+  <Command __id="90" _type="RunCommand" date="Wed Apr 14 16:44:49 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1618432482905" timestamp="606649" type="Run" />
+  <Command __id="91" _type="ShellCommand" date="Wed Apr 14 16:44:49 EDT 2021" starttimestamp="1618432482905" timestamp="607010" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="92" _type="MoveCaretCommand" caretOffset="2742" date="Wed Apr 14 16:44:49 EDT 2021" docOffset="3095" starttimestamp="1618432482905" timestamp="607070" />
+  <Command __id="93" _type="SelectTextCommand" caretOffset="2639" date="Wed Apr 14 16:44:50 EDT 2021" end="2640" start="2639" starttimestamp="1618432482905" timestamp="607927" />
+  <Command __id="94" _type="MoveCaretCommand" caretOffset="2634" date="Wed Apr 14 16:44:54 EDT 2021" docOffset="2987" starttimestamp="1618432482905" timestamp="611342" />
+  <Command __id="95" _type="EclipseCommand" commandID="org.eclipse.jdt.debug.ui.localJavaShortcut.run" date="Wed Apr 14 16:44:59 EDT 2021" starttimestamp="1618432482905" timestamp="617004" />
+  <Command __id="96" _type="RunCommand" date="Wed Apr 14 16:45:00 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1618432482905" timestamp="617169" type="Run" />
+  <Command __id="97" _type="RunCommand" date="Wed Apr 14 16:45:00 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1618432482905" timestamp="617169" type="Run" />
+  <Command __id="98" _type="ShellCommand" date="Wed Apr 14 16:45:01 EDT 2021" starttimestamp="1618432482905" timestamp="618127" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="99" _type="ConsoleOutput" date="Wed Apr 14 16:45:01 EDT 2021" overflow="false" starttimestamp="1618432482905" timestamp="618307" type="ConsoleOutput">
+    <outputString><![CDATA[ObjectEditor(Version 22, built on Wed Feb 17 11:47:24 EST 2021). Copyright Prasun Dewan, 2012, All rights reserved. US Patent Appl. No.: 12/532,327
+W*** public void components.mathEditor.MathEditorPanel.addPropertyChangeListener(java.beans.PropertyChangeListener) should be associated with annotation: @ObserverRegisterer(Property Listener)
+W*** Implicit property caretPosition of  MathEditorPanel ignored as it is not in property names list. 
+ Associate annotation @Visible(false) with its getter.
+W*** Implicitly editable property: caretPosition of class class components.mathEditor.MathEditorPanel not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: image of class class components.mathEditor.MathEditorPanel not considered editable as it is not in editable property names list. 
+
+]]></outputString>
+    <diff><![CDATA[[Diff(DELETE,"Testing Expression [e, x, p, (, x, ), +, 1, /, 2]¶Testing add-sub Expression [e, x, p, (, x, ), +, 1, /, 2]¶Testing Expression [e, x, p, (, x, )]¶Testing add-sub Expression [e, x, p, (, x, )]¶Testing multi div Expression [e, x, p, (, x, )]¶Testing function Expression [e, x, p, (, x, )]¶Testing Expression [x]¶Testing Expression [1, /, 2]¶Testing add-sub Expression [1, /, 2]¶Testing multi div Expression [1, /, 2]¶Testing Expression [1]¶Testing Expression [2]¶Testing add-sub Expression [e, x, p, (, x, ), +, 1, /, 2]¶Testing Expression [e, x, p, (, x, )]¶Testing add-sub Expression [e, x, p, (, x, )]¶Testing multi div Expression [e, x, p, (, x, )]¶Testing function Expression [e, x, p, (, x, )]¶Testing Expression [x]¶Testing Expression [1, /, 2]¶Testing add-sub Expression [1, /, 2]¶Testing multi div Expression [1, /, 2]¶Testing Expression [1]¶Testing Expression [2]¶Testing Expression [e, x, p, (, x, )]¶Testing add-sub Expression [e, x, p, (, x, )]¶Testing multi div Expression [e, x, p, (, x, )]¶Testing function Expression [e, x, p, (, x, )]¶Testing Expression [x]¶Testing Expression [1, /, 2]¶Testing add-sub Expression [1, /, 2]¶Testing multi div Expression [1, /, 2]¶Testing Expression [1]¶Testing Expression [2]¶Testing add-sub Expression [e, x, p, (, x, )]¶Testing multi div Expression [e, x, p, (, x, )]¶Testing function Expression [e, x, p, (, x, )]¶Testing Expression [x]¶Testing Expression [x]¶Testing add-sub Expression [1, /, 2]¶Testing multi div Expression [1, /, 2]¶Testing Expression [1]¶Testing Expression [2]¶Testing Expression [1]¶Testing Expression [2]¶Testing Expression [x]"), Diff(INSERT,"ObjectEditor(Version 22, built on Wed Feb 17 11:47:24 EST 2021). Copyright Prasun Dewan, 2012, All rights reserved. US Patent Appl. No.: 12/532,327¶W*** public void components.mathEditor.MathEditorPanel.addPropertyChangeListener(java.beans.PropertyChangeListener) should be associated with annotation: @ObserverRegisterer(Property Listener)¶W*** Implicit property caretPosition of  MathEditorPanel ignored as it is not in property names list. ¶ Associate annotation @Visible(false) with its getter.¶W*** Implicitly editable property: caretPosition of class class components.mathEditor.MathEditorPanel not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: image of class class components.mathEditor.MathEditorPanel not considered editable as it is not in editable property names list. ¶"), Diff(EQUAL,"¶")]]]></diff>
+  </Command>
+  <Command __id="100" _type="ConsoleOutput" date="Wed Apr 14 16:45:01 EDT 2021" overflow="false" starttimestamp="1618432482905" timestamp="618412" type="ConsoleOutput">
+    <outputString><![CDATA[W*** Value: null of Root.Image not in range.
+]]></outputString>
+    <diff><![CDATA[[Diff(DELETE,"ObjectEditor(Version 22, built on Wed Feb 17 11:47:24 EST 2021). Copyright Prasun Dewan, 2012, All rights reserved. US Patent Appl. No.: 12/532,327¶W*** public void components.mathEditor.MathEditorPanel.addPropertyChangeListener(java.beans.PropertyChangeListener) should be associated with annotation: @ObserverRegisterer(Property Listener)¶W*** Implicit property caretPosition of  MathEditorPanel ignored as it is not in property names list. ¶ Associate annotation @Visible(false) with its getter.¶W*** Implicitly editable property: caretPosition of class class components.mathEditor.MathEditorPanel not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: image of class class components.mathEditor.MathEditorPanel not considered editable as it is not in editable property names list. ¶"), Diff(INSERT,"W*** Value: null of Root.Image not in range."), Diff(EQUAL,"¶")]]]></diff>
+  </Command>
+  <DocumentChange __id="55" _type="Replace" date="Wed Apr 14 16:44:40 EDT 2021" docASTNodeCount="476" docActiveCodeLength="3770" docExpressionCount="354" docLength="3770" endLine="48" insertionLength="11" int_docASTNodeCount="476" int_docActiveCodeLength="3759" int_docExpressionCount="353" int_docLength="3759" length="4" offset="2973" startLine="48" starttimestamp="1618432482905" timestamp="597560">
+    <deletedText><![CDATA[Expl]]></deletedText>
+    <insertedText><![CDATA[EXPLANATION]]></insertedText>
+  </DocumentChange>
+  <DocumentChange __id="64" _type="Delete" date="Wed Apr 14 16:44:44 EDT 2021" docASTNodeCount="476" docActiveCodeLength="3757" docExpressionCount="354" docLength="3757" endLine="48" length="13" offset="2987" startLine="48" starttimestamp="1618432482905" timestamp="601642">
+    <text><![CDATA[image/dot.png]]></text>
+  </DocumentChange>
+  <DocumentChange __id="66" _type="Insert" date="Wed Apr 14 16:44:44 EDT 2021" docASTNodeCount="476" docActiveCodeLength="3766" docExpressionCount="354" docLength="3766" length="9" offset="2987" repeat="9" starttimestamp="1618432482905" timestamp="601863" timestamp2="602991">
+    <text><![CDATA[some text]]></text>
+  </DocumentChange>
+  <Command __id="101" _type="ShellCommand" date="Wed Apr 14 16:45:36 EDT 2021" starttimestamp="1618432482905" timestamp="653962" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="102" _type="RunCommand" date="Wed Apr 14 16:45:37 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1618432482905" timestamp="654143" type="Run" />
+  <Command __id="103" _type="RunCommand" date="Wed Apr 14 16:45:37 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1618432482905" timestamp="654143" type="Run" />
+  <Command __id="105" _type="MoveCaretCommand" caretOffset="1279" date="Wed Apr 14 16:45:42 EDT 2021" docOffset="2268" starttimestamp="1618432482905" timestamp="659382" />
+  <Command __id="106" _type="MoveCaretCommand" caretOffset="949" date="Wed Apr 14 16:45:44 EDT 2021" docOffset="1938" starttimestamp="1618432482905" timestamp="661380" />
+  <Command __id="108" _type="ShellCommand" date="Wed Apr 14 16:45:45 EDT 2021" starttimestamp="1618432482905" timestamp="662553" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="109" _type="FindCommand" caseSensitive="false" date="Wed Apr 14 16:45:46 EDT 2021" forward="true" matchWord="false" offset="1938" regexp="false" replaceAll="false" selection="Find" selectionScope="false" starttimestamp="1618432482905" timestamp="664012" wrapSearch="false">
+    <searchString><![CDATA[dot]]></searchString>
+    <replaceString><![CDATA[]]></replaceString>
+  </Command>
+  <Command __id="110" _type="ShellCommand" date="Wed Apr 14 16:45:48 EDT 2021" starttimestamp="1618432482905" timestamp="665510" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="111" _type="SelectTextCommand" caretOffset="3120" date="Wed Apr 14 16:45:49 EDT 2021" end="3120" start="2968" starttimestamp="1618432482905" timestamp="666468" />
+  <Command __id="112" _type="MoveCaretCommand" caretOffset="3120" date="Wed Apr 14 16:45:49 EDT 2021" docOffset="4109" starttimestamp="1618432482905" timestamp="666617" />
+  <Command __id="113" _type="MoveCaretCommand" caretOffset="3125" date="Wed Apr 14 16:45:50 EDT 2021" docOffset="4114" starttimestamp="1618432482905" timestamp="667130" />
+  <Command __id="104" _type="DiffBasedFileOpenCommand" date="Wed Apr 14 16:45:42 EDT 2021" docASTNodeCount="1560" docActiveCodeLength="10389" docExpressionCount="1133" docLength="10389" projectName="TaskBox" starttimestamp="1618432482905" timestamp="659279">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\TaskBox\src\components\mathEditor\MathEditorPanel.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package components.mathEditor;
+
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.Insets;
+import java.awt.image.BufferedImage;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.io.File;
+import java.io.IOException;
+import java.util.Vector;
+
+import javax.imageio.ImageIO;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import org.scilab.forge.jlatexmath.TeXConstants;
+import org.scilab.forge.jlatexmath.TeXFormula;
+import org.scilab.forge.jlatexmath.TeXIcon;
+import components.listenersupport.PropertyListenerSupport;
+import parser.JavaExpressionTreeParser;
+import parser.TexTreeBuilder;
+import util.annotations.Column;
+import util.annotations.ComponentHeight;
+import util.annotations.ComponentWidth;
+import util.annotations.EditablePropertyNames;
+import util.annotations.PreferredWidgetClass;
+import util.annotations.PropertyNames;
+import util.annotations.Row;
+import util.annotations.StructurePattern;
+import util.annotations.StructurePatternNames;
+
+
+@StructurePattern(StructurePatternNames.BEAN_PATTERN)
+@PropertyNames({"image", "texExpression", "javaExpression"})
+@EditablePropertyNames({"texExpression", "javaExpression"})
+public class MathEditorPanel {
+	private String texExpression = "", javaExpression = "";
+	private int imageHeight = 100, imageWidth = 400;
+	private int caretPosition;
+	private PropertyListenerSupport propertyListenerSupport = new PropertyListenerSupport();
+	private MathExpressionImageInterface image = null;
+
+	
+
+	public MathExpressionImageInterface getImage() {
+		return image;
+	}
+	
+	
+	public void setImage(MathExpressionImageInterface newImage) {
+		image = newImage;
+	}
+	
+	@Row(0)
+	public String getTexExpression() {
+		return texExpression;
+	}
+	
+	@Row(1)
+	public String getJavaExpression() {
+		return javaExpression;
+	}
+	
+	public void setJavaExpression(String newJavaExpression) {
+		String oldJavaExpression = javaExpression;
+		javaExpression = newJavaExpression;
+		propertyListenerSupport.notifyAllListeners(
+				new PropertyChangeEvent(this, "javaExpression", oldJavaExpression, javaExpression));
+		
+		Vector<Character> rootVector = new Vector<Character> ();
+		for (int i = 0; i < javaExpression.length(); i ++) {
+			rootVector.add(javaExpression.charAt(i));
+		}
+		
+		JavaExpressionTreeParser treeParser = new JavaExpressionTreeParser(rootVector);
+		TexTreeBuilder builder = new TexTreeBuilder();
+		
+		render(builder.build(treeParser.getRoot()));
+		
+		if (image == null) {
+			image = new MathExpressionImage(0, 0, imageHeight, imageWidth, "data/latex.png");
+		}
+		
+		getImage().setImageFileName("data/latex.png");
+		getImage().setHeight(imageHeight);
+		getImage().setWidth(imageWidth);
+	}
+	
+	
+	public void setTexExpression(String newTexExpression) {
+		String oldTexExpression = texExpression;
+		texExpression = newTexExpression;
+		propertyListenerSupport.notifyAllListeners(
+				new PropertyChangeEvent(this, "texExpression", oldTexExpression, texExpression));
+		
+		render(texExpression);
+		
+		if (image == null) {
+			image = new MathExpressionImage(0, 0, imageHeight, imageWidth, "data/latex.png");
+		}
+		
+		getImage().setImageFileName("data/latex.png");
+		getImage().setHeight(imageHeight);
+		getImage().setWidth(imageWidth);
+	}
+	
+	public int getCaretPosition() {
+		return caretPosition;
+	}
+	
+	public void setCaretPosition(int newPosition) {
+		int oldPosition = caretPosition;
+		caretPosition = newPosition;
+		System.out.println(caretPosition);
+		propertyListenerSupport.notifyAllListeners(
+				new PropertyChangeEvent(this, "caretPosition", oldPosition, caretPosition));
+	}
+	
+	public void addPropertyChangeListener(PropertyChangeListener aListener) {
+		propertyListenerSupport.addElement(aListener);    
+    }
+	
+	@PreferredWidgetClass(JButton.class)
+	@Row(2)
+	@Column(0)
+	@ComponentHeight(30)
+	@ComponentWidth(30)
+	public void dotProduct() {
+		StringBuffer buffer = new StringBuffer(getTexExpression());
+		buffer.insert(caretPosition, "\\cdot");
+		setTexExpression(buffer.toString());
+	}
+	
+	@PreferredWidgetClass(JButton.class)
+	@Row(2)
+	@Column(1)
+	@ComponentHeight(30)
+	@ComponentWidth(30)
+	public void crossProduct() {
+		StringBuffer buffer = new StringBuffer(getTexExpression());
+		buffer.insert(caretPosition, "\\times");
+		setTexExpression(buffer.toString());
+	}
+	
+	@PreferredWidgetClass(JButton.class)
+	@Row(2)
+	@Column(2)
+	@ComponentHeight(30)
+	@ComponentWidth(30)
+	public void divide() {
+		StringBuffer buffer = new StringBuffer(getTexExpression());
+		buffer.insert(caretPosition, "\\div");
+		setTexExpression(buffer.toString());
+	}
+	
+	@PreferredWidgetClass(JButton.class)
+	@Row(2)
+	@Column(3)
+	@ComponentHeight(30)
+	@ComponentWidth(30)
+	public void neq() {
+		StringBuffer buffer = new StringBuffer(getTexExpression());
+		buffer.insert(caretPosition, "\\neq");
+		setTexExpression(buffer.toString());
+	}
+	
+	@PreferredWidgetClass(JButton.class)
+	@Row(2)
+	@Column(4)
+	@ComponentHeight(30)
+	@ComponentWidth(30)
+	public void ge() {
+		StringBuffer buffer = new StringBuffer(getTexExpression());
+		buffer.insert(caretPosition, "\\ge");
+		setTexExpression(buffer.toString());
+	}
+	
+	@PreferredWidgetClass(JButton.class)
+	@Row(2)
+	@Column(5)
+	@ComponentHeight(30)
+	@ComponentWidth(30)
+	public void le() {
+		StringBuffer buffer = new StringBuffer(getTexExpression());
+		buffer.insert(caretPosition, "\\le");
+		setTexExpression(buffer.toString());
+	}
+	
+	@PreferredWidgetClass(JButton.class)
+	@Row(2)
+	@Column(6)
+	@ComponentHeight(30)
+	@ComponentWidth(30)
+	public void approximate() {
+		StringBuffer buffer = new StringBuffer(getTexExpression());
+		buffer.insert(caretPosition, "\\approx");
+		setTexExpression(buffer.toString());
+	}
+	
+	@PreferredWidgetClass(JButton.class)
+	@Row(2)
+	@Column(7)
+	@ComponentHeight(30)
+	@ComponentWidth(30)
+	public void not() {
+		StringBuffer buffer = new StringBuffer(getTexExpression());
+		buffer.insert(caretPosition, "\\not");
+		setTexExpression(buffer.toString());
+	}
+	
+	@PreferredWidgetClass(JButton.class)
+	@Row(2)
+	@Column(8)
+	@ComponentHeight(30)
+	@ComponentWidth(30)
+	public void inf() {
+		StringBuffer buffer = new StringBuffer(getTexExpression());
+		buffer.insert(caretPosition, "\\infty");
+		setTexExpression(buffer.toString());
+	}
+	
+	@PreferredWidgetClass(JButton.class)
+	@Row(2)
+	@Column(9)
+	@ComponentHeight(30)
+	@ComponentWidth(30)
+	public void pm() {
+		StringBuffer buffer = new StringBuffer(getTexExpression());
+		buffer.insert(caretPosition, "\\pm");
+		setTexExpression(buffer.toString());
+	}
+	
+	@PreferredWidgetClass(JButton.class)
+	@Row(3)
+	@Column(5)
+	@ComponentHeight(30)
+	@ComponentWidth(30)
+	public void dot() {
+		StringBuffer buffer = new StringBuffer(getTexExpression());
+		buffer.insert(caretPosition, "\\dot{x}");
+		setTexExpression(buffer.toString());
+	}
+	
+	@PreferredWidgetClass(JButton.class)
+	@Row(3)
+	@Column(6)
+	@ComponentHeight(30)
+	@ComponentWidth(30)
+	public void ddot() {
+		StringBuffer buffer = new StringBuffer(getTexExpression());
+		buffer.insert(caretPosition, "\\ddot{x}");
+		setTexExpression(buffer.toString());
+	}
+	
+	@PreferredWidgetClass(JButton.class)
+	@Row(3)
+	@Column(0)
+	@ComponentHeight(30)
+	@ComponentWidth(30)
+	public void superScript() {
+		StringBuffer buffer = new StringBuffer(getTexExpression());
+		buffer.insert(caretPosition, "^{x}");
+		setTexExpression(buffer.toString());
+	}
+	
+	@PreferredWidgetClass(JButton.class)
+	@Row(3)
+	@Column(1)
+	@ComponentHeight(30)
+	@ComponentWidth(30)
+	public void subScript() {
+		StringBuffer buffer = new StringBuffer(getTexExpression());
+		buffer.insert(caretPosition, "_{x}");
+		setTexExpression(buffer.toString());
+	}
+	
+	@PreferredWidgetClass(JButton.class)
+	@Row(4)
+	@Column(0)
+	@ComponentHeight(60)
+	@ComponentWidth(30)
+	public void fraction() {
+		StringBuffer buffer = new StringBuffer(getTexExpression());
+		buffer.insert(caretPosition, "\\frac{a}{b}");
+		setTexExpression(buffer.toString());
+	}
+	
+	@PreferredWidgetClass(JButton.class)
+	@Row(3)
+	@Column(2)
+	@ComponentHeight(30)
+	@ComponentWidth(30)
+	public void sqrt() {
+		StringBuffer buffer = new StringBuffer(getTexExpression());
+		buffer.insert(caretPosition, "\\sqrt{a}");
+		setTexExpression(buffer.toString());
+	}
+	
+	@PreferredWidgetClass(JButton.class)
+	@Row(3)
+	@Column(3)
+	@ComponentHeight(30)
+	@ComponentWidth(30)
+	public void floor() {
+		StringBuffer buffer = new StringBuffer(getTexExpression());
+		buffer.insert(caretPosition, "\\lfloor x \\rfloor");
+		setTexExpression(buffer.toString());
+	}
+	
+	@PreferredWidgetClass(JButton.class)
+	@Row(3)
+	@Column(4)
+	@ComponentHeight(30)
+	@ComponentWidth(30)
+	public void ceil() {
+		StringBuffer buffer = new StringBuffer(getTexExpression());
+		buffer.insert(caretPosition, "\\lceil x \\rceil");
+		setTexExpression(buffer.toString());
+	}
+	
+	@PreferredWidgetClass(JButton.class)
+	@Row(4)
+	@Column(2)
+	@ComponentHeight(60)
+	@ComponentWidth(30)
+	public void integral() {
+		StringBuffer buffer = new StringBuffer(getTexExpression());
+		buffer.insert(caretPosition, "\\int^{b}_{a}");
+		setTexExpression(buffer.toString());
+	}
+	
+	@PreferredWidgetClass(JButton.class)
+	@Row(4)
+	@Column(1)
+	@ComponentHeight(60)
+	@ComponentWidth(30)
+	public void sum() {
+		StringBuffer buffer = new StringBuffer(getTexExpression());
+		buffer.insert(caretPosition, "\\sum^{b}_{a}");
+		setTexExpression(buffer.toString());
+	}
+	
+	
+	
+ 	public void render(String latexString) {
+		TeXFormula formula = new TeXFormula(latexString);
+		TeXIcon icon = formula.createTeXIcon(TeXConstants.STYLE_DISPLAY, 20);
+		icon.setInsets(new Insets(5, 5, 5, 5));
+		BufferedImage image = new BufferedImage(icon.getIconWidth(),
+				icon.getIconHeight(), BufferedImage.TYPE_INT_ARGB);
+		Graphics2D g2 = image.createGraphics();
+		g2.setColor(Color.white);
+		g2.fillRect(0, 0, icon.getIconWidth(), icon.getIconHeight());
+		JLabel jl = new JLabel();
+		jl.setForeground(new Color(0, 0, 0));
+		icon.paintIcon(jl, g2, 0, 0);
+		imageHeight = image.getHeight();
+		imageWidth = image.getWidth();
+		File outputfile = new File("data/latex.png");
+		try {
+			ImageIO.write(image, "png", outputfile);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}
+]]></snapshot>
+  </Command>
+  <DocumentChange __id="115" _type="Insert" date="Wed Apr 14 16:45:55 EDT 2021" docASTNodeCount="1565" docActiveCodeLength="10413" docExpressionCount="1134" docLength="10413" length="24" offset="4279" starttimestamp="1618432482905" timestamp="672450">
+    <text><![CDATA[
+	public void crossProd]]></text>
+  </DocumentChange>
+  <DocumentChange __id="116" _type="Delete" date="Wed Apr 14 16:45:55 EDT 2021" docASTNodeCount="1563" docActiveCodeLength="10389" docExpressionCount="1134" docLength="10389" endLine="138" length="24" offset="4228" startLine="137" starttimestamp="1618432482905" timestamp="672457">
+    <text><![CDATA[
+	public void crossProd]]></text>
+  </DocumentChange>
+  <Command __id="114" _type="SelectTextCommand" caretOffset="3263" date="Wed Apr 14 16:45:54 EDT 2021" end="3263" start="3239" starttimestamp="1618432482905" timestamp="671998" />
+  <Command __id="119" _type="UndoCommand" date="Wed Apr 14 16:45:56 EDT 2021" starttimestamp="1618432482905" timestamp="673756" />
+  <Command __id="120" _type="MoveCaretCommand" caretOffset="3217" date="Wed Apr 14 16:45:57 EDT 2021" docOffset="4206" starttimestamp="1618432482905" timestamp="674100" />
+  <Command __id="121" _type="MoveCaretCommand" caretOffset="3368" date="Wed Apr 14 16:45:57 EDT 2021" docOffset="4357" starttimestamp="1618432482905" timestamp="674442" />
+  <DocumentChange __id="117" _type="Insert" date="Wed Apr 14 16:45:56 EDT 2021" docASTNodeCount="1565" docActiveCodeLength="10413" docExpressionCount="1134" docLength="10413" length="24" offset="4228" starttimestamp="1618432482905" timestamp="673729">
+    <text><![CDATA[
+	public void crossProd]]></text>
+  </DocumentChange>
+  <DocumentChange __id="118" _type="Delete" date="Wed Apr 14 16:45:56 EDT 2021" docASTNodeCount="1560" docActiveCodeLength="10389" docExpressionCount="1133" docLength="10389" endLine="140" length="24" offset="4279" startLine="139" starttimestamp="1618432482905" timestamp="673731">
+    <text><![CDATA[
+	public void crossProd]]></text>
+  </DocumentChange>
+  <Command __id="122" _type="MoveCaretCommand" caretOffset="3239" date="Wed Apr 14 16:45:59 EDT 2021" docOffset="4228" starttimestamp="1618432482905" timestamp="676836" />
+  <Command __id="124" _type="InsertStringCommand" date="Wed Apr 14 16:46:01 EDT 2021" starttimestamp="1618432482905" timestamp="678457" timestamp2="678457">
+    <data><![CDATA[]]></data>
+  </Command>
+  <Command __id="126" _type="InsertStringCommand" date="Wed Apr 14 16:46:02 EDT 2021" starttimestamp="1618432482905" timestamp="679120" timestamp2="679120">
+    <data><![CDATA[@]]></data>
+  </Command>
+  <Command __id="128" _type="InsertStringCommand" date="Wed Apr 14 16:46:02 EDT 2021" starttimestamp="1618432482905" timestamp="679855" timestamp2="679855">
+    <data><![CDATA[E]]></data>
+  </Command>
+  <Command __id="130" _type="InsertStringCommand" date="Wed Apr 14 16:46:02 EDT 2021" starttimestamp="1618432482905" timestamp="680053" timestamp2="680053">
+    <data><![CDATA[x]]></data>
+  </Command>
+  <Command __id="132" _type="InsertStringCommand" date="Wed Apr 14 16:46:03 EDT 2021" starttimestamp="1618432482905" timestamp="680318" timestamp2="680318">
+    <data><![CDATA[p]]></data>
+  </Command>
+  <Command __id="134" _type="InsertStringCommand" date="Wed Apr 14 16:46:03 EDT 2021" starttimestamp="1618432482905" timestamp="680497" timestamp2="680497">
+    <data><![CDATA[l]]></data>
+  </Command>
+  <Command __id="135" _type="AssistCommand" assist_type="CONTENT_ASSIST" auto_activated="false" date="Wed Apr 14 16:46:03 EDT 2021" start_end="START" starttimestamp="1618432482905" timestamp="680712" />
+  <Command __id="136" _type="EclipseCommand" commandID="org.eclipse.ui.edit.text.contentAssist.proposals" date="Wed Apr 14 16:46:04 EDT 2021" starttimestamp="1618432482905" timestamp="681838" />
+  <Command __id="137" _type="AssistCommand" assist_type="CONTENT_ASSIST" auto_activated="false" date="Wed Apr 14 16:46:06 EDT 2021" start_end="END" starttimestamp="1618432482905" timestamp="683362" />
+  <Command __id="141" _type="InsertStringCommand" date="Wed Apr 14 16:46:06 EDT 2021" starttimestamp="1618432482905" timestamp="683407" timestamp2="683407">
+    <data><![CDATA[]]></data>
+  </Command>
+  <Command __id="143" _type="InsertStringCommand" date="Wed Apr 14 16:46:06 EDT 2021" starttimestamp="1618432482905" timestamp="683696" timestamp2="683696">
+    <data><![CDATA[(]]></data>
+  </Command>
+  <Command __id="144" _type="InsertStringCommand" date="Wed Apr 14 16:46:06 EDT 2021" starttimestamp="1618432482905" timestamp="683764" timestamp2="683764">
+    <data><![CDATA[)]]></data>
+  </Command>
+  <Command __id="145" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.COLUMN_PREVIOUS" date="Wed Apr 14 16:46:07 EDT 2021" starttimestamp="1618432482905" timestamp="684186" />
+  <Command __id="147" _type="InsertStringCommand" date="Wed Apr 14 16:46:07 EDT 2021" starttimestamp="1618432482905" timestamp="684550" timestamp2="684550">
+    <data><![CDATA["]]></data>
+  </Command>
+  <Command __id="149" _type="InsertStringCommand" date="Wed Apr 14 16:46:08 EDT 2021" starttimestamp="1618432482905" timestamp="685258" timestamp2="685258">
+    <data><![CDATA[a]]></data>
+  </Command>
+  <Command __id="151" _type="InsertStringCommand" date="Wed Apr 14 16:46:08 EDT 2021" starttimestamp="1618432482905" timestamp="685371" timestamp2="685371">
+    <data><![CDATA[n]]></data>
+  </Command>
+  <Command __id="153" _type="InsertStringCommand" date="Wed Apr 14 16:46:08 EDT 2021" starttimestamp="1618432482905" timestamp="685522" timestamp2="685522">
+    <data><![CDATA[o]]></data>
+  </Command>
+  <Command __id="155" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Wed Apr 14 16:46:08 EDT 2021" starttimestamp="1618432482905" timestamp="685996" />
+  <Command __id="157" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Wed Apr 14 16:46:09 EDT 2021" starttimestamp="1618432482905" timestamp="686152" />
+  <Command __id="159" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Wed Apr 14 16:46:09 EDT 2021" starttimestamp="1618432482905" timestamp="686277" />
+  <Command __id="161" _type="InsertStringCommand" date="Wed Apr 14 16:46:09 EDT 2021" starttimestamp="1618432482905" timestamp="686645" timestamp2="686645">
+    <data><![CDATA[c]]></data>
+  </Command>
+  <Command __id="163" _type="InsertStringCommand" date="Wed Apr 14 16:46:09 EDT 2021" starttimestamp="1618432482905" timestamp="686883" timestamp2="686883">
+    <data><![CDATA[r]]></data>
+  </Command>
+  <Command __id="165" _type="InsertStringCommand" date="Wed Apr 14 16:46:10 EDT 2021" starttimestamp="1618432482905" timestamp="687176" timestamp2="687176">
+    <data><![CDATA[o]]></data>
+  </Command>
+  <Command __id="167" _type="InsertStringCommand" date="Wed Apr 14 16:46:10 EDT 2021" starttimestamp="1618432482905" timestamp="687586" timestamp2="687586">
+    <data><![CDATA[s]]></data>
+  </Command>
+  <Command __id="169" _type="InsertStringCommand" date="Wed Apr 14 16:46:10 EDT 2021" starttimestamp="1618432482905" timestamp="687748" timestamp2="687748">
+    <data><![CDATA[s]]></data>
+  </Command>
+  <Command __id="171" _type="InsertStringCommand" date="Wed Apr 14 16:46:10 EDT 2021" starttimestamp="1618432482905" timestamp="687894" timestamp2="687894">
+    <data><![CDATA[ ]]></data>
+  </Command>
+  <Command __id="173" _type="InsertStringCommand" date="Wed Apr 14 16:46:11 EDT 2021" starttimestamp="1618432482905" timestamp="688324" timestamp2="688324">
+    <data><![CDATA[p]]></data>
+  </Command>
+  <Command __id="175" _type="InsertStringCommand" date="Wed Apr 14 16:46:11 EDT 2021" starttimestamp="1618432482905" timestamp="688434" timestamp2="688434">
+    <data><![CDATA[r]]></data>
+  </Command>
+  <Command __id="177" _type="InsertStringCommand" date="Wed Apr 14 16:46:11 EDT 2021" starttimestamp="1618432482905" timestamp="688623" timestamp2="688623">
+    <data><![CDATA[i]]></data>
+  </Command>
+  <Command __id="179" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Wed Apr 14 16:46:12 EDT 2021" starttimestamp="1618432482905" timestamp="689130" />
+  <Command __id="181" _type="InsertStringCommand" date="Wed Apr 14 16:46:12 EDT 2021" starttimestamp="1618432482905" timestamp="689371" timestamp2="689371">
+    <data><![CDATA[u]]></data>
+  </Command>
+  <Command __id="183" _type="InsertStringCommand" date="Wed Apr 14 16:46:12 EDT 2021" starttimestamp="1618432482905" timestamp="689625" timestamp2="689625">
+    <data><![CDATA[d]]></data>
+  </Command>
+  <Command __id="185" _type="InsertStringCommand" date="Wed Apr 14 16:46:12 EDT 2021" starttimestamp="1618432482905" timestamp="689776" timestamp2="689776">
+    <data><![CDATA[u]]></data>
+  </Command>
+  <Command __id="187" _type="InsertStringCommand" date="Wed Apr 14 16:46:12 EDT 2021" starttimestamp="1618432482905" timestamp="689834" timestamp2="689834">
+    <data><![CDATA[c]]></data>
+  </Command>
+  <Command __id="189" _type="InsertStringCommand" date="Wed Apr 14 16:46:12 EDT 2021" starttimestamp="1618432482905" timestamp="689995" timestamp2="689995">
+    <data><![CDATA[t]]></data>
+  </Command>
+  <Command __id="190" _type="EclipseCommand" commandID="org.eclipse.ui.file.save" date="Wed Apr 14 16:46:13 EDT 2021" starttimestamp="1618432482905" timestamp="690333" />
+  <Command __id="193" _type="MoveCaretCommand" caretOffset="3339" date="Wed Apr 14 16:46:14 EDT 2021" docOffset="4366" starttimestamp="1618432482905" timestamp="691234" />
+  <Command __id="194" _type="EclipseCommand" commandID="org.eclipse.jdt.debug.ui.localJavaShortcut.run" date="Wed Apr 14 16:46:18 EDT 2021" starttimestamp="1618432482905" timestamp="696025" />
+  <Command __id="195" _type="RunCommand" date="Wed Apr 14 16:46:19 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1618432482905" timestamp="696176" type="Run" />
+  <Command __id="196" _type="RunCommand" date="Wed Apr 14 16:46:19 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1618432482905" timestamp="696176" type="Run" />
+  <Command __id="197" _type="ShellCommand" date="Wed Apr 14 16:46:20 EDT 2021" starttimestamp="1618432482905" timestamp="697115" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="198" _type="ConsoleOutput" date="Wed Apr 14 16:46:20 EDT 2021" overflow="false" starttimestamp="1618432482905" timestamp="697271" type="ConsoleOutput">
+    <outputString><![CDATA[ObjectEditor(Version 22, built on Wed Feb 17 11:47:24 EST 2021). Copyright Prasun Dewan, 2012, All rights reserved. US Patent Appl. No.: 12/532,327
+W*** public void components.mathEditor.MathEditorPanel.addPropertyChangeListener(java.beans.PropertyChangeListener) should be associated with annotation: @ObserverRegisterer(Property Listener)
+W*** Implicit property caretPosition of  MathEditorPanel ignored as it is not in property names list. 
+ Associate annotation @Visible(false) with its getter.
+W*** Implicitly editable property: caretPosition of class class components.mathEditor.MathEditorPanel not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: image of class class components.mathEditor.MathEditorPanel not considered editable as it is not in editable property names list. 
+
+]]></outputString>
+    <diff><![CDATA[[Diff(DELETE,"W*** Value: null of Root.Image not in range."), Diff(INSERT,"ObjectEditor(Version 22, built on Wed Feb 17 11:47:24 EST 2021). Copyright Prasun Dewan, 2012, All rights reserved. US Patent Appl. No.: 12/532,327¶W*** public void components.mathEditor.MathEditorPanel.addPropertyChangeListener(java.beans.PropertyChangeListener) should be associated with annotation: @ObserverRegisterer(Property Listener)¶W*** Implicit property caretPosition of  MathEditorPanel ignored as it is not in property names list. ¶ Associate annotation @Visible(false) with its getter.¶W*** Implicitly editable property: caretPosition of class class components.mathEditor.MathEditorPanel not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: image of class class components.mathEditor.MathEditorPanel not considered editable as it is not in editable property names list. ¶"), Diff(EQUAL,"¶")]]]></diff>
+  </Command>
+  <Command __id="199" _type="ConsoleOutput" date="Wed Apr 14 16:46:20 EDT 2021" overflow="false" starttimestamp="1618432482905" timestamp="697379" type="ConsoleOutput">
+    <outputString><![CDATA[W*** Value: null of Root.Image not in range.
+]]></outputString>
+    <diff><![CDATA[[Diff(DELETE,"ObjectEditor(Version 22, built on Wed Feb 17 11:47:24 EST 2021). Copyright Prasun Dewan, 2012, All rights reserved. US Patent Appl. No.: 12/532,327¶W*** public void components.mathEditor.MathEditorPanel.addPropertyChangeListener(java.beans.PropertyChangeListener) should be associated with annotation: @ObserverRegisterer(Property Listener)¶W*** Implicit property caretPosition of  MathEditorPanel ignored as it is not in property names list. ¶ Associate annotation @Visible(false) with its getter.¶W*** Implicitly editable property: caretPosition of class class components.mathEditor.MathEditorPanel not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: image of class class components.mathEditor.MathEditorPanel not considered editable as it is not in editable property names list. ¶"), Diff(INSERT,"W*** Value: null of Root.Image not in range."), Diff(EQUAL,"¶")]]]></diff>
+  </Command>
+  <Command __id="200" _type="ShellCommand" date="Wed Apr 14 16:46:43 EDT 2021" starttimestamp="1618432482905" timestamp="720264" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="201" _type="RunCommand" date="Wed Apr 14 16:46:43 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1618432482905" timestamp="720446" type="Run" />
+  <Command __id="202" _type="RunCommand" date="Wed Apr 14 16:46:43 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1618432482905" timestamp="720446" type="Run" />
+  <Command __id="203" _type="MoveCaretCommand" caretOffset="3171" date="Wed Apr 14 16:46:43 EDT 2021" docOffset="4198" starttimestamp="1618432482905" timestamp="720510" />
+  <Command __id="205" _type="ShellCommand" date="Wed Apr 14 16:46:44 EDT 2021" starttimestamp="1618432482905" timestamp="721537" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="206" _type="FindCommand" caseSensitive="false" date="Wed Apr 14 16:46:46 EDT 2021" forward="true" matchWord="false" offset="4198" regexp="false" replaceAll="false" selection="Find" selectionScope="false" starttimestamp="1618432482905" timestamp="723448" wrapSearch="false">
+    <searchString><![CDATA[Render]]></searchString>
+    <replaceString><![CDATA[]]></replaceString>
+  </Command>
+  <Command __id="207" _type="ShellCommand" date="Wed Apr 14 16:46:47 EDT 2021" starttimestamp="1618432482905" timestamp="724846" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="208" _type="MoveCaretCommand" caretOffset="8611" date="Wed Apr 14 16:46:48 EDT 2021" docOffset="9638" starttimestamp="1618432482905" timestamp="725357" />
+  <Command __id="209" _type="MoveCaretCommand" caretOffset="8617" date="Wed Apr 14 16:46:48 EDT 2021" docOffset="9644" starttimestamp="1618432482905" timestamp="725727" />
+  <Command __id="211" _type="InsertStringCommand" date="Wed Apr 14 16:46:49 EDT 2021" starttimestamp="1618432482905" timestamp="726408" timestamp2="726408">
+    <data><![CDATA[@]]></data>
+  </Command>
+  <Command __id="213" _type="InsertStringCommand" date="Wed Apr 14 16:46:49 EDT 2021" starttimestamp="1618432482905" timestamp="726925" timestamp2="726925">
+    <data><![CDATA[E]]></data>
+  </Command>
+  <Command __id="215" _type="InsertStringCommand" date="Wed Apr 14 16:46:50 EDT 2021" starttimestamp="1618432482905" timestamp="727216" timestamp2="727216">
+    <data><![CDATA[x]]></data>
+  </Command>
+  <Command __id="216" _type="AssistCommand" assist_type="CONTENT_ASSIST" auto_activated="false" date="Wed Apr 14 16:46:50 EDT 2021" start_end="START" starttimestamp="1618432482905" timestamp="727510" />
+  <Command __id="217" _type="EclipseCommand" commandID="org.eclipse.ui.edit.text.contentAssist.proposals" date="Wed Apr 14 16:46:50 EDT 2021" starttimestamp="1618432482905" timestamp="727714" />
+  <Command __id="218" _type="AssistCommand" assist_type="CONTENT_ASSIST" auto_activated="false" date="Wed Apr 14 16:46:51 EDT 2021" start_end="END" starttimestamp="1618432482905" timestamp="728239" />
+  <Command __id="220" _type="InsertStringCommand" date="Wed Apr 14 16:46:51 EDT 2021" starttimestamp="1618432482905" timestamp="728251" timestamp2="728251">
+    <data><![CDATA[]]></data>
+  </Command>
+  <Command __id="222" _type="InsertStringCommand" date="Wed Apr 14 16:46:51 EDT 2021" starttimestamp="1618432482905" timestamp="728902" timestamp2="728902">
+    <data><![CDATA[(]]></data>
+  </Command>
+  <Command __id="223" _type="InsertStringCommand" date="Wed Apr 14 16:46:51 EDT 2021" starttimestamp="1618432482905" timestamp="728953" timestamp2="728953">
+    <data><![CDATA[)]]></data>
+  </Command>
+  <Command __id="224" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.COLUMN_PREVIOUS" date="Wed Apr 14 16:46:52 EDT 2021" starttimestamp="1618432482905" timestamp="729383" />
+  <Command __id="226" _type="InsertStringCommand" date="Wed Apr 14 16:46:52 EDT 2021" starttimestamp="1618432482905" timestamp="729716" timestamp2="729716">
+    <data><![CDATA[R]]></data>
+  </Command>
+  <Command __id="228" _type="InsertStringCommand" date="Wed Apr 14 16:46:52 EDT 2021" starttimestamp="1618432482905" timestamp="729921" timestamp2="729921">
+    <data><![CDATA[a]]></data>
+  </Command>
+  <Command __id="230" _type="InsertStringCommand" date="Wed Apr 14 16:46:52 EDT 2021" starttimestamp="1618432482905" timestamp="730090" timestamp2="730090">
+    <data><![CDATA[n]]></data>
+  </Command>
+  <Command __id="232" _type="InsertStringCommand" date="Wed Apr 14 16:46:53 EDT 2021" starttimestamp="1618432482905" timestamp="730279" timestamp2="730279">
+    <data><![CDATA[d]]></data>
+  </Command>
+  <Command __id="234" _type="InsertStringCommand" date="Wed Apr 14 16:46:53 EDT 2021" starttimestamp="1618432482905" timestamp="730397" timestamp2="730397">
+    <data><![CDATA[e]]></data>
+  </Command>
+  <Command __id="236" _type="InsertStringCommand" date="Wed Apr 14 16:46:53 EDT 2021" starttimestamp="1618432482905" timestamp="730510" timestamp2="730510">
+    <data><![CDATA[r]]></data>
+  </Command>
+  <Command __id="238" _type="InsertStringCommand" date="Wed Apr 14 16:46:53 EDT 2021" starttimestamp="1618432482905" timestamp="730596" timestamp2="730596">
+    <data><![CDATA[ ]]></data>
+  </Command>
+  <Command __id="240" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Wed Apr 14 16:46:54 EDT 2021" starttimestamp="1618432482905" timestamp="731109" />
+  <Command __id="242" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Wed Apr 14 16:46:54 EDT 2021" starttimestamp="1618432482905" timestamp="731261" />
+  <Command __id="244" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Wed Apr 14 16:46:54 EDT 2021" starttimestamp="1618432482905" timestamp="731391" />
+  <Command __id="246" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Wed Apr 14 16:46:54 EDT 2021" starttimestamp="1618432482905" timestamp="731519" />
+  <DocumentChange __id="123" _type="Insert" date="Wed Apr 14 16:46:01 EDT 2021" docASTNodeCount="1562" docActiveCodeLength="10397" docExpressionCount="1135" docLength="10397" length="8" offset="4228" repeat="6" starttimestamp="1618432482905" timestamp="678448" timestamp2="680494">
+    <text><![CDATA[
+	@Expl]]></text>
+  </DocumentChange>
+  <DocumentChange __id="138" _type="Replace" date="Wed Apr 14 16:46:06 EDT 2021" docASTNodeCount="1562" docActiveCodeLength="10404" docExpressionCount="1135" docLength="10404" endLine="138" insertionLength="11" int_docASTNodeCount="1560" int_docActiveCodeLength="10393" int_docExpressionCount="1133" int_docLength="10393" length="4" offset="4232" startLine="138" starttimestamp="1618432482905" timestamp="683383">
+    <deletedText><![CDATA[Expl]]></deletedText>
+    <insertedText><![CDATA[Explanation]]></insertedText>
+  </DocumentChange>
+  <DocumentChange __id="139" _type="Insert" date="Wed Apr 14 16:46:06 EDT 2021" docASTNodeCount="1568" docActiveCodeLength="10442" docExpressionCount="1140" docLength="10442" length="38" offset="837" repeat="2" starttimestamp="1618432482905" timestamp="683400" timestamp2="683402">
+    <text><![CDATA[
+import util.annotations.Explanation;]]></text>
+  </DocumentChange>
+  <DocumentChange __id="142" _type="Insert" date="Wed Apr 14 16:46:06 EDT 2021" docASTNodeCount="1569" docActiveCodeLength="10449" docExpressionCount="1141" docLength="10449" length="7" offset="4281" repeat="5" starttimestamp="1618432482905" timestamp="683681" timestamp2="685520">
+    <text><![CDATA[("ano")]]></text>
+  </DocumentChange>
+  <DocumentChange __id="154" _type="Delete" date="Wed Apr 14 16:46:08 EDT 2021" docASTNodeCount="1569" docActiveCodeLength="10446" docExpressionCount="1141" docLength="10446" endLine="139" length="3" offset="4283" repeat="3" startLine="139" starttimestamp="1618432482905" timestamp="685994" timestamp2="686275">
+    <text><![CDATA[ano]]></text>
+  </DocumentChange>
+  <DocumentChange __id="160" _type="Insert" date="Wed Apr 14 16:46:09 EDT 2021" docASTNodeCount="1569" docActiveCodeLength="10455" docExpressionCount="1141" docLength="10455" length="9" offset="4283" repeat="9" starttimestamp="1618432482905" timestamp="686644" timestamp2="688621">
+    <text><![CDATA[cross pri]]></text>
+  </DocumentChange>
+  <DocumentChange __id="178" _type="Delete" date="Wed Apr 14 16:46:12 EDT 2021" docASTNodeCount="1569" docActiveCodeLength="10454" docExpressionCount="1141" docLength="10454" endLine="139" length="1" offset="4291" startLine="139" starttimestamp="1618432482905" timestamp="689128">
+    <text><![CDATA[i]]></text>
+  </DocumentChange>
+  <DocumentChange __id="180" _type="Insert" date="Wed Apr 14 16:46:12 EDT 2021" docASTNodeCount="1569" docActiveCodeLength="10459" docExpressionCount="1141" docLength="10459" length="5" offset="4291" repeat="5" starttimestamp="1618432482905" timestamp="689369" timestamp2="689994">
+    <text><![CDATA[uduct]]></text>
+  </DocumentChange>
+  <DocumentChange __id="210" _type="Insert" date="Wed Apr 14 16:46:49 EDT 2021" docASTNodeCount="1571" docActiveCodeLength="10462" docExpressionCount="1143" docLength="10462" length="3" offset="9644" repeat="3" starttimestamp="1618432482905" timestamp="726405" timestamp2="727213">
+    <text><![CDATA[@Ex]]></text>
+  </DocumentChange>
+  <DocumentChange __id="219" _type="Replace" date="Wed Apr 14 16:46:51 EDT 2021" docASTNodeCount="1571" docActiveCodeLength="10471" docExpressionCount="1143" docLength="10471" endLine="345" insertionLength="11" int_docASTNodeCount="1569" int_docActiveCodeLength="10460" int_docExpressionCount="1141" int_docLength="10460" length="2" offset="9645" startLine="345" starttimestamp="1618432482905" timestamp="728245">
+    <deletedText><![CDATA[Ex]]></deletedText>
+    <insertedText><![CDATA[Explanation]]></insertedText>
+  </DocumentChange>
+  <DocumentChange __id="221" _type="Insert" date="Wed Apr 14 16:46:51 EDT 2021" docASTNodeCount="1572" docActiveCodeLength="10480" docExpressionCount="1144" docLength="10480" length="9" offset="9656" repeat="8" starttimestamp="1618432482905" timestamp="728899" timestamp2="730593">
+    <text><![CDATA[(Rander )]]></text>
+  </DocumentChange>
+  <DocumentChange __id="239" _type="Delete" date="Wed Apr 14 16:46:54 EDT 2021" docASTNodeCount="1571" docActiveCodeLength="10473" docExpressionCount="1143" docLength="10473" endLine="345" length="7" offset="9657" repeat="7" startLine="345" starttimestamp="1618432482905" timestamp="731107" timestamp2="732014">
+    <text><![CDATA[Rander ]]></text>
+  </DocumentChange>
+  <Command __id="248" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Wed Apr 14 16:46:54 EDT 2021" starttimestamp="1618432482905" timestamp="731641" />
+  <Command __id="250" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Wed Apr 14 16:46:54 EDT 2021" starttimestamp="1618432482905" timestamp="731787" />
+  <Command __id="252" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Wed Apr 14 16:46:54 EDT 2021" starttimestamp="1618432482905" timestamp="732018" />
+  <Command __id="254" _type="InsertStringCommand" date="Wed Apr 14 16:46:55 EDT 2021" starttimestamp="1618432482905" timestamp="732418" timestamp2="732418">
+    <data><![CDATA["]]></data>
+  </Command>
+  <Command __id="256" _type="InsertStringCommand" date="Wed Apr 14 16:46:56 EDT 2021" starttimestamp="1618432482905" timestamp="733432" timestamp2="733432">
+    <data><![CDATA[R]]></data>
+  </Command>
+  <Command __id="258" _type="InsertStringCommand" date="Wed Apr 14 16:46:56 EDT 2021" starttimestamp="1618432482905" timestamp="733987" timestamp2="733987">
+    <data><![CDATA[e]]></data>
+  </Command>
+  <Command __id="260" _type="InsertStringCommand" date="Wed Apr 14 16:46:57 EDT 2021" starttimestamp="1618432482905" timestamp="734165" timestamp2="734165">
+    <data><![CDATA[n]]></data>
+  </Command>
+  <Command __id="262" _type="InsertStringCommand" date="Wed Apr 14 16:46:57 EDT 2021" starttimestamp="1618432482905" timestamp="734300" timestamp2="734300">
+    <data><![CDATA[d]]></data>
+  </Command>
+  <Command __id="264" _type="InsertStringCommand" date="Wed Apr 14 16:46:57 EDT 2021" starttimestamp="1618432482905" timestamp="734615" timestamp2="734615">
+    <data><![CDATA[e]]></data>
+  </Command>
+  <Command __id="266" _type="InsertStringCommand" date="Wed Apr 14 16:46:57 EDT 2021" starttimestamp="1618432482905" timestamp="734721" timestamp2="734721">
+    <data><![CDATA[r]]></data>
+  </Command>
+  <Command __id="268" _type="InsertStringCommand" date="Wed Apr 14 16:46:57 EDT 2021" starttimestamp="1618432482905" timestamp="734998" timestamp2="734998">
+    <data><![CDATA[ ]]></data>
+  </Command>
+  <Command __id="270" _type="InsertStringCommand" date="Wed Apr 14 16:46:58 EDT 2021" starttimestamp="1618432482905" timestamp="735275" timestamp2="735275">
+    <data><![CDATA[t]]></data>
+  </Command>
+  <Command __id="272" _type="InsertStringCommand" date="Wed Apr 14 16:46:58 EDT 2021" starttimestamp="1618432482905" timestamp="735493" timestamp2="735493">
+    <data><![CDATA[h]]></data>
+  </Command>
+  <Command __id="274" _type="InsertStringCommand" date="Wed Apr 14 16:46:58 EDT 2021" starttimestamp="1618432482905" timestamp="735705" timestamp2="735705">
+    <data><![CDATA[i]]></data>
+  </Command>
+  <Command __id="276" _type="InsertStringCommand" date="Wed Apr 14 16:46:58 EDT 2021" starttimestamp="1618432482905" timestamp="735795" timestamp2="735795">
+    <data><![CDATA[s]]></data>
+  </Command>
+  <Command __id="277" _type="EclipseCommand" commandID="org.eclipse.ui.file.save" date="Wed Apr 14 16:46:59 EDT 2021" starttimestamp="1618432482905" timestamp="736186" />
+  <Command __id="280" _type="MoveCaretCommand" caretOffset="8608" date="Wed Apr 14 16:46:59 EDT 2021" docOffset="9635" starttimestamp="1618432482905" timestamp="736709" />
+  <Command __id="281" _type="EclipseCommand" commandID="org.eclipse.jdt.debug.ui.localJavaShortcut.run" date="Wed Apr 14 16:47:03 EDT 2021" starttimestamp="1618432482905" timestamp="740460" />
+  <Command __id="282" _type="RunCommand" date="Wed Apr 14 16:47:03 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1618432482905" timestamp="740605" type="Run" />
+  <Command __id="283" _type="RunCommand" date="Wed Apr 14 16:47:03 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1618432482905" timestamp="740605" type="Run" />
+  <Command __id="284" _type="ShellCommand" date="Wed Apr 14 16:47:04 EDT 2021" starttimestamp="1618432482905" timestamp="741517" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="285" _type="ConsoleOutput" date="Wed Apr 14 16:47:04 EDT 2021" overflow="false" starttimestamp="1618432482905" timestamp="741613" type="ConsoleOutput">
+    <outputString><![CDATA[ObjectEditor(Version 22, built on Wed Feb 17 11:47:24 EST 2021). Copyright Prasun Dewan, 2012, All rights reserved. US Patent Appl. No.: 12/532,327
+W*** public void components.mathEditor.MathEditorPanel.addPropertyChangeListener(java.beans.PropertyChangeListener) should be associated with annotation: @ObserverRegisterer(Property Listener)
+W*** Implicit property caretPosition of  MathEditorPanel ignored as it is not in property names list. 
+ Associate annotation @Visible(false) with its getter.
+W*** Implicitly editable property: caretPosition of class class components.mathEditor.MathEditorPanel not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: image of class class components.mathEditor.MathEditorPanel not considered editable as it is not in editable property names list. 
+
+]]></outputString>
+    <diff><![CDATA[[Diff(DELETE,"W*** Value: null of Root.Image not in range."), Diff(INSERT,"ObjectEditor(Version 22, built on Wed Feb 17 11:47:24 EST 2021). Copyright Prasun Dewan, 2012, All rights reserved. US Patent Appl. No.: 12/532,327¶W*** public void components.mathEditor.MathEditorPanel.addPropertyChangeListener(java.beans.PropertyChangeListener) should be associated with annotation: @ObserverRegisterer(Property Listener)¶W*** Implicit property caretPosition of  MathEditorPanel ignored as it is not in property names list. ¶ Associate annotation @Visible(false) with its getter.¶W*** Implicitly editable property: caretPosition of class class components.mathEditor.MathEditorPanel not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: image of class class components.mathEditor.MathEditorPanel not considered editable as it is not in editable property names list. ¶"), Diff(EQUAL,"¶")]]]></diff>
+  </Command>
+  <Command __id="286" _type="ConsoleOutput" date="Wed Apr 14 16:47:04 EDT 2021" overflow="false" starttimestamp="1618432482905" timestamp="741806" type="ConsoleOutput">
+    <outputString><![CDATA[W*** Value: null of Root.Image not in range.
+]]></outputString>
+    <diff><![CDATA[[Diff(DELETE,"ObjectEditor(Version 22, built on Wed Feb 17 11:47:24 EST 2021). Copyright Prasun Dewan, 2012, All rights reserved. US Patent Appl. No.: 12/532,327¶W*** public void components.mathEditor.MathEditorPanel.addPropertyChangeListener(java.beans.PropertyChangeListener) should be associated with annotation: @ObserverRegisterer(Property Listener)¶W*** Implicit property caretPosition of  MathEditorPanel ignored as it is not in property names list. ¶ Associate annotation @Visible(false) with its getter.¶W*** Implicitly editable property: caretPosition of class class components.mathEditor.MathEditorPanel not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: image of class class components.mathEditor.MathEditorPanel not considered editable as it is not in editable property names list. ¶"), Diff(INSERT,"W*** Value: null of Root.Image not in range."), Diff(EQUAL,"¶")]]]></diff>
+  </Command>
+</Events>

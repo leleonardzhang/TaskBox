@@ -1,0 +1,177 @@
+<Events startTimestamp="1618435216357" logVersion="1.0.0.202101171653">
+  <Command __id="1" _type="MoveCaretCommand" caretOffset="0" date="Wed Apr 14 17:20:16 EDT 2021" docOffset="0" starttimestamp="1618435216357" timestamp="185" />
+  <Command __id="2" _type="ShellCommand" date="Wed Apr 14 17:20:16 EDT 2021" starttimestamp="1618435216357" timestamp="434" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="0" _type="DiffBasedFileOpenCommand" date="Wed Apr 14 17:20:16 EDT 2021" docASTNodeCount="348" docActiveCodeLength="2432" docExpressionCount="210" docLength="2432" projectName="TaskBox" starttimestamp="1618435216357" timestamp="106">
+    <filePath><![CDATA[C:\Users\leleo\eclipse-workspace\TaskBox\src\components\mathEditor\MathExpressionImage.java]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[package components.mathEditor;
+
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+
+import components.listenersupport.PropertyListenerSupport;
+import util.annotations.EditablePropertyNames;
+import util.annotations.PropertyNames;
+import util.annotations.StructurePattern;
+import util.annotations.StructurePatternNames;
+
+
+@StructurePattern(StructurePatternNames.IMAGE_PATTERN)
+@PropertyNames({"x", "y", "width", "height", "imageFileName"})
+@EditablePropertyNames({})
+public class MathExpressionImage implements MathExpressionImageInterface{
+	private PropertyListenerSupport propertyListenerSupport = new PropertyListenerSupport();
+	private int x, y, height, width;
+	private String imageFileName;
+
+	public MathExpressionImage(int newX, int newY, int h, int w, String name) {
+		setX(newX);
+		setY(newY);
+		setHeight(h);
+		setWidth(w);
+		setImageFileName(name);
+	}
+	
+	@Override
+    public void addPropertyChangeListener(PropertyChangeListener aListener) {
+		propertyListenerSupport.addElement(aListener);    
+    }
+
+	@Override
+	public int getX() {
+		return x;
+	}
+
+	@Override
+	public void setX(int newX) {
+		int oldX = x;
+		x = newX;
+		propertyListenerSupport.notifyAllListeners(
+				new PropertyChangeEvent(this, "x", oldX, x));
+	}
+
+	@Override
+	public int getY() {
+		return y;
+	}
+
+	@Override
+	public void setY(int newY) {
+		int oldY = y;
+		y = newY;
+		propertyListenerSupport.notifyAllListeners(
+				new PropertyChangeEvent(this, "y", oldY, y));
+	}
+
+	@Override
+	public int getWidth() {
+		return width;
+	}
+
+	@Override
+	public void setWidth(int newWidth) {
+		int oldWidth = width;
+		width = newWidth;
+		propertyListenerSupport.notifyAllListeners(
+				new PropertyChangeEvent(this, "width", oldWidth, width));
+	}
+
+	@Override
+	public int getHeight() {
+		return height;
+	}
+
+	@Override
+	public void setHeight(int newHeight) {
+		int oldHeight = height;
+		height = newHeight;
+		propertyListenerSupport.notifyAllListeners(
+				new PropertyChangeEvent(this, "height", oldHeight, height));
+	}
+
+	@Override
+	public String getImageFileName() {
+		return imageFileName;
+	}
+
+	@Override
+	public void setImageFileName(String newName) {
+		String oldName = imageFileName;
+		imageFileName = newName;
+		propertyListenerSupport.notifyAllListeners(
+				new PropertyChangeEvent(this, "imageFileName", oldName, imageFileName));
+	}
+}
+	
+]]></snapshot>
+  </Command>
+  <Command __id="5" _type="ShellCommand" date="Wed Apr 14 17:20:22 EDT 2021" starttimestamp="1618435216357" timestamp="5834" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="7" _type="MoveCaretCommand" caretOffset="2634" date="Wed Apr 14 17:20:44 EDT 2021" docOffset="2987" starttimestamp="1618435216357" timestamp="28162" />
+  <Command __id="8" _type="EclipseCommand" commandID="org.eclipse.jdt.debug.ui.localJavaShortcut.run" date="Wed Apr 14 17:20:50 EDT 2021" starttimestamp="1618435216357" timestamp="34273" />
+  <Command __id="9" _type="RunCommand" date="Wed Apr 14 17:20:50 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1618435216357" timestamp="34557" type="Run" />
+  <Command __id="10" _type="RunCommand" date="Wed Apr 14 17:20:50 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1618435216357" timestamp="34557" type="Run" />
+  <Command __id="11" _type="ShellCommand" date="Wed Apr 14 17:20:51 EDT 2021" starttimestamp="1618435216357" timestamp="35461" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="12" _type="ConsoleOutput" date="Wed Apr 14 17:20:51 EDT 2021" overflow="false" starttimestamp="1618435216357" timestamp="35566" type="ConsoleOutput">
+    <outputString><![CDATA[ObjectEditor(Version 22, built on Wed Feb 17 11:47:24 EST 2021). Copyright Prasun Dewan, 2012, All rights reserved. US Patent Appl. No.: 12/532,327
+W*** public void components.mathEditor.MathEditorPanel.addPropertyChangeListener(java.beans.PropertyChangeListener) should be associated with annotation: @ObserverRegisterer(Property Listener)
+W*** Implicit property caretPosition of  MathEditorPanel ignored as it is not in property names list. 
+ Associate annotation @Visible(false) with its getter.
+W*** Implicitly editable property: caretPosition of class class components.mathEditor.MathEditorPanel not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: image of class class components.mathEditor.MathEditorPanel not considered editable as it is not in editable property names list. 
+
+]]></outputString>
+    <diff><![CDATA[null]]></diff>
+  </Command>
+  <Command __id="13" _type="ConsoleOutput" date="Wed Apr 14 17:20:52 EDT 2021" overflow="false" starttimestamp="1618435216357" timestamp="35730" type="ConsoleOutput">
+    <outputString><![CDATA[W*** Value: null of Root.Image not in range.
+]]></outputString>
+    <diff><![CDATA[[Diff(DELETE,"ObjectEditor(Version 22, built on Wed Feb 17 11:47:24 EST 2021). Copyright Prasun Dewan, 2012, All rights reserved. US Patent Appl. No.: 12/532,327¶W*** public void components.mathEditor.MathEditorPanel.addPropertyChangeListener(java.beans.PropertyChangeListener) should be associated with annotation: @ObserverRegisterer(Property Listener)¶W*** Implicit property caretPosition of  MathEditorPanel ignored as it is not in property names list. ¶ Associate annotation @Visible(false) with its getter.¶W*** Implicitly editable property: caretPosition of class class components.mathEditor.MathEditorPanel not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: image of class class components.mathEditor.MathEditorPanel not considered editable as it is not in editable property names list. ¶"), Diff(INSERT,"W*** Value: null of Root.Image not in range."), Diff(EQUAL,"¶")]]]></diff>
+  </Command>
+  <Command __id="14" _type="ConsoleOutput" date="Wed Apr 14 17:21:09 EDT 2021" overflow="false" starttimestamp="1618435216357" timestamp="53047" type="ConsoleOutput">
+    <outputString><![CDATA[Testing Expression [s, q, r, t, (, 2, )]
+Testing add-sub Expression [s, q, r, t, (, 2, )]
+Testing multi div Expression [s, q, r, t, (, 2, )]
+Testing function Expression [s, q, r, t, (, 2, )]
+Testing Expression [2]
+Testing add-sub Expression [s, q, r, t, (, 2, )]
+Testing multi div Expression [s, q, r, t, (, 2, )]
+Testing function Expression [s, q, r, t, (, 2, )]
+Testing Expression [2]
+Testing Expression [2]
+Testing Expression [2]
+]]></outputString>
+    <diff><![CDATA[[Diff(DELETE,"W*** Value: null of Root.Image not in range."), Diff(INSERT,"Testing Expression [s, q, r, t, (, 2, )]¶Testing add-sub Expression [s, q, r, t, (, 2, )]¶Testing multi div Expression [s, q, r, t, (, 2, )]¶Testing function Expression [s, q, r, t, (, 2, )]¶Testing Expression [2]¶Testing add-sub Expression [s, q, r, t, (, 2, )]¶Testing multi div Expression [s, q, r, t, (, 2, )]¶Testing function Expression [s, q, r, t, (, 2, )]¶Testing Expression [2]¶Testing Expression [2]¶Testing Expression [2]"), Diff(EQUAL,"¶")]]]></diff>
+  </Command>
+  <Command __id="15" _type="ConsoleOutput" date="Wed Apr 14 17:21:09 EDT 2021" overflow="false" starttimestamp="1618435216357" timestamp="53390" type="ConsoleOutput">
+    <outputString><![CDATA[W*** public void components.mathEditor.MathExpressionImage.addPropertyChangeListener(java.beans.PropertyChangeListener) should be associated with annotation: @ObserverRegisterer(Property Listener)
+W*** Implicitly editable property: height of class class components.mathEditor.MathExpressionImage not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: imageFileName of class class components.mathEditor.MathExpressionImage not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: width of class class components.mathEditor.MathExpressionImage not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: x of class class components.mathEditor.MathExpressionImage not considered editable as it is not in editable property names list. 
+
+W*** Implicitly editable property: y of class class components.mathEditor.MathExpressionImage not considered editable as it is not in editable property names list. 
+
+]]></outputString>
+    <diff><![CDATA[[Diff(DELETE,"Testing Expression [s, q, r, t, (, 2, )]¶Testing add-sub Expression [s, q, r, t, (, 2, )]¶Testing multi div Expression [s, q, r, t, (, 2, )]¶Testing function Expression [s, q, r, t, (, 2, )]¶Testing Expression [2]¶Testing add-sub Expression [s, q, r, t, (, 2, )]¶Testing multi div Expression [s, q, r, t, (, 2, )]¶Testing function Expression [s, q, r, t, (, 2, )]¶Testing Expression [2]¶Testing Expression [2]¶Testing Expression [2]"), Diff(INSERT,"W*** public void components.mathEditor.MathExpressionImage.addPropertyChangeListener(java.beans.PropertyChangeListener) should be associated with annotation: @ObserverRegisterer(Property Listener)¶W*** Implicitly editable property: height of class class components.mathEditor.MathExpressionImage not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: imageFileName of class class components.mathEditor.MathExpressionImage not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: width of class class components.mathEditor.MathExpressionImage not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: x of class class components.mathEditor.MathExpressionImage not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: y of class class components.mathEditor.MathExpressionImage not considered editable as it is not in editable property names list. ¶"), Diff(EQUAL,"¶")]]]></diff>
+  </Command>
+  <Command __id="16" _type="ConsoleOutput" date="Wed Apr 14 17:21:28 EDT 2021" overflow="false" starttimestamp="1618435216357" timestamp="72526" type="ConsoleOutput">
+    <outputString><![CDATA[Testing Expression [e, x, p, (, 1, )]
+Testing add-sub Expression [e, x, p, (, 1, )]
+Testing multi div Expression [e, x, p, (, 1, )]
+Testing function Expression [e, x, p, (, 1, )]
+Testing Expression [1]
+Testing add-sub Expression [e, x, p, (, 1, )]
+Testing multi div Expression [e, x, p, (, 1, )]
+Testing function Expression [e, x, p, (, 1, )]
+Testing Expression [1]
+Testing Expression [1]
+Testing Expression [1]
+]]></outputString>
+    <diff><![CDATA[[Diff(DELETE,"W*** public void components.mathEditor.MathExpressionImage.addPropertyChangeListener(java.beans.PropertyChangeListener) should be associated with annotation: @ObserverRegisterer(Property Listener)¶W*** Implicitly editable property: height of class class components.mathEditor.MathExpressionImage not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: imageFileName of class class components.mathEditor.MathExpressionImage not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: width of class class components.mathEditor.MathExpressionImage not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: x of class class components.mathEditor.MathExpressionImage not considered editable as it is not in editable property names list. ¶¶W*** Implicitly editable property: y of class class components.mathEditor.MathExpressionImage not considered editable as it is not in editable property names list. ¶"), Diff(INSERT,"Testing Expression [e, x, p, (, 1, )]¶Testing add-sub Expression [e, x, p, (, 1, )]¶Testing multi div Expression [e, x, p, (, 1, )]¶Testing function Expression [e, x, p, (, 1, )]¶Testing Expression [1]¶Testing add-sub Expression [e, x, p, (, 1, )]¶Testing multi div Expression [e, x, p, (, 1, )]¶Testing function Expression [e, x, p, (, 1, )]¶Testing Expression [1]¶Testing Expression [1]¶Testing Expression [1]"), Diff(EQUAL,"¶")]]]></diff>
+  </Command>
+  <Command __id="18" _type="RunCommand" date="Wed Apr 14 17:22:18 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1618435216357" timestamp="121932" type="Run" />
+  <Command __id="19" _type="RunCommand" date="Wed Apr 14 17:22:18 EDT 2021" kind="HitBreakPoint" projectName="TaskBox" starttimestamp="1618435216357" timestamp="121932" type="Run" />

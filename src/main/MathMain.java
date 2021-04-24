@@ -44,6 +44,11 @@ public class MathMain {
 		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "Ceil", AttributeNames.ICON, "image/ceil.png");
 		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "Integral", AttributeNames.ICON, "image/integral.png");
 		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "Sum", AttributeNames.ICON, "image/sum.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "JavaExp", AttributeNames.ICON, "image/exp.png");
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "JavaSqrt", AttributeNames.ICON, "image/sqrt.png");
+		
+		
+		ObjectEditor.setMethodAttribute(MathEditorPanel.class, "DotProduct", AttributeNames.EXPLANATION, "some text");
 	}
 	
 	public static void setCaretPositionListener() {
